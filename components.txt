@@ -1,30 +1,35 @@
-HEADER
+
+[JOSÉ]
+Carrocel de imagens (Já existem feitos vai pesquisar na net por componentes carrocel react)
 Filter button main page with Icon
 Portugal Filter map
-Carrocel de imagens
-Comentario box {Foto, Nome, Avaliação, comentário} 
+Barra de Filtro (tem Opções de filtro)
+Opções de filtro ( Tipo, região, duração )
+
+[BIA E MARCIA]
 Popup comentário {Foto, Nome, Avaliação, comentário}
 Popup new voluntario
-Voluntariados Box { Foto, nome, avaliação}
-Barra de Filtro {Opções de filtro
-Opções de filtro
-Perfil
-Secções ( Cada Secção é um compunente )
 Popup Registo escolha (Se é voluntario ou organização)
 Popup Registo (Voluntario/Organização)
 Popup Perfil (aceitar voluntarios)
-Aceitar/Recusar Candidatos 
-Candidatos
-Organizações Box
-Voluntariados Box(quando na pagina de voluntariados)
 Popup Login
 Popup Avaliação
 POPUP
+
+[MARCIA]
+Páginas
+Perfil (Perfil voluntariado e Organização)
+Secções ( Cada Secção é um compunente )
+Aceitar/Recusar Candidatos 
+
+[AFONSO] 
+Comentario box {Foto, Nome, Avaliação, comentário} 
+Organizações Box
+Candidatos
+Voluntariados Box(quando na pagina de voluntariados)
+Voluntariados Box { Foto, nome, avaliação}
 FOOTER
-
-
-
-
+HEADER
 
 
 Sugestão bué fixe:
@@ -32,5 +37,6 @@ Sugestão bué fixe:
 perfil de um user, em vez de ir para a pagina dele abre um Popup com as informações 
 basicas
 
-No voluntariados (pov organização\) só aparece os voluntariados dessa organização
+Nos voluntariados (pov organização\) só aparece os voluntariados dessa organização
+
 
