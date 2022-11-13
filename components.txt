@@ -1,26 +1,32 @@
-
 [JOSÉ]
-Carrocel de imagens (Já existem feitos vai pesquisar na net por componentes carrocel react)
+Home Page
+Carrocel de imagens na home page (Já existem feitos vai pesquisar na net por componentes carrocel react)
+Portugal Filter map na home page
 Filter button main page with Icon
-Portugal Filter map
-Barra de Filtro (tem Opções de filtro)
-Opções de filtro ( Tipo, região, duração )
+Barra de Filtro (tem as opções de filtro)
+Opções de filtro (Tipo, região, duração)
 
-[BIA E MARCIA]
+
+[BIA]
+POPUP
 Popup comentário {Foto, Nome, Avaliação, comentário}
-Popup new voluntario
+Popup new voluntariado
+Popup Avaliação
+
+Registo/login:
+Popup Login
 Popup Registo escolha (Se é voluntario ou organização)
 Popup Registo (Voluntario/Organização)
-Popup Perfil (aceitar voluntarios)
-Popup Login
-Popup Avaliação
-POPUP
+Popup Perfil (aceitar voluntarios resumo na organizacao)
+
 
 [MARCIA]
-Páginas
-Perfil (Perfil voluntariado e Organização)
-Secções ( Cada Secção é um compunente )
+Página (voluntariado, voluntário e organizacao)
+Perfil (Perfil voluntário, Organização)
+Secções (Cada Secção é um compunente)
 Aceitar/Recusar Candidatos 
+
+
 
 [AFONSO] 
 Comentario box {Foto, Nome, Avaliação, comentário} 
@@ -28,6 +34,7 @@ Organizações Box
 Candidatos
 Voluntariados Box(quando na pagina de voluntariados)
 Voluntariados Box { Foto, nome, avaliação}
+about us page com imagens e fotos nossas
 FOOTER
 HEADER
 
