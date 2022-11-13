@@ -1,11 +1,11 @@
 import React from "react";
-import Header from "../components/header";
-import Footer from "../components/footer";
+import Header from "../components/header/header";
+import Footer from "../components/footer/footer";
 
-export default function Layout({ changeTheme, theme, children }) {
+export default function Layout({ children }) {
     return (
         <div>
-            <Header changeTheme={changeTheme} />
+            <Header />
               {children}
             <Footer />
         </div>
