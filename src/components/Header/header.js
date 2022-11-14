@@ -29,7 +29,7 @@ function Header(props) {
     };
 
     const goToVolunteers = () => {
-        console.log("Organizações");
+        console.log("Organizações são bué gaysss!!!");
     };
 
     return (
