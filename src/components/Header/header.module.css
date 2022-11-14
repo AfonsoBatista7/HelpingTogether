@@ -1,0 +1,22 @@
+.headerContainer,
+.header {
+    margin: 15px;
+}
+
+.headerButton {
+    position: absolute;
+    right: 0;
+    margin-right: 14px;
+    color: white;
+}
+
+.headerTest {
+    color: white;
+}
+
+.headerImage {
+    width: 3%;
+    height: auto;
+    pointer-events: fill;
+    margin-right: 14px;
+}
