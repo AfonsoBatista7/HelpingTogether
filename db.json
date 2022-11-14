@@ -1,0 +1,237 @@
+{
+  "voluntarios": [
+    {
+      "id": 1,
+      "name": "Maria Leal",
+      "description": "Tenho 38 anos, sou enfermeira e tenho 3 filhos. Adoro fazer voluntariados relacionados com a saúde e com crianças.",
+      "email": "saraleal45@gmail.com",
+      "birthdate": "07/05/1984",
+      "gender": "Feminino",
+      "image": "Maria.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Gestrudes Cordeiro",
+      "description": "Tenho 60 anos e sou uma professora reformada. Como sou uma pessoa bastante ativa tento preencher os meus dias principalmente com atividades de voluntariados.",
+      "email": "gescordeiro0008@gmail.com",
+      "birthdate": "30/09/1962",
+      "gender": "Feminino",
+      "image": "Gestrudes.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Laura Silves",
+      "description": "Tenho 45 anos e sou cozinheira. Sou solteira e não tenho filhos o que me dá muito tempo livre para o qual dedico a fazer voluntariados.",
+      "email": "lauraSilves@gmail.com",
+      "birthdate": "12/07/1977",
+      "gender": "Feminino",
+      "image": "Laura.png"
+    },
+    {
+      "id": 4,
+      "name": "Tiago Lopes",
+      "description": "Tenho 20 anos e sou estudante de engenheiria do ambiente. Para melhorar o meu currículo e ter mais experiências humanitarias pretendo fazer voluntariados relacionados com a minha área de estudo.",
+      "email": "tiagolp69@gmail.com",
+      "birthdate": "19/02/2002",
+      "gender": "Masculino",
+      "image": "Tiago.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Osvaldo Fernandes",
+      "description": "Tenho 55 anos e sou gestor bancário. Quero ganhar novas experiencias em áreas fora da minha zona de conforto e fazer diferença no mundo e nas pessoas que me rodeiam.",
+      "email": "osvaldo356@gmail.com",
+      "birthdate": "23/12/1967",
+      "gender": "Masculino",
+      "image": "Osvaldo.jpg"
+    }
+  ],
+  "organizacoes": [
+    {
+      "id": 6,
+      "name": "Cruz Vermelha",
+      "description": "A Cruz Vermelha Portuguesa é uma instituição humanitária de utilidade pública destinada a defender a paz, garantir o respeito pela dignidade da pessoa humana, menorizar os efeitos da guerra e promover a vida e a saúde. Foi fundada em 1865 e tem a sede nacional localizada no Palácio dos Condes de Óbidos em Lisboa, no entanto, possui estruturas locais distribuídas por todo o país.",
+      "email": "cvermelha@cruzvermelha.org.pt",
+      "type": ["Saúde", "Comunidade"],
+      "image": "Cruz_Vermelha.png"
+    },
+    {
+      "id": 7,
+      "name": "UNICEF",
+      "description": "A UNICEF (Fundo das Nações Unidas para a Infância) é a principal agência humanitária que trabalha especificamente para a promoção e defesa dos direitos das crianças. A UNICEF presta ajuda humanitária sem discriminação de raça, cor, gendero, língua, religião, opinião política ou outra. Em tudo o que faz, as crianças mais desfavorecidas e os países com mais necessidades têm prioridade.",
+      "email": "amigos@unicef.pt",
+      "type": ["Gastronomia", "Comunidade", "Saúde"],
+      "image": "UNICEF.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Leo",
+      "description": "Os Leos são jovens interessados e dinâmicos que procuram, em todo o mundo, desenvolver-se através do serviço à comunidade e do apoio aos que mais precisam. Organizam-se por clubes de acordo com a área geográfica, formando assim um movimento, denominado de Leonismo, criado no âmbito da Associação Internacional de Lions Clubes. Os Leos atuam através do voluntariado sem fins lucrativos ou qualquer ligação política ou religiosa.",
+      "email": "geral@leosdeportugal.org",
+      "type": ["Poluição", "Comunidade", "Natureza"],
+      "image": "Leo.png"
+    },
+    {
+      "id": 9,
+      "name": "FAPAS",
+      "description": "O FAPAS (Associação Portuguesa para a Conservação da Biodiversidade) é uma organização não governamental de ambiente, de âmbito nacional, sem fins lucrativos, constituída em 1990 por cidadãos com longa experiência no domínio da conservação da Natureza, vocacionada para a promoção de ações que visam a conservação ativa da biodiversidade e dos ecossistemas.",
+      "email": "fapas@fapas.pt",
+      "type": ["Poluição", "Natureza", "Animais"],
+      "image": "FAPAS.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Just a Change",
+      "description": "O Just a Change é uma Associação sem Fins Lucrativos que reconstrói casas de pessoas carenciadas em Portugal. Até ao dia de hoje, o Just a Change reconstruiu centenas de casas e instituições, tendo mobilizado milhares de voluntários dentro e fora do país.",
+      "email": "geral@justachange.pt",
+      "type": ["Comunidade"],
+      "image": "Just_a_Change.png"
+    },
+    {
+      "id": 11,
+      "name": "Banco Alimentar",
+      "description": "O Bancos Alimentares são Instituições Particulares de Solidariedade Social que lutam contra o desperdício de produtos alimentares, encaminhando-os para distribuição gratuita às pessoas carenciadas. Em Portugal, os bancos alimentares em atividade recolhem e distribuem várias dezenas de milhares de toneladas de produtos e apoiam ao longo de todo o ano, a ação de mais de 2.360 instituições em Portugal. Por sua vez, estas distribuem refeições confecionadas e cabazes de alimentos a pessoas comprovadamente carenciadas, abrangendo já a distribuição total mais de 390.000 pessoas.",
+      "email": "ba.federacao@bancoalimentar.pt",
+      "type": ["Gastronomia", "Comunidade"],
+      "image": "Banco_Alimentar.png"
+    },
+    {
+      "id": 12,
+      "name": "Caritas",
+      "description": "A Caritas Internacional é uma confederação de 165 organizações humanitárias da Igreja Católica que atua em mais de duzentos países. Coletiva e individualmente a sua missão é trabalhar para construir um mundo melhor, especialmente para os pobres e oprimidos.",
+      "email": "caritas@caritas.pt",
+      "type": ["Gastronomia", "Comunidade"],
+      "image": "Caritas.png"
+    },
+    {
+      "id": 13,
+      "name": "Animalife",
+      "description": "A Animalife é uma associação de sensibilização e apoio social e ambiental, de âmbito nacional, sem fins lucrativos, constituída em outubro de 2011, cujo objetivo é diminuir o grave problema do abandono animal, atuando a montante sobre uma das principais causas de abandono em Portugal: a vulnerabilidade económica e social das famílias.",
+      "email": "geral@animalife.pt",
+      "type": ["Animais"],
+      "image": "Animalife.jpg"
+    }
+  ],
+  "voluntariados": [
+    {
+      "id": 14,
+      "name": "Plantar florestação",
+      "description": "Plantar árvores e arbustos na Serra de Monchique após ser sido devastada por incêndios e ficar com falta de plantação.",
+      "startDate": "24/09/2020",
+      "endDate": "24/09/2020",
+      "location": "Monchique",
+      "type": ["Natureza"],
+      "image": "Plantar.jpg"
+    },
+    {
+      "id": 15,
+      "name": "Limpeza florestal para prevenir incêndios",
+      "description": "Limpar o Parque Natural da Estrela em Garrocho, no concelho da Covilhã (distrito de Castelo Branco) de forma a prevenir futuros incêndios.",
+      "startDate": "30/05/2023",
+      "endDate": "30/05/2023",
+      "location": "Covilhã",
+      "type": ["Natureza"],
+      "image": "Limpar_floresta.jpg"
+    },
+    {
+      "id": 16,
+      "name": "Limpeza de praia de resídous",
+      "description": "Limpar a praia de Faro de poluição realizada durante os meses de verão.",
+      "startDate": "10/11/2022",
+      "endDate": "10/11/2022",
+      "location": "Faro",
+      "type": ["Poluição"],
+      "image": "Limpar_praia.png"
+    },
+    {
+      "id": 17,
+      "name": "Limpeza florestal de resídous",
+      "description": "Limpar o Parque Florestal DE Monsanto em Lisboa dos resídous sólidos lá deixados",
+      "startDate": "12/06/2021",
+      "endDate": "12/06/2021",
+      "location": "Lisboa",
+      "type": ["Poluição"],
+      "image": "Limpeza_floresta.jpg"
+    },
+    {
+      "id": 18,
+      "name": "Voluntariado científico para o resgaste de cagarros",
+      "description": "Resgaste das aves juvenis cagarros de forma a conseguirem sair em segurança da Marina e do Porto de Vila Franca do Campo nos Açores.",
+      "startDate": "17/02/2023",
+      "endDate": "17/02/2023",
+      "location": "Vila Franca do Campo",
+      "type": ["Animais"],
+      "image": "Cagarros.jpg"
+    },
+    {
+      "id": 19,
+      "name": "Resgaste de animais domésticos",
+      "description": "Resgaste de cães e gatos ambandonados nas ruas.",
+      "startDate": "01/01/2022",
+      "endDate": "31/12/2023",
+      "location": "Évora",
+      "type": ["Animais"],
+      "image": "Resgatar_animais.jpg"
+    },
+    {
+      "id": 20,
+      "name": "Entrega de refeições a sem-abrigos e famílias carênciadas.",
+      "description": "Entrega de refeições quentes, nesta altura de Natal para as famílias que mais necessitam de apoio e também a sem-abrigos na área da baixa de Lisboa",
+      "startDate": "23/12/2022",
+      "endDate": "24/12/2022",
+      "location": "Baixa de Lisboa",
+      "type": ["Comunidade", "Gastronomia"],
+      "image": "Comida.png"
+    },
+    {
+      "id": 21,
+      "name": "Recolha de bens alimentares",
+      "description": "Recolha de bens alimentares à entrada de supermercados para serem entregues a famílias mais carenciadas",
+      "startDate": "14/05/2023",
+      "endDate": "23/05/2023",
+      "location": "Almada",
+      "type": ["Gastronomia", "Comunidade"],
+      "image": "Recolha_alimentos.png"
+    },
+    {
+      "id": 22,
+      "name": "Reconstrução de casas destruídas no Incêndio de Pedrógão Grande",
+      "description": "Os fogos de Pedrógão Grande resultaram na destruição de várias habitações na região, estamos a organizar este voluntariado para conseguir ajudar várias famílias a reconstruir o que foi perdido",
+      "startDate": "10/02/ 2020",
+      "endDate": "30/12/2023",
+      "location": "Pedrógão Grande",
+      "type": ["Comunidade"],
+      "image": "Construir.png"
+    },
+    {
+      "id": 23,
+      "name": "Recolha de roupa para crianças",
+      "description": "Voluntariado para recolher roupas para crianças de orfanatos que mais necessitam. Ida a várias lojas e residências para receber ofertas e doações de roupa infantil",
+      "startDate": "23/01/2023",
+      "endDate": "23/01/2023",
+      "location": "Funchal",
+      "type": ["Comunidade"],
+      "image": "Recolher_roupa.png"
+    },
+    {
+      "id": 24,
+      "name": "Animar ala pediátrica",
+      "description": "Fazer animação na ala pediátrica do Hospital de Santa Maria, irá envolver pintural faciais, músicas e truques de magia. Tem como principal objetivo entreter as crianças e os pais por ser o Dia da Criança.",
+      "startDate": "01/06/2022",
+      "endDate": "01/06/2022",
+      "location": "Porto",
+      "type": ["Saúde"],
+      "image": "Saude.png"
+    },
+    {
+      "id": 25,
+      "name": "Doação de sangue",
+      "description": "Recolha de todos os tipes de sangue, para reabastecer as reservas dos hospitais que têm mais falta deste recurso.",
+      "startDate": "10/09/2023",
+      "endDate": "14/09/2023",
+      "location": "Portimão",
+      "type": ["Saúde"],
+      "image": "Sangue.png"
+    }
+  ]
+}
