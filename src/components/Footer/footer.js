@@ -1,4 +1,6 @@
 
+const [isLoggedIn, accountState] = useState(false);
+
 const footer = () => {
   return (
     <div>
