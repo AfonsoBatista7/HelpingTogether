@@ -74,17 +74,3 @@ function Header(props) {
 
 export default Header;
 
-/* <div className={style.header}>
-    <img
-        src={imageLogo}
-        alt="logo"
-        onClick={() => console.log("GO BACK TO MAIN PAGE")}
-        className={style.headerImage}
-    ></img>
-    <Box className={style.headerButton}>
-        <Button onClick={goToOrganizations}>Voluntariados</Button>
-        <Button onClick={goToVolunteers}>Organizações</Button>
-        <Button onClick={signUp}>Registar</Button>
-        <Button onClick={logIn}>Entrar</Button>
-    </Box>
-</div> */
