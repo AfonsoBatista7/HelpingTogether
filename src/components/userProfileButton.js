@@ -9,6 +9,7 @@ import {
     MenuItem,
 } from "@mui/material";
 import { Link } from "react-router-dom";
+import Perfil from "../pages/Perfil";
 
 // [
 //     "Perfil",
@@ -83,7 +84,7 @@ const UserProfileButton = (props) => {
                     onClose={handleCloseUserMenu}
                 >
                     {Object.keys(settings).map((setting) => (
-                        <Link style={{ textDecoration: 'none' }} to={setting === "Sair" ? '' : '/Perfil'}>
+                        <Link style={{ textDecoration: 'none', color:'black' }} to={setting === "Sair" ? '' : '/Perfil'}>
                             <MenuItem key={setting} onClick={settings[setting]}>
                                 <Typography textAlign="center">
                                     {setting}

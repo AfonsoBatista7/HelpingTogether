@@ -5,16 +5,19 @@ import { Route , Routes } from 'react-router-dom'
 import Organizacoes from "./pages/Organizacoes";
 import Voluntariados from "./pages/Voluntariados";
 import Perfil from "./pages/Perfil";
+import HomePage from "./pages/HomePage";
 
 function App() {
 
     return (
         <div>
-            <Routes>
-                <Route path="/Organizacoes" component={Organizacoes} />
-                <Route path="/Voluntariados" component={Voluntariados} />
-            </Routes>
             <Layout>
+            <Routes>
+                <Route path='/Organizacoes' element={<Organizacoes/>} ></Route>
+                <Route path='/Perfil' element={<Perfil/>} ></Route>
+                <Route path='/Voluntariados' element={<Voluntariados/>}></Route>
+                <Route exact path ='/' element={<HomePage/>} ></Route>
+            </Routes>
             </Layout>
         </div>
     );
