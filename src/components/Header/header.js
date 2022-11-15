@@ -15,7 +15,7 @@ import style from "./Header.module.css";
 function Header(props) {
 
     const [isLoggedIn, accountState] = useState(false);
-
+    
     const logIn = () => {
         accountState(true);
     };
