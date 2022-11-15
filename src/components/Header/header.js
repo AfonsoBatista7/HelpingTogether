@@ -8,9 +8,9 @@ import {
 } from "@mui/material";
 import imageLogo from "../../images/logo.png";
 import imageUser from "../../images/afonso.gif";
-import UserProfileButton from "../userProfileButton"
+import UserProfileButton from "../UserProfileButton"
 
-import style from "./header.module.css";
+import style from "./Header.module.css";
 
 function Header(props) {
 
@@ -46,7 +46,6 @@ function Header(props) {
                         variant="h6"
                         noWrap
                         component="a"
-                        href="/"
                         sx={{
                             fontFamily: "monospace",
                             fontWeight: 700,
@@ -58,8 +57,8 @@ function Header(props) {
                         HELPING TOGETHER
                     </Typography>
                     <Stack direction="row" spacing={2}  className={style.headerButton}>
-                        <Button size="large" href="" sx={{color:'white'}} onClick={goToOrganizations}>Voluntariados</Button>
-                        <Button size="large" href="" sx={{color:'white'}} onClick={goToVolunteers}>Organizações</Button>
+                        <Button size="large" sx={{color:'white'}} onClick={goToOrganizations}>Voluntariados</Button>
+                        <Button size="large" sx={{color:'white'}} onClick={goToVolunteers}>Organizações</Button>
                         {!isLoggedIn ? 
                             <>
                                 <Button variant="contained" size="large" href="" sx={{textTransform: 'none', borderRadius: '20px', color:'white'}} onClick={logIn}>Entrar</Button>
