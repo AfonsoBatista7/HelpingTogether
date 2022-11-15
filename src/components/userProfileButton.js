@@ -8,6 +8,7 @@ import {
     IconButton,
     MenuItem,
 } from "@mui/material";
+import { Link } from "react-router-dom";
 
 // [
 //     "Perfil",
@@ -82,11 +83,13 @@ const UserProfileButton = (props) => {
                     onClose={handleCloseUserMenu}
                 >
                     {Object.keys(settings).map((setting) => (
-                        <MenuItem key={setting} onClick={settings[setting]}>
-                            <Typography textAlign="center">
-                                {setting}
-                            </Typography>
-                        </MenuItem>
+                        <Link style={{ textDecoration: 'none' }} to={setting === "Sair" ? '' : '/Perfil'}>
+                            <MenuItem key={setting} onClick={settings[setting]}>
+                                <Typography textAlign="center">
+                                    {setting}
+                                </Typography>
+                            </MenuItem>
+                        </Link>
                     ))}
                 </Menu>
             </Box>

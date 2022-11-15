@@ -9,6 +9,7 @@ import {
 import imageLogo from "../../images/logo.png";
 import imageUser from "../../images/afonso.gif";
 import UserProfileButton from "../UserProfileButton"
+import {Link} from 'react-router-dom'
 
 import style from "./Header.module.css";
 
@@ -24,11 +25,11 @@ function Header(props) {
         console.log("Registar");
     };
 
-    const goToOrganizations = () => {
+    const goToVolunteers = () => {
         console.log("Voluntariados");
     };
-
-    const goToVolunteers = () => {
+    
+    const goToOrganizations = () => {
         console.log("Organizações");
     };
 
@@ -57,8 +58,8 @@ function Header(props) {
                         HELPING TOGETHER
                     </Typography>
                     <Stack direction="row" spacing={2}  className={style.headerButton}>
-                        <Button size="large" sx={{color:'white'}} onClick={goToOrganizations}>Voluntariados</Button>
-                        <Button size="large" sx={{color:'white'}} onClick={goToVolunteers}>Organizações</Button>
+                        <Link style={{ textDecoration: 'none' }} to="/Voluntariados"><Button size="large" sx={{color:'white'}} onClick={goToVolunteers}>Voluntariados</Button></Link>
+                        <Link style={{ textDecoration: 'none' }} to="/Organizacoes"><Button size="large" sx={{color:'white'}} onClick={goToOrganizations}>Organizações</Button></Link>
                         {!isLoggedIn ? 
                             <>
                                 <Button variant="contained" size="large" href="" sx={{textTransform: 'none', borderRadius: '20px', color:'white'}} onClick={logIn}>Entrar</Button>

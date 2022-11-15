@@ -27,7 +27,6 @@ Secções (Cada Secção é um compunente)
 Aceitar/Recusar Candidatos 
 
 
-
 [AFONSO] 
 Comentario box {Foto, Nome, Avaliação, comentário} 
 Organizações Box
