@@ -11,13 +11,13 @@ const SubFilter = (props) => {
     const handleFilterOpen = (event) => {
         setAnchorElFilter(event.currentTarget);
     };
-    const handleFilterClose = (event) => {
+    const handleFilterClose = () => {
         setAnchorElFilter(null);
     };
 
     return (
         <div>
-        <MenuItem key={props.filter} onClick={handleFilterOpen}    // make separate components for these submenus
+        <MenuItem key={props.filter} onClick={handleFilterOpen} 
             id={props.filter+"-filter-menu-option"}
             aria-haspopup="true">
             <Typography textAlign="left">
@@ -38,9 +38,9 @@ const SubFilter = (props) => {
         open={open}
         onClose={handleFilterClose}
         >
-        <MenuItem onClick={handleFilterClose}>Tipos2</MenuItem>
-        <MenuItem onClick={handleFilterClose}>Região2</MenuItem>
-        <MenuItem onClick={handleFilterClose}>Duração2</MenuItem>
+        {Object.keys(props.items).map((item) => (
+            <MenuItem onClick={handleFilterClose}>{props.items[item]}</MenuItem>
+        ))}
         </Menu>
         </div>
   )
