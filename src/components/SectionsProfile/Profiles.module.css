@@ -1,10 +1,20 @@
 .profileinfoContainer,
 .profile {
-    margin: 15px;
+    margin: 150px;
 }
 
-
+.backgroundwhite {
+    background-color: white;
+}
 
 .ProfileTest {
     color: white;
+}
+
+.margintop{
+    margin-top: 2%;
+}
+
+.margins {
+    margin-left: 3%;
 }
