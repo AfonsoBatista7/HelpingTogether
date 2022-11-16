@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Typography, Button, AppBar, Stack, Toolbar } from "@mui/material";
 import imageLogo from "../../images/logo.png";
 import imageUser from "../../images/afonso.gif";
-import UserProfileButton from "../userProfileButton"
+import UserProfileButton from "../UserProfileButton"
 import style from "./header.module.css"
 import Popup from '../Popup/Popup';
 import RegisterVoluntario from '../Popup/RegisterVoluntario';
