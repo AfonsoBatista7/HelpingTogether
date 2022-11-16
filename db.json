@@ -7,6 +7,7 @@
       "email": "saraleal45@gmail.com",
       "birthdate": "07/05/1984",
       "gender": "Feminino",
+      "phone": "924562789",
       "image": "Maria.jpg"
     },
     {
@@ -16,6 +17,7 @@
       "email": "gescordeiro0008@gmail.com",
       "birthdate": "30/09/1962",
       "gender": "Feminino",
+      "phone": "912498876",
       "image": "Gestrudes.jpg"
     },
     {
@@ -25,6 +27,7 @@
       "email": "lauraSilves@gmail.com",
       "birthdate": "12/07/1977",
       "gender": "Feminino",
+      "phone": "914562789",
       "image": "Laura.png"
     },
     {
@@ -34,6 +37,7 @@
       "email": "tiagolp69@gmail.com",
       "birthdate": "19/02/2002",
       "gender": "Masculino",
+      "phone": "965782234",
       "image": "Tiago.jpg"
     },
     {
@@ -43,6 +47,7 @@
       "email": "osvaldo356@gmail.com",
       "birthdate": "23/12/1967",
       "gender": "Masculino",
+      "phone": "922234556",
       "image": "Osvaldo.jpg"
     }
   ],
@@ -52,6 +57,7 @@
       "name": "Cruz Vermelha",
       "description": "A Cruz Vermelha Portuguesa é uma instituição humanitária de utilidade pública destinada a defender a paz, garantir o respeito pela dignidade da pessoa humana, menorizar os efeitos da guerra e promover a vida e a saúde. Foi fundada em 1865 e tem a sede nacional localizada no Palácio dos Condes de Óbidos em Lisboa, no entanto, possui estruturas locais distribuídas por todo o país.",
       "email": "cvermelha@cruzvermelha.org.pt",
+      "phone": "910045637",
       "type": ["Saúde", "Comunidade"],
       "image": "Cruz_Vermelha.png"
     },
@@ -60,6 +66,7 @@
       "name": "UNICEF",
       "description": "A UNICEF (Fundo das Nações Unidas para a Infância) é a principal agência humanitária que trabalha especificamente para a promoção e defesa dos direitos das crianças. A UNICEF presta ajuda humanitária sem discriminação de raça, cor, gendero, língua, religião, opinião política ou outra. Em tudo o que faz, as crianças mais desfavorecidas e os países com mais necessidades têm prioridade.",
       "email": "amigos@unicef.pt",
+      "phone": "921345678",
       "type": ["Gastronomia", "Comunidade", "Saúde"],
       "image": "UNICEF.jpg"
     },
@@ -68,6 +75,7 @@
       "name": "Leo",
       "description": "Os Leos são jovens interessados e dinâmicos que procuram, em todo o mundo, desenvolver-se através do serviço à comunidade e do apoio aos que mais precisam. Organizam-se por clubes de acordo com a área geográfica, formando assim um movimento, denominado de Leonismo, criado no âmbito da Associação Internacional de Lions Clubes. Os Leos atuam através do voluntariado sem fins lucrativos ou qualquer ligação política ou religiosa.",
       "email": "geral@leosdeportugal.org",
+      "phone": "915562309",
       "type": ["Poluição", "Comunidade", "Natureza"],
       "image": "Leo.png"
     },
@@ -76,6 +84,7 @@
       "name": "FAPAS",
       "description": "O FAPAS (Associação Portuguesa para a Conservação da Biodiversidade) é uma organização não governamental de ambiente, de âmbito nacional, sem fins lucrativos, constituída em 1990 por cidadãos com longa experiência no domínio da conservação da Natureza, vocacionada para a promoção de ações que visam a conservação ativa da biodiversidade e dos ecossistemas.",
       "email": "fapas@fapas.pt",
+      "phone": "911115678",
       "type": ["Poluição", "Natureza", "Animais"],
       "image": "FAPAS.jpg"
     },
@@ -84,6 +93,7 @@
       "name": "Just a Change",
       "description": "O Just a Change é uma Associação sem Fins Lucrativos que reconstrói casas de pessoas carenciadas em Portugal. Até ao dia de hoje, o Just a Change reconstruiu centenas de casas e instituições, tendo mobilizado milhares de voluntários dentro e fora do país.",
       "email": "geral@justachange.pt",
+      "phone": "925678902",
       "type": ["Comunidade"],
       "image": "Just_a_Change.png"
     },
@@ -92,6 +102,7 @@
       "name": "Banco Alimentar",
       "description": "O Bancos Alimentares são Instituições Particulares de Solidariedade Social que lutam contra o desperdício de produtos alimentares, encaminhando-os para distribuição gratuita às pessoas carenciadas. Em Portugal, os bancos alimentares em atividade recolhem e distribuem várias dezenas de milhares de toneladas de produtos e apoiam ao longo de todo o ano, a ação de mais de 2.360 instituições em Portugal. Por sua vez, estas distribuem refeições confecionadas e cabazes de alimentos a pessoas comprovadamente carenciadas, abrangendo já a distribuição total mais de 390.000 pessoas.",
       "email": "ba.federacao@bancoalimentar.pt",
+      "phone": "915699089",
       "type": ["Gastronomia", "Comunidade"],
       "image": "Banco_Alimentar.png"
     },
@@ -100,6 +111,7 @@
       "name": "Caritas",
       "description": "A Caritas Internacional é uma confederação de 165 organizações humanitárias da Igreja Católica que atua em mais de duzentos países. Coletiva e individualmente a sua missão é trabalhar para construir um mundo melhor, especialmente para os pobres e oprimidos.",
       "email": "caritas@caritas.pt",
+      "phone": "9121212340",
       "type": ["Gastronomia", "Comunidade"],
       "image": "Caritas.png"
     },
@@ -108,6 +120,7 @@
       "name": "Animalife",
       "description": "A Animalife é uma associação de sensibilização e apoio social e ambiental, de âmbito nacional, sem fins lucrativos, constituída em outubro de 2011, cujo objetivo é diminuir o grave problema do abandono animal, atuando a montante sobre uma das principais causas de abandono em Portugal: a vulnerabilidade económica e social das famílias.",
       "email": "geral@animalife.pt",
+      "phone": "923340990",
       "type": ["Animais"],
       "image": "Animalife.jpg"
     }
