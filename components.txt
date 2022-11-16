@@ -35,8 +35,8 @@ Candidatos
 Voluntariados Box(quando na pagina de voluntariados)
 Voluntariados Box { Foto, nome, avaliação}
 about us page com imagens e fotos nossas
-FOOTER
-HEADER
+FOOTER [X]
+HEADER [X]
 
 
 Sugestão bué fixe:
