@@ -1,4 +1,9 @@
-import React from 'react'
+import React, { useState } from "react";
+import {
+  Button,
+  Menu
+} from "@mui/material";
+import SubFilter from './SubFilter';
 
 const FilterMain = () => {
     const [anchorElFilter, setAnchorElFilter] = useState(null);
@@ -38,9 +43,9 @@ const FilterMain = () => {
     }; */
 
     const filters = {
-        Tipo: handleTypeFilterOpen,
-        Região: handleRegionFilterOpen,
-        Duração: handleDurationFilterOpen
+        Tipo: ['Natureza', 'Animais', 'Poluição', 'Comunidade', 'Gastronomia', 'Saúde'],
+        Região: ['Norte', 'Centro', 'Alentejo', 'Área Metropolitana Lisboa', 'Algarve', 'Açores', 'Madeira'],
+        Duração:  ['Reduzida', 'Média', 'Longa']
     };
   return (
     <div>
@@ -52,7 +57,7 @@ const FilterMain = () => {
         onClick={handleClick}
         >Filters</Button>
 
-        <Menu   // main filter menu; TODO: REFACTOR ALL THIS, USE A SINGLE COMPONENT FOR MENU ITEM, AND GENERALIZE
+        <Menu
             id="filter-menu"
             anchorEl={anchorElFilter}
             open={openFilter}
@@ -62,33 +67,7 @@ const FilterMain = () => {
             }}
             >
             {Object.keys(filters).map((filter) => (
-                <div>
-                <MenuItem key={filter} onClick={filters[filter]}    // make separate components for these submenus
-                    id={filter+"-filter-menu-option"}
-                    aria-haspopup="true">
-                    <Typography textAlign="left">
-                        {filter}
-                    </Typography>
-                </MenuItem>
-                <Menu     // submenu
-                id={filter+"-filter-menu"}
-                anchorEl={anchorElTypeFilter}
-                anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                }}
-                transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'left',
-                }}
-                open={openTypeFilter}
-                onClose={handleTypeFilterClose}
-                >
-                <MenuItem onClick={handleTypeFilterClose}>Tipos2</MenuItem>
-                <MenuItem onClick={handleTypeFilterClose}>Região2</MenuItem>
-                <MenuItem onClick={handleTypeFilterClose}>Duração2</MenuItem>
-                </Menu>
-                </div>
+               <SubFilter filter={filter}></SubFilter>
             ))}
             </Menu>
     </div>
