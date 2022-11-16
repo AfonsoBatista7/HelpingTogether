@@ -8,21 +8,30 @@ import {
 } from "@mui/material";
 import imageLogo from "../../images/logo.png";
 import imageUser from "../../images/afonso.gif";
-import UserProfileButton from "../UserProfileButton"
 import {Link, useNavigate} from 'react-router-dom'
 
 import style from "./Header.module.css";
+import UserProfileButton from "../userProfileButton"
+import style from "./header.module.css"
+import Popup from '../Popup/Popup';
+import RegisterVoluntario from '../Popup/RegisterVoluntario';
+import RegisterOrganizacao from '../Popup/RegisterOrganizacao';
+import Login from '../Popup/Login';
+import ChooseType from '../Popup/ChooseType';
 
 function Header(props) {
 
-    const [isLoggedIn, accountState] = useState(false);
-    
+    const [openPopupLogin, setOpenPopupLogin] = useState(false);
+    const [openPopupRegister, setOpenPopupRegister] = useState(false);
+    const [openPopupRegisterVoluntario, setOpenPopupRegisterVoluntario] = useState(false);
+    const [openPopupRegisterOrganizacao, setOpenPopupRegisterOrganizacao] = useState(false);
+
     const logIn = () => {
-        accountState(true);
-    };
+        setOpenPopupLogin(true);
+    }
 
     const signUp = () => {
-        console.log("Registar");
+        setOpenPopupRegister(true);
     };
 
     const goToVolunteers = () => {
@@ -33,7 +42,29 @@ function Header(props) {
         console.log("Organizações");
     };
 
+    const changePopup = (popup) => {
+        if(popup === "login") setOpenPopupLogin(true);
+
+        if(popup === "register") setOpenPopupRegister(true);
+
+        if(popup === "voluntario") {
+            setOpenPopupRegister(false);
+            setOpenPopupRegisterVoluntario(true);
+        }
+
+        if(popup === "organizacao") {
+            setOpenPopupRegister(false);
+            setOpenPopupRegisterOrganizacao(true);
+        }
+
+        if(popup === "isLoggedIn") {
+            accountState(true);
+            setOpenPopupLogin(false);
+        }
+    }
+
     return (
+        <>
         <AppBar position="static" sx={{ bgcolor: "#2E3B55" }}>
             <Toolbar>
                     <img
@@ -69,7 +100,38 @@ function Header(props) {
                     </Stack>
             </Toolbar>
         </AppBar>
-    );
+        <Popup
+            tipo="login"
+            openPopup={openPopupLogin}
+            setOpenPopup={setOpenPopupLogin}
+            function={changePopup}
+            >
+            <Login function={changePopup}/>
+        </Popup>
+        <Popup
+            openPopup={openPopupRegister}
+            setOpenPopup={setOpenPopupRegister}
+            >
+            <ChooseType function={changePopup}/>
+        </Popup>
+        <Popup
+            tipo="register"
+            openPopup={openPopupRegisterVoluntario}
+            setOpenPopup={setOpenPopupRegisterVoluntario}
+            function={changePopup}
+            >
+            <RegisterVoluntario/>
+        </Popup>
+        <Popup
+            tipo="register"
+            openPopup={openPopupRegisterOrganizacao}
+            setOpenPopup={setOpenPopupRegisterOrganizacao}
+            function={changePopup}
+            >
+            <RegisterOrganizacao/>
+        </Popup>
+        </>
+    )
 }
 
 export default Header;
