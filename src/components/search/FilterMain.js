@@ -4,6 +4,7 @@ import {
   Menu
 } from "@mui/material";
 import SubFilter from './SubFilter';
+import style from "./search.module.css";
 
 const FilterMain = () => {
     const [anchorElFilter, setAnchorElFilter] = useState(null);
@@ -15,33 +16,6 @@ const FilterMain = () => {
         setAnchorElFilter(null);
     };
 
-    const [anchorElTypeFilter, setAnchorElTypeFilter] = useState(null);
-    const openTypeFilter = Boolean(anchorElTypeFilter);
-    const handleTypeFilterOpen = (event) => {
-        setAnchorElTypeFilter(event.currentTarget);
-    };
-    const handleTypeFilterClose = (event) => {
-        setAnchorElTypeFilter(null);
-    };
-
-/*     const [anchorElRegionFilter, setAnchorElRegionFilter] = useState(null);
-    const openRegionFilter = Boolean(anchorElRegionFilter);
-    const handleRegionFilterOpen = (event) => {
-        setAnchorElRegionFilter(event.currentTarget);
-    };
-    const handleRegionFilterClose = (event) => {
-        setAnchorElRegionFilter(null);
-    };
-
-    const [anchorElDurationFilter, setAnchorElDurationFilter] = useState(null);
-    const openDurationFilter = Boolean(anchorElDurationFilter);
-    const handleDurationFilterOpen = (event) => {
-        setAnchorElDurationFilter(event.currentTarget);
-    };
-    const handleDurationFilterClose = (event) => {
-        setAnchorElDurationFilter(null);
-    }; */
-
     const filters = {
         Tipo: ['Natureza', 'Animais', 'Poluição', 'Comunidade', 'Gastronomia', 'Saúde'],
         Região: ['Norte', 'Centro', 'Alentejo', 'Área Metropolitana Lisboa', 'Algarve', 'Açores', 'Madeira'],
@@ -50,12 +24,14 @@ const FilterMain = () => {
   return (
     <div>
         <Button
-        id="filter-button"
+        id="filter-button" className={style.filterButton} 
         aria-controls={openFilter ? 'filter-menu' : undefined}
         aria-haspopup="true"
         aria-expanded={openFilter ? 'true' : undefined}
         onClick={handleClick}
-        >Filters</Button>
+        variant="contained" 
+        size="large"
+        >Filtros</Button>
 
         <Menu
             id="filter-menu"
@@ -67,7 +43,7 @@ const FilterMain = () => {
             }}
             >
             {Object.keys(filters).map((filter) => (
-               <SubFilter filter={filter}></SubFilter>
+               <SubFilter filter={filter} items={filters[filter]}></SubFilter>
             ))}
             </Menu>
     </div>

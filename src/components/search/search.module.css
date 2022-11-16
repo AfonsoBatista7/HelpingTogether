@@ -2,4 +2,10 @@
     position: relative;
     left: 50;
     margin-left: 100px;
+    background-color: white;
+}
+
+.filterButton {
+    text-transform: none;
+    border-radius: 20px;
 }
