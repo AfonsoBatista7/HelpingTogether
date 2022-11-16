@@ -4,7 +4,7 @@ import { Pagination, Grid, Typography, Container, Divider } from "@mui/material"
 function Voluntariados() {
     return (
         <div className={style.backgroundwhite}>
-            <div>
+           <div className={style.margins}>
                 <Container style={{
                     height: 80
                 }}></Container>

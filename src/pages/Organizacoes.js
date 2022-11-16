@@ -4,7 +4,7 @@ import { Pagination, Grid, Typography, Container, Divider } from "@mui/material"
 function Organizacoes() {
     return (
         <div className={style.backgroundwhite}>
-            <div>
+            <div className={style.margins}>
                 <Container style={{
                     height: 80
                 }}></Container>
@@ -37,7 +37,7 @@ function Organizacoes() {
                 }}></Container>
 
             </div >
-        </div>
+        </div >
     );
 }
 
