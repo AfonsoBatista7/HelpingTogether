@@ -11,8 +11,7 @@ import imageUser from "../../images/afonso.gif";
 import {Link, useNavigate} from 'react-router-dom'
 
 import style from "./Header.module.css";
-import UserProfileButton from "../userProfileButton"
-import style from "./header.module.css"
+import UserProfileButton from "../UserProfileButton"
 import Popup from '../Popup/Popup';
 import RegisterVoluntario from '../Popup/RegisterVoluntario';
 import RegisterOrganizacao from '../Popup/RegisterOrganizacao';
@@ -20,6 +19,7 @@ import Login from '../Popup/Login';
 import ChooseType from '../Popup/ChooseType';
 
 function Header(props) {
+    const [isLoggedIn, accountState] = useState(false);
 
     const [openPopupLogin, setOpenPopupLogin] = useState(false);
     const [openPopupRegister, setOpenPopupRegister] = useState(false);
