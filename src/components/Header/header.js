@@ -9,12 +9,12 @@ import {
 import imageLogo from "../../images/logo.png";
 import imageUser from "../../images/afonso.gif";
 import UserProfileButton from "../userProfileButton"
-import style from "./Header.module.css"
-import Popup from '../popup/Popup';
-import RegisterVoluntario from '../popup/RegisterVoluntario';
-import RegisterOrganizacao from '../popup/RegisterOrganizacao';
-import Login from '../popup/Login';
-import ChooseType from '../popup/ChooseType';
+import style from "./header.module.css"
+import Popup from '../Popup/Popup';
+import RegisterVoluntario from '../Popup/RegisterVoluntario';
+import RegisterOrganizacao from '../Popup/RegisterOrganizacao';
+import Login from '../Popup/Login';
+import ChooseType from '../Popup/ChooseType';
 
 function Header(props) {
 
