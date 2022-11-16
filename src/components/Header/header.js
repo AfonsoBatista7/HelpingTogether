@@ -8,6 +8,7 @@ import {
 } from "@mui/material";
 import imageLogo from "../../images/logo.png";
 import imageUser from "../../images/afonso.gif";
+<<<<<<< HEAD
 import UserProfileButton from "../userProfileButton"
 import style from "./header.module.css"
 import Popup from '../popup/Popup';
@@ -15,16 +16,25 @@ import RegisterVoluntario from '../popup/RegisterVoluntario';
 import RegisterOrganizacao from '../popup/RegisterOrganizacao';
 import Login from '../popup/Login';
 import ChooseType from '../popup/ChooseType';
+=======
+import UserProfileButton from "../UserProfileButton"
+
+import style from "./Header.module.css";
+>>>>>>> 5c452f15446a22145e78f704b8a5e16b6b905179
 
 function Header(props) {
 
     const [isLoggedIn, accountState] = useState(false);
+<<<<<<< HEAD
 
     const [openPopupLogin, setOpenPopupLogin] = useState(false);
     const [openPopupRegister, setOpenPopupRegister] = useState(false);
     const [openPopupRegisterVoluntario, setOpenPopupRegisterVoluntario] = useState(false);
     const [openPopupRegisterOrganizacao, setOpenPopupRegisterOrganizacao] = useState(false);
 
+=======
+    
+>>>>>>> 5c452f15446a22145e78f704b8a5e16b6b905179
     const logIn = () => {
         setOpenPopupLogin(true);
     }
@@ -77,7 +87,6 @@ function Header(props) {
                         variant="h6"
                         noWrap
                         component="a"
-                        href="/"
                         sx={{
                             fontFamily: "monospace",
                             fontWeight: 700,
@@ -89,8 +98,8 @@ function Header(props) {
                         HELPING TOGETHER
                     </Typography>
                     <Stack direction="row" spacing={2}  className={style.headerButton}>
-                        <Button size="large" href="" sx={{color:'white'}} onClick={goToOrganizations}>Voluntariados</Button>
-                        <Button size="large" href="" sx={{color:'white'}} onClick={goToVolunteers}>Organizações</Button>
+                        <Button size="large" sx={{color:'white'}} onClick={goToOrganizations}>Voluntariados</Button>
+                        <Button size="large" sx={{color:'white'}} onClick={goToVolunteers}>Organizações</Button>
                         {!isLoggedIn ? 
                             <>
                                 <Button variant="contained" size="large" sx={{textTransform: 'none', borderRadius: '20px', color:'white'}} onClick={logIn}>Entrar</Button>
@@ -138,6 +147,7 @@ function Header(props) {
 
 export default Header;
 
+<<<<<<< HEAD
 /* <div className={style.header}>
     <img
         src={imageLogo}
@@ -155,3 +165,5 @@ export default Header;
 
 //<UserProfileButton name="Afonso" image={imageUser} accountState={accountState}/>
 
+=======
+>>>>>>> 5c452f15446a22145e78f704b8a5e16b6b905179

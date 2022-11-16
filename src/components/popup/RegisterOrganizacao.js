@@ -36,7 +36,7 @@ const RegisterOrganizacao = () => {
                     <AddCircleIcon />
                 </Avatar>
                 <h2 style={headerStyle}>Registar</h2>
-                <Typography variant='caption' gutterBottom>Por favor preencha este formulário para criar uma conta</Typography>
+                <Typography variant='caption' style={marginBottom} gutterBottom>Por favor preencha este formulário para criar uma conta</Typography>
             </Grid>
             <form>
                 <TextField fullWidth label='Nome' placeholder="Enter your name" style={marginBottom}/>

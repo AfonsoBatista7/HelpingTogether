@@ -1,0 +1,13 @@
+.footer {
+    margin: 45px;
+}
+
+.footerSocialContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.footerLink {
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+}
