@@ -1,5 +1,5 @@
-import InfoProfile from "../components/SectionsProfile/InfoProfile";
-import style from "../components/SectionsProfile/Profiles.module.css"
+import InfoProfile from "../components/sectionsprofile/InfoProfile";
+import style from "../components/sectionsprofile/Profiles.module.css"
 import { Pagination, Grid, Typography, Container } from "@mui/material";
 
 function Perfil() {
