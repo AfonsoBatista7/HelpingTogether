@@ -1,11 +1,5 @@
-import React, {useState} from 'react'
-import {
-    Typography,
-    Button,
-    AppBar,
-    Stack,
-    Toolbar,
-} from "@mui/material";
+import React, { useState } from "react";
+import { Typography, Button, AppBar, Stack, Toolbar } from "@mui/material";
 import imageLogo from "../../images/logo.png";
 import imageUser from "../../images/afonso.gif";
 import UserProfileButton from "../userProfileButton"
@@ -17,7 +11,6 @@ import Login from '../Popup/Login';
 import ChooseType from '../Popup/ChooseType';
 
 function Header(props) {
-
     const [isLoggedIn, accountState] = useState(false);
 
     const [openPopupLogin, setOpenPopupLogin] = useState(false);
@@ -136,4 +129,3 @@ function Header(props) {
 }
 
 export default Header;
-
