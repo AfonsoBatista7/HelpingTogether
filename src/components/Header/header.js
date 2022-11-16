@@ -8,33 +8,23 @@ import {
 } from "@mui/material";
 import imageLogo from "../../images/logo.png";
 import imageUser from "../../images/afonso.gif";
-<<<<<<< HEAD
 import UserProfileButton from "../userProfileButton"
-import style from "./header.module.css"
+import style from "./Header.module.css"
 import Popup from '../popup/Popup';
 import RegisterVoluntario from '../popup/RegisterVoluntario';
 import RegisterOrganizacao from '../popup/RegisterOrganizacao';
 import Login from '../popup/Login';
 import ChooseType from '../popup/ChooseType';
-=======
-import UserProfileButton from "../UserProfileButton"
-
-import style from "./Header.module.css";
->>>>>>> 5c452f15446a22145e78f704b8a5e16b6b905179
 
 function Header(props) {
 
     const [isLoggedIn, accountState] = useState(false);
-<<<<<<< HEAD
 
     const [openPopupLogin, setOpenPopupLogin] = useState(false);
     const [openPopupRegister, setOpenPopupRegister] = useState(false);
     const [openPopupRegisterVoluntario, setOpenPopupRegisterVoluntario] = useState(false);
     const [openPopupRegisterOrganizacao, setOpenPopupRegisterOrganizacao] = useState(false);
 
-=======
-    
->>>>>>> 5c452f15446a22145e78f704b8a5e16b6b905179
     const logIn = () => {
         setOpenPopupLogin(true);
     }
@@ -147,23 +137,3 @@ function Header(props) {
 
 export default Header;
 
-<<<<<<< HEAD
-/* <div className={style.header}>
-    <img
-        src={imageLogo}
-        alt="logo"
-        onClick={() => console.log("GO BACK TO MAIN PAGE")}
-        className={style.headerImage}
-    ></img>
-    <Box className={style.headerButton}>
-        <Button onClick={goToOrganizations}>Voluntariados</Button>
-        <Button onClick={goToVolunteers}>Organizações</Button>
-        <Button onClick={signUp}>Registar</Button>
-        <Button onClick={logIn}>Entrar</Button>
-    </Box>
-</div> */
-
-//<UserProfileButton name="Afonso" image={imageUser} accountState={accountState}/>
-
-=======
->>>>>>> 5c452f15446a22145e78f704b8a5e16b6b905179
