@@ -53,6 +53,14 @@ function Header(props) {
             accountState(true);
             setOpenPopupLogin(false);
         }
+
+        if(popup === "isRegisterOrganizacao") {
+            setOpenPopupRegisterOrganizacao(false);
+        }
+
+        if(popup === "isRegisterVoluntario") {
+            setOpenPopupRegisterVoluntario(false);
+        }
     }
 
     return (
@@ -114,7 +122,7 @@ function Header(props) {
             setOpenPopup={setOpenPopupRegisterVoluntario}
             function={changePopup}
             >
-            <RegisterVoluntario/>
+            <RegisterVoluntario function={changePopup}/>
         </Popup>
         <Popup
             tipo="register"
@@ -122,7 +130,7 @@ function Header(props) {
             setOpenPopup={setOpenPopupRegisterOrganizacao}
             function={changePopup}
             >
-            <RegisterOrganizacao/>
+            <RegisterOrganizacao function={changePopup}/>
         </Popup>
         </>
     )
