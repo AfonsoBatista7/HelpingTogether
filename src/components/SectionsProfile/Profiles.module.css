@@ -19,3 +19,34 @@
     margin-left: 3%;
     margin-right: 3%;
 }
+
+.marginprofile {
+
+    margin-left: auto;
+    margin-top: 10%;
+    margin-bottom: 5%;
+    margin-right: auto;
+}
+.marginPhone{
+    margin-top: 2%;
+    margin-left: 10%;
+    margin-bottom: 4%;
+    
+}
+.marginRight{
+    margin-right: 5%;
+}
+
+.description{
+    background-color: white;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 700;
+    width: 700;
+}
+
+.buttonmargin{
+    margin-left: 5%;
+}
