@@ -18,14 +18,16 @@ const RegisterVoluntario = (props) => {
     const marginTop = { marginTop: 5 }
     const both = { marginTop: 20, marginBottom: 15 }
     const marginBottom = { marginBottom: 10 }
-    const marginTop2 = { marginTop: 10 }
-    const marginButton = { marginLeft: 150 }
+    const marginTop2 = { marginTop: 30 }
+    const marginButton = { marginLeft: 100 }
 
-    let today = new Date();
-    const [date, setDate] = useState(today);
+    const [date, setDate] = useState(new Date());
+
+    const [dateSetter, changeDateSetter] = useState(false);
 
     const handleChange = (newValue) => {
         setDate(newValue.$d);
+        changeDateSetter(true);
     };
 
     const onSubmit = (values) => {
@@ -49,22 +51,22 @@ const RegisterVoluntario = (props) => {
         var cutoff = new Date();
         cutoff.setFullYear(cutoff.getFullYear() - 18);
 
-        return ( date <= cutoff );
-      }
+        return (date <= cutoff);
+    }
 
-    //.transform((value, rawValue) => { let correctDate = moment(rawValue, ['yyyy-mm-dd']).toDate() return correctDate })
+    function checkNull() {
+        return (dateSetter);
+    }
 
     const validationSchema = Yup.object().shape({
         name: Yup.string().min(3, "Muito curto").required("Necessário"),
         email: Yup.string().email("Coloque um email válido").required("Necessário"),
         gender: Yup.string().oneOf(["male", "female"], "Required").required("Necessário"),
-        birthday: Yup.date().required("Necessário").test("age", "Tem que ter mais que 18 anos", calcMaior18),
+        birthday: Yup.date().test("null", "Necessário", checkNull).test("age", "Tem que ter mais que 18 anos", calcMaior18),
         phone: Yup.number().typeError("Coloque um número de telefone válido").required('Necessário').min(910000000, "Deve começar em 91, 92, 93 ou 96 e ter 9 digitos").max(970000000, "Deve começar em 91, 92, 93 ou 96 e ter 9 digitos"),
         password: Yup.string().min(6, "Comprimento minimo de 6 caracteres").required("Necessário"),
         confirmPassword: Yup.string().oneOf([Yup.ref('password')], "Password não é igual").required("Necessário"),
         termsAndConditions: Yup.string().oneOf(["true"], "Aceite os termos e condições")
-
-        
     })
 
     return (
@@ -111,7 +113,7 @@ const RegisterVoluntario = (props) => {
                                 helperText={<ErrorMessage name="password" component="div" style={{ color: 'red' }} />} />
                             <Field as={TextField} fullWidth name="confirmPassword" label='Confirma palavra-chave' type='password' placeholder="Confirma a palavra-chave" style={marginBottom}
                                 helperText={<ErrorMessage name="confirmPassword" component="div" style={{ color: 'red' }} />} />
-                            <Button variant="contained" component="label" size="small" style={marginBottom}>
+                            <Button variant="contained" component="label" size="small" style={marginBottom} sx={{'&:hover': { opacity: [0.9, 0.8, 0.7]} }}>
                                 <AddPhotoAlternateIcon />
                                 Adicionar foto
                                 <input hidden accept="image/*" multiple type="file" />
@@ -123,8 +125,12 @@ const RegisterVoluntario = (props) => {
                                     style={marginTop2}
                                 />
                                 <FormHelperText><ErrorMessage name="termsAndConditions" component="div" style={{ color: 'red' }} /></FormHelperText>
-                                <Button type='submit' variant='contained' color='primary' disabled={props.isSubmitting}
-                                    style={marginButton}>{props.isSubmitting ? "Carregar" : "Registar"}</Button>
+                                <Grid container spacing={3} justifyContent="center">
+                                    <Grid item xs={6}>
+                                        <Button type='submit' variant='contained' color='primary' disabled={props.isSubmitting}
+                                            sx={{'&:hover': { opacity: [0.9, 0.8, 0.7]} }} fullWidth>{props.isSubmitting ? "Carregar" : "Registar"}</Button>
+                                    </Grid>
+                                </Grid>
                             </div>
                         </Form>
                     )}

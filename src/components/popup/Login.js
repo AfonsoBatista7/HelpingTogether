@@ -8,10 +8,9 @@ import * as Yup from 'yup';
 const Login = (props) => {
 
     const avatarStyle = { backgroundColor: '#1bbd7e' }
-    const btnstyle = { margin: '8px 0' }
+    const btnstyle = { margin: 10 }
     const marginBottom = { marginBottom: 10 }
     const marginBottomFinal = { marginBottom: 20 }
-    const error = { color: 'red' }
 
     const initialValue = {
         name: '',
@@ -50,7 +49,7 @@ const Login = (props) => {
                             helperText={<ErrorMessage name="name" component="div" style={{color: 'red'}}/>} />
                         <Field as={TextField} name="password" label='Palavra-chave' placeholder='Palavra-chave' type='password' fullWidth style={marginBottomFinal}
                             helperText={<ErrorMessage name="password" component="div" style={{color: 'red'}}/>} />
-                        <Button type='submit' color='primary' variant="contained" disabled={props.isSubmitting} style={btnstyle} fullWidth>
+                        <Button type='submit' color='primary' variant="contained" disabled={props.isSubmitting} sx={{'&:hover': { opacity: [0.9, 0.8, 0.7]} }} fullWidth>
                         {props.isSubmitting ? "Carregar" : "Entrar"}</Button>
                     </Form>
                 )}
