@@ -24,13 +24,14 @@ const FilterMain = () => {
   return (
     <div>
         <Button
-        id="filter-button" className={style.filterButton} 
+        id="filter-button"
         aria-controls={openFilter ? 'filter-menu' : undefined}
         aria-haspopup="true"
         aria-expanded={openFilter ? 'true' : undefined}
         onClick={handleClick}
         variant="contained" 
         size="large"
+        sx={{textTransform: 'none', borderRadius: '20px', color:'white'}}
         >Filtros</Button>
 
         <Menu
