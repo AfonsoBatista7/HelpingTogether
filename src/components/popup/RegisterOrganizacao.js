@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
-import { Grid, Avatar, Typography, TextField, Button, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel, Checkbox, getNativeSelectUtilityClasses , FormHelperText} from '@mui/material'
+import React, { useState, useEffect } from 'react'
+import { Grid, Collapse, IconButton, Alert, Avatar, Typography, TextField, Button, Radio, RadioGroup, FormControlLabel, Checkbox,FormHelperText } from '@mui/material'
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import CloseIcon from '@mui/icons-material/Close';
+
 
 
 const RegisterOrganizacao = (props) => {
@@ -15,7 +17,8 @@ const RegisterOrganizacao = (props) => {
     const marginButton = { marginLeft: 100, marginTop: 50 }
     const marginTopFinal = { marginTop: 50 }
 
-    const [name, setName] = useState([])
+    const [open, setOpen] = useState(false);
+    const [types, setTypes] = useState([])
 
     const initialValue = {
         name: '',
@@ -23,9 +26,23 @@ const RegisterOrganizacao = (props) => {
         phone: '',
         password: '',
         confirmPassword: '',
-        type: name,
+        type: types,
         termsAndConditions: false
     }
+
+    const addLoggedIn = async (loggedInData) => {
+        const res = await fetch('http://localhost:5000/login', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify(loggedInData),
+        })
+
+        const data = await res.json()
+
+    }
+
 
     const validationSchema = Yup.object().shape({
         name: Yup.string().min(3, "Muito curto").required("Necessário"),
@@ -38,10 +55,11 @@ const RegisterOrganizacao = (props) => {
     })
 
     const onSubmit = (values) => {
-        console.log(values)
 
         props.function("isRegisterOrganizacao")
-       
+
+        addLoggedIn({ ...values, isLoggedIn: false, typePerfil: "organizacao" })
+
         // setTimeout(() =>{
         //     props.resetForm()
         //     props.setSubmitting(false)
@@ -49,17 +67,18 @@ const RegisterOrganizacao = (props) => {
     }
 
     const getValues = (e) => {
-        let data = name;
+        let data = types;
 
-        if (data.includes(e.target.value)) {
-            data.pop(e.target.value)
+        if (data.includes(e)) {
+            data.pop(e)
         } else {
-            data.push(e.target.value)
+            data.push(e)
 
         }
 
-        setName(data)
+        setTypes(data)
     }
+
 
     return (
         <>
@@ -84,36 +103,46 @@ const RegisterOrganizacao = (props) => {
                                 helperText={<ErrorMessage name="password" component="div" style={{ color: 'red' }} />} />
                             <Field as={TextField} fullWidth name="confirmPassword" label='Confirma palavra-chave' type='password' placeholder="Confirma a palavra-chave" style={marginBottom}
                                 helperText={<ErrorMessage name="confirmPassword" component="div" style={{ color: 'red' }} />} />
-                            <Button variant="contained" component="label" size="small" style={marginBottom} sx={{'&:hover': { opacity: [0.9, 0.8, 0.7]} }}>
+                            <Button variant="contained" component="label" size="small" style={marginBottom} sx={{ '&:hover': { opacity: [0.9, 0.8, 0.7] } }}>
                                 <AddPhotoAlternateIcon />
-                                Adicionar foto
-                                <input hidden accept="image/*" multiple type="file" />
+                                Adicionar Foto Perfil
+                                <input hidden accept="image/*" multiple type="file" onClick={() => { setOpen(true);}} />
                             </Button>
+                            <Collapse in={open}>
+                                <Alert action={
+                                    <IconButton aria-label="close" color="inherit" size="small" onClick={() => {setOpen(false);}}>
+                                            <CloseIcon fontSize="inherit" />
+                                        </IconButton>
+                                    } sx={{ mb: 2 }}
+                                >
+                                    Foto importada com sucesso!
+                                </Alert>
+                            </Collapse>
                             <div>
-                                <Typography name= "type" sx={{ fontWeight: 'bold' }} style={marginTop}>Selecione o tipo de voluntariados que irá desponibilizar:</Typography>
-                                <FormHelperText><ErrorMessage name="type" component="div" style={{ color: 'red' }}/></FormHelperText>
+                                <Typography name="type" sx={{ fontWeight: 'bold' }} style={marginTop}>Selecione o tipo de voluntariados que irá desponibilizar:</Typography>
+                                <FormHelperText><ErrorMessage name="type" component="div" style={{ color: 'red' }} /></FormHelperText>
                                 <FormControlLabel
-                                    control={<Checkbox value="Natureza" onChange={(e) => getValues(e)} />}
+                                    control={<Checkbox value="Natureza" onChange={(e) => getValues(e.target.value)} />}
                                     label="Natureza"
                                 />
                                 <FormControlLabel
-                                    control={<Checkbox value="Animais" onChange={(e) => getValues(e)} />}
+                                    control={<Checkbox value="Animais" onChange={(e) => getValues(e.target.value)} />}
                                     label="Animais"
                                 />
                                 <FormControlLabel
-                                    control={<Checkbox value="Poluição" onChange={(e) => getValues(e)} />}
+                                    control={<Checkbox value="Poluição" onChange={(e) => getValues(e.target.value)} />}
                                     label="Poluição"
                                 />
                                 <FormControlLabel
-                                    control={<Checkbox value="Comunidade" onChange={(e) => getValues(e)} />}
+                                    control={<Checkbox value="Comunidade" onChange={(e) => getValues(e.target.value)} />}
                                     label="Comunidade"
                                 />
                                 <FormControlLabel
-                                    control={<Checkbox value="Gastronomia" onChange={(e) => getValues(e)} />}
+                                    control={<Checkbox value="Gastronomia" onChange={(e) => getValues(e.target.value)} />}
                                     label="Gastronomia"
                                 />
                                 <FormControlLabel
-                                    control={<Checkbox value="Saúde" onChange={(e) => getValues(e)} />}
+                                    control={<Checkbox value="Saúde" onChange={(e) => getValues(e.target.value)} />}
                                     label="Saúde"
                                 />
                             </div>
@@ -123,11 +152,11 @@ const RegisterOrganizacao = (props) => {
                                     label="Aceito os termos e condições."
                                     style={marginTopFinal}
                                 />
-                                <FormHelperText><ErrorMessage name="termsAndConditions" component="div" style={{ color: 'red' }}/></FormHelperText>
+                                <FormHelperText><ErrorMessage name="termsAndConditions" component="div" style={{ color: 'red' }} /></FormHelperText>
                                 <Grid container spacing={3} justifyContent="center">
                                     <Grid item xs={6}>
                                         <Button type='submit' variant='contained' color='primary' disabled={props.isSubmitting}
-                                            sx={{'&:hover': { opacity: [0.9, 0.8, 0.7]} }} fullWidth>{props.isSubmitting ? "Carregar" : "Registar"}</Button>
+                                            sx={{ '&:hover': { opacity: [0.9, 0.8, 0.7] } }} fullWidth>{props.isSubmitting ? "Carregar" : "Registar"}</Button>
                                     </Grid>
                                 </Grid>
                             </div>

@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import dayjs from 'dayjs';
-import { Grid, Avatar, Typography, TextField, Button, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel, Checkbox, Stack, FormHelperText } from '@mui/material'
+import { Grid, Avatar, Collapse, IconButton, Alert, Typography, TextField, Button, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel, Checkbox, Stack, FormHelperText } from '@mui/material'
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -9,7 +8,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-
+import CloseIcon from '@mui/icons-material/Close';
 
 const RegisterVoluntario = (props) => {
 
@@ -25,6 +24,8 @@ const RegisterVoluntario = (props) => {
 
     const [dateSetter, changeDateSetter] = useState(false);
 
+    const [open, setOpen] = useState(false);
+
     const handleChange = (newValue) => {
         setDate(newValue.$d);
         changeDateSetter(true);
@@ -34,6 +35,8 @@ const RegisterVoluntario = (props) => {
         console.log(values)
 
         props.function("isRegisterVoluntario")
+
+        addLoggedIn({ ...values, isLoggedIn: false, typePerfil: "voluntario" })
     }
 
     const initialValue = {
@@ -45,6 +48,19 @@ const RegisterVoluntario = (props) => {
         password: '',
         confirmPassword: '',
         termsAndConditions: false
+    }
+
+    const addLoggedIn = async (loggedInData) => {
+        const res = await fetch('http://localhost:5000/login', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify(loggedInData),
+        })
+
+        const data = await res.json()
+
     }
 
     function calcMaior18() {
@@ -115,9 +131,19 @@ const RegisterVoluntario = (props) => {
                                 helperText={<ErrorMessage name="confirmPassword" component="div" style={{ color: 'red' }} />} />
                             <Button variant="contained" component="label" size="small" style={marginBottom} sx={{'&:hover': { opacity: [0.9, 0.8, 0.7]} }}>
                                 <AddPhotoAlternateIcon />
-                                Adicionar foto
-                                <input hidden accept="image/*" multiple type="file" />
+                                Adicionar Foto Perfil
+                                <input hidden accept="image/*" multiple type="file" onClick={() => { setOpen(true);}} />
                             </Button>
+                            <Collapse in={open}>
+                                <Alert action={
+                                    <IconButton aria-label="close" color="inherit" size="small" onClick={() => {setOpen(false);}}>
+                                            <CloseIcon fontSize="inherit" />
+                                        </IconButton>
+                                    } sx={{ mb: 2 }}
+                                >
+                                    Foto importada com sucesso!
+                                </Alert>
+                            </Collapse>
                             <div>
                                 <FormControlLabel
                                     control={<Field as={Checkbox} name="termsAndConditions" />}

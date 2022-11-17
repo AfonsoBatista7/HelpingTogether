@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Typography, Button, AppBar, Stack, Toolbar } from "@mui/material";
 import imageLogo from "../../images/logo.png";
 import imageUser from "../../images/afonso.gif";
@@ -12,6 +12,7 @@ import ChooseType from '../Popup/ChooseType';
 
 function Header(props) {
     const [isLoggedIn, accountState] = useState(false);
+    const [perfil, setPerfil] = useState();
 
     const [openPopupLogin, setOpenPopupLogin] = useState(false);
     const [openPopupRegister, setOpenPopupRegister] = useState(false);
@@ -20,6 +21,21 @@ function Header(props) {
 
     const logIn = () => {
         setOpenPopupLogin(true);
+  
+        if(checkLogIn() == 1) accountState(true);
+        else accountState(false);
+    }
+
+    const checkLogIn = () => {
+        
+        loggedIns.forEach((element) => { 
+            if(element.isLoggedIn == true){
+                setPerfil(element);
+                return 1;
+            } else {
+                return 0;
+            }
+        })
     }
 
     const signUp = () => {
@@ -50,7 +66,6 @@ function Header(props) {
         }
 
         if(popup === "isLoggedIn") {
-            accountState(true);
             setOpenPopupLogin(false);
         }
 
@@ -62,6 +77,29 @@ function Header(props) {
             setOpenPopupRegisterVoluntario(false);
         }
     }
+
+    //vetor com todos os valores no login da Base de dados
+    const [loggedIns, setLoggedIns] = useState([])
+
+    //vai buscar todos os valores de login da BD e mete em loggedIns
+    useEffect(() => {
+        const getLoggedIn = async () => {
+            const loggedInFromServer = await fetchLoggedIn()
+            setLoggedIns(loggedInFromServer)
+        }
+
+        getLoggedIn()
+
+    }, [])
+
+    const fetchLoggedIn = async () => {
+        const res = await fetch('http://localhost:5000/login')
+        const data = await res.json()
+
+        return data
+    }
+
+
 
     return (
         <>

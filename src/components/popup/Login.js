@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Grid, FormHelperText, Avatar, TextField, Button, Typography, Link, Checkbox } from '@mui/material'
 import LockOutlined from '@mui/icons-material/LockOutlined';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
@@ -12,15 +12,53 @@ const Login = (props) => {
     const marginBottom = { marginBottom: 10 }
     const marginBottomFinal = { marginBottom: 20 }
 
+    // const [nameUser, setNameUser] = useSate('');
+    // const [passUser, setPassUser] = useSate('');
+
     const initialValue = {
         name: '',
         password: ''
     }
 
-    const onSubmit = (values) => {
-        console.log(values)
+    //vetor com todos os valores no login da Base de dados
+    const [loggedIns, setLoggedIns] = useState([])
 
-        props.function("isLoggedIn")
+    //vai buscar todos os valores de login da BD e mete em loggedIns
+    useEffect(() => {
+        const getLoggedIn = async () => {
+            const loggedInFromServer = await fetchLoggedIn()
+            setLoggedIns(loggedInFromServer)
+        }
+
+        getLoggedIn()
+
+    }, [])
+
+    const fetchLoggedIn = async () => {
+        const res = await fetch('http://localhost:5000/login')
+        const data = await res.json()
+
+        return data
+    }
+
+    const checkLogIn = (e) => {
+        
+        loggedIns.forEach((element) => { 
+            if(element.name == e.name && element.password == e.password){
+                return 1;
+            } else {
+                return 0;
+            }
+        })
+    }
+
+    const onSubmit = (values) => {
+
+        if(checkLogIn(values) == 0) {
+            console.log(0)
+        } else {
+            props.function("isLoggedIn")
+        }
        
         // setTimeout(() =>{
         //     props.resetForm()
