@@ -28,9 +28,9 @@
     margin-right: auto;
 }
 .marginPhone{
-    margin-top: 2%;
-    margin-left: 10%;
+    margin-top: 4%;
     margin-bottom: 4%;
+    margin-left: 10%;
     
 }
 .marginRight{
@@ -39,14 +39,36 @@
 
 .description{
     background-color: white;
-    margin-top: 5%;
+    margin-top: 6%;
     margin-bottom: 5%;
     margin-left: 5%;
     margin-right: 5%;
-    height: 700;
-    width: 700;
+    border-radius: 2%;
+    
 }
 
 .buttonmargin{
     margin-left: 5%;
 }
+
+.buttonedit{
+    margin-right: 5%;
+    margin-top: 2%;
+}
+
+.descriptionarea{
+    margin-left: 200;
+    margin-right: 200;
+    height:100%
+   
+}
+.perfileTitle{
+    margin-left: 4%;
+    margin-bottom: 1%;
+}
+
+.marginCandid{
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
