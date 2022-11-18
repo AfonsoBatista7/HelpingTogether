@@ -15,12 +15,14 @@ function Header(props) {
     const [perfil, setPerfil] = useState();
     const [openPopupLogin, setOpenPopupLogin] = useState(false);
     const [openPopupRegister, setOpenPopupRegister] = useState(false);
-    const [openPopupRegisterVoluntario, setOpenPopupRegisterVoluntario] = useState(false);
-    const [openPopupRegisterOrganizacao, setOpenPopupRegisterOrganizacao] = useState(false);
+    const [openPopupRegisterVoluntario, setOpenPopupRegisterVoluntario] =
+        useState(false);
+    const [openPopupRegisterOrganizacao, setOpenPopupRegisterOrganizacao] =
+        useState(false);
 
     const logIn = () => {
         setOpenPopupLogin(true);
-    }
+    };
 
     const signUp = () => {
         setOpenPopupRegister(true);
@@ -148,27 +150,33 @@ function Header(props) {
         <>
             <AppBar position="static" sx={{ bgcolor: "#2E3B55" }}>
                 <Toolbar>
-                    <img
-                        src={imageLogo}
-                        alt="logo"
-                        component="a"
+                    <Link
                         href="/"
-                        className={style.headerImage}
-                    ></img>
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="a"
-                        sx={{
-                            fontFamily: "monospace",
-                            fontWeight: 700,
-                            letterSpacing: ".2rem",
-                            color: "inherit",
-                            textDecoration: "none",
+                        className={style.headerLink}
+                        style={{
+                            marginRight: "20px",
+                            width: "3%",
                         }}
                     >
-                        HELPING TOGETHER
-                    </Typography>
+                        <img
+                            src={imageLogo}
+                            alt="logo"
+                            href="/"
+                            className={style.headerImage}
+                        />
+                    </Link>
+                    <Link href="/" className={style.headerLink}>
+                        <Typography
+                            variant="h6"
+                            sx={{
+                                fontFamily: "monospace",
+                                fontWeight: 700,
+                                letterSpacing: ".2rem",
+                            }}
+                        >
+                            HELPING TOGETHER
+                        </Typography>
+                    </Link>
                     <Stack direction="row" spacing={2} className={style.headerButton}>
                         <Button size="large" sx={{ color: 'white' }} onClick={goToOrganizations}>Voluntariados</Button>
                         <Button size="large" sx={{ color: 'white' }} onClick={goToVolunteers}>Organizações</Button>
@@ -216,7 +224,7 @@ function Header(props) {
                 <RegisterOrganizacao changePopup={changePopup} />
             </Popup>
         </>
-    )
+    );
 }
 
 export default Header;

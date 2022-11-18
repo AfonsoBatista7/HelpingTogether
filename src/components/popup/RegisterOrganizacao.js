@@ -58,11 +58,6 @@ const RegisterOrganizacao = (props) => {
         props.changePopup("isRegisterOrganizacao")
 
         addLoggedIn({ ...values, isLoggedIn: false, typePerfil: "organizacao" })
-
-        // setTimeout(() =>{
-        //     props.resetForm()
-        //     props.setSubmitting(false)
-        // }, 3000)
     }
 
     const getValues = (e) => {

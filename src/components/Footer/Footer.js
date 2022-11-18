@@ -24,7 +24,7 @@ function Footer(props) {
                             <Link
                                 href="#home"
                                 style={{
-                                    color: "white",
+                                    color: "#2E3B55",
                                     textDecoration: "none",
                                 }}
                                 onClick={preventDefault}
@@ -45,7 +45,7 @@ function Footer(props) {
                             <Link
                                 href="#home"
                                 style={{
-                                    color: "white",
+                                    color: "#2E3B55",
                                     textDecoration: "none",
                                 }}
                                 onClick={preventDefault}
@@ -71,32 +71,32 @@ function Footer(props) {
                             className={style.footerLink}
                             target="_blank"
                         >
-                            <FaTwitter size={26} color="#fff" />
+                            <FaTwitter size={26} color="#2E3B55" />
                         </Link>
                         <Link
                             href="https://www.instagram.com/"
                             className={style.footerLink}
                             target="_blank"
                         >
-                            <FaInstagram size={26} color="#fff" />
+                            <FaInstagram size={26} color="#2E3B55" />
                         </Link>
                         <Link
                             href=""
                             className={style.footerLink}
                             target="_blank"
                         >
-                            <FaDiscord size={26} color="#fff" />
+                            <FaDiscord size={26} color="#2E3B55" />
                         </Link>
                         <Link
                             href="https://www.youtube.com/"
                             className={style.footerLink}
                             target="_blank"
                         >
-                            <FaYoutube size={26} color="#fff" />
+                            <FaYoutube size={26} color="#2E3B55" />
                         </Link>
                     </Grid>
                     <Grid item xs={4}>
-                        <Typography>
+                        <Typography style={{color: '#2E3B55'}}>
                             © 2022. Helping Together, All rights reserved.
                         </Typography>
                     </Grid>
