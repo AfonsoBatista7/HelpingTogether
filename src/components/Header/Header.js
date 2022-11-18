@@ -7,15 +7,15 @@ import {
     Toolbar,
     Link,
 } from "@mui/material";
+import Login from "../Popup/Login";
+import Popup from "../Popup/Popup";
+import style from "./header.module.css";
+import ChooseType from "../Popup/ChooseType";
 import imageLogo from "../../images/logo.png";
 import imageUser from "../../images/afonso.gif";
 import UserProfileButton from "../UserProfileButton";
-import style from "./header.module.css";
-import Popup from "../Popup/Popup";
 import RegisterVoluntario from "../Popup/RegisterVoluntario";
 import RegisterOrganizacao from "../Popup/RegisterOrganizacao";
-import Login from "../Popup/Login";
-import ChooseType from "../Popup/ChooseType";
 
 function Header(props) {
     const [isLoggedIn, accountState] = useState(false);
@@ -44,23 +44,26 @@ function Header(props) {
     };
 
     const changePopup = (popup) => {
-        if (popup === "login") setOpenPopupLogin(true);
-
-        if (popup === "register") setOpenPopupRegister(true);
-
-        if (popup === "voluntario") {
-            setOpenPopupRegister(false);
-            setOpenPopupRegisterVoluntario(true);
-        }
-
-        if (popup === "organizacao") {
-            setOpenPopupRegister(false);
-            setOpenPopupRegisterOrganizacao(true);
-        }
-
-        if (popup === "isLoggedIn") {
-            accountState(true);
-            setOpenPopupLogin(false);
+        switch (popup) {
+            case "login":
+                setOpenPopupLogin(true);
+                break;
+            case "register":
+                setOpenPopupRegister(true);
+                break;
+            case "voluntario":
+                setOpenPopupRegister(false);
+                setOpenPopupRegisterVoluntario(true);
+                break;
+            case "organizacao":
+                setOpenPopupRegister(false);
+                setOpenPopupRegisterOrganizacao(true);
+                break;
+            case "isLoggedIn":
+                accountState(true);
+                setOpenPopupLogin(false);
+                break;
+            default:
         }
     };
 
@@ -72,21 +75,18 @@ function Header(props) {
                         href="/"
                         className={style.headerLink}
                         style={{
-                            marginRight:'20px',
-                            width: '3%',
+                            marginRight: "20px",
+                            width: "3%",
                         }}
                     >
-                    <img
-                        src={imageLogo}
-                        alt="logo"
-                        href="/"
-                        className={style.headerImage}
-                    />
+                        <img
+                            src={imageLogo}
+                            alt="logo"
+                            href="/"
+                            className={style.headerImage}
+                        />
                     </Link>
-                    <Link
-                        href="/"
-                        className={style.headerLink}
-                    >
+                    <Link href="/" className={style.headerLink}>
                         <Typography
                             variant="h6"
                             sx={{
