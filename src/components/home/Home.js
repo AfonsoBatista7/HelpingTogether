@@ -1,11 +1,13 @@
 import React from 'react'
 import SearchBar from "../search/SearchBar";
+import Map from "./Map";
 import imageLogo from "../../images/logo.png";
 import { Typography } from '@mui/material';
 
 const Home = () => {
   return (
     <div>
+      <Map />
         <center>
             <Typography
             variant="h2"

@@ -4,7 +4,7 @@ import {
   TextField,
   InputAdornment
 } from "@mui/material";
-import SearchIcon from '@mui/icons-material/Search';
+import { AiOutlineSearch } from "react-icons/ai";
 import FilterMain from "./FilterMain";
 import style from "./search.module.css";
 
@@ -16,7 +16,7 @@ const SearchBar = () => {
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
-                  <SearchIcon />
+                  <AiOutlineSearch />
                 </InputAdornment>
               ),
             }}/>
