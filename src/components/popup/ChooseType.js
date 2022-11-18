@@ -1,27 +1,8 @@
 import { Grid, Button, Divider } from '@mui/material'
 import React from 'react'
-import { createTheme } from '@mui/material/styles';
 
 
 const ChooseType = (props) => {
-
-    const changePopupVoluntario = () => {
-
-        props.function("voluntario");
-
-    };
-
-    const changePopupOrganizacao = () => {
-
-        props.function("organizacao");
-
-    };
-
-    //     const backgroundVol = {
-    //         width: "px",
-    //         height: "px",
-    //         background: "url(../images/Comida.png) no-repeat",
-    // }
 
     const headerStyle = { marginBottom: 10 }
     const line = { marginBottom: 20 }
@@ -29,6 +10,18 @@ const ChooseType = (props) => {
     const buttonVoluntario = {
         backgroundColor: '#00bcd4', marginBottom: 10, marginTop: 10, lineHeight: "40px" }
     const buttonOrganizacao = { backgroundColor: '#8bc34a', marginBottom: 10, marginTop: 10, lineHeight: "40px" }
+
+    const changePopupVoluntario = () => {
+
+        props.changePopup("voluntario");
+
+    };
+
+    const changePopupOrganizacao = () => {
+
+        props.changePopup("organizacao");
+
+    };
 
     return (
         <div>

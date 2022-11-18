@@ -7,6 +7,7 @@ import {
     Tooltip,
     IconButton,
     MenuItem,
+    Button,
 } from "@mui/material";
 
 // [
@@ -20,7 +21,7 @@ import {
 const UserProfileButton = (props) => {
     const logOut = () => {
         handleCloseUserMenu()
-        props.accountState(false);
+        props.takeOffLogin()
     };
 
     const goToProfile = () => {
@@ -44,7 +45,7 @@ const UserProfileButton = (props) => {
         Candidatura: goToApplication,
         VoluntariadosRealizados: goToVolunteersDone,
         Comentários: goToComments,
-        Sair: logOut,
+        Sair: logOut
     };
 
     const [anchorElUser, setAnchorElUser] = useState(null);
@@ -57,13 +58,16 @@ const UserProfileButton = (props) => {
         setAnchorElUser(null);
     };
 
+    const marginButton = { marginLeft: 8 }
+
     return (
         <div>
             <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open settings">
-                    <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                        <Avatar alt={props.name} src={props.image} />
-                    </IconButton>
+                    <Button name={props.name} variant="text" onClick={handleOpenUserMenu} sx={{ color: 'white' }}>
+                        {props.name}
+                    <Avatar alt={props.name} src={props.image} style={marginButton}/>
+                    </Button>
                 </Tooltip>
                 <Menu
                     sx={{ mt: "45px" }}

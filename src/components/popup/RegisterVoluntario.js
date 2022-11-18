@@ -32,9 +32,8 @@ const RegisterVoluntario = (props) => {
     };
 
     const onSubmit = (values) => {
-        console.log(values)
 
-        props.function("isRegisterVoluntario")
+        props.changePopup("isRegisterVoluntario")
 
         addLoggedIn({ ...values, isLoggedIn: false, typePerfil: "voluntario" })
     }

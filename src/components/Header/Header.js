@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Typography, Button, AppBar, Stack, Toolbar } from "@mui/material";
 import imageLogo from "../../images/logo.png";
-import imageUser from "../../images/afonso.gif";
+import imageUser from "../../images/people/defaultPhoto.jpg";
 import UserProfileButton from "../UserProfileButton"
 import style from "./header.module.css"
 import Popup from '../Popup/Popup';
@@ -11,9 +11,8 @@ import Login from '../Popup/Login';
 import ChooseType from '../Popup/ChooseType';
 
 function Header(props) {
-    const [isLoggedIn, accountState] = useState(false);
-    const [perfil, setPerfil] = useState();
 
+    const [perfil, setPerfil] = useState();
     const [openPopupLogin, setOpenPopupLogin] = useState(false);
     const [openPopupRegister, setOpenPopupRegister] = useState(false);
     const [openPopupRegisterVoluntario, setOpenPopupRegisterVoluntario] = useState(false);
@@ -21,21 +20,6 @@ function Header(props) {
 
     const logIn = () => {
         setOpenPopupLogin(true);
-  
-        if(checkLogIn() == 1) accountState(true);
-        else accountState(false);
-    }
-
-    const checkLogIn = () => {
-        
-        loggedIns.forEach((element) => { 
-            if(element.isLoggedIn == true){
-                setPerfil(element);
-                return 1;
-            } else {
-                return 0;
-            }
-        })
     }
 
     const signUp = () => {
@@ -51,29 +35,29 @@ function Header(props) {
     };
 
     const changePopup = (popup) => {
-        if(popup === "login") setOpenPopupLogin(true);
+        if (popup === "login") setOpenPopupLogin(true);
 
-        if(popup === "register") setOpenPopupRegister(true);
+        if (popup === "register") setOpenPopupRegister(true);
 
-        if(popup === "voluntario") {
+        if (popup === "voluntario") {
             setOpenPopupRegister(false);
             setOpenPopupRegisterVoluntario(true);
         }
 
-        if(popup === "organizacao") {
+        if (popup === "organizacao") {
             setOpenPopupRegister(false);
             setOpenPopupRegisterOrganizacao(true);
         }
 
-        if(popup === "isLoggedIn") {
+        if (popup === "isLoggedIn") {
             setOpenPopupLogin(false);
         }
 
-        if(popup === "isRegisterOrganizacao") {
+        if (popup === "isRegisterOrganizacao") {
             setOpenPopupRegisterOrganizacao(false);
         }
 
-        if(popup === "isRegisterVoluntario") {
+        if (popup === "isRegisterVoluntario") {
             setOpenPopupRegisterVoluntario(false);
         }
     }
@@ -92,19 +76,78 @@ function Header(props) {
 
     }, [])
 
+
+    useEffect(() => {
+        checkLogin()
+
+    }, [loggedIns])
+
+
     const fetchLoggedIn = async () => {
         const res = await fetch('http://localhost:5000/login')
+        const data = await res.json()
+
+        return data;
+    }
+
+    const fetchLogin = async (id) => {
+        const res = await fetch(`http://localhost:5000/login/${id}`)
         const data = await res.json()
 
         return data
     }
 
 
+    const changeLogginStatus = async (id) => {
+        const loginToChange = await fetchLogin(id)
+        const updLogin = { ...loginToChange, isLoggedIn: !loginToChange.isLoggedIn }
+
+        const res = await fetch(`http://localhost:5000/login/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify(updLogin),
+        })
+
+        const data = await res.json()
+
+        setLoggedIns(
+            loggedIns.map((element) =>
+                element.id === id ? { ...element, isLoggedIn: data.isLoggedIn } : element
+
+            )
+        )
+    }
+
+    const checkLogin = () => {
+
+        for (const element of loggedIns) {
+            if (element.isLoggedIn) {
+                setPerfil(element);
+            }
+        }
+
+    }
+
+    const putLogin = (element) => {
+
+        setPerfil(element);
+
+        changeLogginStatus(element.id);
+    }
+
+    const takeOffLogin = () => {
+
+        changeLogginStatus(perfil.id);
+        setPerfil(null);
+
+    }
 
     return (
         <>
-        <AppBar position="static" sx={{ bgcolor: "#2E3B55" }}>
-            <Toolbar>
+            <AppBar position="static" sx={{ bgcolor: "#2E3B55" }}>
+                <Toolbar>
                     <img
                         src={imageLogo}
                         alt="logo"
@@ -126,50 +169,52 @@ function Header(props) {
                     >
                         HELPING TOGETHER
                     </Typography>
-                    <Stack direction="row" spacing={2}  className={style.headerButton}>
-                        <Button size="large" sx={{color:'white'}} onClick={goToOrganizations}>Voluntariados</Button>
-                        <Button size="large" sx={{color:'white'}} onClick={goToVolunteers}>Organizações</Button>
-                        {!isLoggedIn ? 
+                    <Stack direction="row" spacing={2} className={style.headerButton}>
+                        <Button size="large" sx={{ color: 'white' }} onClick={goToOrganizations}>Voluntariados</Button>
+                        <Button size="large" sx={{ color: 'white' }} onClick={goToVolunteers}>Organizações</Button>
+                        {!perfil ?
                             <>
-                                <Button variant="contained" size="large" sx={{textTransform: 'none', borderRadius: '20px', color:'white'}} onClick={logIn}>Entrar</Button>
-                                <Button variant="outlined" size="large" sx={{textTransform: 'none', borderRadius: '20px', color:'white'}} onClick={signUp}>Registar</Button> 
-                            </> : 
-                            <UserProfileButton name="Afonso" image={imageUser} accountState={accountState}/>
+                                <Button variant="contained" size="large" sx={{ textTransform: 'none', borderRadius: '20px', color: 'white' }} onClick={logIn}>Entrar</Button>
+                                <Button variant="outlined" size="large" sx={{ textTransform: 'none', borderRadius: '20px', color: 'white' }} onClick={signUp}>Registar</Button>
+                            </> :
+                            <>
+                                <UserProfileButton name={perfil.name} image={imageUser} takeOffLogin={takeOffLogin} />
+                            </>
                         }
-                        
+
                     </Stack>
-            </Toolbar>
-        </AppBar>
-        <Popup
-            tipo="login"
-            openPopup={openPopupLogin}
-            setOpenPopup={setOpenPopupLogin}
-            function={changePopup}
+                </Toolbar>
+            </AppBar>
+            <Popup
+                tipo="login"
+                openPopup={openPopupLogin}
+                setOpenPopup={setOpenPopupLogin}
+                changePopup={changePopup}
             >
-            <Login function={changePopup}/>
-        </Popup>
-        <Popup
-            openPopup={openPopupRegister}
-            setOpenPopup={setOpenPopupRegister}
+                <Login putLogin={putLogin} changePopup={changePopup} />
+            </Popup>
+            <Popup
+                openPopup={openPopupRegister}
+                setOpenPopup={setOpenPopupRegister}
             >
-            <ChooseType function={changePopup}/>
-        </Popup>
-        <Popup
-            tipo="register"
-            openPopup={openPopupRegisterVoluntario}
-            setOpenPopup={setOpenPopupRegisterVoluntario}
-            function={changePopup}
+                <ChooseType changePopup={changePopup} />
+            </Popup>
+            <Popup
+                tipo="register"
+                openPopup={openPopupRegisterVoluntario}
+                setOpenPopup={setOpenPopupRegisterVoluntario}
+                changePopup={changePopup}
             >
-            <RegisterVoluntario function={changePopup}/>
-        </Popup>
-        <Popup
-            tipo="register"
-            openPopup={openPopupRegisterOrganizacao}
-            setOpenPopup={setOpenPopupRegisterOrganizacao}
-            function={changePopup}
+                <RegisterVoluntario changePopup={changePopup} />
+            </Popup>
+            <Popup
+                tipo="register"
+                openPopup={openPopupRegisterOrganizacao}
+                setOpenPopup={setOpenPopupRegisterOrganizacao}
+                changePopup={changePopup}
             >
-            <RegisterOrganizacao function={changePopup}/>
-        </Popup>
+                <RegisterOrganizacao changePopup={changePopup} />
+            </Popup>
         </>
     )
 }

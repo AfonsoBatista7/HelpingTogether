@@ -26,6 +26,34 @@
       "isLoggedIn": false,
       "typePerfil": "voluntario",
       "id": 8
+    },
+    {
+      "name": "luis",
+      "email": "l@gmail.com",
+      "gender": "male",
+      "birthday": "2022-11-18T20:43:59.731Z",
+      "phone": "923451678",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "termsAndConditions": true,
+      "isLoggedIn": false,
+      "typePerfil": "voluntario",
+      "id": 9
+    },
+    {
+      "name": "amigosforever",
+      "email": "af@gmail.com",
+      "phone": "931234567",
+      "password": "111111",
+      "confirmPassword": "111111",
+      "type": [
+        "Gastronomia",
+        "Saúde"
+      ],
+      "termsAndConditions": true,
+      "isLoggedIn": false,
+      "typePerfil": "organizacao",
+      "id": 10
     }
   ],
   "voluntarios": [

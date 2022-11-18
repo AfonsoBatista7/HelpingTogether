@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { Grid, Collapse, IconButton, Alert, Avatar, Typography, TextField, Button, Radio, RadioGroup, FormControlLabel, Checkbox,FormHelperText } from '@mui/material'
+import React, { useState } from 'react'
+import { Grid, Collapse, IconButton, Alert, Avatar, Typography, TextField, Button, FormControlLabel, Checkbox,FormHelperText } from '@mui/material'
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
@@ -14,7 +14,6 @@ const RegisterOrganizacao = (props) => {
     const avatarStyle = { backgroundColor: '#1bbd7e' }
     const marginTop = { marginTop: 10 }
     const marginBottom = { marginBottom: 10 }
-    const marginButton = { marginLeft: 100, marginTop: 50 }
     const marginTopFinal = { marginTop: 50 }
 
     const [open, setOpen] = useState(false);
@@ -56,7 +55,7 @@ const RegisterOrganizacao = (props) => {
 
     const onSubmit = (values) => {
 
-        props.function("isRegisterOrganizacao")
+        props.changePopup("isRegisterOrganizacao")
 
         addLoggedIn({ ...values, isLoggedIn: false, typePerfil: "organizacao" })
 
