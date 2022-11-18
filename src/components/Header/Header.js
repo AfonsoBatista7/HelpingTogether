@@ -68,31 +68,36 @@ function Header(props) {
         <>
             <AppBar position="static" sx={{ bgcolor: "#2E3B55" }}>
                 <Toolbar>
+                    <Link
+                        href="/"
+                        className={style.headerLink}
+                        style={{
+                            marginRight:'20px',
+                            width: '3%',
+                        }}
+                    >
                     <img
                         src={imageLogo}
                         alt="logo"
                         href="/"
                         className={style.headerImage}
                     />
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        sx={{
-                            fontFamily: "monospace",
-                            fontWeight: 700,
-                            letterSpacing: ".2rem",
-                        }}
+                    </Link>
+                    <Link
+                        href="/"
+                        className={style.headerLink}
                     >
-                        <Link
-                            href="/"
-                            style={{
-                                color: "inherit",
-                                textDecoration: "none",
+                        <Typography
+                            variant="h6"
+                            sx={{
+                                fontFamily: "monospace",
+                                fontWeight: 700,
+                                letterSpacing: ".2rem",
                             }}
                         >
                             HELPING TOGETHER
-                        </Link>
-                    </Typography>
+                        </Typography>
+                    </Link>
                     <Stack
                         direction="row"
                         spacing={2}
