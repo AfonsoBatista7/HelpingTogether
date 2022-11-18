@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, FormHelperText, Avatar, TextField, Button, Typography, Link, Checkbox } from '@mui/material'
+import { Grid, Avatar, TextField, Button} from '@mui/material'
 import LockOutlined from '@mui/icons-material/LockOutlined';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -11,7 +11,7 @@ const Login = (props) => {
     const btnstyle = { margin: '8px 0' }
     const marginBottom = { marginBottom: 10 }
     const marginBottomFinal = { marginBottom: 20 }
-    const error = { color: 'red' }
+    // const error = { color: 'red' }
 
     const initialValue = {
         name: '',
