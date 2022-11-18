@@ -1,9 +1,6 @@
 import { Grid, Button, Divider } from '@mui/material'
 import React from 'react'
-<<<<<<< HEAD
-=======
-// import { createTheme } from '@mui/material/styles';
->>>>>>> be89b1a8aa5a3852ffde852eb4c860147465d5e9
+
 
 
 const ChooseType = (props) => {

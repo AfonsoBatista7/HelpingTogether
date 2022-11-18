@@ -14,11 +14,9 @@ const RegisterVoluntario = (props) => {
 
     const headerStyle = { margin: 0 }
     const avatarStyle = { backgroundColor: '#1bbd7e' }
-    const marginTop = { marginTop: 5 }
     const both = { marginTop: 20, marginBottom: 15 }
     const marginBottom = { marginBottom: 10 }
     const marginTop2 = { marginTop: 30 }
-    const marginButton = { marginLeft: 100 }
 
     const [date, setDate] = useState(new Date());
 

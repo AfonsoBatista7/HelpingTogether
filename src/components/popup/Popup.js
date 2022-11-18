@@ -1,24 +1,13 @@
 import * as React from 'react';
-<<<<<<< HEAD
-=======
-// import { useState } from 'react'
->>>>>>> be89b1a8aa5a3852ffde852eb4c860147465d5e9
 import PropTypes from 'prop-types';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
-<<<<<<< HEAD
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
-=======
-// import DialogActions from '@mui/material/DialogActions';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
-import Typography from '@mui/material/Typography';
-// import { margin } from '@mui/system';
->>>>>>> be89b1a8aa5a3852ffde852eb4c860147465d5e9
+import { margin } from '@mui/system';
 
 
 function BootstrapDialogTitle(props) {
