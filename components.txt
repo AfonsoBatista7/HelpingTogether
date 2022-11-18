@@ -33,7 +33,7 @@ Comentario box {Foto, Nome, Avaliação, comentário}
 Organizações Box
 Candidatos
 Voluntariados Box(quando na pagina de voluntariados)
-Voluntariados Box { Foto, nome, avaliação}
+Voluntariados Box { Foto, nome, avaliação} [X]
 about us page com imagens e fotos nossas
 FOOTER [X]
 HEADER [X]

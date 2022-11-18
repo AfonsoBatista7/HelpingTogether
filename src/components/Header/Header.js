@@ -123,9 +123,10 @@ function Header(props) {
                                     variant="contained"
                                     size="large"
                                     sx={{
+                                        backgroundColor:"beige",
                                         textTransform: "none",
                                         borderRadius: "20px",
-                                        color: "white",
+                                        color: "#2E3B55",
                                     }}
                                     onClick={logIn}
                                 >
@@ -135,6 +136,7 @@ function Header(props) {
                                     variant="outlined"
                                     size="large"
                                     sx={{
+                                        border: " 1px solid beige",
                                         textTransform: "none",
                                         borderRadius: "20px",
                                         color: "white",

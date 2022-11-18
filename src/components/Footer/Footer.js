@@ -7,11 +7,8 @@ function Footer(props) {
     const preventDefault = (event) => event.preventDefault();
     return (
         <footer className={style.footer}>
-                <Grid
-                    container
-                    direction="row"
-                    justifyContent="center"
-                >
+            <div style={{ position: 'relative', top: 35 }}>
+                <Grid container direction="row" justifyContent="center">
                     <Grid item xs={1}>
                         <Typography
                             style={{
@@ -96,11 +93,12 @@ function Footer(props) {
                         </Link>
                     </Grid>
                     <Grid item xs={4}>
-                        <Typography style={{color: '#2E3B55'}}>
+                        <Typography style={{ color: "#2E3B55" }}>
                             © 2022. Helping Together, All rights reserved.
                         </Typography>
                     </Grid>
                 </Grid>
+            </div>
         </footer>
     );
 }
