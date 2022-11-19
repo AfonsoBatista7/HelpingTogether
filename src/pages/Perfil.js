@@ -86,7 +86,7 @@ function Perfil(props) {
 
                 </div>
 
-                <InfoProfile />
+                <InfoProfile perfil/>
 
                 <Container style={{
                     height: 70

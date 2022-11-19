@@ -3,7 +3,7 @@ import style from "./Profiles.module.css"
 import image from "../../images/people/Maria.jpg";
 import React, { useState } from 'react'
 
-import { Grid, Typography, Container, Avatar, Button, TextField } from "@mui/material";
+import { Grid, Typography, Container, Avatar, Button, TextField, Rating } from "@mui/material";
 import LocalPhoneRoundedIcon from '@mui/icons-material/LocalPhoneRounded';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import EditIcon from '@mui/icons-material/Edit';
@@ -12,6 +12,8 @@ import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 
 
 function InfoProfile(props) {
+
+  console.log(props);
 
   const [editMode, editState] = useState(false);
   const [perfil, setPerfil] = useState();
@@ -36,7 +38,6 @@ function InfoProfile(props) {
         justifyContent="center"
         alignItems="flex-start"
       >
-
 
         <Grid item xs={3}
           justifyContent="center"
@@ -65,7 +66,7 @@ function InfoProfile(props) {
             color: 'white',
             textTransform: "uppercase",
             textAlign: 'center'
-          }}>Maria</Typography>
+          }}>Maria Leal</Typography>
 
 
 
@@ -102,7 +103,6 @@ function InfoProfile(props) {
                 fontWeight: 500,
                 fontSize: 15,
                 color: 'white',
-                textTransform: "uppercase",
                 textAlign: 'center'
               }}>marialeal45@gmail.com</Typography>
           </Grid>
@@ -114,7 +114,10 @@ function InfoProfile(props) {
           justifyContent="center"
           alignItems="flex-end">
 
-          <div style={{ height: 70 }}></div>
+          <div style={{ height: 20 }}></div>
+          <div style={{ height: 50 , alignItems:'left'}}>
+            <Rating name="half-rating-read" defaultValue={3.5} precision={0.5} readOnly size="large" />
+             </div>
 
           {!editMode ?
             <Button size="large" sx={{ color: 'white' }} style={{ float: 'right' }} className={style.buttonedit} onClick={changeState}>Editar

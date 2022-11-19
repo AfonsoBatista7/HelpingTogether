@@ -1,77 +1,46 @@
 
 import style from "./Profiles.module.css"
-import image from "../../images/people/Maria.jpg";
+import image from "../../images/volunteering/Comida.png";
+import org from "../../images/organizations/UNICEF.jpg";
 import React, { useState } from 'react'
 
-import { Grid, Typography, Container, Avatar, Button, TextField } from "@mui/material";
-import LocalPhoneRoundedIcon from '@mui/icons-material/LocalPhoneRounded';
-import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import { Grid, Typography, Container, Avatar, Button, TextField, Rating } from "@mui/material";
+import PinDropRoundedIcon from '@mui/icons-material/PinDropRounded';
+import CalendarMonthRoundedIcon from '@mui/icons-material/CalendarMonthRounded';
 import DoneOutlineRoundedIcon from '@mui/icons-material/DoneOutlineRounded';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 
 
 function InfoVoluntariado(props) {
 
-    const [candidate, editState] = useState(false);
 
-    function changeState() {
-        editState(!editMode);
-    }
 
     var valueMessage = "Hello World sjajvsjdoKSDOAKALAPDASKDPAKDASKDVOAVKAKVKDNVFKAakjdjfahkfhkfhaksfhkjahfkashfkdhfkahfkhakrhgkuafhnsjdcajcnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnMDMVKADMVKAMVKAFVKDNFVKANDFKVNAKNFVAKSNVKASNVKANDVFNKSNFVKNSKAVNKASNVKASNVKFNVKANVKANVKANDKFMwlfkmLWFMLmfkfefKEFlkefjlkwflkawfkmaslvkmkadsvmamvmvaksndvkfkam";
 
 
     return (
-        <div style={{ alignItems: 'left', backgroundColor: "#A3E4D7", borderRadius: '10px' }} >
-
-            {!editMode ?
-                <Button color="success" size="large" sx={{ color: 'white' }} style={{ float: 'right' }} className={style.buttonedit} onClick={changeState}>
-                    < DoneOutlineRoundedIcon className={style.buttonmargin} style={{
-                        color: 'white',
-                        fontSize: 20
-                    }}></ DoneOutlineRoundedIcon> Candidatar
-                </Button>
-                : <Button color="error" size="large" sx={{ color: 'white' }} style={{ float: 'right' }} className={style.buttonedit} onClick={changeState}>
-                    < CancelOutlinedIcon className={style.buttonmargin} style={{
-                        color: 'white',
-                        fontSize: 20
-                    }}></ CancelOutlinedIcon> Cancelar Candidatura
-                </Button>}
-
+        <div  >
             <Grid container direction="row"
                 justifyContent="center"
-                alignItems="flex-start"
-            >
-
+                alignItems="flex-start">
 
                 <Grid item xs={3}
                     justifyContent="center"
                     alignItems="center">
 
-                    <Avatar className={style.marginprofile}
+                    <img className={style.photoVoluntariado}
                         src={image}
 
-                        sx={{ width: 200, height: 200 }} />
-
-
-                    <Typography style={{
-                        fontWeight: 700,
-                        fontSize: 30,
-                        color: 'white',
-                        textTransform: "uppercase",
-                        textAlign: 'center'
-                    }}>Doar Sangue</Typography>
-
-
+                    />
 
                     <Grid container direction="row"
                         justifyContent="flex-start"
                         alignItems="center"
                         className={style.marginPhone}>
-                        <LocalPhoneRoundedIcon className={style.marginRight} style={{
-                            color: 'white',
-                            fontSize: 30
-                        }}></LocalPhoneRoundedIcon>
+                       <Avatar className={style.marginRight}
+                             src={org}
+
+                             sx={{ width: 30, height: 30 }} />
                         <Typography
                             style={{
                                 fontWeight: 500,
@@ -79,7 +48,25 @@ function InfoVoluntariado(props) {
                                 color: 'white',
                                 textTransform: "uppercase",
                                 textAlign: 'center'
-                            }}>900000000</Typography>
+                            }}>UNICEF</Typography>
+                    </Grid>
+
+                    <Grid container direction="row"
+                        justifyContent="flex-start"
+                        alignItems="center"
+                        className={style.marginPhone}>
+                        <PinDropRoundedIcon className={style.marginRight} style={{
+                            color: 'white',
+                            fontSize: 30
+                        }}></PinDropRoundedIcon>
+                        <Typography
+                            style={{
+                                fontWeight: 500,
+                                fontSize: 20,
+                                color: 'white',
+                                textTransform: "uppercase",
+                                textAlign: 'center'
+                            }}>Porto</Typography>
                     </Grid>
 
 
@@ -87,10 +74,10 @@ function InfoVoluntariado(props) {
                         justifyContent="flex-start"
                         alignItems="center"
                         className={style.marginPhone}>
-                        <EmailOutlinedIcon className={style.marginRight} style={{
+                        <CalendarMonthRoundedIcon className={style.marginRight} style={{
                             color: 'white',
                             fontSize: 30
-                        }}></EmailOutlinedIcon>
+                        }}></CalendarMonthRoundedIcon>
 
                         <Typography className={style.margintop}
                             style={{
@@ -99,7 +86,7 @@ function InfoVoluntariado(props) {
                                 color: 'white',
                                 textTransform: "uppercase",
                                 textAlign: 'center'
-                            }}>marialeal45@gmail.com</Typography>
+                            }}>20/07/2022 - 25/07/2022</Typography>
                     </Grid>
 
                 </Grid>
@@ -107,30 +94,49 @@ function InfoVoluntariado(props) {
                     container
                     direction="column"
                     justifyContent="center"
-                    alignItems="flex-end">
+                    alignItems="flex-start">
 
-                    <div style={{ height: 70 }}></div>
 
+
+
+
+                    <div className={style.titleVoluntariado}>
+
+                        <Grid container
+                            direction="row"
+                            justifyContent="space-between"
+                            alignItems="center">
+
+
+                            <div className={style.descriptionvoluntario}>
+                                <Typography style={{
+                                    fontWeight: 700,
+                                    fontSize: 30,
+                                    color: '#2E3B55',
+                                    textTransform: "uppercase",
+                                    textAlign: 'left'
+                                }}>Distribuição de refeições</Typography>
+                            </div>
+
+                            <div className={style.descriptionvoluntario}>
+                                <Rating name="half-rating-read" defaultValue={3.5} precision={0.5} readOnly size="large" />
+                            </div>
+                        </Grid>
+
+                    </div>
 
                     <Container className={style.descriptionarea}>
 
-                        {!editMode ?
-                            <TextField className={style.description}
-                                disabled
-                                fullWidth
-                                multiline
-                                id="outlined-disabled"
-                                defaultValue={valueMessage}
-                            /> : <TextField className={style.description}
-
-                                fullWidth
-                                multiline
-                                id="outlined-disabled"
-                                defaultValue={valueMessage}
-                            />}
-
+                        <TextField className={style.description}
+                            disabled
+                            fullWidth
+                            multiline
+                            id="outlined-disabled"
+                            defaultValue={valueMessage}
+                        />
 
                     </Container>
+                    <div></div>
 
                 </Grid>
             </Grid >
