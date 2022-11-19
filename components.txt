@@ -30,7 +30,7 @@ Aceitar/Recusar Candidatos
 
 [AFONSO] 
 Comentario box {Foto, Nome, Avaliação, comentário} 
-Organizações Box
+Organizações Box [X]
 Candidatos
 Voluntariados Box(quando na pagina de voluntariados)
 Voluntariados Box { Foto, nome, avaliação} [X]
