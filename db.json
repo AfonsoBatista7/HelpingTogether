@@ -10,7 +10,7 @@
         "Animais"
       ],
       "termsAndConditions": true,
-      "isLoggedIn": false,
+      "isLoggedIn": true,
       "typePerfil": "organizacao",
       "id": 7
     },

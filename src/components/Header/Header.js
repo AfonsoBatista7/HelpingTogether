@@ -11,7 +11,7 @@ import Login from '../Popup/Login';
 import ChooseType from '../Popup/ChooseType';
 import { Link } from 'react-router-dom'
 
-function Header(props) {
+function Header() {
 
     const [perfil, setPerfil] = useState();
     const [openPopupLogin, setOpenPopupLogin] = useState(false);

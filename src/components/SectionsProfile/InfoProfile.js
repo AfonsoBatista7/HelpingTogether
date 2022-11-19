@@ -11,18 +11,22 @@ import SaveIcon from '@mui/icons-material/Save';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 
 
-
-
-
 function InfoProfile(props) {
 
   const [editMode, editState] = useState(false);
+  const [perfil, setPerfil] = useState();
 
   function changeState() {
     editState(!editMode);
   }
 
   var valueMessage = "Hello World sjajvsjdoKSDOAKALAPDASKDPAKDASKDVOAVKAKVKDNVFKAakjdjfahkfhkfhaksfhkjahfkashfkdhfkahfkhakrhgkuafhnsjdcajcnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnMDMVKADMVKAMVKAFVKDNFVKANDFKVNAKNFVAKSNVKASNVKANDVFNKSNFVKNSKAVNKASNVKASNVKFNVKANVKANVKANDKFMwlfkmLWFMLmfkfefKEFlkefjlkwflkawfkmaslvkmkadsvmamvmvaksndvkfkam";
+
+//   const checkLogin = () => {
+//       setPerfil(props.perfil);
+// }
+
+  //window.onload= setTimeout(checkLogin, 4000);
 
 
   return (
@@ -61,7 +65,7 @@ function InfoProfile(props) {
             color: 'white',
             textTransform: "uppercase",
             textAlign: 'center'
-          }}>Maria Leal</Typography>
+          }}>Maria</Typography>
 
 
 

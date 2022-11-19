@@ -4,8 +4,70 @@ import CandidaturasPendentes from "../components/SectionsProfile/CandidaturasPen
 import Comentarios from "../components/SectionsProfile/Comentarios";
 import style from "../components/SectionsProfile/Profiles.module.css"
 import { Pagination, Grid, Typography, Container } from "@mui/material";
+import React, { useState, useEffect } from "react";
 
-function Perfil() {
+function Perfil(props) {
+
+    const [perfil, setPerfil] = useState();
+
+    //vetor com todos os valores no login da Base de dados
+    const [loggedIns, setLoggedIns] = useState([])
+
+    //vai buscar todos os valores de login da BD e mete em loggedIns
+    useEffect(() => {
+        // const getLoggedIn = async () => {
+        //     const loggedInFromServer = await fetch()
+        //     setLoggedIns(loggedInFromServer)
+        // }
+
+        // getLoggedIn(loggedIns)
+
+        const fetchLoggedIn = async () => {
+            const res = await fetch('http://localhost:5000/login')
+            const data = await res.json()
+    
+            setLoggedIns(data);
+        }
+
+        fetchLoggedIn();
+
+
+        console.log(loggedIns)
+
+    }, [])
+
+
+    useEffect(() => {
+        checkLogin()
+
+    }, [loggedIns])
+
+
+    const fetchLoggedIn = async () => {
+        const res = await fetch('http://localhost:5000/login')
+        const data = await res.json()
+
+        return data;
+    }
+
+    const checkLogin = () => {
+
+        for (const element of loggedIns) {
+            if (element.isLoggedIn) {
+                setPerfil(element);
+            }
+        }
+
+        // console.log(perfil)
+
+    }
+
+    //window.onload= setTimeout(checkLogin, 3000);
+
+
+    //console.log(loggedIns)
+
+
     return (
         <div className={style.backgroundwhite}>
             <div className={style.margins}>
