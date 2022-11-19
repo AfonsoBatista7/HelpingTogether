@@ -15,10 +15,7 @@
 }
 
 .headerImage {
-    width: 3%;
-    height: auto;
-    pointer-events: fill;
-    margin-right: 14px;
+    width: 100%;
 }
 
 .headerLink {

@@ -1,7 +1,7 @@
 import { Typography, Link, Grid } from "@mui/material";
 import { FaTwitter, FaInstagram, FaDiscord, FaYoutube } from "react-icons/fa";
 
-import style from "./footer.module.css";
+import style from "./Footer.module.css";
 
 function Footer(props) {
     const preventDefault = (event) => event.preventDefault();

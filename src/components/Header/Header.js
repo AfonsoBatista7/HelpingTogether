@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Typography, Button, AppBar, Stack, Toolbar, Link } from "@mui/material";
+import { Typography, Button, AppBar, Stack, Toolbar } from "@mui/material";
 import imageLogo from "../../images/logo.png";
 import imageUser from "../../images/people/defaultPhoto.jpg";
 import UserProfileButton from "../UserProfileButton"
@@ -9,7 +9,7 @@ import RegisterVoluntario from '../Popup/RegisterVoluntario';
 import RegisterOrganizacao from '../Popup/RegisterOrganizacao';
 import Login from '../Popup/Login';
 import ChooseType from '../Popup/ChooseType';
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function Header(props) {
 
@@ -150,7 +150,7 @@ function Header(props) {
             <AppBar position="static" sx={{ bgcolor: "#2E3B55" }}>
                 <Toolbar>
                     <Link
-                        href="/"
+                       to="/"
                         className={style.headerLink}
                         style={{
                             marginRight: "20px",
@@ -160,11 +160,10 @@ function Header(props) {
                         <img
                             src={imageLogo}
                             alt="logo"
-                            href="/"
                             className={style.headerImage}
                         />
                     </Link>
-                    <Link href="/" className={style.headerLink}>
+                    <Link to="/" className={style.headerLink}>
                         <Typography
                             variant="h6"
                             sx={{
