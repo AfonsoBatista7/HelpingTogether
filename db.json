@@ -65,7 +65,8 @@
       "birthdate": "07/05/1984",
       "gender": "Feminino",
       "phone": "924562789",
-      "image": "Maria.jpg"
+      "image": "Maria.jpg",
+      "rating": 1
     },
     {
       "id": 2,
@@ -75,7 +76,8 @@
       "birthdate": "30/09/1962",
       "gender": "Feminino",
       "phone": "912498876",
-      "image": "Gestrudes.jpg"
+      "image": "Gestrudes.jpg",
+      "rating": 3
     },
     {
       "id": 3,
@@ -85,7 +87,8 @@
       "birthdate": "12/07/1977",
       "gender": "Feminino",
       "phone": "914562789",
-      "image": "Laura.png"
+      "image": "Laura.png",
+      "rating": 4
     },
     {
       "id": 4,
@@ -95,7 +98,8 @@
       "birthdate": "19/02/2002",
       "gender": "Masculino",
       "phone": "965782234",
-      "image": "Tiago.jpg"
+      "image": "Tiago.jpg",
+      "rating": 5
     },
     {
       "id": 5,
@@ -105,7 +109,8 @@
       "birthdate": "23/12/1967",
       "gender": "Masculino",
       "phone": "922234556",
-      "image": "Osvaldo.jpg"
+      "image": "Osvaldo.jpg",
+      "rating": 3
     }
   ],
   "organizacoes": [
@@ -218,7 +223,8 @@
       "type": [
         "Natureza"
       ],
-      "image": "Plantar.jpg"
+      "image": "Plantar.jpg",
+      "rating": 2
     },
     {
       "id": 15,
@@ -230,7 +236,8 @@
       "type": [
         "Natureza"
       ],
-      "image": "Limpar_floresta.jpg"
+      "image": "Limpar_floresta.jpg",
+      "rating": 5
     },
     {
       "id": 16,
@@ -242,7 +249,8 @@
       "type": [
         "Poluição"
       ],
-      "image": "Limpar_praia.png"
+      "image": "Limpar_praia.png",
+      "rating": 4
     },
     {
       "id": 17,
@@ -254,7 +262,8 @@
       "type": [
         "Poluição"
       ],
-      "image": "Limpeza_floresta.jpg"
+      "image": "Limpeza_floresta.jpg",
+      "rating": 4
     },
     {
       "id": 18,
@@ -266,7 +275,8 @@
       "type": [
         "Animais"
       ],
-      "image": "Cagarros.jpg"
+      "image": "Cagarros.jpg",
+      "rating": 3
     },
     {
       "id": 19,
@@ -278,7 +288,8 @@
       "type": [
         "Animais"
       ],
-      "image": "Resgatar_animais.jpg"
+      "image": "Resgatar_animais.jpg",
+      "rating": 2
     },
     {
       "id": 20,
@@ -291,7 +302,8 @@
         "Comunidade",
         "Gastronomia"
       ],
-      "image": "Comida.png"
+      "image": "Comida.png",
+      "rating": 5
     },
     {
       "id": 21,
@@ -304,7 +316,8 @@
         "Gastronomia",
         "Comunidade"
       ],
-      "image": "Recolha_alimentos.png"
+      "image": "Recolha_alimentos.png",
+      "rating": 4
     },
     {
       "id": 22,
@@ -316,7 +329,8 @@
       "type": [
         "Comunidade"
       ],
-      "image": "Construir.png"
+      "image": "Construir.png",
+      "rating": 5
     },
     {
       "id": 23,
@@ -328,7 +342,8 @@
       "type": [
         "Comunidade"
       ],
-      "image": "Recolher_roupa.png"
+      "image": "Recolher_roupa.png",
+      "rating": 3
     },
     {
       "id": 24,
@@ -340,7 +355,8 @@
       "type": [
         "Saúde"
       ],
-      "image": "Saude.png"
+      "image": "Saude.png",
+      "rating": 4
     },
     {
       "id": 25,
@@ -352,7 +368,103 @@
       "type": [
         "Saúde"
       ],
-      "image": "Sangue.png"
+      "image": "Sangue.png",
+      "rating": 2
+    }
+  ],
+  "comentariosPessoa": [
+    {
+      "id": 1,
+      "name": "Cruz Vermelha",
+      "comment": "Voluntário sempre desponível quando solicitado, empenhado e bom trabalhador.",
+      "image": "Cruz_Vermelha.png",
+      "rating": 3
+    },
+    {
+      "id": 1,
+      "name": "UNICEF",
+      "comment": "Voluntário empenhado, porém não pontual. Chegou várias vezes atrasado sem desculpa plausível",
+      "image": "UNICEF.jpg",
+      "rating": 2
+    },
+    {
+      "id": 2,
+      "name": "Leo",
+      "comment": "Voluntário dedicado, muito presente e comprometido com o projeto que desempenhou.",
+      "image": "Leo.png",
+      "rating": 5
+    },
+    {
+      "id": 1,
+      "name": "FAPAS",
+      "comment": "Voluntário um pouco rude. Não trabalhou bem em equipa.",
+      "image": "FAPAS.jpg",
+      "rating": 1
+    },
+    {
+      "id": 1,
+      "name": "Just a Change",
+      "comment": "Voluntário esforçado, no entanto, não estava sempre disponivel quando solocitado.",
+      "image": "Just_a_Change.png",
+      "rating": 4
+    },
+    {
+      "id": 1,
+      "name": "Banco Alimentar",
+      "comment": "Voluntário desponável mas não se esforça tanto quanto poderia.",
+      "image": "Banco Alimentar",
+      "rating": 3
+    },
+    {
+      "id": 1,
+      "name": "Caritas",
+      "comment": "Voluntário bastante social, divertido e carismático. Interage bem com pessoas e faz um bom trabalho do que lhe é pedido.",
+      "image": "Caritas.png",
+      "rating": 4
+    },
+    {
+      "id": 1,
+      "name": "Animalife",
+      "comment": "Voluntário eficiente, bom trabalhador em equipa e dinâmico. ",
+      "image": "Animalife.jpg",
+      "rating": 5
+    }
+  ],
+  "comentariosVoluntariado": [
+    {
+      "id": 1,
+      "name": "Maria Leal",
+      "comment": "Voluntariado muito bem estruturado e organizado. Gostei bastante.",
+      "image": "Maria.jpg",
+      "rating": 5
+    },
+    {
+      "id": 1,
+      "name": "Gestrudes Cordeiro",
+      "comment": "Adorei o voluntariado. Aprendi bastante, ganhei muita experiência e conheci muitas pessoas diferentes.",
+      "image": "Gestrudes.jpg",
+      "rating": 5
+    },
+    {
+      "id": 1,
+      "name": "Laura Silves",
+      "comment": "Voluntariado mal organizado e realizado. Não espera isto de uma organização destas.",
+      "image": "Laura.png",
+      "rating": 1
+    },
+    {
+      "id": 1,
+      "name": "Tiago Lopes",
+      "comment": "Voluntariado bem organizado, no entanto, muito simples e não muito dinâmico.",
+      "image": "Tiago.jpg",
+      "rating": 3
+    },
+    {
+      "id": 1,
+      "name": "Osvaldo Fernandes",
+      "comment": "Bom voluntariado. Bem executado mas nada de excepcional.",
+      "image": "Osvaldo.jpg",
+      "rating": 4
     }
   ]
 }
