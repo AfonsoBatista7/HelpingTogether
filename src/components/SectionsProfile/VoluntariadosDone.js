@@ -18,7 +18,7 @@ function VoluntariadosDone(props) {
                     textAlign: 'left',
                     marginLeft: 50
                 }}
-            >Candidaturas Pendentes</Typography>
+            >Voluntariados Realizados</Typography>
 
             <Divider />
             <Container style={{
