@@ -8,6 +8,8 @@ import LocalPhoneRoundedIcon from '@mui/icons-material/LocalPhoneRounded';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import EditIcon from '@mui/icons-material/Edit';
 import SaveIcon from '@mui/icons-material/Save';
+import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
+
 
 
 
@@ -20,8 +22,8 @@ function InfoProfile(props) {
     editState(!editMode);
   }
 
-  var valueMessage="Hello World sjajvsjdoKSDOAKALAPDASKDPAKDASKDVOAVKAKVKDNVFKAakjdjfahkfhkfhaksfhkjahfkashfkdhfkahfkhakrhgkuafhnsjdcajcnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnMDMVKADMVKAMVKAFVKDNFVKANDFKVNAKNFVAKSNVKASNVKANDVFNKSNFVKNSKAVNKASNVKASNVKFNVKANVKANVKANDKFMwlfkmLWFMLmfkfefKEFlkefjlkwflkawfkmaslvkmkadsvmamvmvaksndvkfkam";
-  
+  var valueMessage = "Hello World sjajvsjdoKSDOAKALAPDASKDPAKDASKDVOAVKAKVKDNVFKAakjdjfahkfhkfhaksfhkjahfkashfkdhfkahfkhakrhgkuafhnsjdcajcnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnMDMVKADMVKAMVKAFVKDNFVKANDFKVNAKNFVAKSNVKASNVKANDVFNKSNFVKNSKAVNKASNVKASNVKFNVKANVKANVKANDKFMwlfkmLWFMLmfkfefKEFlkefjlkwflkawfkmaslvkmkadsvmamvmvaksndvkfkam";
+
 
   return (
     <div style={{ alignItems: 'left', backgroundColor: "#2E3B55", borderRadius: '10px' }} >
@@ -40,6 +42,19 @@ function InfoProfile(props) {
             src={image}
 
             sx={{ width: 200, height: 200 }} />
+
+          {editMode ?
+            <div className={style.marginChangePhoto}>
+              <Container className={style.marginChangePhoto}>
+                <Button variant="contained" component="label" size="small"  >
+                  <AddPhotoAlternateIcon />
+                  Alterar foto
+                  <input hidden accept="image/*" multiple type="file" />
+                </Button>
+              </Container>
+            </div> : ""}
+
+
           <Typography style={{
             fontWeight: 700,
             fontSize: 30,
@@ -95,7 +110,7 @@ function InfoProfile(props) {
           justifyContent="center"
           alignItems="flex-end">
 
-            <div style={{height:70}}></div>
+          <div style={{ height: 70 }}></div>
 
           {!editMode ?
             <Button size="large" sx={{ color: 'white' }} style={{ float: 'right' }} className={style.buttonedit} onClick={changeState}>Editar
@@ -116,22 +131,22 @@ function InfoProfile(props) {
 
           <Container className={style.descriptionarea}>
 
-          {!editMode ?
-          <TextField className={style.description}
-              disabled
-              fullWidth
-              multiline
-              id="outlined-disabled"
-              defaultValue={ valueMessage}
-              />:<TextField className={style.description}
-              
-              fullWidth
-              multiline
-              id="outlined-disabled"
-              defaultValue={ valueMessage}
+            {!editMode ?
+              <TextField className={style.description}
+                disabled
+                fullWidth
+                multiline
+                id="outlined-disabled"
+                defaultValue={valueMessage}
+              /> : <TextField className={style.description}
+
+                fullWidth
+                multiline
+                id="outlined-disabled"
+                defaultValue={valueMessage}
               />}
 
-            
+
           </Container>
 
         </Grid>
