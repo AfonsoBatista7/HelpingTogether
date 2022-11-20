@@ -21,7 +21,7 @@ function InfoVoluntariado(props) {
     return (
         <div  >
             <Grid container direction="row"
-                justifyContent="center"
+                justifyContent="space-around"
                 alignItems="flex-start">
 
                 <Grid item xs={3}
@@ -45,7 +45,7 @@ function InfoVoluntariado(props) {
                             style={{
                                 fontWeight: 500,
                                 fontSize: 20,
-                                color: 'white',
+                                color: '#2E3B55',
                                 textTransform: "uppercase",
                                 textAlign: 'center'
                             }}>UNICEF</Typography>
@@ -63,8 +63,7 @@ function InfoVoluntariado(props) {
                             style={{
                                 fontWeight: 500,
                                 fontSize: 20,
-                                color: 'white',
-                                textTransform: "uppercase",
+                                color: '#2E3B55',
                                 textAlign: 'center'
                             }}>Porto</Typography>
                     </Grid>
@@ -83,21 +82,19 @@ function InfoVoluntariado(props) {
                             style={{
                                 fontWeight: 500,
                                 fontSize: 15,
-                                color: 'white',
+                                color: '#2E3B55',
                                 textTransform: "uppercase",
                                 textAlign: 'center'
                             }}>20/07/2022 - 25/07/2022</Typography>
                     </Grid>
 
                 </Grid>
-                <Grid item xs={9}
+                <Grid item xs={8}
                     container
                     direction="column"
                     justifyContent="center"
-                    alignItems="flex-start">
-
-
-
+                    alignItems="flex-start"
+                    className={style.widhtdescription}>
 
 
                     <div className={style.titleVoluntariado}>
@@ -118,7 +115,7 @@ function InfoVoluntariado(props) {
                                 }}>Distribuição de refeições</Typography>
                             </div>
 
-                            <div className={style.descriptionvoluntario}>
+                            <div className={style.rating}>
                                 <Rating name="half-rating-read" defaultValue={3.5} precision={0.5} readOnly size="large" />
                             </div>
                         </Grid>
@@ -136,7 +133,7 @@ function InfoVoluntariado(props) {
                         />
 
                     </Container>
-                    <div></div>
+                    <div className={style.avaliarbutton}><Button style={{background: "#2E3B55"}} variant="contained">Avaliar</Button></div>
 
                 </Grid>
             </Grid >

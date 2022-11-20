@@ -96,9 +96,23 @@
 
 .descriptionvoluntario{
     margin-left: 5%;
-    margin-top:5%
+    
 }
 
 .titleVoluntariado{
-    width: 900px;
+    width: 100%;
+}
+
+.rating{
+    margin-right: 5%;
+}
+
+.areadescription{
+   margin-left: 5%;
+   margin-right: 5%;
+}
+
+.avaliarbutton{
+    margin-top: 3%;
+    margin-left: 3%;
 }

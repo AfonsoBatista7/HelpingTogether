@@ -24,9 +24,9 @@ function InfoProfile(props) {
 
   var valueMessage = "Hello World sjajvsjdoKSDOAKALAPDASKDPAKDASKDVOAVKAKVKDNVFKAakjdjfahkfhkfhaksfhkjahfkashfkdhfkahfkhakrhgkuafhnsjdcajcnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnMDMVKADMVKAMVKAFVKDNFVKANDFKVNAKNFVAKSNVKASNVKANDVFNKSNFVKNSKAVNKASNVKASNVKFNVKANVKANVKANDKFMwlfkmLWFMLmfkfefKEFlkefjlkwflkawfkmaslvkmkadsvmamvmvaksndvkfkam";
 
-//   const checkLogin = () => {
-//       setPerfil(props.perfil);
-// }
+  //   const checkLogin = () => {
+  //       setPerfil(props.perfil);
+  // }
 
   //window.onload= setTimeout(checkLogin, 4000);
 
@@ -115,9 +115,9 @@ function InfoProfile(props) {
           alignItems="flex-end">
 
           <div style={{ height: 20 }}></div>
-          <div style={{ height: 50 , alignItems:'left'}}>
+          <div style={{ height: 50, alignItems: 'left' }} className={style.marginRight}>
             <Rating name="half-rating-read" defaultValue={3.5} precision={0.5} readOnly size="large" />
-             </div>
+          </div>
 
           {!editMode ?
             <Button size="large" sx={{ color: 'white' }} style={{ float: 'right' }} className={style.buttonedit} onClick={changeState}>Editar
@@ -156,6 +156,9 @@ function InfoProfile(props) {
 
           </Container>
 
+          <div alignItems="left" className={style.titleVoluntariado}>
+            <div className={style.avaliarbutton} ><Button style={{ background: "white" }} variant="contained"><Typography style={{ color: "#2E3B55" }}>Avaliar</Typography></Button></div>
+          </div>
         </Grid>
       </Grid >
     </div >
