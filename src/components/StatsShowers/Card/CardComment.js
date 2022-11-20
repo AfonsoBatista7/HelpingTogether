@@ -1,8 +1,7 @@
 import { Avatar, Grid, Link, Rating } from "@mui/material";
 import style from "./cardComment.module.css";
 import React from "react";
-import { Box, color } from "@mui/system";
-import { useState } from "react";
+import { Box} from "@mui/system";
 
 function CardComment(props) {
     const charLimit = 170;

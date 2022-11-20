@@ -1,4 +1,4 @@
-import { Grid, Link, Rating, Typography } from "@mui/material";
+import { Grid, Link, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import style from "./boxStats.module.css";
