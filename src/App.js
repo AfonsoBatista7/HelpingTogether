@@ -6,7 +6,14 @@ function App() {
 
     return (
         <div>
-            <Layout >
+            <Layout>
+                <div
+                    style={{
+                        minHeight: "66.6vh",
+                    }}
+                >
+
+                </div>
             </Layout>
         </div>
     );
