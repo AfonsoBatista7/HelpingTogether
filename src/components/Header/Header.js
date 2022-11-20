@@ -1,25 +1,18 @@
-import React, { useState } from "react";
-import {
-    Typography,
-    Button,
-    AppBar,
-    Stack,
-    Toolbar,
-    Link,
-} from "@mui/material";
-import Login from "../Popup/Login";
-import Popup from "../Popup/Popup";
-import style from "./header.module.css";
-import ChooseType from "../Popup/ChooseType";
+import React, { useState, useEffect } from "react";
+import { Typography, Button, AppBar, Stack, Toolbar, Link } from "@mui/material";
 import imageLogo from "../../images/logo.png";
-import imageUser from "../../images/afonso.gif";
-import UserProfileButton from "../UserProfileButton";
-import RegisterVoluntario from "../Popup/RegisterVoluntario";
-import RegisterOrganizacao from "../Popup/RegisterOrganizacao";
+import imageUser from "../../images/people/defaultPhoto.jpg";
+import UserProfileButton from "../UserProfileButton"
+import style from "./header.module.css"
+import Popup from '../Popup/Popup';
+import RegisterVoluntario from '../Popup/RegisterVoluntario';
+import RegisterOrganizacao from '../Popup/RegisterOrganizacao';
+import Login from '../Popup/Login';
+import ChooseType from '../Popup/ChooseType';
 
 function Header(props) {
-    const [isLoggedIn, accountState] = useState(false);
 
+    const [perfil, setPerfil] = useState();
     const [openPopupLogin, setOpenPopupLogin] = useState(false);
     const [openPopupRegister, setOpenPopupRegister] = useState(false);
     const [openPopupRegisterVoluntario, setOpenPopupRegisterVoluntario] =
@@ -44,28 +37,114 @@ function Header(props) {
     };
 
     const changePopup = (popup) => {
-        switch (popup) {
-            case "login":
-                setOpenPopupLogin(true);
-                break;
-            case "register":
-                setOpenPopupRegister(true);
-                break;
-            case "voluntario":
-                setOpenPopupRegister(false);
-                setOpenPopupRegisterVoluntario(true);
-                break;
-            case "organizacao":
-                setOpenPopupRegister(false);
-                setOpenPopupRegisterOrganizacao(true);
-                break;
-            case "isLoggedIn":
-                accountState(true);
-                setOpenPopupLogin(false);
-                break;
-            default:
+        if (popup === "login") setOpenPopupLogin(true);
+
+        if (popup === "register") setOpenPopupRegister(true);
+
+        if (popup === "voluntario") {
+            setOpenPopupRegister(false);
+            setOpenPopupRegisterVoluntario(true);
         }
-    };
+
+        if (popup === "organizacao") {
+            setOpenPopupRegister(false);
+            setOpenPopupRegisterOrganizacao(true);
+        }
+
+        if (popup === "isLoggedIn") {
+            setOpenPopupLogin(false);
+        }
+
+        if (popup === "isRegisterOrganizacao") {
+            setOpenPopupRegisterOrganizacao(false);
+        }
+
+        if (popup === "isRegisterVoluntario") {
+            setOpenPopupRegisterVoluntario(false);
+        }
+    }
+
+    //vetor com todos os valores no login da Base de dados
+    const [loggedIns, setLoggedIns] = useState([])
+
+    //vai buscar todos os valores de login da BD e mete em loggedIns
+    useEffect(() => {
+        const getLoggedIn = async () => {
+            const loggedInFromServer = await fetchLoggedIn()
+            setLoggedIns(loggedInFromServer)
+        }
+
+        getLoggedIn()
+
+    }, [])
+
+
+    useEffect(() => {
+        checkLogin()
+
+    }, [loggedIns])
+
+
+    const fetchLoggedIn = async () => {
+        const res = await fetch('http://localhost:5000/login')
+        const data = await res.json()
+
+        return data;
+    }
+
+    const fetchLogin = async (id) => {
+        const res = await fetch(`http://localhost:5000/login/${id}`)
+        const data = await res.json()
+
+        return data
+    }
+
+
+    const changeLogginStatus = async (id) => {
+        const loginToChange = await fetchLogin(id)
+        const updLogin = { ...loginToChange, isLoggedIn: !loginToChange.isLoggedIn }
+
+        const res = await fetch(`http://localhost:5000/login/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify(updLogin),
+        })
+
+        const data = await res.json()
+
+        setLoggedIns(
+            loggedIns.map((element) =>
+                element.id === id ? { ...element, isLoggedIn: data.isLoggedIn } : element
+
+            )
+        )
+    }
+
+    const checkLogin = () => {
+
+        for (const element of loggedIns) {
+            if (element.isLoggedIn) {
+                setPerfil(element);
+            }
+        }
+
+    }
+
+    const putLogin = (element) => {
+
+        setPerfil(element);
+
+        changeLogginStatus(element.id);
+    }
+
+    const takeOffLogin = () => {
+
+        changeLogginStatus(perfil.id);
+        setPerfil(null);
+
+    }
 
     return (
         <>
@@ -98,26 +177,10 @@ function Header(props) {
                             HELPING TOGETHER
                         </Typography>
                     </Link>
-                    <Stack
-                        direction="row"
-                        spacing={2}
-                        className={style.headerButton}
-                    >
-                        <Button
-                            size="large"
-                            sx={{ color: "white" }}
-                            onClick={goToOrganizations}
-                        >
-                            Voluntariados
-                        </Button>
-                        <Button
-                            size="large"
-                            sx={{ color: "white" }}
-                            onClick={goToVolunteers}
-                        >
-                            Organizações
-                        </Button>
-                        {!isLoggedIn ? (
+                    <Stack direction="row" spacing={2} className={style.headerButton}>
+                        <Button size="large" sx={{ color: 'white' }} onClick={goToOrganizations}>Voluntariados</Button>
+                        <Button size="large" sx={{ color: 'white' }} onClick={goToVolunteers}>Organizações</Button>
+                        {!perfil ?
                             <>
                                 <Button
                                     variant="contained"
@@ -145,14 +208,12 @@ function Header(props) {
                                 >
                                     Registar
                                 </Button>
+                            </> :
+                            <>
+                                <UserProfileButton name={perfil.name} image={imageUser} takeOffLogin={takeOffLogin} />
                             </>
-                        ) : (
-                            <UserProfileButton
-                                name="Afonso"
-                                image={imageUser}
-                                accountState={accountState}
-                            />
-                        )}
+                        }
+
                     </Stack>
                 </Toolbar>
             </AppBar>
@@ -160,31 +221,31 @@ function Header(props) {
                 tipo="login"
                 openPopup={openPopupLogin}
                 setOpenPopup={setOpenPopupLogin}
-                function={changePopup}
+                changePopup={changePopup}
             >
-                <Login function={changePopup} />
+                <Login putLogin={putLogin} changePopup={changePopup} />
             </Popup>
             <Popup
                 openPopup={openPopupRegister}
                 setOpenPopup={setOpenPopupRegister}
             >
-                <ChooseType function={changePopup} />
+                <ChooseType changePopup={changePopup} />
             </Popup>
             <Popup
                 tipo="register"
                 openPopup={openPopupRegisterVoluntario}
                 setOpenPopup={setOpenPopupRegisterVoluntario}
-                function={changePopup}
+                changePopup={changePopup}
             >
-                <RegisterVoluntario />
+                <RegisterVoluntario changePopup={changePopup} />
             </Popup>
             <Popup
                 tipo="register"
                 openPopup={openPopupRegisterOrganizacao}
                 setOpenPopup={setOpenPopupRegisterOrganizacao}
-                function={changePopup}
+                changePopup={changePopup}
             >
-                <RegisterOrganizacao />
+                <RegisterOrganizacao changePopup={changePopup} />
             </Popup>
         </>
     );
