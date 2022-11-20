@@ -15,13 +15,12 @@ function CardComment(props) {
                 src={props.image}
                 sx={{
                     top: 30,
-                    margin: "0 auto",
                     width: 60,
                     height: 60,
-                    boxShadow: "0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%)",
                 }}
+                className={style.cardAvatar}
             />
-            <Box className={style.boxComment}>
+            <Box className={style.cardComment}>
                 <Grid container direction="column">
                     <Grid item>
                         <b>{props.name}</b>
@@ -35,26 +34,18 @@ function CardComment(props) {
                         ></Rating>
                     </Grid>
                     <Grid item style={{ fontSize: "14px" }}>
-                        {isDescBig ? (
+                        {isDescBig ?
                             <span>
                                 {props.desc.slice(0, charLimit) + "..."}
                             </span>
-                        ) : (
+                        :
                             <span>{props.desc}</span>
-                        )}
+                        }
                     </Grid>
                 </Grid>
                 {isDescBig && (
-                    <Link style={{ textDecoration:"none"}} href="/">
-                        <b
-                            style={{
-                                display: "flex",
-                                justifyContent: "flex-end",
-                                color: "#EB6440",
-                            }}
-                        >
-                            Mais
-                        </b>
+                    <Link style={{ textDecoration: "none" }} href="/">
+                        <b className={style.viewComment}>Mais</b>
                     </Link>
                 )}
             </Box>

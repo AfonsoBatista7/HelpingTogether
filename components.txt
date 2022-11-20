@@ -29,11 +29,11 @@ Aceitar/Recusar Candidatos
 
 
 [AFONSO] 
-Comentario box {Foto, Nome, Avaliação, comentário} 
+Comentario box {Foto, Nome, Avaliação, comentário} [X]
 Organizações Box [X]
 Candidatos
-Voluntariados Box(quando na pagina de voluntariados)
-Voluntariados Box { Foto, nome, avaliação} [X]
+Voluntariados Box(quando na pagina de voluntariados) [X]
+Voluntariados Box { Foto, nome, avaliação} 
 about us page com imagens e fotos nossas
 FOOTER [X]
 HEADER [X]
