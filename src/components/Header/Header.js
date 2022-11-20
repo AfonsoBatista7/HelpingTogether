@@ -69,7 +69,7 @@ function Header(props) {
 
     return (
         <>
-            <AppBar position="static" sx={{ bgcolor: "#2E3B55" }}>
+            <AppBar position="static" sx={{ bgcolor: "#497174" }}>
                 <Toolbar>
                     <Link
                         href="/"
@@ -123,10 +123,10 @@ function Header(props) {
                                     variant="contained"
                                     size="large"
                                     sx={{
-                                        backgroundColor:"beige",
+                                        backgroundColor:"#EFF5F5",
                                         textTransform: "none",
                                         borderRadius: "20px",
-                                        color: "#2E3B55",
+                                        color: "#497174",
                                     }}
                                     onClick={logIn}
                                 >
@@ -136,10 +136,10 @@ function Header(props) {
                                     variant="outlined"
                                     size="large"
                                     sx={{
-                                        border: " 1px solid beige",
+                                        border: " 1px solid #EFF5F5",
                                         textTransform: "none",
                                         borderRadius: "20px",
-                                        color: "white",
+                                        color: "#EFF5F5",
                                     }}
                                     onClick={signUp}
                                 >

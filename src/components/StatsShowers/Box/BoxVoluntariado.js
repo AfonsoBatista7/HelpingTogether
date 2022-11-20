@@ -1,9 +1,8 @@
 import { Rating } from "@mui/material";
 import React from "react";
 import BoxStats from "./BoxStats";
-import style from "./boxVoluntariados.module.css";
 
-function BoxVoluntariados(props) {
+function BoxVoluntariado(props) {
     const getRatingComponent = () => {
         return (
             <Rating name="rating-voluntariado" readOnly value={props.rating} />
@@ -20,4 +19,4 @@ function BoxVoluntariados(props) {
     );
 }
 
-export default BoxVoluntariados;
+export default BoxVoluntariado;

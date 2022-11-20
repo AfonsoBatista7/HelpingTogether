@@ -1,7 +1,7 @@
 import React from 'react'
 import BoxStats from './BoxStats';
 
-function BoxOrganizations(props) {
+function BoxOrganization(props) {
   
   const getNumVoluntariados = () => {
 
@@ -20,4 +20,4 @@ function BoxOrganizations(props) {
   )
 }
 
-export default BoxOrganizations
+export default BoxOrganization
