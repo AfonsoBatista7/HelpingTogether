@@ -147,7 +147,7 @@ function Header() {
 
     return (
         <>
-            <AppBar position="static" sx={{ bgcolor: "#2E3B55" }}>
+            <AppBar position="static" sx={{ bgcolor: "#497174" }}>
                 <Toolbar>
                     <Link
                        to="/"
@@ -180,8 +180,32 @@ function Header() {
                         <Link style={{ textDecoration: 'none', color: 'white' }} to="/Organizacoes"><Button size="large" sx={{ color: 'white' }} onClick={goToOrganizations}>Organizações</Button></Link>
                         {!perfil ?
                             <>
-                                <Button variant="contained" size="large" sx={{ textTransform: 'none', borderRadius: '20px', color: 'white' }} onClick={logIn}>Entrar</Button>
-                                <Button variant="outlined" size="large" sx={{ textTransform: 'none', borderRadius: '20px', color: 'white' }} onClick={signUp}>Registar</Button>
+                                <Button
+                                    variant="contained"
+                                    size="large"
+                                    sx={{
+                                        backgroundColor:"#EFF5F5",
+                                        textTransform: "none",
+                                        borderRadius: "20px",
+                                        color: "#497174",
+                                    }}
+                                    onClick={logIn}
+                                >
+                                    Entrar
+                                </Button>
+                                <Button
+                                    variant="outlined"
+                                    size="large"
+                                    sx={{
+                                        border: " 1px solid #EFF5F5",
+                                        textTransform: "none",
+                                        borderRadius: "20px",
+                                        color: "#EFF5F5",
+                                    }}
+                                    onClick={signUp}
+                                >
+                                    Registar
+                                </Button>
                             </> :
                             <>
                                 <UserProfileButton name={perfil.name} image={imageUser} takeOffLogin={takeOffLogin} />
