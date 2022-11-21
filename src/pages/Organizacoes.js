@@ -72,12 +72,6 @@ function Organizacoes() {
     }
 
 
-    useEffect(() => {
-        checkOrganizationNumberVol()
-
-    }, [organizacoes], [voluntariados], [newVoluntariados])
-
-
     const checkOrganizationNumberVol = () => {
         var listAll = [];
         var num = 1;
@@ -92,18 +86,7 @@ function Organizacoes() {
             num = 1;
         }
 
-        num = 1;
-        for (const org of organizacoes) {
-            for (const vol of newVoluntariados) {
-                if(org.name === vol.organizacao){
-                    listAll[org.id] = num;
-                    num++;
-                }
-            }
-            num = 1;
-        }
-
-        setOrganizacoesNumberVol(listAll);
+        return listAll;
     }
 
 
@@ -127,13 +110,13 @@ function Organizacoes() {
 
                 <Divider />
                 <Container>
-                    { !(organizacoes.length === 0) ?  organizacoes.map((org) => (
+                    { ( !(organizacoes.length === 0) && !(voluntariados.length === 0) ) ?  organizacoes.map((org) => (
                         <>
                             <div className={style.boxShow}></div>
                             <BoxOrganization image={org.image}
                                 name={org.name}
                                 desc={org.description}
-                                getNumVoluntariados={organizacoesNumberVol}
+                                getNumVoluntariados={checkOrganizationNumberVol()}
                                 idOrg={org.id}
                                 key={org.id} className={style.boxShow}></BoxOrganization>
                             <div className={style.boxShow}></div></>
