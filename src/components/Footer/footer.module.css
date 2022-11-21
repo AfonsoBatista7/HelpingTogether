@@ -15,6 +15,10 @@
 }
 
 .footerButton {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    text-align: center;
     position: relative;
 }
 
