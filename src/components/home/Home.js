@@ -1,8 +1,7 @@
-import React from 'react'
+import { React } from 'react'
 import SearchBar from "../search/SearchBar";
 import Map from "./Map";
 import HomeCarousel from './HomeCarousel';
-import imageLogo from "../../images/logo.png";
 import { Grid } from '@mui/material';
 
 // alguem que perceba mais de css e nao enlouqueça?
