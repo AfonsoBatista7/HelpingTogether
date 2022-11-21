@@ -6,8 +6,6 @@ import {
     Stack,
     Toolbar,
 } from "@mui/material";
-import imageLogo from "../../images/logo.png";
-import imageUser from "../../images/people/defaultPhoto.jpg";
 import UserProfileButton from "../UserProfileButton";
 import style from "./header.module.css";
 import Popup from "../Popup/Popup";
@@ -235,7 +233,7 @@ function Header(props) {
                         ) : (
                             <UserProfileButton
                                 name={perfil.name}
-                                image={imageUser}
+                                image="/defaultPhoto.jpg"
                                 takeOffLogin={takeOffLogin}
                             />
                         )}
