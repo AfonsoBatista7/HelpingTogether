@@ -1,8 +1,21 @@
 import style from "./Profiles.module.css"
 import { Pagination, Grid, Typography, Container, Divider, Button } from "@mui/material";
+import React, { useState, useEffect } from "react";
+import RegisterVoluntariado from "../Popup/RegisterVoluntariado";
+import Popup from "../Popup/Popup";
 
 function VoluntariadosArea(props) {
-    console.log(props.type);
+
+    const [openPopupRegisterVoluntariado, setOpenPopupRegisterVoluntariado] = useState(false);
+
+    const resgisterVoluntariado = () => {
+        setOpenPopupRegisterVoluntariado(true);
+    }
+
+    const closeResgisterVoluntariado = () => {
+        setOpenPopupRegisterVoluntariado(false);
+    }
+
     return (
         <div className={style.backgroundwhite}>
             <div >
@@ -29,8 +42,17 @@ function VoluntariadosArea(props) {
                     </Typography>
 
 
-                    {props.type === "organizacao" ? <Button><Typography style={{color: "#497174"}}>+ Criar</Typography></Button> : <></>}
-                    
+                    {props.type === "organizacao" ?
+                        <>
+                            <Button onClick={resgisterVoluntariado}>
+                                <Typography style={{ color: "#497174" }}>+ Criar</Typography>
+                            </Button > <Popup
+                                openPopup={openPopupRegisterVoluntariado}
+                                setOpenPopup={setOpenPopupRegisterVoluntariado}
+                            >
+                                <RegisterVoluntariado organizacao={props.nameOrg} closePopup={closeResgisterVoluntariado} />
+                            </Popup></> : <></>}
+
                 </Grid>
                 <Divider />
                 <Container style={{

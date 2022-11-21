@@ -1,8 +1,6 @@
 
 import style from "./Profiles.module.css"
-import image from "../../images/people/Maria.jpg";
 import React, { useState } from 'react'
-
 import { Grid, Typography, Container, Avatar, Button, TextField, Rating } from "@mui/material";
 import LocalPhoneRoundedIcon from '@mui/icons-material/LocalPhoneRounded';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
@@ -12,19 +10,22 @@ import CakeRoundedIcon from '@mui/icons-material/CakeRounded';
 import FemaleRoundedIcon from '@mui/icons-material/FemaleRounded';
 import MaleRoundedIcon from '@mui/icons-material/MaleRounded';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
+import Evaluation from "../Popup/Evaluation";
+import Popup from "../Popup/Popup";
 
 
 function InfoProfile(props) {
 
   const [editMode, editState] = useState(false);
 
-  const [loggedIns, setLoggedIns] = useState([])
+  const [loggedIns, setLoggedIns] = useState([]);
+  const [openPopupAvaliacao, setOpenPopupAvaliacao] = useState(false);
 
   function changeState() {
     editState(!editMode);
 
-    if(editMode){
-    changeLogginStatus(props.id, props.description);
+    if (editMode) {
+      changeLogginStatus(props.id, props.description);
     }
   }
 
@@ -55,6 +56,14 @@ function InfoProfile(props) {
 
       )
     )
+  }
+
+  const avaliar = () => {
+    setOpenPopupAvaliacao(true);
+  }
+
+  const closeAvaliacao = () => {
+    setOpenPopupAvaliacao(false);
   }
 
   return (
@@ -91,7 +100,8 @@ function InfoProfile(props) {
             fontSize: 30,
             color: 'white',
             textTransform: "uppercase",
-            textAlign: 'center'
+            textAlign: 'center',
+            wordWrap: "break-word"
           }}>{props.name}</Typography>
 
 
@@ -133,55 +143,55 @@ function InfoProfile(props) {
               }}>{props.email}</Typography>
           </Grid>
 
-          {props.type==="organizacao" ?<>
-          
-          </>:<>
-          <Grid container direction="row"
-            justifyContent="flex-start"
-            alignItems="center"
-            className={style.marginPhone}>
+          {props.type === "organizacao" ? <>
 
-            {!props.gender==="female"? <>
-            <MaleRoundedIcon className={style.marginRight} style={{
-              color: 'white',
-              fontSize: 30
-            }}></MaleRoundedIcon>
-            </>:<>  
-            <FemaleRoundedIcon className={style.marginRight} style={{
-              color: 'white',
-              fontSize: 30
-            }}></FemaleRoundedIcon></>}  
-           
+          </> : <>
+            <Grid container direction="row"
+              justifyContent="flex-start"
+              alignItems="center"
+              className={style.marginPhone}>
 
-            <Typography className={style.margintop}
-              style={{
-                fontWeight: 500,
-                fontSize: 15,
+              {!props.gender === "female" ? <>
+                <MaleRoundedIcon className={style.marginRight} style={{
+                  color: 'white',
+                  fontSize: 30
+                }}></MaleRoundedIcon>
+              </> : <>
+                <FemaleRoundedIcon className={style.marginRight} style={{
+                  color: 'white',
+                  fontSize: 30
+                }}></FemaleRoundedIcon></>}
+
+
+              <Typography className={style.margintop}
+                style={{
+                  fontWeight: 500,
+                  fontSize: 15,
+                  color: 'white',
+                  textTransform: "uppercase",
+                  textAlign: 'center'
+                }}>{props.gender}</Typography>
+            </Grid>
+
+            <Grid container direction="row"
+              justifyContent="flex-start"
+              alignItems="center"
+              className={style.marginPhone}>
+              <CakeRoundedIcon className={style.marginRight} style={{
                 color: 'white',
-                textTransform: "uppercase",
-                textAlign: 'center'
-              }}>{props.gender}</Typography>
-          </Grid>
+                fontSize: 30
+              }}></CakeRoundedIcon>
 
-          <Grid container direction="row"
-            justifyContent="flex-start"
-            alignItems="center"
-            className={style.marginPhone}>
-            <CakeRoundedIcon className={style.marginRight} style={{
-              color: 'white',
-              fontSize: 30
-            }}></CakeRoundedIcon>
+              <Typography className={style.margintop}
+                style={{
+                  fontWeight: 500,
+                  fontSize: 15,
+                  color: 'white',
+                  textAlign: 'center'
+                }}>{props.birthday}</Typography>
+            </Grid>
 
-            <Typography className={style.margintop}
-              style={{
-                fontWeight: 500,
-                fontSize: 15,
-                color: 'white',
-                textAlign: 'center'
-              }}>{props.birthday}</Typography>
-          </Grid>
-
-         </>}
+          </>}
 
         </Grid>
         <Grid item xs={9}
@@ -198,14 +208,14 @@ function InfoProfile(props) {
 
 
           <div className={style.buttonedit}>
-            {!props.login?<></>:<>{!editMode ?
-              <Button size="large" sx={{ color: 'white' }} style={{ float: 'right' }}  onClick={changeState}>Editar
+            {!props.login ? <></> : <>{!editMode ?
+              <Button size="large" sx={{ color: 'white' }} style={{ float: 'right' }} onClick={changeState}>Editar
                 < EditIcon className={style.buttonmargin} style={{
                   color: 'white',
                   fontSize: 20
                 }}></ EditIcon>
               </Button>
-              : <Button size="large" sx={{ color: 'white' }} style={{ float: 'right' }}  onClick={changeState}>Guardar
+              : <Button size="large" sx={{ color: 'white' }} style={{ float: 'right' }} onClick={changeState}>Guardar
                 < SaveIcon className={style.buttonmargin} style={{
                   color: 'white',
                   fontSize: 20
@@ -236,11 +246,21 @@ function InfoProfile(props) {
           </Container>
 
           <div className={style.titleVoluntariado}>
-            {props.login? <></>:<><div className={style.avaliarbutton} ><Button style={{ background: "white" }} variant="contained"><Typography style={{ color: "#497174" }}>Avaliar</Typography></Button></div>
-          </>}
-            </div>
-        </Grid>
-      </Grid >
+            {!props.login ? <></> :
+              <><div className={style.avaliarbutton} >
+                <Button style={{ background: "white" }} variant="contained" onClick={avaliar}>
+                  <Typography style={{ color: "#497174" }}>Avaliar</Typography>
+                </Button>
+                <Popup
+                  openPopup={openPopupAvaliacao}
+                  setOpenPopup={setOpenPopupAvaliacao}
+                >
+                  <Evaluation name={props.name} nameWhoMakes={props.name} type="pessoa" closePopup={closeAvaliacao} />
+                </Popup>
+                </div></>}
+        </div>
+      </Grid>
+    </Grid >
     </div >
   );
 }

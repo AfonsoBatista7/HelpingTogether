@@ -31,13 +31,15 @@ function Evaluation(props) {
         var temp2 = todayDate.toTimeString().split(":")[1];
         var finalDate = todayDate.toLocaleDateString().concat(" ", temp1, ":", temp2);
 
-        addComment({ ...value, name: props.name, date: finalDate, nameWhoMakesComment: props.name });
+        addComment({ ...value, name: props.name, date: finalDate, nameWhoMakesComment: props.nameWhoMakes });
 
         props.closePopup()
 
     }
 
     const addComment = async (value) => {
+
+        console.log(value)
 
         if (props.type === "pessoa") {
 

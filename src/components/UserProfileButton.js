@@ -5,7 +5,6 @@ import {
     Menu,
     Avatar,
     Tooltip,
-    IconButton,
     MenuItem,
     Button,
 } from "@mui/material";
@@ -28,20 +27,20 @@ const UserProfileButton = (props) => {
 
     const goToProfile = () => {
         handleCloseUserMenu()
-        console.log("O meu perfil :DDD");
     };
+
     const goToApplication = () => {
         handleCloseUserMenu()
-        console.log("Candidaturaaa");
     };
+
     const goToVolunteersDone = () => {
         handleCloseUserMenu()
-        console.log("Voluntariados Feitinhoss :D");
     };
+
     const goToComments = () => {
         handleCloseUserMenu()
-        console.log("Os meus comentários");
     };
+
     const settings = {
         Perfil: goToProfile,
         Candidatura: goToApplication,

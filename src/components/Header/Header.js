@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Typography, Button, AppBar, Stack, Toolbar } from "@mui/material";
-import imageLogo from "../../images/logo.png";
-import imageUser from "../../images/people/defaultPhoto.jpg";
 import UserProfileButton from "../UserProfileButton"
 import style from "./header.module.css"
 import Popup from '../Popup/Popup';
@@ -25,14 +23,6 @@ function Header() {
 
     const signUp = () => {
         setOpenPopupRegister(true);
-    };
-
-    const goToVolunteers = () => {
-        console.log("Voluntariados");
-    };
-
-    const goToOrganizations = () => {
-        console.log("Organizações");
     };
 
     const changePopup = (popup) => {
@@ -158,7 +148,7 @@ function Header() {
                         }}
                     >
                         <img
-                            src={imageLogo}
+                            src="/logo.png"
                             alt="logo"
                             className={style.headerImage}
                         />
@@ -176,8 +166,8 @@ function Header() {
                         </Typography>
                     </Link>
                     <Stack direction="row" spacing={2} className={style.headerButton}>
-                        <Link style={{ textDecoration: 'none', color: 'white' }} to="/Voluntariados"><Button size="large" sx={{ color: 'white' }} onClick={goToVolunteers}>Voluntariados</Button></Link>
-                        <Link style={{ textDecoration: 'none', color: 'white' }} to="/Organizacoes"><Button size="large" sx={{ color: 'white' }} onClick={goToOrganizations}>Organizações</Button></Link>
+                        <Link style={{ textDecoration: 'none', color: 'white' }} to="/Voluntariados"><Button size="large" sx={{ color: 'white' }} >Voluntariados</Button></Link>
+                        <Link style={{ textDecoration: 'none', color: 'white' }} to="/Organizacoes"><Button size="large" sx={{ color: 'white' }} >Organizações</Button></Link>
                         {!perfil ?
                             <>
                                 <Button
@@ -208,7 +198,7 @@ function Header() {
                                 </Button>
                             </> :
                             <>
-                                <UserProfileButton name={perfil.name} image={imageUser} takeOffLogin={takeOffLogin} />
+                                <UserProfileButton name={perfil.name} image="/defaultPhoto.jpg" takeOffLogin={takeOffLogin} />
                             </>
                         }
 

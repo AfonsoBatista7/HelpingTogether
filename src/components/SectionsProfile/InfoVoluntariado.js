@@ -1,16 +1,17 @@
 
 import style from "./Profiles.module.css"
-import image from "../../images/volunteering/Comida.png";
-import org from "../../images/organizations/UNICEF.jpg";
 import React, { useState, useEffect } from 'react'
 
 import { Grid, Typography, Container, Avatar, Button, TextField, Rating } from "@mui/material";
 import PinDropRoundedIcon from '@mui/icons-material/PinDropRounded';
 import CalendarMonthRoundedIcon from '@mui/icons-material/CalendarMonthRounded';
+import Evaluation from "../Popup/Evaluation";
+import Popup from "../Popup/Popup";
 
 function InfoVoluntariado(props) {
 
     const [perfil, setPerfil] = useState(null);
+    const [openPopupAvaliacao, setOpenPopupAvaliacao] = useState(false);
 
     //vetor com todos os valores no login da Base de dados
     const [loggedIns, setLoggedIns] = useState([])
@@ -55,6 +56,14 @@ function InfoVoluntariado(props) {
 
     }
 
+    const avaliar = () => {
+        setOpenPopupAvaliacao(true);
+    }
+
+    const closeAvaliacao = () => {
+        setOpenPopupAvaliacao(false);
+    }
+
     var valueMessage = "Hello World sjajvsjdoKSDOAKALAPDASKDPAKDASKDVOAVKAKVKDNVFKAakjdjfahkfhkfhaksfhkjahfkashfkdhfkahfkhakrhgkuafhnsjdcajcnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnMDMVKADMVKAMVKAFVKDNFVKANDFKVNAKNFVAKSNVKASNVKANDVFNKSNFVKNSKAVNKASNVKASNVKFNVKANVKANVKANDKFMwlfkmLWFMLmfkfefKEFlkefjlkwflkawfkmaslvkmkadsvmamvmvaksndvkfkam";
 
 
@@ -70,7 +79,7 @@ function InfoVoluntariado(props) {
                         alignItems="center">
 
                         <img className={style.photoVoluntariado}
-                            src={image}
+                            src="/Comida.png"
 
                         />
 
@@ -79,7 +88,7 @@ function InfoVoluntariado(props) {
                             alignItems="center"
                             className={style.marginPhone}>
                             <Avatar className={style.marginRight}
-                                src={org}
+                                src="/UNICEF.jpg"
 
                                 sx={{ width: 30, height: 30 }} />
                             <Typography
@@ -180,7 +189,16 @@ function InfoVoluntariado(props) {
                         {!perfil ? <></> : <>
                             {perfil.typePerfil === "organizacao" ? <>
                             </> : <>
-                                <div className={style.avaliarbutton}><Button style={{ background: "white" }} variant="contained"><Typography style={{ color: "#375658" }}>Avaliar</Typography></Button></div>
+                                <div className={style.avaliarbutton}>
+                                    <Button style={{ background: "white" }} variant="contained" onClick={avaliar}>
+                                        <Typography style={{ color: "#375658" }}>Avaliar</Typography>
+                                    </Button>
+                                    <Popup
+                                        openPopup={openPopupAvaliacao}
+                                        setOpenPopup={setOpenPopupAvaliacao}
+                                    >
+                                        <Evaluation name={perfil.name} nameWhoMakes={perfil.name} type="voluntariado" closePopup={closeAvaliacao} />
+                                    </Popup></div>
                             </>}</>}
                     </Grid>
                 </Grid >
