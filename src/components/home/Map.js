@@ -1,5 +1,5 @@
 import React from "react";
-import { ComposableMap, Geographies, Geography, Annotation, ZoomableGroup } from "react-simple-maps";
+import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 import ptJson from "./db3_Portugal.json";
 
 export default function Map() {
