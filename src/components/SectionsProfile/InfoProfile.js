@@ -23,8 +23,8 @@ function InfoProfile(props) {
   function changeState() {
     editState(!editMode);
 
-    if(editMode){
-    changeLogginStatus(props.id, props.description);
+    if (editMode) {
+      changeLogginStatus(props.id, props.description);
     }
   }
 
@@ -74,17 +74,6 @@ function InfoProfile(props) {
 
             sx={{ width: 200, height: 200 }} />
 
-          {editMode ?
-            <div className={style.marginChangePhoto}>
-              <Container className={style.marginChangePhoto}>
-                <Button variant="contained" component="label" size="small"  >
-                  <AddPhotoAlternateIcon />
-                  Alterar foto
-                  <input hidden accept="image/*" multiple type="file" />
-                </Button>
-              </Container>
-            </div> : <></>}
-
 
           <Typography style={{
             fontWeight: 700,
@@ -133,55 +122,55 @@ function InfoProfile(props) {
               }}>{props.email}</Typography>
           </Grid>
 
-          {props.type==="organizacao" ?<>
-          
-          </>:<>
-          <Grid container direction="row"
-            justifyContent="flex-start"
-            alignItems="center"
-            className={style.marginPhone}>
+          {props.type === "organizacao" ? <>
 
-            {!props.gender==="female"? <>
-            <MaleRoundedIcon className={style.marginRight} style={{
-              color: 'white',
-              fontSize: 30
-            }}></MaleRoundedIcon>
-            </>:<>  
-            <FemaleRoundedIcon className={style.marginRight} style={{
-              color: 'white',
-              fontSize: 30
-            }}></FemaleRoundedIcon></>}  
-           
+          </> : <>
+            <Grid container direction="row"
+              justifyContent="flex-start"
+              alignItems="center"
+              className={style.marginPhone}>
 
-            <Typography className={style.margintop}
-              style={{
-                fontWeight: 500,
-                fontSize: 15,
+              {!props.gender === "female" ? <>
+                <MaleRoundedIcon className={style.marginRight} style={{
+                  color: 'white',
+                  fontSize: 30
+                }}></MaleRoundedIcon>
+              </> : <>
+                <FemaleRoundedIcon className={style.marginRight} style={{
+                  color: 'white',
+                  fontSize: 30
+                }}></FemaleRoundedIcon></>}
+
+
+              <Typography className={style.margintop}
+                style={{
+                  fontWeight: 500,
+                  fontSize: 15,
+                  color: 'white',
+                  textTransform: "uppercase",
+                  textAlign: 'center'
+                }}>{props.gender}</Typography>
+            </Grid>
+
+            <Grid container direction="row"
+              justifyContent="flex-start"
+              alignItems="center"
+              className={style.marginPhone}>
+              <CakeRoundedIcon className={style.marginRight} style={{
                 color: 'white',
-                textTransform: "uppercase",
-                textAlign: 'center'
-              }}>{props.gender}</Typography>
-          </Grid>
+                fontSize: 30
+              }}></CakeRoundedIcon>
 
-          <Grid container direction="row"
-            justifyContent="flex-start"
-            alignItems="center"
-            className={style.marginPhone}>
-            <CakeRoundedIcon className={style.marginRight} style={{
-              color: 'white',
-              fontSize: 30
-            }}></CakeRoundedIcon>
+              <Typography className={style.margintop}
+                style={{
+                  fontWeight: 500,
+                  fontSize: 15,
+                  color: 'white',
+                  textAlign: 'center'
+                }}>{props.birthday}</Typography>
+            </Grid>
 
-            <Typography className={style.margintop}
-              style={{
-                fontWeight: 500,
-                fontSize: 15,
-                color: 'white',
-                textAlign: 'center'
-              }}>{props.birthday}</Typography>
-          </Grid>
-
-         </>}
+          </>}
 
         </Grid>
         <Grid item xs={9}
@@ -192,20 +181,42 @@ function InfoProfile(props) {
           style={{ padding: "5px" }}>
 
           <div style={{ height: 20 }}></div>
-          <div style={{ height: 50, alignItems: 'left' }} className={style.marginRight}>
-            <Rating name="half-rating-read" defaultValue={props.rating} precision={1} readOnly size="large" />
+          <div style={{ height: 50}} className={style.titleVoluntariado}>
+            <Grid container
+              direction="row"
+              justifyContent="space-between"
+              alignItems="center">
+
+              <Grid item xs={5}>
+                {editMode ?
+                  <div className={style.avaliarbutton} style={{float: "left"}}>
+                    <Container className={style.marginChangePhoto}>
+                      <Button variant="contained" style={{ background: "gray" }} component="label" size="small"  >
+                        <AddPhotoAlternateIcon />
+                        Alterar foto
+                        <input hidden accept="image/*" multiple type="file" />
+                      </Button>
+                    </Container>
+                  </div> : <></>}
+              </Grid>
+              <Grid item xs={5}>
+                <div style={{float: "right"}}>
+                <Rating name="half-rating-read" defaultValue={props.rating} precision={1} readOnly size="large" />
+                </div>
+              </Grid>
+            </Grid>
           </div>
 
 
           <div className={style.buttonedit}>
-            {!props.login?<></>:<>{!editMode ?
-              <Button size="large" sx={{ color: 'white' }} style={{ float: 'right' }}  onClick={changeState}>Editar
+            {!props.login ? <></> : <>{!editMode ?
+              <Button size="large" sx={{ color: 'white' }} style={{ float: 'right' }} onClick={changeState}>Editar
                 < EditIcon className={style.buttonmargin} style={{
                   color: 'white',
                   fontSize: 20
                 }}></ EditIcon>
               </Button>
-              : <Button size="large" sx={{ color: 'white' }} style={{ float: 'right' }}  onClick={changeState}>Guardar
+              : <Button size="large" sx={{ color: 'white' }} style={{ float: 'right' }} onClick={changeState}>Guardar
                 < SaveIcon className={style.buttonmargin} style={{
                   color: 'white',
                   fontSize: 20
@@ -236,10 +247,10 @@ function InfoProfile(props) {
           </Container>
 
           <div className={style.titleVoluntariado}>
-            {props.login? <></>:<><div className={style.avaliarbutton} ><Button style={{ background: "white" }} variant="contained"><Typography style={{ color: "#497174" }}>Avaliar</Typography></Button></div>
-          </>}
-            </div>
-        </Grid>
+            {props.login ? <></> : <><div className={style.avaliarbutton} ><Button style={{ background: "white" }} variant="contained"><Typography style={{ color: "#497174" }}>Avaliar</Typography></Button></div>
+            </>}
+          </div>
+        </Grid >
       </Grid >
     </div >
   );
