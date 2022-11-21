@@ -1,4 +1,5 @@
 import "./App.css";
+import MiniBoxVoluntariado from "./components/StatsShowers/Box/MiniBoxVoluntariado";
 import Layout from "./Layout/Layout";
 import { Route , Routes } from 'react-router-dom'
 

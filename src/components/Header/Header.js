@@ -1,16 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { Typography, Button, AppBar, Stack, Toolbar } from "@mui/material";
-import UserProfileButton from "../UserProfileButton"
-import style from "./header.module.css"
-import Popup from '../Popup/Popup';
-import RegisterVoluntario from '../Popup/RegisterVoluntario';
-import RegisterOrganizacao from '../Popup/RegisterOrganizacao';
-import Login from '../Popup/Login';
-import ChooseType from '../Popup/ChooseType';
+import {
+    Typography,
+    Button,
+    AppBar,
+    Stack,
+    Toolbar,
+} from "@mui/material";
+import imageLogo from "../../images/logo.png";
+import imageUser from "../../images/people/defaultPhoto.jpg";
+import UserProfileButton from "../UserProfileButton";
+import style from "./header.module.css";
+import Popup from "../Popup/Popup";
+import RegisterVoluntario from "../Popup/RegisterVoluntario";
+import RegisterOrganizacao from "../Popup/RegisterOrganizacao";
+import Login from "../Popup/Login";
+import ChooseType from "../Popup/ChooseType";
 import { Link } from 'react-router-dom'
 
-function Header() {
-
+function Header(props) {
     const [perfil, setPerfil] = useState();
     const [openPopupLogin, setOpenPopupLogin] = useState(false);
     const [openPopupRegister, setOpenPopupRegister] = useState(false);
@@ -51,89 +58,83 @@ function Header() {
         if (popup === "isRegisterVoluntario") {
             setOpenPopupRegisterVoluntario(false);
         }
-    }
+    };
 
     //vetor com todos os valores no login da Base de dados
-    const [loggedIns, setLoggedIns] = useState([])
+    const [loggedIns, setLoggedIns] = useState([]);
 
     //vai buscar todos os valores de login da BD e mete em loggedIns
     useEffect(() => {
         const getLoggedIn = async () => {
-            const loggedInFromServer = await fetchLoggedIn()
-            setLoggedIns(loggedInFromServer)
-        }
+            const loggedInFromServer = await fetchLoggedIn();
+            setLoggedIns(loggedInFromServer);
+        };
 
-        getLoggedIn()
-
-    }, [])
-
+        getLoggedIn();
+    }, []);
 
     useEffect(() => {
-        checkLogin()
-
-    }, [loggedIns])
-
+        checkLogin();
+    }, [loggedIns]);
 
     const fetchLoggedIn = async () => {
-        const res = await fetch('http://localhost:5000/login')
-        const data = await res.json()
+        const res = await fetch("http://localhost:5000/login");
+        const data = await res.json();
 
         return data;
-    }
+    };
 
     const fetchLogin = async (id) => {
-        const res = await fetch(`http://localhost:5000/login/${id}`)
-        const data = await res.json()
+        const res = await fetch(`http://localhost:5000/login/${id}`);
+        const data = await res.json();
 
-        return data
-    }
-
+        return data;
+    };
 
     const changeLogginStatus = async (id) => {
-        const loginToChange = await fetchLogin(id)
-        const updLogin = { ...loginToChange, isLoggedIn: !loginToChange.isLoggedIn }
+        const loginToChange = await fetchLogin(id);
+        const updLogin = {
+            ...loginToChange,
+            isLoggedIn: !loginToChange.isLoggedIn,
+        };
 
         const res = await fetch(`http://localhost:5000/login/${id}`, {
-            method: 'PUT',
+            method: "PUT",
             headers: {
-                'Content-type': 'application/json',
+                "Content-type": "application/json",
             },
             body: JSON.stringify(updLogin),
-        })
+        });
 
-        const data = await res.json()
+        const data = await res.json();
 
         setLoggedIns(
             loggedIns.map((element) =>
-                element.id === id ? { ...element, isLoggedIn: data.isLoggedIn } : element
-
+                element.id === id
+                    ? { ...element, isLoggedIn: data.isLoggedIn }
+                    : element
             )
-        )
-    }
+        );
+    };
 
     const checkLogin = () => {
-
         for (const element of loggedIns) {
             if (element.isLoggedIn) {
                 setPerfil(element);
             }
         }
-
-    }
+    };
 
     const putLogin = (element) => {
-
         setPerfil(element);
 
         changeLogginStatus(element.id);
-    }
+    };
 
     const takeOffLogin = () => {
-
         changeLogginStatus(perfil.id);
         setPerfil(null);
-
-    }
+    };
 
     return (
         <>
@@ -165,16 +166,47 @@ function Header() {
                             HELPING TOGETHER
                         </Typography>
                     </Link>
-                    <Stack direction="row" spacing={2} className={style.headerButton}>
-                        <Link style={{ textDecoration: 'none', color: 'white' }} to="/Voluntariados"><Button size="large" sx={{ color: 'white' }} >Voluntariados</Button></Link>
-                        <Link style={{ textDecoration: 'none', color: 'white' }} to="/Organizacoes"><Button size="large" sx={{ color: 'white' }} >Organizações</Button></Link>
-                        {!perfil ?
+                   
+                    <Stack
+                        direction="row"
+                        spacing={2}
+                        className={style.headerButton}
+                    >
+                       <Link style={{ textDecoration: 'none', color: 'white' }} to="/Voluntariados"> 
+                       <Button
+                            size="large"
+                            sx={{
+                                font: "bold 14px/1.4 'Open Sans', arial, sans-serif",
+                                letterSpacing: "0.15em",
+                                color: "#EFF5F5",}}
+                            className={style.headerOtherButtons}
+                            
+                        >
+                            Voluntariados
+                        </Button>
+                        </Link>
+                        <Link style={{ textDecoration: 'none', color: 'white' }} to="/Organizacoes">
+                            <Button
+                            size="large"
+                            sx={{
+                                font: "bold 14px/1.4 'Open Sans', arial, sans-serif",
+                                letterSpacing: "0.15em",
+                                color: "#EFF5F5",}}
+                            className={style.headerOtherButtons}
+                        >
+                            Organizações
+                        </Button>
+                        </Link>
+                        {!perfil ? (
                             <>
                                 <Button
                                     variant="contained"
                                     size="large"
                                     sx={{
-                                        backgroundColor:"#EFF5F5",
+                                        "&:hover": {
+                                            backgroundColor: "#d0d5d5",
+                                        },
+                                        backgroundColor: "#EFF5F5",
                                         textTransform: "none",
                                         borderRadius: "20px",
                                         color: "#497174",
@@ -187,6 +219,9 @@ function Header() {
                                     variant="outlined"
                                     size="large"
                                     sx={{
+                                        "&:hover": {
+                                            border: " 1px solid #d0d5d5",
+                                        },
                                         border: " 1px solid #EFF5F5",
                                         textTransform: "none",
                                         borderRadius: "20px",
@@ -196,12 +231,14 @@ function Header() {
                                 >
                                     Registar
                                 </Button>
-                            </> :
-                            <>
-                                <UserProfileButton name={perfil.name} image="/defaultPhoto.jpg" takeOffLogin={takeOffLogin} />
                             </>
-                        }
-
+                        ) : (
+                            <UserProfileButton
+                                name={perfil.name}
+                                image={imageUser}
+                                takeOffLogin={takeOffLogin}
+                            />
+                        )}
                     </Stack>
                 </Toolbar>
             </AppBar>
