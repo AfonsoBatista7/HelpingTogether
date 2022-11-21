@@ -51,8 +51,6 @@ function Perfil() {
             }
         }
 
-        console.log(perfil)
-
     }
 
     return (<>

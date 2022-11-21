@@ -22,29 +22,33 @@ function Voluntariado(props) {
         <div className={style.backgroundwhite}>
             <div style={{ height: 40 }}></div>
 
-                <Grid
+            <Grid
+                container
+                direction="row"
+                justifyContent="flex-start"
+                alignItems="center"
+                className={style.marginsVoluntariado}>
+
+                <Grid item xs={6}
                     container
                     direction="row"
-                    justifyContent="flex-start"
-                    alignItems="center"
-                    className={style.marginsVoluntariado}>
+                    justifyContent="space-between"
+                    alignItems="center">
+                    <Typography
+                        style={{
+                            fontWeight: 700,
+                            fontSize: 30,
+                            color: '#497174',
+                            textTransform: "uppercase",
+                            textAlign: 'left',
 
-                    <Grid item xs={6}>
-                        <Typography
-                            style={{
-                                fontWeight: 700,
-                                fontSize: 30,
-                                color: '#497174',
-                                textTransform: "uppercase",
-                                textAlign: 'left',
+                        }}
+                    >Voluntariado</Typography>
+                </Grid>
 
-                            }}
-                        >Voluntariado</Typography>
-                    </Grid>
-
-                    <Grid item xs={5} className={style.marginsVoluntariado}>
+                <Grid item xs={5} className={style.marginsVoluntariado}>
                     {!candidate ?
-                        <Button variant="contained" color="success" size="medium" style={{ float: 'right' }}  className={style.buttonedit} onClick={changeState}>
+                        <Button variant="contained" color="success" size="medium" style={{ float: 'right' }} className={style.buttonedit} onClick={changeState}>
                             < DoneOutlineRoundedIcon className={style.marginRight} style={{
                                 color: 'white',
                                 fontSize: 20
@@ -73,26 +77,26 @@ function Voluntariado(props) {
                             >Cancelar Candidatura</Typography>
                         </Button>}
 
-                        </Grid>
                 </Grid>
-               
-
-                <InfoVoluntariado />
-
-                <Container style={{
-                    height: 50
-                }}></Container>
+            </Grid>
 
 
-                <Comentarios />
+            <InfoVoluntariado />
 
-                <Container style={{
-                    height: 50
-                }}></Container>
+            <Container style={{
+                height: 50
+            }}></Container>
 
 
-            </div >
-       
+            <Comentarios />
+
+            <Container style={{
+                height: 50
+            }}></Container>
+
+
+        </div >
+
     );
 }
 
