@@ -6,7 +6,7 @@ import style from "../components/SectionsProfile/Profiles.module.css"
 import { Pagination, Grid, Typography, Container } from "@mui/material";
 import React, { useState, useEffect } from "react";
 
-function Perfil() {
+function Perfil(props) {
 
     const [perfil, setPerfil] = useState(null);
 
@@ -47,7 +47,12 @@ function Perfil() {
 
         for (const element of loggedIns) {
             if (element.isLoggedIn) {
+                if(props.name){
+                    console.log(props.name);
+                    setPerfil(props);
+                }else{
                 setPerfil(element);
+                }
             }
         }
 
@@ -92,7 +97,7 @@ function Perfil() {
                         height: 70
                     }}></Container>
 
-                    <VoluntariadosArea key={perfil.id} id={perfil.id} type={perfil.typePerfil} />
+                    <VoluntariadosArea key={perfil.id} id={perfil.id} type={perfil.typePerfil} name={perfil.name} />
 
                     <Container style={{
                         height: 50

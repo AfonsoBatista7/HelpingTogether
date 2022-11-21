@@ -1,10 +1,61 @@
 import style from "./Profiles.module.css"
 import { Pagination, Grid, Typography, Container, Divider, Button } from "@mui/material";
+import React, { useState, useEffect } from "react";
 
 function VoluntariadosArea(props) {
-    console.log(props.type);
+
+    const [volunt, setVoluntariados] = useState([])
+
+    useEffect(() => {
+
+        const getLoggedIn = async () => {
+
+            const listVolunt = await fetchVoluntariados()
+
+            setVoluntariados(listVolunt)
+
+        }
+
+        getLoggedIn(volunt)
+
+    }, [])
+
+    const fetchVoluntariados = async () => {
+        var res=[];
+
+        if (props.type === "organizacao") {
+             res = await fetch('http://localhost:5000/voluntariados');
+        }else{
+             res = await fetch('http://localhost:5000/voluntariadosRealizados')
+        }
+
+        var data = await res.json()
+
+        if (props.type === "organizacao") 
+            data=checkOrganization(data);
+
+
+        console.log(data);
+
+        return data;
+    }
+
+    const checkOrganization = (data) => {
+        var list=[];
+
+        for (const element of data) {
+            
+            if (element.organizacao===props.name) {
+                list.push(element);
+            }
+        }
+        return list;
+
+    }
+
+
     return (
-        <div className={style.backgroundwhite}>
+        <div id="Voluntariados" className={style.backgroundwhite}>
             <div >
                 <Container style={{
                     height: 80
@@ -29,12 +80,13 @@ function VoluntariadosArea(props) {
                     </Typography>
 
 
-                    {props.type === "organizacao" ? <Button><Typography style={{color: "#497174"}}>+ Criar</Typography></Button> : <></>}
-                    
+                    {props.type === "organizacao" ? <Button><Typography style={{ color: "#497174" }}>+ Criar</Typography></Button> : <></>}
+
                 </Grid>
                 <Divider />
                 <Container style={{
                     height: 100
+
                 }}></Container>
                 <Grid
                     container

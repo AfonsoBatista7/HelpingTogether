@@ -1,6 +1,5 @@
 
 import style from "./Profiles.module.css"
-import image from "../../images/people/Maria.jpg";
 import React, { useState } from 'react'
 
 import { Grid, Typography, Container, Avatar, Button, TextField, Rating } from "@mui/material";
@@ -58,7 +57,7 @@ function InfoProfile(props) {
   }
 
   return (
-    <div style={{ alignItems: 'left', backgroundColor: "#497174", borderRadius: '10px' }} >
+    <div id="Perfil"  style={{ alignItems: 'left', backgroundColor: "#497174", borderRadius: '10px' }} >
 
       <Grid container direction="row"
         justifyContent="center"
