@@ -3,7 +3,7 @@ import { Pagination, Grid, Typography, Container, Divider } from "@mui/material"
 
 function CandidaturasPendentes(props) {
     return(
-        <div className={style.backgroundwhite}>
+        <div id="Candidatura" className={style.backgroundwhite}>
         <div >
             <Container style={{
                 height: 80

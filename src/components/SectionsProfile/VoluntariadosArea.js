@@ -6,6 +6,55 @@ import Popup from "../Popup/Popup";
 
 function VoluntariadosArea(props) {
 
+    const [volunt, setVoluntariados] = useState([])
+
+    useEffect(() => {
+
+        const getLoggedIn = async () => {
+
+            const listVolunt = await fetchVoluntariados()
+
+            setVoluntariados(listVolunt)
+
+        }
+
+        getLoggedIn(volunt)
+
+    }, [])
+
+    const fetchVoluntariados = async () => {
+        var res=[];
+
+        if (props.type === "organizacao") {
+             res = await fetch('http://localhost:5000/voluntariados');
+        }else{
+             res = await fetch('http://localhost:5000/voluntariadosRealizados')
+        }
+
+        var data = await res.json()
+
+        if (props.type === "organizacao") 
+            data=checkOrganization(data);
+
+
+        console.log(data);
+
+        return data;
+    }
+
+    const checkOrganization = (data) => {
+        var list=[];
+
+        for (const element of data) {
+            
+            if (element.organizacao===props.name) {
+                list.push(element);
+            }
+        }
+        return list;
+
+    }
+
     const [openPopupRegisterVoluntariado, setOpenPopupRegisterVoluntariado] = useState(false);
 
     const resgisterVoluntariado = () => {
@@ -17,7 +66,7 @@ function VoluntariadosArea(props) {
     }
 
     return (
-        <div className={style.backgroundwhite}>
+        <div id="Voluntariados" className={style.backgroundwhite}>
             <div >
                 <Container style={{
                     height: 80
@@ -57,6 +106,7 @@ function VoluntariadosArea(props) {
                 <Divider />
                 <Container style={{
                     height: 100
+
                 }}></Container>
                 <Grid
                     container
