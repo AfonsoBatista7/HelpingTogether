@@ -13,3 +13,28 @@
     margin-left: 5px !important;
     margin-right: 5px !important;
 }
+
+.footerButton {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    text-align: center;
+    position: relative;
+}
+
+.footerButton:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: -2px;
+    content: "";
+    height: 3px;
+    left: 50%;
+    position: absolute;
+    background: #497174;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+.footerButton:hover:after {
+    width: 100%;
+    left: 0;
+}

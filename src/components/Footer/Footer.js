@@ -7,47 +7,37 @@ function Footer(props) {
     const preventDefault = (event) => event.preventDefault();
     return (
         <footer className={style.footer}>
-            <div style={{ position: 'relative', top: 35 }}>
+            <div style={{ position: "relative", top: 35 }}>
                 <Grid container direction="row" justifyContent="center">
                     <Grid item xs={1}>
-                        <Typography
-                            style={{
-                                fontWeight: 700,
-                                textTransform: "uppercase",
-                                letterSpacing: ".1rem",
-                                textAlign: "center",
-                            }}
-                        >
+                        <Typography className={style.footerButton}>
                             <Link
                                 href="#home"
-                                style={{
+                                sx={{
                                     color: "#497174",
                                     textDecoration: "none",
+                                    font: "bold 14px/1.4 'Open Sans', arial, sans-serif",
+                                    letterSpacing: "0.15em",
                                 }}
                                 onClick={preventDefault}
                             >
-                                About Us
+                                Sobre Nós
                             </Link>
                         </Typography>
                     </Grid>
                     <Grid item xs={1}>
-                        <Typography
-                            style={{
-                                fontWeight: 700,
-                                textTransform: "uppercase",
-                                letterSpacing: ".1rem",
-                                textAlign: "center",
-                            }}
-                        >
+                        <Typography className={style.footerButton}>
                             <Link
                                 href="#home"
-                                style={{
+                                sx={{
                                     color: "#497174",
                                     textDecoration: "none",
+                                    font: "bold 14px/1.4 'Open Sans', arial, sans-serif",
+                                    letterSpacing: "0.15em",
                                 }}
                                 onClick={preventDefault}
                             >
-                                Contacts
+                                Contactos
                             </Link>
                         </Typography>
                     </Grid>

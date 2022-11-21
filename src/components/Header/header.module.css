@@ -10,8 +10,9 @@
     color: #EFF5F5;
 }
 
+
 .headerTest {
-    color: #EFF5F5;
+    color: #eff5f5;
 }
 
 .headerImage {
@@ -21,4 +22,21 @@
 .headerLink {
     color: inherit !important;
     text-decoration: none !important;
+}
+
+.headerOtherButtons:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 6px;
+    content: "";
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #EFF5F5;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+.headerOtherButtons:hover:after {
+    width: 100%;
+    left: 0;
 }

@@ -2,15 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { Grid, Avatar, TextField, Button, Collapse, IconButton, Alert } from '@mui/material'
 import LockOutlined from '@mui/icons-material/LockOutlined';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
+import style from "./login.module.css";
 import * as Yup from 'yup';
 import CloseIcon from '@mui/icons-material/Close';
 
 
 const Login = (props) => {
-
-    const avatarStyle = { backgroundColor: '#1bbd7e' }
-    const marginBottom = { marginBottom: 10 }
-    const marginBottomFinal = { marginBottom: 20 }
 
     const [open, setOpen] = useState(false);
 
@@ -73,7 +70,7 @@ const Login = (props) => {
         <Grid>
             <div>
                 <Grid align='center'>
-                    <Avatar style={avatarStyle}>
+                    <Avatar className={style.avatar}>
                         <LockOutlined />
                     </Avatar>
                     <h2>Entrar</h2>
@@ -81,9 +78,9 @@ const Login = (props) => {
                 <Formik initialValues={initialValue} validationSchema={validationSchema} onSubmit={onSubmit}>
                     {(props) => (
                         <><Form autoComplete="off">
-                            <Field as={TextField} name="name" label='Nome de utilizador' placeholder='Nome de utilizador' fullWidth style={marginBottom}
+                            <Field as={TextField} name="name" label='Nome de utilizador' placeholder='Nome de utilizador' fullWidth className={style.bottom}
                                 helperText={<ErrorMessage name="name" component="div" style={{ color: 'red' }} />} />
-                            <Field as={TextField} name="password" label='Palavra-chave' placeholder='Palavra-chave' type='password' fullWidth style={marginBottomFinal}
+                            <Field as={TextField} name="password" label='Palavra-chave' placeholder='Palavra-chave' type='password' fullWidth className={style.bottomFinal}
                                 helperText={<ErrorMessage name="password" component="div" style={{ color: 'red' }} />} />
                             <Button type='submit' color='primary' variant="contained" sx={{ '&:hover': { opacity: [0.9, 0.8, 0.7] } }}
                                  fullWidth> Entrar </Button>
