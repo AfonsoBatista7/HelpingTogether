@@ -1,0 +1,15 @@
+.footer {
+    background: linear-gradient(180deg, rgba(228, 231, 252, 0) 0%, rgb(176, 204, 187) 100%);
+    background-position: top;
+    height: 25vh;
+}
+
+.footerSocialContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.footerLink {
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+}

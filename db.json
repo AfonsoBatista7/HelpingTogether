@@ -1,4 +1,61 @@
 {
+  "login": [
+    {
+      "name": "ola",
+      "email": "o@gmail.com",
+      "phone": "968372018",
+      "password": "000000",
+      "confirmPassword": "000000",
+      "type": [
+        "Animais"
+      ],
+      "termsAndConditions": true,
+      "isLoggedIn": false,
+      "typePerfil": "organizacao",
+      "id": 7
+    },
+    {
+      "name": "bia",
+      "email": "b@gmail.com",
+      "gender": "female",
+      "birthday": "2022-11-17T19:01:27.621Z",
+      "phone": "924297688",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "termsAndConditions": true,
+      "isLoggedIn": false,
+      "typePerfil": "voluntario",
+      "id": 8
+    },
+    {
+      "name": "luis",
+      "email": "l@gmail.com",
+      "gender": "male",
+      "birthday": "2022-11-18T20:43:59.731Z",
+      "phone": "923451678",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "termsAndConditions": true,
+      "isLoggedIn": false,
+      "typePerfil": "voluntario",
+      "id": 9
+    },
+    {
+      "name": "amigosforever",
+      "email": "af@gmail.com",
+      "phone": "931234567",
+      "password": "111111",
+      "confirmPassword": "111111",
+      "type": [
+        "Gastronomia",
+        "Saúde"
+      ],
+      "termsAndConditions": true,
+      "isLoggedIn": false,
+      "typePerfil": "organizacao",
+      "id": 10
+    }
+  ],
   "voluntarios": [
     {
       "id": 1,
@@ -7,7 +64,9 @@
       "email": "saraleal45@gmail.com",
       "birthdate": "07/05/1984",
       "gender": "Feminino",
-      "image": "Maria.jpg"
+      "phone": "924562789",
+      "image": "Maria.jpg",
+      "rating": 1
     },
     {
       "id": 2,
@@ -16,7 +75,9 @@
       "email": "gescordeiro0008@gmail.com",
       "birthdate": "30/09/1962",
       "gender": "Feminino",
-      "image": "Gestrudes.jpg"
+      "phone": "912498876",
+      "image": "Gestrudes.jpg",
+      "rating": 3
     },
     {
       "id": 3,
@@ -25,7 +86,9 @@
       "email": "lauraSilves@gmail.com",
       "birthdate": "12/07/1977",
       "gender": "Feminino",
-      "image": "Laura.png"
+      "phone": "914562789",
+      "image": "Laura.png",
+      "rating": 4
     },
     {
       "id": 4,
@@ -34,7 +97,9 @@
       "email": "tiagolp69@gmail.com",
       "birthdate": "19/02/2002",
       "gender": "Masculino",
-      "image": "Tiago.jpg"
+      "phone": "965782234",
+      "image": "Tiago.jpg",
+      "rating": 5
     },
     {
       "id": 5,
@@ -43,7 +108,9 @@
       "email": "osvaldo356@gmail.com",
       "birthdate": "23/12/1967",
       "gender": "Masculino",
-      "image": "Osvaldo.jpg"
+      "phone": "922234556",
+      "image": "Osvaldo.jpg",
+      "rating": 3
     }
   ],
   "organizacoes": [
@@ -52,7 +119,11 @@
       "name": "Cruz Vermelha",
       "description": "A Cruz Vermelha Portuguesa é uma instituição humanitária de utilidade pública destinada a defender a paz, garantir o respeito pela dignidade da pessoa humana, menorizar os efeitos da guerra e promover a vida e a saúde. Foi fundada em 1865 e tem a sede nacional localizada no Palácio dos Condes de Óbidos em Lisboa, no entanto, possui estruturas locais distribuídas por todo o país.",
       "email": "cvermelha@cruzvermelha.org.pt",
-      "type": ["Saúde", "Comunidade"],
+      "phone": "910045637",
+      "type": [
+        "Saúde",
+        "Comunidade"
+      ],
       "image": "Cruz_Vermelha.png"
     },
     {
@@ -60,7 +131,12 @@
       "name": "UNICEF",
       "description": "A UNICEF (Fundo das Nações Unidas para a Infância) é a principal agência humanitária que trabalha especificamente para a promoção e defesa dos direitos das crianças. A UNICEF presta ajuda humanitária sem discriminação de raça, cor, gendero, língua, religião, opinião política ou outra. Em tudo o que faz, as crianças mais desfavorecidas e os países com mais necessidades têm prioridade.",
       "email": "amigos@unicef.pt",
-      "type": ["Gastronomia", "Comunidade", "Saúde"],
+      "phone": "921345678",
+      "type": [
+        "Gastronomia",
+        "Comunidade",
+        "Saúde"
+      ],
       "image": "UNICEF.jpg"
     },
     {
@@ -68,7 +144,12 @@
       "name": "Leo",
       "description": "Os Leos são jovens interessados e dinâmicos que procuram, em todo o mundo, desenvolver-se através do serviço à comunidade e do apoio aos que mais precisam. Organizam-se por clubes de acordo com a área geográfica, formando assim um movimento, denominado de Leonismo, criado no âmbito da Associação Internacional de Lions Clubes. Os Leos atuam através do voluntariado sem fins lucrativos ou qualquer ligação política ou religiosa.",
       "email": "geral@leosdeportugal.org",
-      "type": ["Poluição", "Comunidade", "Natureza"],
+      "phone": "915562309",
+      "type": [
+        "Poluição",
+        "Comunidade",
+        "Natureza"
+      ],
       "image": "Leo.png"
     },
     {
@@ -76,7 +157,12 @@
       "name": "FAPAS",
       "description": "O FAPAS (Associação Portuguesa para a Conservação da Biodiversidade) é uma organização não governamental de ambiente, de âmbito nacional, sem fins lucrativos, constituída em 1990 por cidadãos com longa experiência no domínio da conservação da Natureza, vocacionada para a promoção de ações que visam a conservação ativa da biodiversidade e dos ecossistemas.",
       "email": "fapas@fapas.pt",
-      "type": ["Poluição", "Natureza", "Animais"],
+      "phone": "911115678",
+      "type": [
+        "Poluição",
+        "Natureza",
+        "Animais"
+      ],
       "image": "FAPAS.jpg"
     },
     {
@@ -84,7 +170,10 @@
       "name": "Just a Change",
       "description": "O Just a Change é uma Associação sem Fins Lucrativos que reconstrói casas de pessoas carenciadas em Portugal. Até ao dia de hoje, o Just a Change reconstruiu centenas de casas e instituições, tendo mobilizado milhares de voluntários dentro e fora do país.",
       "email": "geral@justachange.pt",
-      "type": ["Comunidade"],
+      "phone": "925678902",
+      "type": [
+        "Comunidade"
+      ],
       "image": "Just_a_Change.png"
     },
     {
@@ -92,7 +181,11 @@
       "name": "Banco Alimentar",
       "description": "O Bancos Alimentares são Instituições Particulares de Solidariedade Social que lutam contra o desperdício de produtos alimentares, encaminhando-os para distribuição gratuita às pessoas carenciadas. Em Portugal, os bancos alimentares em atividade recolhem e distribuem várias dezenas de milhares de toneladas de produtos e apoiam ao longo de todo o ano, a ação de mais de 2.360 instituições em Portugal. Por sua vez, estas distribuem refeições confecionadas e cabazes de alimentos a pessoas comprovadamente carenciadas, abrangendo já a distribuição total mais de 390.000 pessoas.",
       "email": "ba.federacao@bancoalimentar.pt",
-      "type": ["Gastronomia", "Comunidade"],
+      "phone": "915699089",
+      "type": [
+        "Gastronomia",
+        "Comunidade"
+      ],
       "image": "Banco_Alimentar.png"
     },
     {
@@ -100,7 +193,11 @@
       "name": "Caritas",
       "description": "A Caritas Internacional é uma confederação de 165 organizações humanitárias da Igreja Católica que atua em mais de duzentos países. Coletiva e individualmente a sua missão é trabalhar para construir um mundo melhor, especialmente para os pobres e oprimidos.",
       "email": "caritas@caritas.pt",
-      "type": ["Gastronomia", "Comunidade"],
+      "phone": "9121212340",
+      "type": [
+        "Gastronomia",
+        "Comunidade"
+      ],
       "image": "Caritas.png"
     },
     {
@@ -108,7 +205,10 @@
       "name": "Animalife",
       "description": "A Animalife é uma associação de sensibilização e apoio social e ambiental, de âmbito nacional, sem fins lucrativos, constituída em outubro de 2011, cujo objetivo é diminuir o grave problema do abandono animal, atuando a montante sobre uma das principais causas de abandono em Portugal: a vulnerabilidade económica e social das famílias.",
       "email": "geral@animalife.pt",
-      "type": ["Animais"],
+      "phone": "923340990",
+      "type": [
+        "Animais"
+      ],
       "image": "Animalife.jpg"
     }
   ],
@@ -120,8 +220,11 @@
       "startDate": "24/09/2020",
       "endDate": "24/09/2020",
       "location": "Monchique",
-      "type": ["Natureza"],
-      "image": "Plantar.jpg"
+      "type": [
+        "Natureza"
+      ],
+      "image": "Plantar.jpg",
+      "rating": 2
     },
     {
       "id": 15,
@@ -130,8 +233,11 @@
       "startDate": "30/05/2023",
       "endDate": "30/05/2023",
       "location": "Covilhã",
-      "type": ["Natureza"],
-      "image": "Limpar_floresta.jpg"
+      "type": [
+        "Natureza"
+      ],
+      "image": "Limpar_floresta.jpg",
+      "rating": 5
     },
     {
       "id": 16,
@@ -140,8 +246,11 @@
       "startDate": "10/11/2022",
       "endDate": "10/11/2022",
       "location": "Faro",
-      "type": ["Poluição"],
-      "image": "Limpar_praia.png"
+      "type": [
+        "Poluição"
+      ],
+      "image": "Limpar_praia.png",
+      "rating": 4
     },
     {
       "id": 17,
@@ -150,8 +259,11 @@
       "startDate": "12/06/2021",
       "endDate": "12/06/2021",
       "location": "Lisboa",
-      "type": ["Poluição"],
-      "image": "Limpeza_floresta.jpg"
+      "type": [
+        "Poluição"
+      ],
+      "image": "Limpeza_floresta.jpg",
+      "rating": 4
     },
     {
       "id": 18,
@@ -160,8 +272,11 @@
       "startDate": "17/02/2023",
       "endDate": "17/02/2023",
       "location": "Vila Franca do Campo",
-      "type": ["Animais"],
-      "image": "Cagarros.jpg"
+      "type": [
+        "Animais"
+      ],
+      "image": "Cagarros.jpg",
+      "rating": 3
     },
     {
       "id": 19,
@@ -170,8 +285,11 @@
       "startDate": "01/01/2022",
       "endDate": "31/12/2023",
       "location": "Évora",
-      "type": ["Animais"],
-      "image": "Resgatar_animais.jpg"
+      "type": [
+        "Animais"
+      ],
+      "image": "Resgatar_animais.jpg",
+      "rating": 2
     },
     {
       "id": 20,
@@ -180,8 +298,12 @@
       "startDate": "23/12/2022",
       "endDate": "24/12/2022",
       "location": "Baixa de Lisboa",
-      "type": ["Comunidade", "Gastronomia"],
-      "image": "Comida.png"
+      "type": [
+        "Comunidade",
+        "Gastronomia"
+      ],
+      "image": "Comida.png",
+      "rating": 5
     },
     {
       "id": 21,
@@ -190,8 +312,12 @@
       "startDate": "14/05/2023",
       "endDate": "23/05/2023",
       "location": "Almada",
-      "type": ["Gastronomia", "Comunidade"],
-      "image": "Recolha_alimentos.png"
+      "type": [
+        "Gastronomia",
+        "Comunidade"
+      ],
+      "image": "Recolha_alimentos.png",
+      "rating": 4
     },
     {
       "id": 22,
@@ -200,8 +326,11 @@
       "startDate": "10/02/ 2020",
       "endDate": "30/12/2023",
       "location": "Pedrógão Grande",
-      "type": ["Comunidade"],
-      "image": "Construir.png"
+      "type": [
+        "Comunidade"
+      ],
+      "image": "Construir.png",
+      "rating": 5
     },
     {
       "id": 23,
@@ -210,8 +339,11 @@
       "startDate": "23/01/2023",
       "endDate": "23/01/2023",
       "location": "Funchal",
-      "type": ["Comunidade"],
-      "image": "Recolher_roupa.png"
+      "type": [
+        "Comunidade"
+      ],
+      "image": "Recolher_roupa.png",
+      "rating": 3
     },
     {
       "id": 24,
@@ -220,8 +352,11 @@
       "startDate": "01/06/2022",
       "endDate": "01/06/2022",
       "location": "Porto",
-      "type": ["Saúde"],
-      "image": "Saude.png"
+      "type": [
+        "Saúde"
+      ],
+      "image": "Saude.png",
+      "rating": 4
     },
     {
       "id": 25,
@@ -230,8 +365,106 @@
       "startDate": "10/09/2023",
       "endDate": "14/09/2023",
       "location": "Portimão",
-      "type": ["Saúde"],
-      "image": "Sangue.png"
+      "type": [
+        "Saúde"
+      ],
+      "image": "Sangue.png",
+      "rating": 2
+    }
+  ],
+  "comentariosPessoa": [
+    {
+      "id": 1,
+      "name": "Cruz Vermelha",
+      "comment": "Voluntário sempre desponível quando solicitado, empenhado e bom trabalhador.",
+      "image": "Cruz_Vermelha.png",
+      "rating": 3
+    },
+    {
+      "id": 1,
+      "name": "UNICEF",
+      "comment": "Voluntário empenhado, porém não pontual. Chegou várias vezes atrasado sem desculpa plausível",
+      "image": "UNICEF.jpg",
+      "rating": 2
+    },
+    {
+      "id": 2,
+      "name": "Leo",
+      "comment": "Voluntário dedicado, muito presente e comprometido com o projeto que desempenhou.",
+      "image": "Leo.png",
+      "rating": 5
+    },
+    {
+      "id": 1,
+      "name": "FAPAS",
+      "comment": "Voluntário um pouco rude. Não trabalhou bem em equipa.",
+      "image": "FAPAS.jpg",
+      "rating": 1
+    },
+    {
+      "id": 1,
+      "name": "Just a Change",
+      "comment": "Voluntário esforçado, no entanto, não estava sempre disponivel quando solocitado.",
+      "image": "Just_a_Change.png",
+      "rating": 4
+    },
+    {
+      "id": 1,
+      "name": "Banco Alimentar",
+      "comment": "Voluntário desponável mas não se esforça tanto quanto poderia.",
+      "image": "Banco Alimentar",
+      "rating": 3
+    },
+    {
+      "id": 1,
+      "name": "Caritas",
+      "comment": "Voluntário bastante social, divertido e carismático. Interage bem com pessoas e faz um bom trabalho do que lhe é pedido.",
+      "image": "Caritas.png",
+      "rating": 4
+    },
+    {
+      "id": 1,
+      "name": "Animalife",
+      "comment": "Voluntário eficiente, bom trabalhador em equipa e dinâmico. ",
+      "image": "Animalife.jpg",
+      "rating": 5
+    }
+  ],
+  "comentariosVoluntariado": [
+    {
+      "id": 1,
+      "name": "Maria Leal",
+      "comment": "Voluntariado muito bem estruturado e organizado. Gostei bastante.",
+      "image": "Maria.jpg",
+      "rating": 5
+    },
+    {
+      "id": 1,
+      "name": "Gestrudes Cordeiro",
+      "comment": "Adorei o voluntariado. Aprendi bastante, ganhei muita experiência e conheci muitas pessoas diferentes.",
+      "image": "Gestrudes.jpg",
+      "rating": 5
+    },
+    {
+      "id": 1,
+      "name": "Laura Silves",
+      "comment": "Voluntariado mal organizado e realizado. Não espera isto de uma organização destas.",
+      "image": "Laura.png",
+      "rating": 1
+    },
+    {
+      "id": 1,
+      "name": "Tiago Lopes",
+      "comment": "Voluntariado bem organizado, no entanto, muito simples e não muito dinâmico.",
+      "image": "Tiago.jpg",
+      "rating": 3
+    },
+    {
+      "id": 1,
+      "name": "Osvaldo Fernandes",
+      "comment": "Bom voluntariado. Bem executado mas nada de excepcional.",
+      "image": "Osvaldo.jpg",
+      "rating": 4
     }
   ]
 }

@@ -7,16 +7,18 @@
     position: absolute;
     right: 0;
     margin-right: 14px;
-    color: white;
+    color: #EFF5F5;
 }
 
 .headerTest {
-    color: white;
+    color: #EFF5F5;
 }
 
 .headerImage {
-    width: 3%;
-    height: auto;
-    pointer-events: fill;
-    margin-right: 14px;
+    width: 100%;
+}
+
+.headerLink {
+    color: inherit !important;
+    text-decoration: none !important;
 }

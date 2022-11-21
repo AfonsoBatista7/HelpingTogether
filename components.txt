@@ -29,14 +29,14 @@ Aceitar/Recusar Candidatos
 
 
 [AFONSO] 
-Comentario box {Foto, Nome, Avaliação, comentário} 
-Organizações Box
+Comentario box {Foto, Nome, Avaliação, comentário} [X]
+Organizações Box [X]
 Candidatos
-Voluntariados Box(quando na pagina de voluntariados)
-Voluntariados Box { Foto, nome, avaliação}
+Voluntariados Box(quando na pagina de voluntariados) [X]
+Voluntariados Box { Foto, nome, avaliação} 
 about us page com imagens e fotos nossas
-FOOTER
-HEADER
+FOOTER [X]
+HEADER [X]
 
 
 Sugestão bué fixe:
