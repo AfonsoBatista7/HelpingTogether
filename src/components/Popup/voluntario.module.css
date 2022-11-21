@@ -1,0 +1,29 @@
+.bottom {
+    margin-bottom: 3% !important;
+}
+
+.bottomHeader {
+    margin-bottom: 3% !important;
+}
+
+.both {
+    margin-top: 5% !important;
+    margin-bottom: 3% !important;
+}
+
+.pic {
+    margin-top: 0% !important;
+    margin-bottom: 10% !important;
+}
+
+.header {
+    margin: 0% !important;
+}
+
+.top {
+    margin-top: 3% !important;
+}
+
+.avatar {
+    background-color: #1bbd7e !important;
+}

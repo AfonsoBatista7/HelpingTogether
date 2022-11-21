@@ -10,6 +10,7 @@ import HomePage from "./pages/HomePage";
 import React, { useState, useEffect } from "react";
 
 function App() {
+
     return (
         <div>
             <Layout>
