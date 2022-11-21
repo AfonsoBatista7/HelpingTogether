@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import style from "./home.module.css";
 import { Carousel } from 'react-responsive-carousel';
-import { Container } from '@mui/material';
 import smartie1 from "./Cats/smartie1.jpg"
 import smartie3 from "./Cats/smartie3.jpg"
 import diana1 from "./Cats/diana1.jpg"

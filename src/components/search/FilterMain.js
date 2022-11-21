@@ -4,7 +4,6 @@ import {
   Menu
 } from "@mui/material";
 import SubFilter from './SubFilter';
-import style from "./search.module.css";
 
 const FilterMain = () => {
     const [anchorElFilter, setAnchorElFilter] = useState(null);

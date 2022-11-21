@@ -3,8 +3,9 @@ import SearchBar from "../search/SearchBar";
 import Map from "./Map";
 import HomeCarousel from './HomeCarousel';
 import imageLogo from "../../images/logo.png";
-import { Stack, Typography, Grid } from '@mui/material';
+import { Grid } from '@mui/material';
 
+// alguem que perceba mais de css e nao enlouqueça?
 const Home = () => {
   return (
     <div>
@@ -23,14 +24,12 @@ const Home = () => {
               <Grid xs={6}>
                 <Map />
               </Grid>
-{/*               </Stack> */}
               <Grid xs={12}>
                 <SearchBar />
               </Grid> 
               <Grid xs={12}>
                 <HomeCarousel />
               </Grid>
-{/*         </Stack> */}
           </Grid>
         </center>
     </div>
