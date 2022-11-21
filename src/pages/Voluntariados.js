@@ -49,8 +49,7 @@ function Voluntariados() {
 
     }
 
-    return (<>
-        {perfil ? <>
+    return (
         <div className={style.backgroundwhite}>
             <div className={style.margins}>
                 <Container style={{
@@ -73,9 +72,9 @@ function Voluntariados() {
                             marginLeft: 50
                         }}
                     >Voluntariados</Typography>
-
-                    {perfil.typePerfil === "organizacao" ? <Button><Typography style={{ color: "#497174" }}>+ Criar</Typography></Button> : <></>}
-
+                    {!perfil ? <></> : <>
+                        {perfil.typePerfil === "organizacao" ? <Button><Typography style={{ color: "#497174" }}>+ Criar</Typography></Button> : <></>}
+                    </>}
 
                 </Grid>
 
@@ -97,7 +96,7 @@ function Voluntariados() {
 
             </div >
         </div>
-        </> : <></>}</>
+
     );
 }
 

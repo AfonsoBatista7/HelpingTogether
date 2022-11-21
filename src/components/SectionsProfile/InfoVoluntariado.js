@@ -2,25 +2,65 @@
 import style from "./Profiles.module.css"
 import image from "../../images/volunteering/Comida.png";
 import org from "../../images/organizations/UNICEF.jpg";
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { Grid, Typography, Container, Avatar, Button, TextField, Rating } from "@mui/material";
 import PinDropRoundedIcon from '@mui/icons-material/PinDropRounded';
 import CalendarMonthRoundedIcon from '@mui/icons-material/CalendarMonthRounded';
-import DoneOutlineRoundedIcon from '@mui/icons-material/DoneOutlineRounded';
-import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
-
 
 function InfoVoluntariado(props) {
 
+    const [perfil, setPerfil] = useState(null);
 
+    //vetor com todos os valores no login da Base de dados
+    const [loggedIns, setLoggedIns] = useState([])
+
+    //vai buscar todos os valores de login da BD e mete em loggedIns
+    useEffect(() => {
+        const getLoggedIn = async () => {
+
+
+            const loggedInFromServer = await fetchLoggedIn()
+
+            setLoggedIns(loggedInFromServer)
+            console.log(loggedIns)
+
+
+        }
+
+        getLoggedIn(loggedIns)
+
+    }, [])
+
+    const fetchLoggedIn = async () => {
+        const res = await fetch('http://localhost:5000/login')
+        const data = await res.json()
+
+        return data;
+    }
+
+
+    useEffect(() => {
+        checkLogin()
+
+    }, [loggedIns])
+
+    const checkLogin = () => {
+
+        for (const element of loggedIns) {
+            if (element.isLoggedIn) {
+                setPerfil(element);
+            }
+        }
+
+    }
 
     var valueMessage = "Hello World sjajvsjdoKSDOAKALAPDASKDPAKDASKDVOAVKAKVKDNVFKAakjdjfahkfhkfhaksfhkjahfkashfkdhfkahfkhakrhgkuafhnsjdcajcnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnMDMVKADMVKAMVKAFVKDNFVKANDFKVNAKNFVAKSNVKASNVKANDVFNKSNFVKNSKAVNKASNVKASNVKFNVKANVKANVKANDKFMwlfkmLWFMLmfkfefKEFlkefjlkwflkawfkmaslvkmkadsvmamvmvaksndvkfkam";
 
 
     return (
         <div  >
-            <div className={style.margins} style={{ alignItems: 'left', backgroundColor: "#AAC6AA", borderRadius: '10px' , padding: '20px'}} >
+            <div className={style.margins} style={{ alignItems: 'left', backgroundColor: "#AAC6AA", borderRadius: '10px', padding: '20px' }} >
                 <Grid container direction="row"
                     justifyContent="space-around"
                     alignItems="flex-start">
@@ -110,7 +150,7 @@ function InfoVoluntariado(props) {
                                     <Typography style={{
                                         fontWeight: 700,
                                         fontSize: 30,
-                                        fontFamily:"Avanta Garde",
+                                        fontFamily: "Avanta Garde",
                                         color: '#3F6164',
                                         textTransform: "uppercase",
                                         textAlign: 'left'
@@ -118,13 +158,13 @@ function InfoVoluntariado(props) {
                                 </div>
 
                                 <div className={style.rating}>
-                                    <Rating name="half-rating-read" defaultValue={3.5} precision={0.5} readOnly size="large" />
+                                    <Rating name="half-rating-read" defaultValue={3} precision={1} readOnly size="large" />
                                 </div>
                             </Grid>
 
                         </div>
 
-                        <Container className={style.descriptionarea} style={{padding:"20px"}}>
+                        <Container className={style.descriptionarea} style={{ padding: "20px" }}>
 
                             <TextField className={style.description}
                                 disabled
@@ -135,8 +175,13 @@ function InfoVoluntariado(props) {
                             />
 
                         </Container>
-                        <div className={style.avaliarbutton}><Button style={{ background: "white" }} variant="contained"><Typography style={{color: "#375658"}}>Avaliar</Typography></Button></div>
 
+
+                        {!perfil ? <></> : <>
+                            {perfil.typePerfil === "organizacao" ? <>
+                            </> : <>
+                                <div className={style.avaliarbutton}><Button style={{ background: "white" }} variant="contained"><Typography style={{ color: "#375658" }}>Avaliar</Typography></Button></div>
+                            </>}</>}
                     </Grid>
                 </Grid >
             </div >

@@ -178,7 +178,7 @@ function InfoProfile(props) {
                 fontSize: 15,
                 color: 'white',
                 textAlign: 'center'
-              }}>{new Date(props.birthday).toISOString().split('T')[0]}</Typography>
+              }}>{props.birthday}</Typography>
           </Grid>
 
          </>}
@@ -193,7 +193,7 @@ function InfoProfile(props) {
 
           <div style={{ height: 20 }}></div>
           <div style={{ height: 50, alignItems: 'left' }} className={style.marginRight}>
-            <Rating name="half-rating-read" defaultValue={props.rating} precision={0.5} readOnly size="large" />
+            <Rating name="half-rating-read" defaultValue={props.rating} precision={1} readOnly size="large" />
           </div>
 
 
