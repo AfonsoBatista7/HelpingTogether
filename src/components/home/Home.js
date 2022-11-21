@@ -65,10 +65,11 @@ const Home = () => {
                 
               </Grid>
               <Grid item xs={12}>
-                { topOpport ? <>
+{/*                 { topOpport ? <>
                   <HomeCarousel res={topOpport}/></>
                 : <>
-                  <HomeCarousel res={catpics}/></>}
+                  <HomeCarousel res={catpics}/></>} */}
+                  <HomeCarousel res={catpics} />
               </Grid>
           </Grid>
         </center>
