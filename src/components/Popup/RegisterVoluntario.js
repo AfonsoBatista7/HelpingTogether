@@ -7,22 +7,16 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
+import style from "./voluntariado.module.css";
 import * as Yup from 'yup';
 import CloseIcon from '@mui/icons-material/Close';
 
 const RegisterVoluntario = (props) => {
 
-    const headerStyle = { margin: 0 }
-    const avatarStyle = { backgroundColor: '#1bbd7e' }
-    const both = { marginTop: 20, marginBottom: 15 }
-    const marginBottom = { marginBottom: 10 }
-    const marginTop2 = { marginTop: 30 }
-
     const [date, setDate] = useState(new Date());
-
     const [dateSetter, changeDateSetter] = useState(false);
-
     const [open, setOpen] = useState(false);
+
 
     const handleChange = (newValue) => {
         setDate(newValue.$d);
@@ -33,7 +27,7 @@ const RegisterVoluntario = (props) => {
 
         props.changePopup("isRegisterVoluntario")
 
-        addLoggedIn({ ...values, isLoggedIn: false, typePerfil: "voluntario" })
+        addLoggedIn({ ...values, birthday: date.toLocaleDateString(), isLoggedIn: false, typePerfil: "voluntario" })
     }
 
     const initialValue = {
@@ -86,18 +80,18 @@ const RegisterVoluntario = (props) => {
         <>
             <Grid>
                 <Grid align='center'>
-                    <Avatar style={avatarStyle}>
+                    <Avatar className={style.avatar}>
                         <AddCircleIcon />
                     </Avatar>
-                    <h2 style={headerStyle}>Registar</h2>
-                    <Typography variant='caption' style={marginBottom} gutterBottom>Por favor preencha este formulário para criar uma conta</Typography>
+                    <h2 className={style.header}>Registar</h2>
+                    <Typography variant='caption' className={style.bottom} gutterBottom>Por favor preencha este formulário para criar uma conta</Typography>
                 </Grid>
                 <Formik initialValues={initialValue} validationSchema={validationSchema} onSubmit={onSubmit}>
                     {(props) => (
                         <Form autoComplete="off">
-                            <Field as={TextField} fullWidth name="name" label='Nome' placeholder="Introduza o nome" style={marginBottom}
+                            <Field as={TextField} fullWidth name="name" label='Nome' placeholder="Introduza o nome" className={style.both}
                                 helperText={<ErrorMessage name="name" component="div" style={{ color: 'red' }} />} />
-                            <Field as={TextField} fullWidth name="email" label='Email' placeholder="Introduza o email" style={marginBottom}
+                            <Field as={TextField} fullWidth name="email" label='Email' placeholder="Introduza o email" className={style.bottom}
                                 helperText={<ErrorMessage name="email" component="div" style={{ color: 'red' }} />} />
                             <FormControl component="fieldset">
                                 <FormLabel component="legend">Género</FormLabel>
@@ -108,7 +102,7 @@ const RegisterVoluntario = (props) => {
                             </FormControl>
                             <FormHelperText><ErrorMessage name="gender" component="div" style={{ color: 'red' }} /></FormHelperText>
                             <LocalizationProvider dateAdapter={AdapterDayjs} name="birthday" >
-                                <Stack spacing={3} style={both}>
+                                <Stack spacing={3} className={style.both}>
                                     <DatePicker
                                         label="Data Nascimento"
                                         inputFormat="DD/MM/YYYY"
@@ -120,13 +114,13 @@ const RegisterVoluntario = (props) => {
                                 </Stack>
                             </LocalizationProvider>
                             <FormHelperText><ErrorMessage name="birthday" component="div" style={{ color: 'red' }} /></FormHelperText>
-                            <Field as={TextField} fullWidth name="phone" label='Telefone' placeholder="Introduza o número de telefone" style={marginBottom}
+                            <Field as={TextField} fullWidth name="phone" label='Telefone' placeholder="Introduza o número de telefone" className={style.bottom}
                                 helperText={<ErrorMessage name="phone" component="div" style={{ color: 'red' }} />} />
-                            <Field as={TextField} fullWidth name="password" label='Palavra-chave' type='password' placeholder="Introduza a palavra-chave" style={marginBottom}
+                            <Field as={TextField} fullWidth name="password" label='Palavra-chave' type='password' placeholder="Introduza a palavra-chave" className={style.bottom}
                                 helperText={<ErrorMessage name="password" component="div" style={{ color: 'red' }} />} />
-                            <Field as={TextField} fullWidth name="confirmPassword" label='Confirma palavra-chave' type='password' placeholder="Confirma a palavra-chave" style={marginBottom}
+                            <Field as={TextField} fullWidth name="confirmPassword" label='Confirma palavra-chave' type='password' placeholder="Confirma a palavra-chave" className={style.bottom}
                                 helperText={<ErrorMessage name="confirmPassword" component="div" style={{ color: 'red' }} />} />
-                            <Button variant="contained" component="label" size="small" style={marginBottom} sx={{'&:hover': { opacity: [0.9, 0.8, 0.7]} }}>
+                            <Button variant="contained" component="label" size="small" className={style.pic} sx={{'&:hover': { opacity: [0.9, 0.8, 0.7]} }}>
                                 <AddPhotoAlternateIcon />
                                 Adicionar Foto Perfil
                                 <input hidden accept="image/*" multiple type="file" onClick={() => { setOpen(true);}} />
@@ -145,7 +139,7 @@ const RegisterVoluntario = (props) => {
                                 <FormControlLabel
                                     control={<Field as={Checkbox} name="termsAndConditions" />}
                                     label="Aceito os termos e condições."
-                                    style={marginTop2}
+                                    className={style.top}
                                 />
                                 <FormHelperText><ErrorMessage name="termsAndConditions" component="div" style={{ color: 'red' }} /></FormHelperText>
                                 <Grid container spacing={3} justifyContent="center">

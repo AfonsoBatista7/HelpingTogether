@@ -3,18 +3,12 @@ import { Grid, Collapse, IconButton, Alert, Avatar, Typography, TextField, Butto
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
+import style from "./organizacao.module.css";
 import * as Yup from 'yup';
 import CloseIcon from '@mui/icons-material/Close';
 
 
-
 const RegisterOrganizacao = (props) => {
-
-    const headerStyle = { margin: 0 }
-    const avatarStyle = { backgroundColor: '#1bbd7e' }
-    const marginTop = { marginTop: 10 }
-    const marginBottom = { marginBottom: 10 }
-    const marginTopFinal = { marginTop: 50 }
 
     const [open, setOpen] = useState(false);
     const [types, setTypes] = useState([])
@@ -78,26 +72,26 @@ const RegisterOrganizacao = (props) => {
         <>
             <Grid>
                 <Grid align='center'>
-                    <Avatar style={avatarStyle}>
+                    <Avatar className={style.avatar}>
                         <AddCircleIcon />
                     </Avatar>
-                    <h2 style={headerStyle}>Registar</h2>
-                    <Typography variant='caption' style={marginBottom} gutterBottom>Por favor preencha este formulário para criar uma conta</Typography>
+                    <h2 className={style.header}>Registar</h2>
+                    <Typography variant='caption' className={style.bottom} gutterBottom>Por favor preencha este formulário para criar uma conta</Typography>
                 </Grid>
                 <Formik initialValues={initialValue} validationSchema={validationSchema} onSubmit={onSubmit}>
                     {(props) => (
                         <Form autoComplete="off">
-                            <Field as={TextField} fullWidth name="name" label='Nome' placeholder="Introduza o nome" style={marginBottom}
+                            <Field as={TextField} fullWidth name="name" label='Nome' placeholder="Introduza o nome" className={style.both}
                                 helperText={<ErrorMessage name="name" component="div" style={{ color: 'red' }} />} />
-                            <Field as={TextField} fullWidth name="email" label='Email' placeholder="Introduza o email" style={marginBottom}
+                            <Field as={TextField} fullWidth name="email" label='Email' placeholder="Introduza o email" className={style.bottom}
                                 helperText={<ErrorMessage name="email" component="div" style={{ color: 'red' }} />} />
-                            <Field as={TextField} fullWidth name="phone" label='Telefone' placeholder="Introduza o número de telefone" style={marginBottom}
+                            <Field as={TextField} fullWidth name="phone" label='Telefone' placeholder="Introduza o número de telefone" className={style.bottom}
                                 helperText={<ErrorMessage name="phone" component="div" style={{ color: 'red' }} />} />
-                            <Field as={TextField} fullWidth name="password" label='Palavra-chave' type='password' placeholder="Introduza a palavra-chave" style={marginBottom}
+                            <Field as={TextField} fullWidth name="password" label='Palavra-chave' type='password' placeholder="Introduza a palavra-chave" className={style.bottom}
                                 helperText={<ErrorMessage name="password" component="div" style={{ color: 'red' }} />} />
-                            <Field as={TextField} fullWidth name="confirmPassword" label='Confirma palavra-chave' type='password' placeholder="Confirma a palavra-chave" style={marginBottom}
+                            <Field as={TextField} fullWidth name="confirmPassword" label='Confirma palavra-chave' type='password' placeholder="Confirma a palavra-chave" className={style.bottom}
                                 helperText={<ErrorMessage name="confirmPassword" component="div" style={{ color: 'red' }} />} />
-                            <Button variant="contained" component="label" size="small" style={marginBottom} sx={{ '&:hover': { opacity: [0.9, 0.8, 0.7] } }}>
+                            <Button variant="contained" component="label" size="small" className={style.both2} sx={{ '&:hover': { opacity: [0.9, 0.8, 0.7] } }}>
                                 <AddPhotoAlternateIcon />
                                 Adicionar Foto Perfil
                                 <input hidden accept="image/*" multiple type="file" onClick={() => { setOpen(true);}} />
@@ -113,7 +107,7 @@ const RegisterOrganizacao = (props) => {
                                 </Alert>
                             </Collapse>
                             <div>
-                                <Typography name="type" sx={{ fontWeight: 'bold' }} style={marginTop}>Selecione o tipo de voluntariados que irá desponibilizar:</Typography>
+                                <Typography name="type" sx={{ fontWeight: 'bold' }} >Selecione o tipo de voluntariados que irá desponibilizar:</Typography>
                                 <FormHelperText><ErrorMessage name="type" component="div" style={{ color: 'red' }} /></FormHelperText>
                                 <FormControlLabel
                                     control={<Checkbox value="Natureza" onChange={(e) => getValues(e.target.value)} />}
@@ -144,7 +138,7 @@ const RegisterOrganizacao = (props) => {
                                 <FormControlLabel
                                     control={<Field as={Checkbox} name="termsAndConditions" />}
                                     label="Aceito os termos e condições."
-                                    style={marginTopFinal}
+                                    className={style.top}
                                 />
                                 <FormHelperText><ErrorMessage name="termsAndConditions" component="div" style={{ color: 'red' }} /></FormHelperText>
                                 <Grid container spacing={3} justifyContent="center">
