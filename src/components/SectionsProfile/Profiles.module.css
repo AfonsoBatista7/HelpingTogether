@@ -55,7 +55,7 @@
 }
 
 .buttonedit {
-    margin-right: 5%;
+    margin-right: 3%;
     margin-top: 2%;
 }
 
@@ -115,4 +115,9 @@
 .avaliarbutton{
     margin-top: 3%;
     margin-left: 3%;
+}
+
+.titleLetter{
+    color: "#375658";
+    font-family:Georgia, 'Times New Roman', Times, serif
 }

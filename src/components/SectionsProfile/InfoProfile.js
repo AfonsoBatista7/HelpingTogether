@@ -8,31 +8,57 @@ import LocalPhoneRoundedIcon from '@mui/icons-material/LocalPhoneRounded';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import EditIcon from '@mui/icons-material/Edit';
 import SaveIcon from '@mui/icons-material/Save';
+import CakeRoundedIcon from '@mui/icons-material/CakeRounded';
+import FemaleRoundedIcon from '@mui/icons-material/FemaleRounded';
+import MaleRoundedIcon from '@mui/icons-material/MaleRounded';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 
 
 function InfoProfile(props) {
 
-  console.log(props);
-
   const [editMode, editState] = useState(false);
-  const [perfil, setPerfil] = useState();
+
+  const [loggedIns, setLoggedIns] = useState([])
 
   function changeState() {
     editState(!editMode);
+
+    if(editMode){
+    changeLogginStatus(props.id, props.description);
+    }
   }
 
-  var valueMessage = "Hello World sjajvsjdoKSDOAKALAPDASKDPAKDASKDVOAVKAKVKDNVFKAakjdjfahkfhkfhaksfhkjahfkashfkdhfkahfkhakrhgkuafhnsjdcajcnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnMDMVKADMVKAMVKAFVKDNFVKANDFKVNAKNFVAKSNVKASNVKANDVFNKSNFVKNSKAVNKASNVKASNVKFNVKANVKANVKANDKFMwlfkmLWFMLmfkfefKEFlkefjlkwflkawfkmaslvkmkadsvmamvmvaksndvkfkam";
+  const fetchLogin = async (id) => {
+    const res = await fetch(`http://localhost:5000/login/${id}`)
+    const data = await res.json()
 
-  //   const checkLogin = () => {
-  //       setPerfil(props.perfil);
-  // }
+    return data
+  }
 
-  //window.onload= setTimeout(checkLogin, 4000);
+  const changeLogginStatus = async (id, descript) => {
+    const loginToChange = await fetchLogin(id)
+    const updLogin = { ...loginToChange, description: descript }
 
+    const res = await fetch(`http://localhost:5000/login/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(updLogin),
+    })
+
+    const data = await res.json()
+
+    setLoggedIns(
+      loggedIns.map((element) =>
+        element.id === id ? { ...element, description: data.description } : element
+
+      )
+    )
+  }
 
   return (
-    <div style={{ alignItems: 'left', backgroundColor: "#2E3B55", borderRadius: '10px' }} >
+    <div style={{ alignItems: 'left', backgroundColor: "#497174", borderRadius: '10px' }} >
 
       <Grid container direction="row"
         justifyContent="center"
@@ -44,7 +70,7 @@ function InfoProfile(props) {
           alignItems="center">
 
           <Avatar className={style.marginprofile}
-            src={image}
+            src={props.image}
 
             sx={{ width: 200, height: 200 }} />
 
@@ -57,7 +83,7 @@ function InfoProfile(props) {
                   <input hidden accept="image/*" multiple type="file" />
                 </Button>
               </Container>
-            </div> : ""}
+            </div> : <></>}
 
 
           <Typography style={{
@@ -66,7 +92,7 @@ function InfoProfile(props) {
             color: 'white',
             textTransform: "uppercase",
             textAlign: 'center'
-          }}>Maria Leal</Typography>
+          }}>{props.name}</Typography>
 
 
 
@@ -85,7 +111,7 @@ function InfoProfile(props) {
                 color: 'white',
                 textTransform: "uppercase",
                 textAlign: 'center'
-              }}>900000000</Typography>
+              }}>{props.phone}</Typography>
           </Grid>
 
 
@@ -104,36 +130,89 @@ function InfoProfile(props) {
                 fontSize: 15,
                 color: 'white',
                 textAlign: 'center'
-              }}>marialeal45@gmail.com</Typography>
+              }}>{props.email}</Typography>
           </Grid>
+
+          {props.type==="organizacao" ?<>
+          
+          </>:<>
+          <Grid container direction="row"
+            justifyContent="flex-start"
+            alignItems="center"
+            className={style.marginPhone}>
+
+            {!props.gender==="female"? <>
+            <MaleRoundedIcon className={style.marginRight} style={{
+              color: 'white',
+              fontSize: 30
+            }}></MaleRoundedIcon>
+            </>:<>  
+            <FemaleRoundedIcon className={style.marginRight} style={{
+              color: 'white',
+              fontSize: 30
+            }}></FemaleRoundedIcon></>}  
+           
+
+            <Typography className={style.margintop}
+              style={{
+                fontWeight: 500,
+                fontSize: 15,
+                color: 'white',
+                textTransform: "uppercase",
+                textAlign: 'center'
+              }}>{props.gender}</Typography>
+          </Grid>
+
+          <Grid container direction="row"
+            justifyContent="flex-start"
+            alignItems="center"
+            className={style.marginPhone}>
+            <CakeRoundedIcon className={style.marginRight} style={{
+              color: 'white',
+              fontSize: 30
+            }}></CakeRoundedIcon>
+
+            <Typography className={style.margintop}
+              style={{
+                fontWeight: 500,
+                fontSize: 15,
+                color: 'white',
+                textAlign: 'center'
+              }}>{new Date(props.birthday).toISOString().split('T')[0]}</Typography>
+          </Grid>
+
+         </>}
 
         </Grid>
         <Grid item xs={9}
           container
           direction="column"
           justifyContent="center"
-          alignItems="flex-end">
+          alignItems="flex-end"
+          style={{ padding: "5px" }}>
 
           <div style={{ height: 20 }}></div>
           <div style={{ height: 50, alignItems: 'left' }} className={style.marginRight}>
-            <Rating name="half-rating-read" defaultValue={3.5} precision={0.5} readOnly size="large" />
+            <Rating name="half-rating-read" defaultValue={props.rating} precision={0.5} readOnly size="large" />
           </div>
 
-          {!editMode ?
-            <Button size="large" sx={{ color: 'white' }} style={{ float: 'right' }} className={style.buttonedit} onClick={changeState}>Editar
-              < EditIcon className={style.buttonmargin} style={{
-                color: 'white',
-                fontSize: 20
-              }}></ EditIcon>
-            </Button>
-            : <Button size="large" sx={{ color: 'white' }} style={{ float: 'right' }} className={style.buttonedit} onClick={changeState}>Guardar
-              < SaveIcon className={style.buttonmargin} style={{
-                color: 'white',
-                fontSize: 20
-              }}></ SaveIcon>
-            </Button>}
 
-
+          <div className={style.buttonedit}>
+            {!props.login?<></>:<>{!editMode ?
+              <Button size="large" sx={{ color: 'white' }} style={{ float: 'right' }}  onClick={changeState}>Editar
+                < EditIcon className={style.buttonmargin} style={{
+                  color: 'white',
+                  fontSize: 20
+                }}></ EditIcon>
+              </Button>
+              : <Button size="large" sx={{ color: 'white' }} style={{ float: 'right' }}  onClick={changeState}>Guardar
+                < SaveIcon className={style.buttonmargin} style={{
+                  color: 'white',
+                  fontSize: 20
+                }}></ SaveIcon>
+              </Button>}</>
+            }
+          </div>
 
 
           <Container className={style.descriptionarea}>
@@ -144,21 +223,22 @@ function InfoProfile(props) {
                 fullWidth
                 multiline
                 id="outlined-disabled"
-                defaultValue={valueMessage}
+                defaultValue={props.description}
               /> : <TextField className={style.description}
 
                 fullWidth
                 multiline
                 id="outlined-disabled"
-                defaultValue={valueMessage}
+                defaultValue={props.description}
               />}
 
 
           </Container>
 
-          <div alignItems="left" className={style.titleVoluntariado}>
-            <div className={style.avaliarbutton} ><Button style={{ background: "white" }} variant="contained"><Typography style={{ color: "#2E3B55" }}>Avaliar</Typography></Button></div>
-          </div>
+          <div className={style.titleVoluntariado}>
+            {props.login? <></>:<><div className={style.avaliarbutton} ><Button style={{ background: "white" }} variant="contained"><Typography style={{ color: "#497174" }}>Avaliar</Typography></Button></div>
+          </>}
+            </div>
         </Grid>
       </Grid >
     </div >

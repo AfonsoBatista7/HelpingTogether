@@ -1,5 +1,5 @@
 import InfoProfile from "../components/SectionsProfile/InfoProfile";
-import VoluntariadosDone from "../components/SectionsProfile/VoluntariadosDone";
+import VoluntariadosDone from "../components/SectionsProfile/VoluntariadosArea";
 import CandidaturasPendentes from "../components/SectionsProfile/CandidaturasPendentes";
 import Comentarios from "../components/SectionsProfile/Comentarios";
 import style from "../components/SectionsProfile/Profiles.module.css"
@@ -20,9 +20,7 @@ function Voluntariado(props) {
 
     return (
         <div className={style.backgroundwhite}>
-            <div style={{ height: 20 }}></div>
-            <div className={style.margins}   style={{ alignItems: 'left', backgroundColor: "#6cc4a1", borderRadius: '10px' }} >
-            <div style={{ height: 20 }}></div>
+            <div style={{ height: 40 }}></div>
 
                 <Grid
                     container
@@ -36,7 +34,7 @@ function Voluntariado(props) {
                             style={{
                                 fontWeight: 700,
                                 fontSize: 30,
-                                color: '#2E3B55',
+                                color: '#497174',
                                 textTransform: "uppercase",
                                 textAlign: 'left',
 
@@ -94,7 +92,7 @@ function Voluntariado(props) {
 
 
             </div >
-        </div>
+       
     );
 }
 

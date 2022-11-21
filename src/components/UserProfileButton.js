@@ -88,7 +88,7 @@ const UserProfileButton = (props) => {
                     onClose={handleCloseUserMenu}
                 >
                     {Object.keys(settings).map((setting) => (
-                        <Link style={{ textDecoration: 'none', color:'black' }} to={setting === "Sair" ? '' : '/Perfil'}>
+                        <Link key={setting} style={{ textDecoration: 'none', color:'black' }} to={setting === "Sair" ? '' : '/Perfil'}>
                             <MenuItem key={setting} onClick={settings[setting]}>
                                 <Typography textAlign="center">
                                     {setting}
