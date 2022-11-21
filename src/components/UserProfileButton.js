@@ -11,9 +11,9 @@ import {
     Button,
 } from "@mui/material";
 
-import { Anchor } from 'antd';
-const { Link } = Anchor;
-
+//import { Anchor } from 'antd';
+//const { Link } = Anchor;
+import { Link } from "react-router-dom";
 // [
 //     "Perfil",
 //     "Candidatura",
@@ -90,7 +90,7 @@ const UserProfileButton = (props) => {
                     onClose={handleCloseUserMenu}
                 >
                     {Object.keys(settings).map((setting) => (
-                        <Anchor>
+                      
                             <Link href={setting} title={setting.toString} key={setting} style={{ textDecoration: 'none', color: 'black' }} to={setting === "Sair" ? '' : '/Perfil#' + setting}>
                                 <MenuItem key={setting} onClick={settings[setting]}>
                                     <Typography textAlign="center">
@@ -98,7 +98,7 @@ const UserProfileButton = (props) => {
                                     </Typography>
                                 </MenuItem>
                             </Link>
-                        </Anchor>
+                     
                     ))}
                 </Menu>
             </Box>

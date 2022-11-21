@@ -257,7 +257,7 @@ function InfoProfile(props) {
           </Container>
 
           <div className={style.titleVoluntariado}>
-            {!props.login ? <></> :
+            {props.login ? <></> :
               <><div className={style.avaliarbutton} >
                 <Button style={{ background: "white" }} variant="contained" onClick={avaliar}>
                   <Typography style={{ color: "#497174" }}>Avaliar</Typography>
