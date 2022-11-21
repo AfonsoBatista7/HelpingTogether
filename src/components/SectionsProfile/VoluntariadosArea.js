@@ -3,19 +3,16 @@ import { Pagination, Grid, Typography, Container, Divider, Button } from "@mui/m
 import React, { useState, useEffect } from "react";
 import RegisterVoluntariado from "../Popup/RegisterVoluntariado";
 import Popup from "../Popup/Popup";
+import MiniBoxVoluntariado from "../StatsShowers/Box/MiniBoxVoluntariado";
 
 function VoluntariadosArea(props) {
 
     const [volunt, setVoluntariados] = useState([])
 
     useEffect(() => {
-
         const getLoggedIn = async () => {
-
             const listVolunt = await fetchVoluntariados()
-
             setVoluntariados(listVolunt)
-
         }
 
         getLoggedIn(volunt)
@@ -23,31 +20,28 @@ function VoluntariadosArea(props) {
     }, [])
 
     const fetchVoluntariados = async () => {
-        var res=[];
+        var res = [];
 
         if (props.type === "organizacao") {
-             res = await fetch('http://localhost:5000/voluntariados');
-        }else{
-             res = await fetch('http://localhost:5000/voluntariadosRealizados')
+            res = await fetch('http://localhost:5000/voluntariados');
+        } else {
+            res = await fetch('http://localhost:5000/voluntariadosRealizados')
         }
 
         var data = await res.json()
 
-        if (props.type === "organizacao") 
-            data=checkOrganization(data);
-
-
-        console.log(data);
+        if (props.type === "organizacao")
+            data = checkOrganization(data);
 
         return data;
     }
 
     const checkOrganization = (data) => {
-        var list=[];
+        var list = [];
 
         for (const element of data) {
-            
-            if (element.organizacao===props.name) {
+
+            if (element.organizacao === props.name) {
                 list.push(element);
             }
         }
@@ -103,22 +97,28 @@ function VoluntariadosArea(props) {
                             </Popup></> : <></>}
 
                 </Grid>
-                <Divider />
-                <Container style={{
-                    height: 100
-
-                }}></Container>
+                <Divider className={style.voluntariadosProfile}/>
+                <Container>
+                    <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                        {!(volunt.length === 0) ? volunt.map((vol, index) => (
+                            <><Grid item xs={2} sm={4} md={4} key={index}>
+                                <MiniBoxVoluntariado
+                                    image={vol.image}
+                                    name={vol.name}
+                                    desc={vol.description}
+                                    key={vol.id}></MiniBoxVoluntariado>
+                                </Grid></>
+                        )) : <></>}
+                    </Grid>
+                </Container>
                 <Grid
                     container
                     direction="row"
                     alignItems="center"
                     justifyContent="center"
                 >
-                    <Pagination count={10} />
+                    <Pagination count={5} className={style.pagination}/>
                 </Grid>
-                <Container style={{
-                    height: 50
-                }}></Container>
 
             </div >
         </div >
