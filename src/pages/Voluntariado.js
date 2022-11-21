@@ -61,7 +61,28 @@ function Voluntariado(props) {
 
     function changeState() {
         editState(!candidate);
+
+        if(candidate){
+            addVoluntariado();
+        }
     }
+
+   
+
+
+    const addVoluntariado = async () => {
+        const res = await fetch('http://localhost:5000/candidaturas', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify(props),
+        })
+
+        const data = await res.json()
+
+    }
+
 
     return (
         <div className={style.backgroundwhite}>
