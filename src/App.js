@@ -1,5 +1,5 @@
 import "./App.css";
-import Layout from "./Layout/Layout";
+import Layout from "./layout/Layout"
 import imageUser from "./images/afonso.gif";
 import BoxVoluntariado from "./components/StatsShowers/Box/BoxVoluntariado";
 import BoxOrganization from "./components/StatsShowers/Box/BoxOrganization";
