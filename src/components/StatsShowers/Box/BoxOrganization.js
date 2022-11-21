@@ -5,9 +5,12 @@ function BoxOrganization(props) {
   
   const getNumVoluntariados = () => {
 
-    let strVol = props.getNumVoluntariados + " Voluntariado";
+    let list = [];
+    list = props.getNumVoluntariados;
 
-    return props.getNumVoluntariados==1 ? strVol : strVol+"s";
+    let strVol = list[props.idOrg] + " Voluntariado";
+
+    return list[props.idOrg] === 1 ? strVol : strVol + "s";
   }
 
   return (

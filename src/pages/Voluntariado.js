@@ -95,7 +95,6 @@ function Voluntariado(props) {
                     {!perfil ? <></> : <>
                         {perfil.typePerfil === "organizacao" ? <>
                         </> : <>
-
                             {!candidate ?
                                 <Button variant="contained" color="success" size="medium" style={{ float: 'right' }} className={style.buttonedit} onClick={changeState}>
                                     < DoneOutlineRoundedIcon className={style.marginRight} style={{
@@ -129,7 +128,6 @@ function Voluntariado(props) {
 
                 </Grid>
             </Grid>
-
 
             <InfoVoluntariado />
 

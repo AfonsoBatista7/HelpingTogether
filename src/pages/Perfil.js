@@ -21,9 +21,6 @@ function Perfil(props) {
             const loggedInFromServer = await fetchLoggedIn()
 
             setLoggedIns(loggedInFromServer)
-            console.log(loggedIns)
-
-
         }
 
         getLoggedIn(loggedIns)
@@ -77,7 +74,7 @@ function Perfil(props) {
 
                     </div>
 
-                    <InfoProfile key={perfil.id} id={perfil.id} name={perfil.name} image={perfil.image} email={perfil.email} phone={perfil.phone} rating={perfil.rating} type={perfil.typePerfil} login={perfil.isLoggedIn} description={perfil.description} birthday={perfil.birthday} gender={perfil.gender} />
+                    <InfoProfile id={perfil.id} name={perfil.name} image={perfil.image} email={perfil.email} phone={perfil.phone} rating={perfil.rating} type={perfil.typePerfil} login={perfil.isLoggedIn} description={perfil.description} birthday={perfil.birthday} gender={perfil.gender} />
 
                     {perfil.typePerfil !== "organizacao" ? <>
                         <Container style={{
@@ -97,7 +94,8 @@ function Perfil(props) {
                         height: 70
                     }}></Container>
 
-                    <VoluntariadosArea key={perfil.id} id={perfil.id} type={perfil.typePerfil} name={perfil.name} />
+                   
+                    <VoluntariadosArea id={perfil.id} type={perfil.typePerfil} nameOrg={perfil.name} name={perfil.name}  />
 
                     <Container style={{
                         height: 50

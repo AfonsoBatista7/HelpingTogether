@@ -23,7 +23,7 @@
       "password": "123456",
       "confirmPassword": "123456",
       "termsAndConditions": true,
-      "isLoggedIn": true,
+      "isLoggedIn": false,
       "typePerfil": "voluntario",
       "id": 8
     },
@@ -237,7 +237,7 @@
       "type": [
         "Natureza"
       ],
-      "image": "Limpar_floresta.jpg",
+      "image": "Limpar_terreno.jpg",
       "rating": 5,
       "organizacao": "FAPAS"
     },
