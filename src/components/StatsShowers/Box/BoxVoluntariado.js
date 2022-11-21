@@ -2,10 +2,10 @@ import { Rating } from "@mui/material";
 import React from "react";
 import BoxStats from "./BoxStats";
 
-function BoxVoluntariado({image, name, desc}) {
+function BoxVoluntariado({image, name, desc, rating}) {
     const getRatingComponent = () => {
         return (
-            <Rating name="rating-voluntariado" readOnly value={props.rating} />
+            <Rating name="rating-voluntariado" readOnly value={rating} />
         );
     };
 
