@@ -1,21 +1,21 @@
 import React from 'react'
 import BoxStats from './BoxStats';
 
-function BoxOrganization(props) {
+function BoxOrganization({image, name, desc, getNumVoluntariados}) {
   
-  const getNumVoluntariados = () => {
+  const getNumVolt = () => {
 
-    let strVol = props.getNumVoluntariados + " Voluntariado";
+    let strVol = getNumVoluntariados + " Voluntariado";
 
-    return props.getNumVoluntariados===1 ? strVol : strVol+"s";
+    return getNumVoluntariados===1 ? strVol : strVol+"s";
   }
 
   return (
         <BoxStats
-            image={props.image}
-            name={props.name}
-            component={getNumVoluntariados()}
-            desc={props.desc}
+            image={image}
+            name={name}
+            component={getNumVolt()}
+            desc={desc}
         />
   )
 }
