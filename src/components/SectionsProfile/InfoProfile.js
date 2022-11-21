@@ -83,17 +83,6 @@ function InfoProfile(props) {
 
             sx={{ width: 200, height: 200 }} />
 
-          {editMode ?
-            <div className={style.marginChangePhoto}>
-              <Container className={style.marginChangePhoto}>
-                <Button variant="contained" component="label" size="small"  >
-                  <AddPhotoAlternateIcon />
-                  Alterar foto
-                  <input hidden accept="image/*" multiple type="file" />
-                </Button>
-              </Container>
-            </div> : <></>}
-
 
           <Typography style={{
             fontWeight: 700,
@@ -202,8 +191,30 @@ function InfoProfile(props) {
           style={{ padding: "5px" }}>
 
           <div style={{ height: 20 }}></div>
-          <div style={{ height: 50, alignItems: 'left' }} className={style.marginRight}>
-            <Rating name="half-rating-read" defaultValue={props.rating} precision={1} readOnly size="large" />
+          <div style={{ height: 50}} className={style.titleVoluntariado}>
+            <Grid container
+              direction="row"
+              justifyContent="space-between"
+              alignItems="center">
+
+              <Grid item xs={5}>
+                {editMode ?
+                  <div className={style.avaliarbutton} style={{float: "left"}}>
+                    <Container className={style.marginChangePhoto}>
+                      <Button variant="contained" style={{ background: "gray" }} component="label" size="small"  >
+                        <AddPhotoAlternateIcon />
+                        Alterar foto
+                        <input hidden accept="image/*" multiple type="file" />
+                      </Button>
+                    </Container>
+                  </div> : <></>}
+              </Grid>
+              <Grid item xs={5}>
+                <div style={{float: "right"}}>
+                <Rating name="half-rating-read" defaultValue={props.rating} precision={1} readOnly size="large" />
+                </div>
+              </Grid>
+            </Grid>
           </div>
 
 
