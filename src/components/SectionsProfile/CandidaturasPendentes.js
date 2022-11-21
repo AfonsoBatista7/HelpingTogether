@@ -1,7 +1,33 @@
 import style from "./Profiles.module.css"
 import { Pagination, Grid, Typography, Container, Divider } from "@mui/material";
+import React, { useState, useEffect } from "react";
 
 function CandidaturasPendentes(props) {
+
+    const [candid, setVoluntariados] = useState([])
+
+    useEffect(() => {
+
+        const getLoggedIn = async () => {
+
+            const listVolunt = await fetchCandidatura()
+
+            setVoluntariados(listVolunt)
+
+        }
+
+        getLoggedIn(candid)
+
+    }, [])
+
+    const fetchCandidatura = async () => {
+        var res= await fetch('http://localhost:5000/candidaturas');
+
+        var data = await res.json()
+
+        return data;
+    }
+
     return(
         <div id="Candidatura" className={style.backgroundwhite}>
         <div >
