@@ -10,7 +10,7 @@ import diana2 from "./Cats/diana2.jpg"
 
 export default function HomeCarousel() {
 
-/*     const [topOpport, setTopOpport] = useState([])
+    const [topOpport, setTopOpport] = useState([])
 
     useEffect(() => {
         const getTopOpport = async () => {
@@ -26,7 +26,7 @@ export default function HomeCarousel() {
         const data = await res.json()
         // TODO change to show the highest rated ones specifically?
         return data.voluntariados
-    } */
+    }
 
     const images = {
         "Smartie 1": smartie1,
@@ -35,17 +35,17 @@ export default function HomeCarousel() {
         "Diana 2": diana2
     }
     
-    return (
+    return topOpport && (
         <Carousel className={style.carousel} width={500} showThumbs={false} infiniteLoop emulateTouch autoPlay>
-            {Object.keys(images).map((image) => (
-                <div className={style.imagec}>
+{/*             {Object.keys(images).map((image) => (
+                <div key={image} className={style.imagec}>
                     <img className={style.image} src={images[image]} />
                     <p className="legend">{image}</p>
                 </div>
-            ))}
-{/*             {Object.keys(topOpport).map((opp) => (
-                <BoxVoluntariado image={opp.image} name={opp.name} desc={opp.desc} />
             ))} */}
+            {Object.keys(topOpport).map((opp) => (
+                <BoxVoluntariado image={opp.image} name={opp.name} desc={opp.desc} />
+            ))}
         </Carousel>
     )
 };

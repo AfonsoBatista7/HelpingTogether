@@ -43,7 +43,7 @@ const FilterMain = () => {
             }}
             >
             {Object.keys(filters).map((filter) => (
-               <SubFilter filter={filter} items={filters[filter]}></SubFilter>
+               <SubFilter key={filter} filter={filter} items={filters[filter]}></SubFilter>
             ))}
             </Menu>
     </div>
