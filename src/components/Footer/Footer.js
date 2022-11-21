@@ -10,15 +10,7 @@ function Footer(props) {
             <div style={{ position: "relative", top: 35 }}>
                 <Grid container direction="row" justifyContent="center">
                     <Grid item xs={1}>
-                        <Typography
-                            className={style.footerButton}
-                            style={{
-                                fontWeight: 700,
-                                textTransform: "uppercase",
-                                letterSpacing: ".1rem",
-                                textAlign: "center",
-                            }}
-                        >
+                        <Typography className={style.footerButton}>
                             <Link
                                 href="#home"
                                 sx={{
@@ -29,20 +21,12 @@ function Footer(props) {
                                 }}
                                 onClick={preventDefault}
                             >
-                                    About Us
+                                Sobre Nós
                             </Link>
                         </Typography>
                     </Grid>
                     <Grid item xs={1}>
-                        <Typography
-                            className={style.footerButton}
-                            style={{
-                                fontWeight: 700,
-                                textTransform: "uppercase",
-                                letterSpacing: ".1rem",
-                                textAlign: "center",
-                            }}
-                        >
+                        <Typography className={style.footerButton}>
                             <Link
                                 href="#home"
                                 sx={{
@@ -53,7 +37,7 @@ function Footer(props) {
                                 }}
                                 onClick={preventDefault}
                             >
-                                Contacts
+                                Contactos
                             </Link>
                         </Typography>
                     </Grid>
