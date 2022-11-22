@@ -5,8 +5,11 @@ import Comentarios from "../components/SectionsProfile/Comentarios";
 import style from "../components/SectionsProfile/Profiles.module.css"
 import { Pagination, Grid, Typography, Container } from "@mui/material";
 import React, { useState, useEffect } from "react";
+import { useParams, } from "react-router-dom";
 
 function Perfil(props) {
+
+    const { idPerfil } = useParams();
 
     const [perfil, setPerfil] = useState(null);
 
@@ -31,7 +34,27 @@ function Perfil(props) {
         const res = await fetch('http://localhost:5000/login')
         const data = await res.json()
 
-        return data;
+        const res2 = await fetch('http://localhost:5000/voluntarios')
+        const data2 = await res2.json()
+
+        const res3 = await fetch('http://localhost:5000/organizacoes')
+        const data3 = await res3.json()
+
+
+        var list = [];
+
+        for (const element of data) {
+            list.push(element)
+        }
+
+        for (const element of data2) {
+            list.push(element)
+        }
+        for (const element of data3) {
+            list.push(element)
+        }
+
+        return list;
     }
 
 
@@ -41,14 +64,13 @@ function Perfil(props) {
     }, [loggedIns])
 
     const checkLogin = () => {
+        console.log(idPerfil)
 
         for (const element of loggedIns) {
-            if (element.isLoggedIn) {
-                if(props.name){
-                    setPerfil(props);
-                }else{
+            console.log(element.id)
+            if (element.id==idPerfil) {
                 setPerfil(element);
-                }
+                
             }
         }
 

@@ -208,7 +208,7 @@ function InfoVoluntariado(props) {
                                 alignItems="center">
 
 
-                                <div className={style.descriptionvoluntario}>
+                                <div className={style.descriptionvoluntario} >
                                     <Typography style={{
                                         fontWeight: 700,
                                         fontSize: 30,
