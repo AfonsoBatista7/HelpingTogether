@@ -3,42 +3,42 @@ import style from "./cardComment.module.css";
 import React from "react";
 import { Box} from "@mui/system";
 
-function CardComment(props) {
+function CardComment({name, image, comment, rating}) {
     const charLimit = 170;
-    const isDescBig = props.desc.length > charLimit;
+    const isDescBig = comment.length > charLimit;
 
     return (
-        <div style={{ width: "13%", height: "100%" }}>
+        <div className={style.entireCard} >
             <Avatar
-                alt={props.name}
-                src={props.image}
+                alt={name}
+                src={image}
                 sx={{
-                    top: 30,
-                    width: 60,
-                    height: 60,
+                    top: 35,
+                    width: 70,
+                    height: 70,
                 }}
                 className={style.cardAvatar}
             />
             <Box className={style.cardComment}>
                 <Grid container direction="column">
                     <Grid item>
-                        <b>{props.name}</b>
+                        <b>{name}</b>
                     </Grid>
                     <Grid item>
                         <Rating
                             name="rating-comment"
                             readOnly
-                            value={props.rating}
+                            value={rating}
                             size="small"
                         ></Rating>
                     </Grid>
                     <Grid item style={{ fontSize: "14px" }}>
                         {isDescBig ?
                             <span>
-                                {props.desc.slice(0, charLimit) + "..."}
+                                {comment.slice(0, charLimit) + "..."}
                             </span>
                         :
-                            <span>{props.desc}</span>
+                            <span>{comment}</span>
                         }
                     </Grid>
                 </Grid>
