@@ -10,7 +10,7 @@
         "Animais"
       ],
       "termsAndConditions": true,
-      "isLoggedIn": false,
+      "isLoggedIn": true,
       "typePerfil": "organizacao",
       "id": 70
     },
@@ -23,7 +23,7 @@
       "password": "123456",
       "confirmPassword": "123456",
       "termsAndConditions": true,
-      "isLoggedIn": true,
+      "isLoggedIn": false,
       "typePerfil": "voluntario",
       "id": 80
     },
@@ -598,8 +598,48 @@
       "date": "29/09/2020 17:33"
     }
   ],
-  "comentariosFeitosPessoa": [],
-  "comentariosFeitosVoluntariado": [],
-  "novosVoluntariados": [],
+  "comentariosFeitosPessoa": [
+    {
+      "rating": 3,
+      "comment": "jakhsdl;",
+      "name": "ola",
+      "date": "22/11/2022 21:08",
+      "nameOfTheCommented": "Just a Change",
+      "image": "defaultPhotoOrganization.jpg",
+      "id": 1
+    },
+    {
+      "rating": 3,
+      "comment": "ansm,dn,",
+      "name": "ola",
+      "date": "22/11/2022 21:09",
+      "nameOfTheCommented": "Maria Leal",
+      "image": "defaultPhotoOrganization.jpg",
+      "id": 2
+    }
+  ],
+  "comentariosFeitosVoluntariado": [
+    {
+      "rating": 2,
+      "comment": "ajsdhkadb",
+      "name": "bia",
+      "date": "22/11/2022 20:28",
+      "nameOfTheCommented": "Plantar florestação",
+      "image": "defaultPhoto.jpg",
+      "id": 1
+    }
+  ],
+  "novosVoluntariados": [
+    {
+      "name": "tobias",
+      "location": "sncm,na",
+      "description": "mNMnsal",
+      "startDate": "22/11/2022",
+      "endDate": "26/11/2022",
+      "organizacao": "ola",
+      "image": "defaultPhotoOrganization.jpg",
+      "id": 1
+    }
+  ],
   "candidaturas": []
 }

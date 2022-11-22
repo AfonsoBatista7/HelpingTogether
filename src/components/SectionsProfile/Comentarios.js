@@ -2,6 +2,7 @@ import style from "./Profiles.module.css"
 import { Pagination, Grid, Typography, Container, Divider } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import CardComment from "../StatsShowers/Card/CardComment";
+import { VapingRooms } from "@mui/icons-material";
 
 function Comentarios(props) {
 
@@ -22,7 +23,16 @@ function Comentarios(props) {
 
 
     const fetchComentariosVoluntariadosRealizados = async () => {
-        const res = await fetch('http://localhost:5000/comentariosVoluntariadosRealizados')
+        var res = [];
+
+        if (props.type === "pessoa") {
+            res = await fetch('http://localhost:5000/comentariosVoluntariadosRealizados')
+        }
+
+        if (props.type === "voluntariado") {
+            res = await fetch('http://localhost:5000/comentariosVoluntariado')
+        }
+
         const data = await res.json()
 
         return data;
@@ -37,11 +47,20 @@ function Comentarios(props) {
 
         getNewComment()
 
-    }, [])
+    }, [props.state])
 
 
     const fetchNewComments = async () => {
-        const res = await fetch('http://localhost:5000/comentariosFeitosPessoa')
+        var res = [];
+
+        if (props.type === "pessoa") {
+            res = await fetch('http://localhost:5000/comentariosFeitosPessoa')
+        }
+
+        if (props.type === "voluntariado") {
+            res = await fetch('http://localhost:5000/comentariosFeitosVoluntariado')
+        }
+
         const data = await res.json()
 
         return data;
@@ -51,13 +70,9 @@ function Comentarios(props) {
     const checkCommentsVoluntariados = () => {
         var list = [];
 
-        // for (const element of voluntariados) {
-        //     for (const com of comment) {
-        //         if (element.organizacao === com.name) {
-        //             list.push(com);
-        //         }
-        //     }
-        // }
+        for (const element of comment) {
+            list.push(element);
+        }
 
         for (const element of newComment) {
             if (element.nameOfTheCommented === props.name) {
@@ -72,7 +87,7 @@ function Comentarios(props) {
     useEffect(() => {
         checkCommentsVoluntariados()
 
-    }, [newComment])
+    }, [newComment], [props.state])
 
 
 
@@ -100,7 +115,7 @@ function Comentarios(props) {
                         {!(displayComment.length === 0) ? displayComment.map((com, index) => (
                             <>
                                 <div className={style.voluntariadosProfile}></div>
-                                <Grid item xs={2} sm={4} md={3} style={{ paddingTop: "5%" }} key={index}>
+                                <Grid item xs={2} sm={4} md={3} key={index}>
                                     <CardComment
                                         id={com.id}
                                         rating={com.rating}
@@ -111,7 +126,7 @@ function Comentarios(props) {
                                 </Grid>
                             </>
                         )) : <></>}
-                        {!(comment.length === 0) ? comment.map((com, index) => (
+                        {/* {!(comment.length === 0) ? comment.map((com, index) => (
                             <>
                                 <div className={style.voluntariadosProfile}></div>
                                 <Grid item xs={2} sm={4} md={3} key={index}>
@@ -125,7 +140,7 @@ function Comentarios(props) {
                                     ></CardComment>
                                 </Grid>
                             </>
-                        )) : <></>}
+                        )) : <></>} */}
                     </Grid>
 
                 </Container>

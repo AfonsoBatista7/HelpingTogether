@@ -8,6 +8,8 @@ import MiniBoxVoluntariado from "../StatsShowers/Box/MiniBoxVoluntariado";
 function VoluntariadosArea(props) {
 
     const [volunt, setVoluntariados] = useState([])
+    const [newVoluntariados, setNewVoluntariados] = useState([]);
+    const [displayVolunt, setDisplayVolunt] = useState([]);
 
     useEffect(() => {
         const getLoggedIn = async () => {
@@ -36,6 +38,27 @@ function VoluntariadosArea(props) {
         return data;
     }
 
+    useEffect(() => {
+        const getNewVoluntariados = async () => {
+            const newVoluntariadosFromServer = await fetchNewVoluntariados()
+
+            setNewVoluntariados(newVoluntariadosFromServer)
+
+        }
+
+        getNewVoluntariados();
+
+    }, [props.state])
+
+    const fetchNewVoluntariados = async () => {
+        const res = await fetch('http://localhost:5000/novosVoluntariados')
+        var data = await res.json()
+
+        data = checkOrganization(data);
+
+        return data;
+    }
+
     const checkOrganization = (data) => {
         var list = [];
 
@@ -46,18 +69,28 @@ function VoluntariadosArea(props) {
             }
         }
         return list;
-
     }
 
-    const [openPopupRegisterVoluntariado, setOpenPopupRegisterVoluntariado] = useState(false);
+    const makeList = () => {
+        var list = [];
 
-    const resgisterVoluntariado = () => {
-        setOpenPopupRegisterVoluntariado(true);
+        for (const element of newVoluntariados) {
+            list.push(element);
+        }
+
+        for (const element of volunt) {
+            list.push(element);
+        }
+
+        setDisplayVolunt(list)
     }
 
-    const closeResgisterVoluntariado = () => {
-        setOpenPopupRegisterVoluntariado(false);
-    }
+
+    useEffect(() => {
+        makeList()
+
+    }, [volunt], [newVoluntariados], [props.state])
+
 
     return (
         <div id="Voluntariados" className={style.backgroundwhite}>
@@ -87,20 +120,20 @@ function VoluntariadosArea(props) {
 
                     {props.type === "organizacao" ?
                         <>
-                            <Button onClick={resgisterVoluntariado} style={{float:"right"}}>
+                            <Button onClick={props.resgisterVoluntariado} style={{float:"right"}}>
                                 <Typography style={{ color: "#497174" }}>+ Criar</Typography>
                             </Button > <Popup
-                                openPopup={openPopupRegisterVoluntariado}
-                                setOpenPopup={setOpenPopupRegisterVoluntariado}
+                                openPopup={props.openPopupRegisterVoluntariado}
+                                setOpenPopup={props.setOpenPopupRegisterVoluntariado}
                             >
-                                <RegisterVoluntariado organizacao={props.nameOrg} closePopup={closeResgisterVoluntariado} />
+                                <RegisterVoluntariado organizacao={props.nameOrg} closePopup={props.closeResgisterVoluntariado} />
                             </Popup></> : <></>}
 
                 </Grid>
                 <Divider className={style.voluntariadosProfile}/>
                 <Container>
                     <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-                        {!(volunt.length === 0) ? volunt.map((vol, index) => (
+                        {!(displayVolunt.length === 0) ? displayVolunt.map((vol, index) => (
                             <><Grid item xs={2} sm={4} md={4} key={index}> 
                                 <MiniBoxVoluntariado
                                     id={vol.id}

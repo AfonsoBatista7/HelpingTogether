@@ -12,7 +12,6 @@ import Popup from "../Popup/Popup";
 function InfoVoluntariado(props) {
 
     const [perfil, setPerfil] = useState(null);
-    const [openPopupAvaliacao, setOpenPopupAvaliacao] = useState(false);
 
     //vetor com todos os valores no login da Base de dados
     const [loggedIns, setLoggedIns] = useState([])
@@ -47,12 +46,12 @@ function InfoVoluntariado(props) {
     }
 
 
-    
-
     useEffect(() => {
         checkLogin()
 
     }, [loggedIns])
+
+
 
     const checkLogin = () => {
 
@@ -63,9 +62,6 @@ function InfoVoluntariado(props) {
         }
 
     }
-
-   
-
 
     useEffect(() => {
         const getOrganizacoes = async () => {
@@ -78,6 +74,7 @@ function InfoVoluntariado(props) {
         getOrganizacoes(organizacoes)
 
     }, [])
+    
 
     const fetchOrganizacoes = async () => {
         const res = await fetch('http://localhost:5000/organizacoes')
@@ -117,13 +114,6 @@ function InfoVoluntariado(props) {
 
     }
 
-    const avaliar = () => {
-        setOpenPopupAvaliacao(true);
-    }
-
-    const closeAvaliacao = () => {
-        setOpenPopupAvaliacao(false);
-    }
 
     return (<>
         {org ? <>
@@ -252,14 +242,14 @@ function InfoVoluntariado(props) {
                                 </> : <>
                                     {props.done ? <>
                                         <div className={style.avaliarbutton}>
-                                            <Button style={{ background: "white" }} variant="contained" onClick={avaliar}>
+                                            <Button style={{ background: "white" }} variant="contained" onClick={props.avaliar}>
                                                 <Typography style={{ color: "#375658" }}>Avaliar</Typography>
                                             </Button>
                                             <Popup
-                                                openPopup={openPopupAvaliacao}
-                                                setOpenPopup={setOpenPopupAvaliacao}
+                                                openPopup={props.openPopupAvaliacao}
+                                                setOpenPopup={props.setOpenPopupAvaliacao}
                                             >
-                                                <Evaluation name={perfil.name} nameWhoMakes={perfil.name} type="voluntariado" closePopup={closeAvaliacao} />
+                                                <Evaluation name={perfil.name} nameOfTheCommented={props.name} type="voluntariado" closePopup={props.closeAvaliacao} />
                                             </Popup></div>
                                     </> : <></>}
                                 </>

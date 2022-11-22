@@ -4,7 +4,7 @@ import { Pagination, Grid, Typography, Container, Button } from "@mui/material";
 import InfoVoluntariado from "../components/SectionsProfile/InfoVoluntariado";
 import DoneOutlineRoundedIcon from '@mui/icons-material/DoneOutlineRounded';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useReducer } from 'react'
 import { useParams, } from "react-router-dom";
 import { CollectionsOutlined, ContentCutOutlined } from "@mui/icons-material";
 
@@ -23,6 +23,9 @@ function Voluntariado() {
     const [voltDone, setVoltDone] = useState(false);
 
     const [voluntsDone, setVoluntsDone] = useState([])
+
+    const [openPopupAvaliacao, setOpenPopupAvaliacao] = useState(false);
+    const [state, forceUpdate] = useReducer(x => x + 1, 0);
 
     //vetor com todos os valores no login da Base de dados
     const [loggedIns, setLoggedIns] = useState([])
@@ -82,13 +85,8 @@ function Voluntariado() {
         for (const element of VoltDone) {
             if (element.id == idVolt) {
                 setVoltDone(true);
-
-                console.log(voltDone)
             }
         }
-
-
-        console.log(voltDone)
 
     }
 
@@ -157,8 +155,6 @@ function Voluntariado() {
     }
 
 
-
-
     const addVoluntariado = async () => {
         const res = await fetch('http://localhost:5000/candidaturas', {
             method: 'POST',
@@ -170,6 +166,15 @@ function Voluntariado() {
 
         const data = await res.json()
 
+    }
+
+    const avaliar = () => {
+        setOpenPopupAvaliacao(true);
+    }
+
+    const closeAvaliacao = () => {
+        setOpenPopupAvaliacao(false);
+        forceUpdate();
     }
 
 
@@ -242,14 +247,14 @@ function Voluntariado() {
                     </Grid>
                 </Grid>
 
-                <InfoVoluntariado done={voltDone} name={volunt.name} image={volunt.image} organizacao={volunt.organizacao} startDate={volunt.startDate} description={volunt.description} endDate={volunt.endDate} location={volunt.location} rating={volunt.rating} />
+                <InfoVoluntariado avaliar={avaliar} closeAvaliacao={closeAvaliacao} openPopupAvaliacao={openPopupAvaliacao} setOpenPopupAvaliacao={setOpenPopupAvaliacao} state={state} done={voltDone} name={volunt.name} image={volunt.image} organizacao={volunt.organizacao} startDate={volunt.startDate} description={volunt.description} endDate={volunt.endDate} location={volunt.location} rating={volunt.rating} />
 
                 <Container style={{
                     height: 50
                 }}></Container>
 
 
-                <Comentarios name={perfil.name} type="voluntariado"/>
+                <Comentarios name={volunt.name} type="voluntariado" state={state}/>
 
                 <Container style={{
                     height: 50

@@ -39,8 +39,6 @@ function Evaluation(props) {
 
     const addComment = async (value) => {
 
-        console.log(value)
-
         if (props.type === "pessoa") {
 
             const res = await fetch('http://localhost:5000/comentariosFeitosPessoa', {
