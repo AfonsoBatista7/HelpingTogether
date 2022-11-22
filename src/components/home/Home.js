@@ -3,6 +3,7 @@ import SearchBar from "../Search/SearchBar";
 import Map from "./Map";
 import HomeCarousel from './HomeCarousel';
 import { Grid } from '@mui/material';
+import MiniBoxVoluntariado from '../StatsShowers/Box/MiniBoxVoluntariado';
 
 import smartie1 from "./Cats/smartie1.jpg"
 import smartie3 from "./Cats/smartie3.jpg"
@@ -26,13 +27,13 @@ const Home = () => {
       const res = await fetch("http://localhost:5000/voluntariados")
       const data = await res.json()
       // TODO change to show the highest rated ones specifically?
-      return data.voluntariados
+      return data
   }
 
   const catpics = [{
-      "name": "Smartie 1",
-      "description": "Smartie 1",
-      "image": smartie1
+    "name": "Smartie 1",
+    "description": "Smartie 1",
+    "image": smartie1
   }, {
     "name": "Smartie 2",
     "description": "Smartie 1",
@@ -65,11 +66,10 @@ const Home = () => {
                 
               </Grid>
               <Grid item xs={12}>
-{/*                 { topOpport ? <>
+                { topOpport ? <>
                   <HomeCarousel res={topOpport}/></>
                 : <>
-                  <HomeCarousel res={catpics}/></>} */}
-                  <HomeCarousel res={catpics} />
+                  <HomeCarousel res={catpics}/></>}
               </Grid>
           </Grid>
         </center>
