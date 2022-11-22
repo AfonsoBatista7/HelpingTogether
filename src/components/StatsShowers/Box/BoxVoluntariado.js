@@ -1,6 +1,7 @@
 import { Rating } from "@mui/material";
 import React from "react";
 import BoxStats from "./BoxStats";
+import { Link } from 'react-router-dom';
 
 function BoxVoluntariado(props) {
     const getRatingComponent = () => {
@@ -10,12 +11,13 @@ function BoxVoluntariado(props) {
     };
 
     return (
+        <Link style={{ color: "#2E3B55", textDecoration: "none" }} to={`/Voluntariado/${props.id}`}>
         <BoxStats
             image={props.image}
             name={props.name}
             component={getRatingComponent()}
             desc={props.desc}
-        />
+        /></Link>
     );
 }
 

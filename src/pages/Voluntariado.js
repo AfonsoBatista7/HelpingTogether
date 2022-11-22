@@ -1,6 +1,3 @@
-import InfoProfile from "../components/SectionsProfile/InfoProfile";
-import VoluntariadosDone from "../components/SectionsProfile/VoluntariadosArea";
-import CandidaturasPendentes from "../components/SectionsProfile/CandidaturasPendentes";
 import Comentarios from "../components/SectionsProfile/Comentarios";
 import style from "../components/SectionsProfile/Profiles.module.css"
 import { Pagination, Grid, Typography, Container, Button } from "@mui/material";
@@ -8,9 +5,15 @@ import InfoVoluntariado from "../components/SectionsProfile/InfoVoluntariado";
 import DoneOutlineRoundedIcon from '@mui/icons-material/DoneOutlineRounded';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 import React, { useState, useEffect } from 'react'
+import { useParams, } from "react-router-dom";
 
-function Voluntariado(props) {
+function Voluntariado() {
 
+    const { idVolt } = useParams();
+
+    const [volunt, setVoluntariado] = useState(null);
+
+    const [volntAll, setAllVolunt] = useState([])
 
     const [candidate, editState] = useState(false);
 
@@ -22,17 +25,24 @@ function Voluntariado(props) {
     //vai buscar todos os valores de login da BD e mete em loggedIns
     useEffect(() => {
         const getLoggedIn = async () => {
-
-
             const loggedInFromServer = await fetchLoggedIn()
 
             setLoggedIns(loggedInFromServer)
-            console.log(loggedIns)
-
-
         }
 
         getLoggedIn(loggedIns)
+
+    }, [])
+
+    useEffect(() => {
+        const getVoluntariados = async () => {
+            const VoluntariadosFromServer = await fetchVoluntariados()
+
+            setAllVolunt(VoluntariadosFromServer)
+
+        }
+
+        getVoluntariados(volntAll)
 
     }, [])
 
@@ -43,6 +53,47 @@ function Voluntariado(props) {
         return data;
     }
 
+    const fetchVoluntariados = async () => {
+        const res = await fetch('http://localhost:5000/novosVoluntariados')
+
+        const res2 = await fetch('http://localhost:5000/voluntariados')
+        const data = await res.json()
+        const data2 = await res2.json()
+
+        var list = [];
+
+        for (const element of data) {
+            list.push(element)
+        }
+
+        for (const element of data2) {
+            list.push(element)
+        }
+
+        return list;
+    }
+
+    useEffect(() => {
+        checkVoluntariados()
+
+    }, [volntAll])
+
+    const checkVoluntariados = () => {
+        var voluntariadoSelect;
+        console.log(volntAll);
+        console.log(idVolt);
+        for (const element of volntAll) {
+            console.log(element)
+            if (element.id === idVolt) {
+                voluntariadoSelect = element;
+                console.log("o<alaasas");
+                setVoluntariado(element);
+            }
+        }
+        console.log("12212");
+        console.log(voluntariadoSelect);
+        return voluntariadoSelect;
+    }
 
     useEffect(() => {
         checkLogin()
@@ -62,12 +113,12 @@ function Voluntariado(props) {
     function changeState() {
         editState(!candidate);
 
-        if(candidate){
+        if (candidate) {
             addVoluntariado();
         }
     }
 
-   
+
 
 
     const addVoluntariado = async () => {
@@ -76,7 +127,7 @@ function Voluntariado(props) {
             headers: {
                 'Content-type': 'application/json',
             },
-            body: JSON.stringify(props),
+            body: JSON.stringify(volunt),
         })
 
         const data = await res.json()
@@ -84,87 +135,89 @@ function Voluntariado(props) {
     }
 
 
-    return (
-        <div className={style.backgroundwhite}>
-            <div style={{ height: 40 }}></div>
+    return (<>
+        {volunt ? 
+            <div className={style.backgroundwhite}>
+                <div style={{ height: 40 }}></div>
 
-            <Grid
-                container
-                direction="row"
-                justifyContent="flex-start"
-                alignItems="center"
-                className={style.marginsVoluntariado}>
-
-                <Grid item xs={6}
+                <Grid
                     container
                     direction="row"
-                    justifyContent="space-between"
-                    alignItems="center">
-                    <Typography
-                        style={{
-                            fontWeight: 700,
-                            fontSize: 30,
-                            color: '#497174',
-                            textTransform: "uppercase",
-                            textAlign: 'left',
+                    justifyContent="flex-start"
+                    alignItems="center"
+                    className={style.marginsVoluntariado}>
 
-                        }}
-                    >Voluntariado</Typography>
+                    <Grid item xs={6}
+                        container
+                        direction="row"
+                        justifyContent="space-between"
+                        alignItems="center">
+                        <Typography
+                            style={{
+                                fontWeight: 700,
+                                fontSize: 30,
+                                color: '#497174',
+                                textTransform: "uppercase",
+                                textAlign: 'left',
+
+                            }}
+                        >Voluntariado</Typography>
+                    </Grid>
+
+                    <Grid item xs={5} className={style.marginsVoluntariado}>
+                        {!perfil ? <></> : <>
+                            {perfil.typePerfil === "organizacao" ? <>
+                            </> : <>
+                                {!candidate ?
+                                    <Button variant="contained" color="success" size="medium" style={{ float: 'right' }} className={style.buttonedit} onClick={changeState}>
+                                        < DoneOutlineRoundedIcon className={style.marginRight} style={{
+                                            color: 'white',
+                                            fontSize: 20
+                                        }}></ DoneOutlineRoundedIcon> <Typography
+                                            style={{
+                                                fontWeight: 500,
+                                                fontSize: 20,
+                                                textTransform: "uppercase",
+                                                textAlign: 'left',
+
+                                            }}
+                                        >Candidatar</Typography>
+                                    </Button>
+                                    : <Button variant="contained" color="error" size="small" style={{ float: 'right' }} className={style.buttonedit} onClick={changeState}>
+                                        < CancelOutlinedIcon className={style.marginRight} style={{
+                                            color: 'white',
+                                            fontSize: 20
+                                        }}></ CancelOutlinedIcon> <Typography
+                                            style={{
+                                                fontWeight: 500,
+                                                fontSize: 15,
+                                                textTransform: "uppercase",
+                                                textAlign: 'center',
+
+                                            }}
+                                        >Cancelar Candidatura</Typography>
+                                    </Button>}
+                            </>}</>}
+
+                    </Grid>
                 </Grid>
 
-                <Grid item xs={5} className={style.marginsVoluntariado}>
-                    {!perfil ? <></> : <>
-                        {perfil.typePerfil === "organizacao" ? <>
-                        </> : <>
-                            {!candidate ?
-                                <Button variant="contained" color="success" size="medium" style={{ float: 'right' }} className={style.buttonedit} onClick={changeState}>
-                                    < DoneOutlineRoundedIcon className={style.marginRight} style={{
-                                        color: 'white',
-                                        fontSize: 20
-                                    }}></ DoneOutlineRoundedIcon> <Typography
-                                        style={{
-                                            fontWeight: 500,
-                                            fontSize: 20,
-                                            textTransform: "uppercase",
-                                            textAlign: 'left',
+                <InfoVoluntariado volunt={checkVoluntariados()} />
 
-                                        }}
-                                    >Candidatar</Typography>
-                                </Button>
-                                : <Button variant="contained" color="error" size="small" style={{ float: 'right' }} className={style.buttonedit} onClick={changeState}>
-                                    < CancelOutlinedIcon className={style.marginRight} style={{
-                                        color: 'white',
-                                        fontSize: 20
-                                    }}></ CancelOutlinedIcon> <Typography
-                                        style={{
-                                            fontWeight: 500,
-                                            fontSize: 15,
-                                            textTransform: "uppercase",
-                                            textAlign: 'center',
-
-                                        }}
-                                    >Cancelar Candidatura</Typography>
-                                </Button>}
-                        </>}</>}
-
-                </Grid>
-            </Grid>
-
-            <InfoVoluntariado />
-
-            <Container style={{
-                height: 50
-            }}></Container>
+                <Container style={{
+                    height: 50
+                }}></Container>
 
 
-            <Comentarios />
+                <Comentarios />
 
-            <Container style={{
-                height: 50
-            }}></Container>
+                <Container style={{
+                    height: 50
+                }}></Container>
 
 
-        </div >
+            </div >
+            : <></>}</>
 
     );
 }

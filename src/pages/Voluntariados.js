@@ -122,7 +122,7 @@ function Voluntariados() {
                     >Voluntariados</Typography>
                     {!perfil ? <></> : <>
                         {perfil.typePerfil === "organizacao" ?
-                            <div style={{float:"right"}}>
+                            <div style={{ float: "right" }}>
                                 <Button onClick={resgisterVoluntariado}>
                                     <Typography style={{ color: "#497174" }}>+ Criar</Typography>
                                 </Button>
@@ -141,7 +141,8 @@ function Voluntariados() {
                     {!(newVoluntariados.length === 0) ? newVoluntariados.map((vol) => (
                         <>
                             <div className={style.boxShow}></div>
-                            <BoxVoluntariado 
+                            <BoxVoluntariado
+                                id={vol.id}
                                 image={vol.image}
                                 name={vol.name}
                                 rating={vol.rating}
@@ -152,7 +153,9 @@ function Voluntariados() {
                     {!(voluntariados.length === 0) ? voluntariados.map((vol) => (
                         <>
                             <div className={style.boxShow}></div>
-                            <BoxVoluntariado image={vol.image}
+                            <BoxVoluntariado
+                                id={vol.id}
+                                image={vol.image}
                                 name={vol.name}
                                 rating={vol.rating}
                                 desc={vol.description}

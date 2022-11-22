@@ -91,7 +91,7 @@ const UserProfileButton = (props) => {
                 >
                     {Object.keys(settings).map((setting) => (
                       
-                            <Link href={setting} title={setting.toString} key={setting} style={{ textDecoration: 'none', color: 'black' }} to={setting === "Sair" ? '' : '/Perfil#' + setting}>
+                            <Link href={setting} key={setting} style={{ textDecoration: 'none', color: 'black' }} to={setting === "Sair" ? '' : '/Perfil#' + setting}>
                                 <MenuItem key={setting} onClick={settings[setting]}>
                                     <Typography textAlign="center">
                                         {setting}

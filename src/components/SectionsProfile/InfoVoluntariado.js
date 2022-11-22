@@ -16,6 +16,11 @@ function InfoVoluntariado(props) {
     //vetor com todos os valores no login da Base de dados
     const [loggedIns, setLoggedIns] = useState([])
 
+    const [org, setOrg] = useState(null);
+
+    const [organizacoes, setOrganizacoes] = useState([])
+
+
     //vai buscar todos os valores de login da BD e mete em loggedIns
     useEffect(() => {
         const getLoggedIn = async () => {
@@ -24,7 +29,6 @@ function InfoVoluntariado(props) {
             const loggedInFromServer = await fetchLoggedIn()
 
             setLoggedIns(loggedInFromServer)
-            console.log(loggedIns)
 
 
         }
@@ -56,6 +60,57 @@ function InfoVoluntariado(props) {
 
     }
 
+
+    useEffect(() => {
+        const getOrganizacoes = async () => {
+            const organizacoesFromServer = await fetchOrganizacoes()
+
+            setOrganizacoes(organizacoesFromServer)
+
+        }
+
+        getOrganizacoes(organizacoes)
+
+    }, [])
+
+    const fetchOrganizacoes = async () => {
+        const res = await fetch('http://localhost:5000/organizacoes')
+
+        const res2 = await fetch('http://localhost:5000/login')
+
+        const data = await res.json()
+
+        const data2 = await res2.json()
+
+        var list = [];
+
+        for (const element of data) {
+            list.push(element)
+        }
+
+        for (const element of data2) {
+            if (element.typePerfil === "organizacao")
+                list.push(element)
+        }
+
+        return list;
+    }
+
+    useEffect(() => {
+        checkOrganizacao()
+
+    }, [organizacoes])
+
+    const checkOrganizacao = () => {
+
+        for (const element of organizacoes) {
+            if (element.name===props.organizacao) {
+                setOrg(element);
+            }
+        }
+
+    }
+
     const avaliar = () => {
         setOpenPopupAvaliacao(true);
     }
@@ -63,9 +118,6 @@ function InfoVoluntariado(props) {
     const closeAvaliacao = () => {
         setOpenPopupAvaliacao(false);
     }
-
-    var valueMessage = "Hello World sjajvsjdoKSDOAKALAPDASKDPAKDASKDVOAVKAKVKDNVFKAakjdjfahkfhkfhaksfhkjahfkashfkdhfkahfkhakrhgkuafhnsjdcajcnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnMDMVKADMVKAMVKAFVKDNFVKANDFKVNAKNFVAKSNVKASNVKANDVFNKSNFVKNSKAVNKASNVKASNVKFNVKANVKANVKANDKFMwlfkmLWFMLmfkfefKEFlkefjlkwflkawfkmaslvkmkadsvmamvmvaksndvkfkam";
-
 
     return (
         <div  >
@@ -79,7 +131,7 @@ function InfoVoluntariado(props) {
                         alignItems="center">
 
                         <img className={style.photoVoluntariado}
-                            src="/Comida.png"
+                            src={props.image}
 
                         />
 
@@ -88,7 +140,7 @@ function InfoVoluntariado(props) {
                             alignItems="center"
                             className={style.marginPhone}>
                             <Avatar className={style.marginRight}
-                                src="/UNICEF.jpg"
+                                src={"/UNICEF.jpg"}
 
                                 sx={{ width: 30, height: 30 }} />
                             <Typography
@@ -98,7 +150,7 @@ function InfoVoluntariado(props) {
                                     color: 'white',
                                     textTransform: "uppercase",
                                     textAlign: 'center'
-                                }}>UNICEF</Typography>
+                                }}>{props.organizacao}</Typography>
                         </Grid>
 
                         <Grid container direction="row"
@@ -115,7 +167,7 @@ function InfoVoluntariado(props) {
                                     fontSize: 20,
                                     color: 'white',
                                     textAlign: 'center'
-                                }}>Porto</Typography>
+                                }}>{props.location}</Typography>
                         </Grid>
 
 
@@ -135,7 +187,7 @@ function InfoVoluntariado(props) {
                                     color: 'white',
                                     textTransform: "uppercase",
                                     textAlign: 'center'
-                                }}>20/07/2022 - 25/07/2022</Typography>
+                                }}>{props.startDate} - {props.endDate}</Typography>
                         </Grid>
 
                     </Grid>
@@ -163,11 +215,11 @@ function InfoVoluntariado(props) {
                                         color: '#3F6164',
                                         textTransform: "uppercase",
                                         textAlign: 'left'
-                                    }}>Distribuição de refeições</Typography>
+                                    }}>{props.name} </Typography>
                                 </div>
 
                                 <div className={style.rating}>
-                                    <Rating name="half-rating-read" defaultValue={3} precision={1} readOnly size="large" />
+                                    <Rating name="half-rating-read" defaultValue={props.rating} precision={1} readOnly size="large" />
                                 </div>
                             </Grid>
 
@@ -180,7 +232,7 @@ function InfoVoluntariado(props) {
                                 fullWidth
                                 multiline
                                 id="outlined-disabled"
-                                defaultValue={valueMessage}
+                                defaultValue={props.description}
                             />
 
                         </Container>

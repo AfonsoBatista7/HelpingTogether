@@ -20,9 +20,9 @@ function App() {
             <Layout>
             <Routes>
                 <Route path='/Organizacoes' element={<Organizacoes/>} ></Route>
-                <Route path='/Perfil' element={<Perfil />} ></Route>
+                <Route path='/Perfil/:id' element={<Perfil />} ></Route>
                 <Route path='/Voluntariados' element={<Voluntariados/>}></Route>
-                <Route path='/Voluntariado' element={<Voluntariado/>}></Route>
+                <Route path='/Voluntariado/:idVolt' element={<Voluntariado/>}></Route>
                 <Route exact path ='/' element={<HomePage/>} ></Route>
             </Routes>
             </Layout>

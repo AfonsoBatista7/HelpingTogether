@@ -45,7 +45,6 @@ function Perfil(props) {
         for (const element of loggedIns) {
             if (element.isLoggedIn) {
                 if(props.name){
-                    console.log(props.name);
                     setPerfil(props);
                 }else{
                 setPerfil(element);

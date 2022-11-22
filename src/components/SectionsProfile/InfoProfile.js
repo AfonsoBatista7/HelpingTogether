@@ -1,4 +1,3 @@
-
 import style from "./Profiles.module.css"
 import React, { useState } from 'react'
 import { Grid, Typography, Container, Avatar, Button, TextField, Rating } from "@mui/material";

@@ -1,8 +1,9 @@
 import React from 'react'
 import BoxStats from './BoxStats';
+import { Link } from 'react-router-dom';
 
 function BoxOrganization(props) {
-  
+
   const getNumVoluntariados = () => {
 
     let list = [];
@@ -14,12 +15,13 @@ function BoxOrganization(props) {
   }
 
   return (
-        <BoxStats
-            image={props.image}
-            name={props.name}
-            component={getNumVoluntariados()}
-            desc={props.desc}
-        />
+    <Link style={{ color: "#2E3B55", textDecoration: "none" }} to={`/Perfil/${props.id}`}>
+      <BoxStats
+      image={props.image}
+      name={props.name}
+      component={getNumVoluntariados()}
+      desc={props.desc}
+    /></Link>
   )
 }
 
