@@ -211,7 +211,7 @@ function InfoProfile(props) {
               </Grid>
               {props.type === "organizacao" ? <></> : <>
                 <Grid item xs={5}>
-                  <div style={{ float: "right" }}>
+                  <div style={{ float: "right", marginRight:"5%" }}>
                     <Rating name="half-rating-read" defaultValue={props.rating} precision={1} readOnly size="large" />
                   </div>
                 </Grid>

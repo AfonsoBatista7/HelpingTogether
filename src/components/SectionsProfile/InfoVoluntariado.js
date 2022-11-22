@@ -1,6 +1,7 @@
 
 import style from "./Profiles.module.css"
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 
 import { Grid, Typography, Container, Avatar, Button, TextField, Rating } from "@mui/material";
 import PinDropRoundedIcon from '@mui/icons-material/PinDropRounded';
@@ -149,7 +150,8 @@ function InfoVoluntariado(props) {
                                     src={"/" + org.image}
 
                                     sx={{ width: 30, height: 30 }} />
-                                <Typography
+                                <Link style={{ color: "#2E3B55", textDecoration: "none" }} to={`/Perfil/${org.id}`}>
+                                    <Typography
                                     style={{
                                         fontWeight: 500,
                                         fontSize: 20,
@@ -157,6 +159,7 @@ function InfoVoluntariado(props) {
                                         textTransform: "uppercase",
                                         textAlign: 'center'
                                     }}>{props.organizacao}</Typography>
+                                    </Link>
                             </Grid>
 
                             <Grid container direction="row"
