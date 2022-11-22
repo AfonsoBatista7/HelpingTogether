@@ -5,7 +5,7 @@ import {
 } from "@mui/material";
 import SubFilter from './SubFilter';
 
-const FilterMain = () => {
+const FilterMain = (props) => {
     const [anchorElFilter, setAnchorElFilter] = useState(null);
     const openFilter = Boolean(anchorElFilter);
     const handleClick = (event) => {
@@ -15,11 +15,6 @@ const FilterMain = () => {
         setAnchorElFilter(null);
     };
 
-    const filters = {
-        Tipo: ['Natureza', 'Animais', 'Poluição', 'Comunidade', 'Gastronomia', 'Saúde'],
-        Região: ['Norte', 'Centro', 'Alentejo', 'Área Metropolitana Lisboa', 'Algarve', 'Açores', 'Madeira'],
-        Duração:  ['Reduzida', 'Média', 'Longa']
-    };
   return (
     <div>
         <Button
@@ -42,8 +37,8 @@ const FilterMain = () => {
                 'aria-labelledby': 'filter-button',
             }}
             >
-            {Object.keys(filters).map((filter) => (
-               <SubFilter key={filter} filter={filter} items={filters[filter]}></SubFilter>
+            {Object.keys(props.filters).map((filter) => (
+               <SubFilter key={filter} filter={filter} items={props.filters[filter]}></SubFilter>
             ))}
             </Menu>
     </div>
