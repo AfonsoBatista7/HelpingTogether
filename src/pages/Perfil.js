@@ -96,15 +96,7 @@ function Perfil(props) {
                    
                     <VoluntariadosArea id={perfil.id} type={perfil.typePerfil} nameOrg={perfil.name} name={perfil.name}  />
 
-                    <Container style={{
-                        height: 50
-                    }}></Container>
-
                     {perfil.typePerfil !== "organizacao" ? <>
-
-                        <Container style={{
-                            height: 70
-                        }}></Container>
 
                         <Comentarios />
 

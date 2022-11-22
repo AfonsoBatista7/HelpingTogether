@@ -1,5 +1,6 @@
 import style from "./Profiles.module.css"
 import { Pagination, Grid, Typography, Container, Divider } from "@mui/material";
+import CardComment from "../StatsShowers/Card/CardComment";
 
 function Comentarios(props) {
     return(
