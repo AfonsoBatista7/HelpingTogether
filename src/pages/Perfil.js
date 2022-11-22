@@ -3,7 +3,7 @@ import VoluntariadosArea from "../components/SectionsProfile/VoluntariadosArea";
 import CandidaturasPendentes from "../components/SectionsProfile/CandidaturasPendentes";
 import Comentarios from "../components/SectionsProfile/Comentarios";
 import style from "../components/SectionsProfile/Profiles.module.css"
-import { Pagination, Grid, Typography, Container } from "@mui/material";
+import { Pagination, Grid, Typography, Container, CircularProgress } from "@mui/material";
 import React, { useState, useEffect } from "react";
 
 function Perfil(props) {
@@ -40,76 +40,75 @@ function Perfil(props) {
 
     }, [loggedIns])
 
-    const checkLogin = () => {
 
+    const checkLogin = () => {
         for (const element of loggedIns) {
             if (element.isLoggedIn) {
-                if(props.name){
+                if (props.name) {
                     setPerfil(props);
-                }else{
-                setPerfil(element);
+                } else {
+                    setPerfil(element);
                 }
             }
         }
-
     }
 
+
     return (<>
-        {perfil ? <>
-            <div className={style.backgroundwhite}>
-                <div className={style.margins}>
-                    <div style={{ height: 20 }}></div>
-                    <div className={style.perfileTitle}>
-                        <Typography
-                            style={{
-                                fontWeight: 700,
-                                fontSize: 30,
-                                color: '#497174',
-                                textTransform: "uppercase",
-                                textAlign: 'left',
+            {perfil ?
+                <div className={style.backgroundwhite}>
+                    <div className={style.margins}>
+                        <div style={{ height: 20 }}></div>
+                        <div className={style.perfileTitle}>
+                            <Typography
+                                style={{
+                                    fontWeight: 700,
+                                    fontSize: 30,
+                                    color: '#497174',
+                                    textTransform: "uppercase",
+                                    textAlign: 'left',
 
-                            }}
-                        >Perfil</Typography>
+                                }}
+                            >Perfil</Typography>
 
-                    </div>
+                        </div>
 
-                    <InfoProfile id={perfil.id} name={perfil.name} image={perfil.image} email={perfil.email} phone={perfil.phone} rating={perfil.rating} type={perfil.typePerfil} login={perfil.isLoggedIn} description={perfil.description} birthday={perfil.birthday} gender={perfil.gender} />
+                        <InfoProfile id={perfil.id} name={perfil.name} image={perfil.image} email={perfil.email} phone={perfil.phone} rating={perfil.rating} type={perfil.typePerfil} login={perfil.isLoggedIn} description={perfil.description} birthday={perfil.birthday} gender={perfil.gender} />
 
-                    {perfil.typePerfil !== "organizacao" ? <>
+                        {perfil.typePerfil !== "organizacao" ? <>
+                            <Container style={{
+                                height: 70
+                            }}></Container>
+
+                            <CandidaturasPendentes />
+
+                            <Container style={{
+                                height: 50
+                            }}></Container>
+                        </>
+                            : <></>}
+
+
                         <Container style={{
                             height: 70
                         }}></Container>
 
-                        <CandidaturasPendentes />
 
-                        <Container style={{
-                            height: 50
-                        }}></Container>
-                    </>
-                        : <></>}
+                        <VoluntariadosArea id={perfil.id} type={perfil.typePerfil} nameOrg={perfil.name} name={perfil.name} />
 
+                        {perfil.typePerfil !== "organizacao" ? <>
 
-                    <Container style={{
-                        height: 70
-                    }}></Container>
+                            <Comentarios name={perfil.name} type="pessoa"/>
 
-                   
-                    <VoluntariadosArea id={perfil.id} type={perfil.typePerfil} nameOrg={perfil.name} name={perfil.name}  />
-
-                    {perfil.typePerfil !== "organizacao" ? <>
-
-                        <Comentarios />
-
-                        <Container style={{
-                            height: 50
-                        }}></Container></> :
-                         <></>}
+                            <Container style={{
+                                height: 50
+                            }}></Container></> :
+                            <></>}
 
 
                     </div >
-            </div>
-        </>
-            : <></>}</>
+                </div>
+                : <></>}</>
     );
 }
 

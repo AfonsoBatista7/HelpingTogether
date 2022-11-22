@@ -251,7 +251,7 @@ function InfoVoluntariado(props) {
                                         openPopup={openPopupAvaliacao}
                                         setOpenPopup={setOpenPopupAvaliacao}
                                     >
-                                        <Evaluation name={perfil.name} nameWhoMakes={perfil.name} type="voluntariado" closePopup={closeAvaliacao} />
+                                        <Evaluation name={perfil.name} nameOfTheCommented={perfil.name} type="voluntariado" closePopup={closeAvaliacao} />
                                     </Popup></div>
                             </>}</>}
                     </Grid>

@@ -201,7 +201,7 @@ function Voluntariado() {
                 }}></Container>
 
 
-                <Comentarios />
+                <Comentarios name={perfil.name} type="voluntariado"/>
 
                 <Container style={{
                     height: 50

@@ -265,7 +265,7 @@ function InfoProfile(props) {
                   openPopup={openPopupAvaliacao}
                   setOpenPopup={setOpenPopupAvaliacao}
                 >
-                  <Evaluation name={props.name} nameWhoMakes={props.name} type="pessoa" closePopup={closeAvaliacao} />
+                  <Evaluation name={props.name} nameOfTheCommented={props.name} type="pessoa" closePopup={closeAvaliacao} />
                 </Popup>
                 </div></>}
         </div>
