@@ -87,7 +87,7 @@ function VoluntariadosArea(props) {
 
                     {props.type === "organizacao" ?
                         <>
-                            <Button onClick={resgisterVoluntariado}>
+                            <Button onClick={resgisterVoluntariado} style={{float:"right"}}>
                                 <Typography style={{ color: "#497174" }}>+ Criar</Typography>
                             </Button > <Popup
                                 openPopup={openPopupRegisterVoluntariado}

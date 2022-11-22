@@ -25,7 +25,7 @@ function App() {
             <Layout>
             <Routes>
                 <Route path='/Organizacoes' element={<Organizacoes/>} ></Route>
-                <Route path='/Perfil/:id' element={<Perfil />} ></Route>
+                <Route path='/Perfil/:idPerfil' element={<Perfil />} ></Route>
                 <Route path='/Voluntariados' element={<Voluntariados/>}></Route>
                 <Route path='/Voluntariado/:idVolt' element={<Voluntariado/>}></Route>
                 <Route exact path ='/' element={<HomePage/>} ></Route>

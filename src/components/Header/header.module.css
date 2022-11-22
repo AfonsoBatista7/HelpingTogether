@@ -22,6 +22,8 @@
 .headerLink {
     color: inherit !important;
     text-decoration: none !important;
+    display: flex;
+    justify-content: center;
 }
 
 .headerOtherButtons:after {
