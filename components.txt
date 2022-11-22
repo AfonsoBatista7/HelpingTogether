@@ -1,6 +1,6 @@
 [JOSÉ]
-Home Page
-Carrocel de imagens na home page (Já existem feitos vai pesquisar na net por componentes carrocel react)
+Home Page [MAIS OU MENOS (MEIO PARTIDA)] 
+Carrocel de imagens na home page (Já existem feitos vai pesquisar na net por componentes carrocel react) [X]
 Portugal Filter map na home page
 Filter button main page with Icon
 Barra de Filtro (tem as opções de filtro)
