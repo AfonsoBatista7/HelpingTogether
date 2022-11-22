@@ -75,24 +75,16 @@ function Voluntariado() {
 
     useEffect(() => {
         checkVoluntariados()
+        
 
     }, [volntAll])
 
     const checkVoluntariados = () => {
-        var voluntariadoSelect;
-        console.log(volntAll);
-        console.log(idVolt);
         for (const element of volntAll) {
-            console.log(element)
-            if (element.id === idVolt) {
-                voluntariadoSelect = element;
-                console.log("o<alaasas");
+            if (element.id == idVolt) {
                 setVoluntariado(element);
             }
         }
-        console.log("12212");
-        console.log(voluntariadoSelect);
-        return voluntariadoSelect;
     }
 
     useEffect(() => {
@@ -136,7 +128,7 @@ function Voluntariado() {
 
 
     return (<>
-        {volunt ? 
+        {volunt ? <>
             <div className={style.backgroundwhite}>
                 <div style={{ height: 40 }}></div>
 
@@ -202,7 +194,7 @@ function Voluntariado() {
                     </Grid>
                 </Grid>
 
-                <InfoVoluntariado volunt={checkVoluntariados()} />
+                <InfoVoluntariado volunt={volunt} />
 
                 <Container style={{
                     height: 50
@@ -216,7 +208,7 @@ function Voluntariado() {
                 }}></Container>
 
 
-            </div >
+            </div ></>
             : <></>}</>
 
     );

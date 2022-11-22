@@ -10,6 +10,8 @@ import Popup from "../Popup/Popup";
 
 function InfoVoluntariado(props) {
 
+    console.log(props.name)
+
     const [perfil, setPerfil] = useState(null);
     const [openPopupAvaliacao, setOpenPopupAvaliacao] = useState(false);
 

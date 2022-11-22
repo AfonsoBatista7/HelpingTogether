@@ -232,6 +232,7 @@ function Header(props) {
                             </>
                         ) : (
                             <UserProfileButton
+                                id={perfil.id}
                                 name={perfil.name}
                                 image="/defaultPhoto.jpg"
                                 takeOffLogin={takeOffLogin}
