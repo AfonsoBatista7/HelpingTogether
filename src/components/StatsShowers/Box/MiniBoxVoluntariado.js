@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Box, Card, CardContent, CardActionArea, Typography, CardMedia } from "@mui/material";
+import { Card,CardContent,CardActionArea,Typography,CardMedia } from "@mui/material";
 import style from "./miniBoxVoluntariado.module.css";
 import { Link } from 'react-router-dom';
 

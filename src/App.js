@@ -1,5 +1,10 @@
+import { CardContent } from "@mui/material";
 import "./App.css";
+import BoxOrganization from "./components/StatsShowers/Box/BoxOrganization";
+import BoxVoluntariado from "./components/StatsShowers/Box/BoxVoluntariado";
+import MiniBoxCandidate from "./components/StatsShowers/Box/MiniBoxCandidate";
 import MiniBoxVoluntariado from "./components/StatsShowers/Box/MiniBoxVoluntariado";
+import CardComment from "./components/StatsShowers/Card/CardComment";
 import Layout from "./Layout/Layout";
 import { Route , Routes } from 'react-router-dom'
 
