@@ -103,10 +103,11 @@ function VoluntariadosArea(props) {
                         {!(volunt.length === 0) ? volunt.map((vol, index) => (
                             <><Grid item xs={2} sm={4} md={4} key={index}> 
                                 <MiniBoxVoluntariado
+                                    id={vol.id}
                                     image={vol.image}
                                     name={vol.name}
                                     desc={vol.description}
-                                    key={vol.id}></MiniBoxVoluntariado>
+                                   ></MiniBoxVoluntariado>
                                 </Grid></>
                         )) : <></>}
                     </Grid>

@@ -159,7 +159,7 @@ function Voluntariados() {
                                 name={vol.name}
                                 rating={vol.rating}
                                 desc={vol.description}
-                                key={vol.id} className={style.boxShow}></BoxVoluntariado>
+                                className={style.boxShow}></BoxVoluntariado>
                             <div className={style.boxShow}></div></>
                     )) : <></>}
                 </Container>

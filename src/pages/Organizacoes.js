@@ -113,7 +113,8 @@ function Organizacoes() {
                     { ( !(organizacoes.length === 0) && !(voluntariados.length === 0) ) ?  organizacoes.map((org) => (
                         <>
                             <div className={style.boxShow}></div>
-                            <BoxOrganization image={org.image}
+                            <BoxOrganization 
+                                image={org.image}
                                 name={org.name}
                                 desc={org.description}
                                 getNumVoluntariados={checkOrganizationNumberVol()}
