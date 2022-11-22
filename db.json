@@ -540,16 +540,6 @@
   "comentariosFeitosPessoa": [],
   "comentariosFeitosVoluntariado": [],
   "novosVoluntariados": [
-    {
-      "name": "Doar brinquedos",
-      "localization": "Lisboa",
-      "description": "Doar brinquedos para crianças necessitadas",
-      "dateIni": "24/11/2022",
-      "dateFin": "29/11/2022",
-      "organizacao": "ola",
-      "image": "defaultPhotoOrganization.jpg",
-      "id": 1
-    }
   ],
   "candidaturas": [
    
