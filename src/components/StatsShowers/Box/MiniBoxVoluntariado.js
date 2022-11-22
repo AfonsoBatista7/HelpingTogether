@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Box, Card,CardContent,CardActionArea,Typography,CardMedia } from "@mui/material";
+import { Card,CardContent,CardActionArea,Typography,CardMedia } from "@mui/material";
 import style from "./miniBoxVoluntariado.module.css";
 
 function MiniBoxVoluntariado({ name, image, desc }) {
@@ -8,7 +8,7 @@ function MiniBoxVoluntariado({ name, image, desc }) {
     const isDescBig = desc.length > charLimit;
 
     return (
-        <Card style={{top: "200px", right: "200px"}} sx={{maxWidth: 245}}>
+        <Card className={style.box} sx={{maxWidth: 245}}>
             <CardActionArea>
                 <CardMedia
                     component="img"
