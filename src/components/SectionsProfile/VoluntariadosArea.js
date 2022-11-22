@@ -101,7 +101,7 @@ function VoluntariadosArea(props) {
                 <Container>
                     <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                         {!(volunt.length === 0) ? volunt.map((vol, index) => (
-                            <><Grid item xs={2} sm={4} md={4} key={index}>
+                            <><Grid item xs={2} sm={4} md={4} key={index}> 
                                 <MiniBoxVoluntariado
                                     image={vol.image}
                                     name={vol.name}
