@@ -1,11 +1,12 @@
 import style from "../components/SectionsProfile/Profiles.module.css"
 import { Pagination, Grid, Typography, Container, Divider, Button } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 import BoxVoluntariado from "../components/StatsShowers/Box/BoxVoluntariado";
 import RegisterVoluntariado from "../components/Popup/RegisterVoluntariado";
 import Popup from "../components/Popup/Popup";
 
 function Voluntariados() {
+    const [state, forceUpdate] = useReducer(x => x + 1, 0);
 
     const [perfil, setPerfil] = useState(null);
     const [openPopupRegisterVoluntariado, setOpenPopupRegisterVoluntariado] = useState(false);
@@ -45,9 +46,9 @@ function Voluntariados() {
 
         }
 
-        getNewVoluntariados()
+        getNewVoluntariados();
 
-    }, [])
+    }, [state])
 
     const fetchNewVoluntariados = async () => {
         const res = await fetch('http://localhost:5000/novosVoluntariados')
@@ -97,6 +98,7 @@ function Voluntariados() {
 
     const closeResgisterVoluntariado = () => {
         setOpenPopupRegisterVoluntariado(false);
+        forceUpdate();
     }
 
     return (

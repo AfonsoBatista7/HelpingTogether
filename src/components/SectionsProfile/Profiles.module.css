@@ -128,9 +128,17 @@
 }
 
 .voluntariadosProfile{
+    margin-bottom: 5% !important;
+}
+
+.commentsProfile{
     margin-bottom: 3% !important;
 }
 
 .pagination{
     margin-top: 8%;
+}
+
+.paginationComment{
+    margin-top: 12% !important;
 }

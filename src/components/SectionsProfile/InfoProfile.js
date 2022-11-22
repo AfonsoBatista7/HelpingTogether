@@ -1,5 +1,5 @@
 import style from "./Profiles.module.css"
-import React, { useState } from 'react'
+import React, { useState, useReducer } from 'react'
 import { Grid, Typography, Container, Avatar, Button, TextField, Rating } from "@mui/material";
 import LocalPhoneRoundedIcon from '@mui/icons-material/LocalPhoneRounded';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
@@ -18,7 +18,6 @@ function InfoProfile(props) {
   const [editMode, editState] = useState(false);
 
   const [loggedIns, setLoggedIns] = useState([]);
-  const [openPopupAvaliacao, setOpenPopupAvaliacao] = useState(false);
 
   function changeState() {
     editState(!editMode);
@@ -57,13 +56,6 @@ function InfoProfile(props) {
     )
   }
 
-  const avaliar = () => {
-    setOpenPopupAvaliacao(true);
-  }
-
-  const closeAvaliacao = () => {
-    setOpenPopupAvaliacao(false);
-  }
 
   return (
     <div id="Perfil" style={{ alignItems: 'left', backgroundColor: "#497174", borderRadius: '10px' }} >
@@ -264,24 +256,20 @@ function InfoProfile(props) {
 
           <div className={style.titleVoluntariado}>
             {props.login ? <></> :
-              <>
-                {props.type === "organizacao" ? <></> :
-                  <><div className={style.avaliarbutton} >
-                    <Button style={{ background: "white" }} variant="contained" onClick={avaliar}>
-                      <Typography style={{ color: "#497174" }}>Avaliar</Typography>
-                    </Button>
-                    <Popup
-                      openPopup={openPopupAvaliacao}
-                      setOpenPopup={setOpenPopupAvaliacao}
-                    >
-                      <Evaluation name={props.name} nameWhoMakes={props.name} type="pessoa" closePopup={closeAvaliacao} />
-                    </Popup>
-                  </div></>}
-              </>
-            }
-          </div>
-        </Grid>
-      </Grid >
+              <><div className={style.avaliarbutton} >
+                <Button style={{ background: "white" }} variant="contained" onClick={props.avaliar}>
+                  <Typography style={{ color: "#497174" }}>Avaliar</Typography>
+                </Button>
+                <Popup
+                  openPopup={props.openPopupAvaliacao}
+                  setOpenPopup={props.setOpenPopupAvaliacao}
+                >
+                  <Evaluation name={props.nameLoggedIn} nameOfTheCommented={props.name} type="pessoa" closePopup={props.closeAvaliacao} />
+                </Popup>
+                </div></>}
+        </div>
+      </Grid>
+    </Grid >
     </div >
   );
 }
