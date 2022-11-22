@@ -1,22 +1,27 @@
 import React from 'react'
 import BoxStats from './BoxStats';
+import { Link } from 'react-router-dom';
 
-function BoxOrganization({image, name, desc, getNumVoluntariados}) {
-  
-  const getNumVolt = () => {
+function BoxOrganization(props) {
 
-    let strVol = getNumVoluntariados + " Voluntariado";
+  const getNumVoluntariados = () => {
 
-    return getNumVoluntariados===1 ? strVol : strVol+"s";
+    let list = [];
+    list = props.getNumVoluntariados;
+
+    let strVol = list[props.idOrg] + " Voluntariado";
+
+    return list[props.idOrg] === 1 ? strVol : strVol + "s";
   }
 
   return (
-        <BoxStats
-            image={image}
-            name={name}
-            component={getNumVolt()}
-            desc={desc}
-        />
+    <Link style={{ color: "#2E3B55", textDecoration: "none" }} to={`/Perfil/${props.id}`}>
+      <BoxStats
+      image={props.image}
+      name={props.name}
+      component={getNumVoluntariados()}
+      desc={props.desc}
+    /></Link>
   )
 }
 

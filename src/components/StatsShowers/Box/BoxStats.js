@@ -1,11 +1,10 @@
-import { Grid, Link, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import style from "./boxStats.module.css";
 
 function BoxStats(props) {
     return (
-        <Link href="" style={{ color: "#2E3B55", textDecoration: "none" }}>
             <Box className={style.box}>
                 <Grid container direction="row" style={{ width: "100%" }}>
                     <Grid item style={{ width: "18%" }}>
@@ -42,7 +41,6 @@ function BoxStats(props) {
                     </Grid>
                 </Grid>
             </Box>
-        </Link>
     );
 }
 

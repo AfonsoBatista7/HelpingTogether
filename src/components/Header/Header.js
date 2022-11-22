@@ -5,10 +5,7 @@ import {
     AppBar,
     Stack,
     Toolbar,
-    Link,
 } from "@mui/material";
-import imageLogo from "../../images/logo.png";
-import imageUser from "../../images/people/defaultPhoto.jpg";
 import UserProfileButton from "../UserProfileButton";
 import style from "./header.module.css";
 import Popup from "../Popup/Popup";
@@ -16,30 +13,21 @@ import RegisterVoluntario from "../Popup/RegisterVoluntario";
 import RegisterOrganizacao from "../Popup/RegisterOrganizacao";
 import Login from "../Popup/Login";
 import ChooseType from "../Popup/ChooseType";
+import { Link } from 'react-router-dom'
 
 function Header(props) {
     const [perfil, setPerfil] = useState();
     const [openPopupLogin, setOpenPopupLogin] = useState(false);
     const [openPopupRegister, setOpenPopupRegister] = useState(false);
-    const [openPopupRegisterVoluntario, setOpenPopupRegisterVoluntario] =
-        useState(false);
-    const [openPopupRegisterOrganizacao, setOpenPopupRegisterOrganizacao] =
-        useState(false);
+    const [openPopupRegisterVoluntario, setOpenPopupRegisterVoluntario] = useState(false);
+    const [openPopupRegisterOrganizacao, setOpenPopupRegisterOrganizacao] = useState(false);
 
     const logIn = () => {
         setOpenPopupLogin(true);
-    };
+    }
 
     const signUp = () => {
         setOpenPopupRegister(true);
-    };
-
-    const goToOrganizations = () => {
-        console.log("Voluntariados");
-    };
-
-    const goToVolunteers = () => {
-        console.log("Organizações");
     };
 
     const changePopup = (popup) => {
@@ -151,7 +139,7 @@ function Header(props) {
             <AppBar position="static" sx={{ bgcolor: "#497174" }}>
                 <Toolbar>
                     <Link
-                        href="/"
+                       to="/"
                         className={style.headerLink}
                         style={{
                             marginRight: "20px",
@@ -159,13 +147,12 @@ function Header(props) {
                         }}
                     >
                         <img
-                            src={imageLogo}
+                            src="/logo.png"
                             alt="logo"
-                            href="/"
                             className={style.headerImage}
                         />
                     </Link>
-                    <Link href="/" className={style.headerLink}>
+                    <Link to="/" className={style.headerLink}>
                         <Typography
                             variant="h6"
                             sx={{
@@ -177,33 +164,37 @@ function Header(props) {
                             HELPING TOGETHER
                         </Typography>
                     </Link>
+                   
                     <Stack
                         direction="row"
                         spacing={2}
                         className={style.headerButton}
                     >
-                        <Button
+                       <Link style={{ textDecoration: 'none', color: 'white' }} to="/Voluntariados"> 
+                       <Button
                             size="large"
                             sx={{
                                 font: "bold 14px/1.4 'Open Sans', arial, sans-serif",
                                 letterSpacing: "0.15em",
                                 color: "#EFF5F5",}}
                             className={style.headerOtherButtons}
-                            onClick={goToOrganizations}
+                            
                         >
                             Voluntariados
                         </Button>
-                        <Button
+                        </Link>
+                        <Link style={{ textDecoration: 'none', color: 'white' }} to="/Organizacoes">
+                            <Button
                             size="large"
                             sx={{
                                 font: "bold 14px/1.4 'Open Sans', arial, sans-serif",
                                 letterSpacing: "0.15em",
                                 color: "#EFF5F5",}}
                             className={style.headerOtherButtons}
-                            onClick={goToVolunteers}
                         >
                             Organizações
                         </Button>
+                        </Link>
                         {!perfil ? (
                             <>
                                 <Button
@@ -241,8 +232,9 @@ function Header(props) {
                             </>
                         ) : (
                             <UserProfileButton
+                                id={perfil.id}
                                 name={perfil.name}
-                                image={imageUser}
+                                image="/defaultPhoto.jpg"
                                 takeOffLogin={takeOffLogin}
                             />
                         )}
@@ -280,7 +272,8 @@ function Header(props) {
                 <RegisterOrganizacao changePopup={changePopup} />
             </Popup>
         </>
-    );
+    )
 }
 
 export default Header;
+

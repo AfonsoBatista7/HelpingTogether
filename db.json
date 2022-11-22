@@ -12,7 +12,7 @@
       "termsAndConditions": true,
       "isLoggedIn": false,
       "typePerfil": "organizacao",
-      "id": 7
+      "id": 70
     },
     {
       "name": "bia",
@@ -23,9 +23,9 @@
       "password": "123456",
       "confirmPassword": "123456",
       "termsAndConditions": true,
-      "isLoggedIn": false,
+      "isLoggedIn": true,
       "typePerfil": "voluntario",
-      "id": 8
+      "id": 80
     },
     {
       "name": "luis",
@@ -38,7 +38,7 @@
       "termsAndConditions": true,
       "isLoggedIn": false,
       "typePerfil": "voluntario",
-      "id": 9
+      "id": 90
     },
     {
       "name": "amigosforever",
@@ -53,7 +53,7 @@
       "termsAndConditions": true,
       "isLoggedIn": false,
       "typePerfil": "organizacao",
-      "id": 10
+      "id": 100
     }
   ],
   "voluntarios": [
@@ -214,7 +214,7 @@
   ],
   "voluntariados": [
     {
-      "id": 14,
+      "id":14,
       "name": "Plantar florestação",
       "description": "Plantar árvores e arbustos na Serra de Monchique após ser sido devastada por incêndios e ficar com falta de plantação.",
       "startDate": "24/09/2020",
@@ -237,7 +237,7 @@
       "type": [
         "Natureza"
       ],
-      "image": "Limpar_floresta.jpg",
+      "image": "Limpar_terreno.jpg",
       "rating": 5,
       "organizacao": "FAPAS"
     },
@@ -492,8 +492,56 @@
       "date": "22/11/2021 19:39"
     }
   ],
-  "comentariosFeitosPessoa": [],
-  "comentariosFeitosVoluntariado": [
+  "voluntariadosRealizados": [
+    {
+      "id": 43,
+      "name": "Reconstrução de casas destruídas no Incêndio de Pedrógão Grande",
+      "description": "Os fogos de Pedrógão Grande resultaram na destruição de várias habitações na região, estamos a organizar este voluntariado para conseguir ajudar várias famílias a reconstruir o que foi perdido",
+      "startDate": "10/02/ 2020",
+      "endDate": "30/12/2023",
+      "location": "Pedrógão Grande",
+      "type": [
+        "Comunidade"
+      ],
+      "image": "Construir.png",
+      "rating": 5,
+      "organizacao": "Just a Change"
+    },
+    {
+      "id": 44,
+      "name": "Animar ala pediátrica",
+      "description": "Fazer animação na ala pediátrica do Hospital de Santa Maria, irá envolver pintural faciais, músicas e truques de magia. Tem como principal objetivo entreter as crianças e os pais por ser o Dia da Criança.",
+      "startDate": "01/06/2022",
+      "endDate": "01/06/2022",
+      "location": "Porto",
+      "type": [
+        "Saúde"
+      ],
+      "image": "Saude.png",
+      "rating": 4,
+      "organizacao": "UNICEF"
+    },
+    {
+      "id": 45,
+      "name": "Entrega de refeições a sem-abrigos e famílias carênciadas.",
+      "description": "Entrega de refeições quentes, nesta altura de Natal para as famílias que mais necessitam de apoio e também a sem-abrigos na área da baixa de Lisboa",
+      "startDate": "23/12/2022",
+      "endDate": "24/12/2022",
+      "location": "Baixa de Lisboa",
+      "type": [
+        "Comunidade",
+        "Gastronomia"
+      ],
+      "image": "Comida.png",
+      "rating": 5,
+      "organizacao": "Caritas"
+    }
   ],
-  "novosVoluntariados": []
+  "comentariosFeitosPessoa": [],
+  "comentariosFeitosVoluntariado": [],
+  "novosVoluntariados": [
+  ],
+  "candidaturas": [
+   
+  ]
 }
