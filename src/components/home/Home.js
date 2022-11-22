@@ -3,12 +3,14 @@ import SearchBar from "../Search/SearchBar";
 import Map from "./Map";
 import HomeCarousel from './HomeCarousel';
 import { Grid } from '@mui/material';
+import { Forest, Pets, Factory, People, FoodBank, HealthAndSafety } from '@mui/icons-material';
 import MiniBoxVoluntariado from '../StatsShowers/Box/MiniBoxVoluntariado';
 
 import smartie1 from "./Cats/smartie1.jpg"
 import smartie3 from "./Cats/smartie3.jpg"
 import diana1 from "./Cats/diana1.jpg"
 import diana2 from "./Cats/diana2.jpg"
+import VolunTypes from './VolunTypes';
 
 const Home = () => {
 
@@ -47,22 +49,42 @@ const Home = () => {
     "description": "Diana 2",
     "image": diana2
   }]
+
+  const volunTypes = {
+    Natureza: <Forest fontSize="large"/>, 
+    Animais: <Pets fontSize="large"/>, 
+    Poluição: <Factory fontSize="large"/>, 
+    Comunidade: <People fontSize="large"/>, 
+    Gastronomia: <FoodBank fontSize="large"/>, 
+    Saúde: <HealthAndSafety fontSize="large"/>
+  }
+
+  const filters = {
+/*     Tipo: ['Natureza', 'Animais', 'Poluição', 'Comunidade', 'Gastronomia', 'Saúde'], */
+    Tipo: Object.keys(volunTypes),
+    Região: ['Norte', 'Centro', 'Alentejo', 'Área Metropolitana Lisboa', 'Algarve', 'Açores', 'Madeira'],
+    Duração:  ['Reduzida', 'Média', 'Longa']
+  };
   
+  console.log(volunTypes)
 
   return (
     <div>
         <center>
-          <Grid container display='flex' align='center' alignItems='center' rowSpacing={20} style={{marginTop: 20}}>
-              <Grid item xs={2}>
-              
+          <Grid container display='flex' justifyContent='center' align='center' alignItems='center' rowSpacing={10} style={{marginTop: 20}}>
+              <Grid item xs={6}>
+                <VolunTypes types={volunTypes} />
               </Grid>
-              <Grid item xs={4}>
-                <SearchBar />
-              </Grid>
-              <Grid item xs={4}>
+              <Grid item xs={6}>
                 <Map />
               </Grid>
-              <Grid item xs={2}>
+              <Grid item xs={1}>
+                
+              </Grid>
+              <Grid item xs={5}> 
+                <SearchBar filters={filters}/>
+              </Grid>
+              <Grid item xs={6}>
                 
               </Grid>
               <Grid item xs={12}>

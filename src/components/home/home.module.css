@@ -8,3 +8,13 @@
     min-width: 700;
     min-height: 60vh;
 }
+
+.typeLegend {
+    width:fit-content;
+    height:fit-content;
+    border-radius: 16px;
+    align-self: center;
+    text-align: center;
+    color: white;
+    background-color: black;
+}
