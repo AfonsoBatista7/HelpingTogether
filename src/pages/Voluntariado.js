@@ -194,7 +194,7 @@ function Voluntariado() {
                     </Grid>
                 </Grid>
 
-                <InfoVoluntariado volunt={volunt} />
+                <InfoVoluntariado name={volunt.name} image={volunt.image} organizacao={volunt.organizacao} startDate={volunt.startDate}  description={volunt.description} endDate={volunt.endDate} location={volunt.location} rating={volunt.rating}/>
 
                 <Container style={{
                     height: 50

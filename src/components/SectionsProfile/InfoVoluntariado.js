@@ -10,8 +10,6 @@ import Popup from "../Popup/Popup";
 
 function InfoVoluntariado(props) {
 
-    console.log(props.name)
-
     const [perfil, setPerfil] = useState(null);
     const [openPopupAvaliacao, setOpenPopupAvaliacao] = useState(false);
 
@@ -121,8 +119,9 @@ function InfoVoluntariado(props) {
         setOpenPopupAvaliacao(false);
     }
 
-    return (
-        <div  >
+    return (<>
+        {org ?<>
+        <div>
             <div className={style.margins} style={{ alignItems: 'left', backgroundColor: "#AAC6AA", borderRadius: '10px', padding: '20px' }} >
                 <Grid container direction="row"
                     justifyContent="space-around"
@@ -133,7 +132,7 @@ function InfoVoluntariado(props) {
                         alignItems="center">
 
                         <img className={style.photoVoluntariado}
-                            src={props.image}
+                            src={"/"+props.image}
 
                         />
 
@@ -142,7 +141,7 @@ function InfoVoluntariado(props) {
                             alignItems="center"
                             className={style.marginPhone}>
                             <Avatar className={style.marginRight}
-                                src={"/UNICEF.jpg"}
+                                src={"/"+org.image}
 
                                 sx={{ width: 30, height: 30 }} />
                             <Typography
@@ -216,6 +215,7 @@ function InfoVoluntariado(props) {
                                         fontFamily: "Avanta Garde",
                                         color: '#3F6164',
                                         textTransform: "uppercase",
+                                        wordWrap: "break-word",
                                         textAlign: 'left'
                                     }}>{props.name} </Typography>
                                 </div>
@@ -257,7 +257,8 @@ function InfoVoluntariado(props) {
                     </Grid>
                 </Grid >
             </div >
-        </div>
+        </div></>: <></>
+        }</>
     );
 }
 
