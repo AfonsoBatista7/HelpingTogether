@@ -21,7 +21,7 @@ function InfoVoluntariado(props) {
 
     const [organizacoes, setOrganizacoes] = useState([])
 
-   
+
 
     //vai buscar todos os valores de login da BD e mete em loggedIns
     useEffect(() => {
@@ -47,7 +47,7 @@ function InfoVoluntariado(props) {
     }
 
 
-    
+
 
     useEffect(() => {
         checkLogin()
@@ -64,7 +64,7 @@ function InfoVoluntariado(props) {
 
     }
 
-   
+
 
 
     useEffect(() => {
@@ -152,14 +152,14 @@ function InfoVoluntariado(props) {
                                     sx={{ width: 30, height: 30 }} />
                                 <Link style={{ color: "#2E3B55", textDecoration: "none" }} to={`/Perfil/${org.id}`}>
                                     <Typography
-                                    style={{
-                                        fontWeight: 500,
-                                        fontSize: 20,
-                                        color: 'white',
-                                        textTransform: "uppercase",
-                                        textAlign: 'center'
-                                    }}>{props.organizacao}</Typography>
-                                    </Link>
+                                        style={{
+                                            fontWeight: 500,
+                                            fontSize: 20,
+                                            color: 'white',
+                                            textTransform: "uppercase",
+                                            textAlign: 'center'
+                                        }}>{props.organizacao}</Typography>
+                                </Link>
                             </Grid>
 
                             <Grid container direction="row"
@@ -235,8 +235,14 @@ function InfoVoluntariado(props) {
 
                             </div>
 
-                            <Container className={style.descriptionarea} style={{ padding: "20px" }}>
 
+                            
+                            <Container className={style.descriptionarea} style={{ padding: "20px" }}>
+                            <div style={{ float: "left" }}>
+                                <Typography style={{ color: "white" }}>
+                                    Descrição
+                                </Typography>
+                            </div>
                                 <TextField className={style.description}
                                     disabled
                                     fullWidth

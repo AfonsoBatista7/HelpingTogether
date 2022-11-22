@@ -62,7 +62,7 @@
       "name": "Maria Leal",
       "description": "Tenho 38 anos, sou enfermeira e tenho 3 filhos. Adoro fazer voluntariados relacionados com a saúde e com crianças.",
       "email": "marialeal45@gmail.com",
-      "birthdate": "07/05/1984",
+      "birthday": "07/05/1984",
       "gender": "Feminino",
       "phone": "924562789",
       "image": "Maria.jpg",
@@ -74,7 +74,7 @@
       "name": "Gestrudes Cordeiro",
       "description": "Tenho 60 anos e sou uma professora reformada. Como sou uma pessoa bastante ativa tento preencher os meus dias principalmente com atividades de voluntariados.",
       "email": "gescordeiro0008@gmail.com",
-      "birthdate": "30/09/1962",
+      "birthday": "30/09/1962",
       "gender": "Feminino",
       "phone": "912498876",
       "image": "Gestrudes.jpg",
@@ -86,7 +86,7 @@
       "name": "Laura Silves",
       "description": "Tenho 45 anos e sou cozinheira. Sou solteira e não tenho filhos o que me dá muito tempo livre para o qual dedico a fazer voluntariados.",
       "email": "lauraSilves@gmail.com",
-      "birthdate": "12/07/1977",
+      "birthday": "12/07/1977",
       "gender": "Feminino",
       "phone": "914562789",
       "image": "Laura.png",
@@ -98,7 +98,7 @@
       "name": "Tiago Lopes",
       "description": "Tenho 20 anos e sou estudante de engenheiria do ambiente. Para melhorar o meu currículo e ter mais experiências humanitarias pretendo fazer voluntariados relacionados com a minha área de estudo.",
       "email": "tiagolp69@gmail.com",
-      "birthdate": "19/02/2002",
+      "birthday": "19/02/2002",
       "gender": "Masculino",
       "phone": "965782234",
       "image": "Tiago.jpg",
@@ -110,7 +110,7 @@
       "name": "Osvaldo Fernandes",
       "description": "Tenho 55 anos e sou gestor bancário. Quero ganhar novas experiencias em áreas fora da minha zona de conforto e fazer diferença no mundo e nas pessoas que me rodeiam.",
       "email": "osvaldo356@gmail.com",
-      "birthdate": "23/12/1967",
+      "birthday": "23/12/1967",
       "gender": "Masculino",
       "phone": "922234556",
       "image": "Osvaldo.jpg",
@@ -553,5 +553,20 @@
   "comentariosFeitosPessoa": [],
   "comentariosFeitosVoluntariado": [],
   "novosVoluntariados": [],
-  "candidaturas": []
+  "candidaturas": [
+    {
+      "id": 14,
+      "name": "Plantar florestação",
+      "description": "Plantar árvores e arbustos na Serra de Monchique após ser sido devastada por incêndios e ficar com falta de plantação.",
+      "startDate": "24/09/2020",
+      "endDate": "24/09/2020",
+      "location": "Monchique",
+      "type": [
+        "Natureza"
+      ],
+      "image": "Plantar.jpg",
+      "rating": 2,
+      "organizacao": "FAPAS"
+    }
+  ]
 }

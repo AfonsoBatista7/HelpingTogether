@@ -201,7 +201,6 @@ function Voluntariado() {
                             }}
                         >Voluntariado</Typography>
                     </Grid>
-
                     <Grid item xs={5} className={style.marginsVoluntariado}>
                         {!perfil ? <></> : <>
                             {perfil.typePerfil === "organizacao" ? <>
