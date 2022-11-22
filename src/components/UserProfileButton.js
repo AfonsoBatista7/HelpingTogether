@@ -14,13 +14,6 @@ import {
 //import { Anchor } from 'antd';
 //const { Link } = Anchor;
 import { Link } from "react-router-dom";
-// [
-//     "Perfil",
-//     "Candidatura",
-//     "Voluntariados Realizados",
-//     "Comentários",
-//     "Sair",
-// ];
 
 const UserProfileButton = (props) => {
     const logOut = () => {
@@ -68,7 +61,7 @@ const UserProfileButton = (props) => {
         <div>
             <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open settings">
-                    <Button name={props.name} variant="text" onClick={handleOpenUserMenu} sx={{ color: 'white' }}>
+                    <Button name={props.name} variant="text" onClick={handleOpenUserMenu} sx={{ padding: 0,color: 'white' }}>
                         {props.name}
                         <Avatar alt={props.name} src={props.image} style={marginButton} />
                     </Button>

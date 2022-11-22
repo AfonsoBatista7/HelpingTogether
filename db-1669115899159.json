@@ -66,8 +66,7 @@
       "gender": "Feminino",
       "phone": "924562789",
       "image": "Maria.jpg",
-      "rating": 1,
-      "typePerfil": "voluntario"
+      "rating": 1
     },
     {
       "id": 2,
@@ -78,8 +77,7 @@
       "gender": "Feminino",
       "phone": "912498876",
       "image": "Gestrudes.jpg",
-      "rating": 3,
-      "typePerfil": "voluntario"
+      "rating": 3
     },
     {
       "id": 3,
@@ -90,8 +88,7 @@
       "gender": "Feminino",
       "phone": "914562789",
       "image": "Laura.png",
-      "rating": 4,
-      "typePerfil": "voluntario"
+      "rating": 4
     },
     {
       "id": 4,
@@ -102,8 +99,7 @@
       "gender": "Masculino",
       "phone": "965782234",
       "image": "Tiago.jpg",
-      "rating": 5,
-      "typePerfil": "voluntario"
+      "rating": 5
     },
     {
       "id": 5,
@@ -114,8 +110,7 @@
       "gender": "Masculino",
       "phone": "922234556",
       "image": "Osvaldo.jpg",
-      "rating": 3,
-      "typePerfil": "voluntario"
+      "rating": 3
     }
   ],
   "organizacoes": [
@@ -129,8 +124,7 @@
         "Saúde",
         "Comunidade"
       ],
-      "image": "Cruz_Vermelha.png",
-      "typePerfil": "organizacao"
+      "image": "Cruz_Vermelha.png"
     },
     {
       "id": 7,
@@ -143,8 +137,7 @@
         "Comunidade",
         "Saúde"
       ],
-      "image": "UNICEF.jpg",
-      "typePerfil": "organizacao"
+      "image": "UNICEF.jpg"
     },
     {
       "id": 8,
@@ -157,8 +150,7 @@
         "Comunidade",
         "Natureza"
       ],
-      "image": "Leo.png",
-      "typePerfil": "organizacao"
+      "image": "Leo.png"
     },
     {
       "id": 9,
@@ -171,8 +163,7 @@
         "Natureza",
         "Animais"
       ],
-      "image": "FAPAS.jpg",
-      "typePerfil": "organizacao"
+      "image": "FAPAS.jpg"
     },
     {
       "id": 10,
@@ -183,8 +174,7 @@
       "type": [
         "Comunidade"
       ],
-      "image": "Just_a_Change.png",
-      "typePerfil": "organizacao"
+      "image": "Just_a_Change.png"
     },
     {
       "id": 11,
@@ -196,8 +186,7 @@
         "Gastronomia",
         "Comunidade"
       ],
-      "image": "Banco_Alimentar.png",
-      "typePerfil": "organizacao"
+      "image": "Banco_Alimentar.png"
     },
     {
       "id": 12,
@@ -209,8 +198,7 @@
         "Gastronomia",
         "Comunidade"
       ],
-      "image": "Caritas.png",
-      "typePerfil": "organizacao"
+      "image": "Caritas.png"
     },
     {
       "id": 13,
@@ -221,8 +209,7 @@
       "type": [
         "Animais"
       ],
-      "image": "Animalife.jpg",
-      "typePerfil": "organizacao"
+      "image": "Animalife.jpg"
     }
   ],
   "voluntariados": [
@@ -507,7 +494,7 @@
   ],
   "voluntariadosRealizados": [
     {
-      "id": 22,
+      "id": 43,
       "name": "Reconstrução de casas destruídas no Incêndio de Pedrógão Grande",
       "description": "Os fogos de Pedrógão Grande resultaram na destruição de várias habitações na região, estamos a organizar este voluntariado para conseguir ajudar várias famílias a reconstruir o que foi perdido",
       "startDate": "10/02/ 2020",
@@ -521,7 +508,7 @@
       "organizacao": "Just a Change"
     },
     {
-      "id": 24,
+      "id": 44,
       "name": "Animar ala pediátrica",
       "description": "Fazer animação na ala pediátrica do Hospital de Santa Maria, irá envolver pintural faciais, músicas e truques de magia. Tem como principal objetivo entreter as crianças e os pais por ser o Dia da Criança.",
       "startDate": "01/06/2022",
@@ -535,7 +522,7 @@
       "organizacao": "UNICEF"
     },
     {
-      "id": 20,
+      "id": 45,
       "name": "Entrega de refeições a sem-abrigos e famílias carênciadas.",
       "description": "Entrega de refeições quentes, nesta altura de Natal para as famílias que mais necessitam de apoio e também a sem-abrigos na área da baixa de Lisboa",
       "startDate": "23/12/2022",
