@@ -170,7 +170,7 @@ function Header(props) {
                         spacing={2}
                         className={style.headerButton}
                     >
-                       <Link style={{ textDecoration: 'none', color: 'white' }} to="/Voluntariados"> 
+                       <Link className={style.headerLink} to="/Voluntariados"> 
                        <Button
                             size="large"
                             sx={{
@@ -178,12 +178,11 @@ function Header(props) {
                                 letterSpacing: "0.15em",
                                 color: "#EFF5F5",}}
                             className={style.headerOtherButtons}
-                            
                         >
                             Voluntariados
                         </Button>
                         </Link>
-                        <Link style={{ textDecoration: 'none', color: 'white' }} to="/Organizacoes">
+                        <Link className={style.headerLink} to="/Organizacoes">
                             <Button
                             size="large"
                             sx={{
