@@ -3,32 +3,32 @@ import { Grid, Box, Card, CardContent, CardActionArea, Typography, CardMedia } f
 import style from "./miniBoxVoluntariado.module.css";
 import { Link } from 'react-router-dom';
 
-function MiniBoxVoluntariado({ name, image, desc, id }) {
+function MiniBoxVoluntariado(props) {
 
     const charLimit = 130;
-    const isDescBig = desc.length > charLimit;
+    const isDescBig = props.desc.length > charLimit;
 
     return (
-        <Link style={{ color: "#2E3B55", textDecoration: "none" }} to={`/Voluntariado/${id}`}>
+        <Link style={{ color: "#2E3B55", textDecoration: "none" }} to={`/Voluntariado/${props.id}`}>
             <Card style={{ top: "200px", right: "200px" }} sx={{ maxWidth: 245 }}>
                 <CardActionArea>
                     <CardMedia
                         component="img"
                         height="140"
-                        image={image}
-                        alt={name}
+                        image={"/" + props.image}
+                        alt={props.name}
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">
-                            {name}
+                            {props.name}
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
                             {isDescBig ?
                                 <span>
-                                    {desc.slice(0, charLimit) + "..."}
+                                    {props.desc.slice(0, charLimit) + "..."}
                                 </span>
                                 :
-                                <span>{desc}</span>
+                                <span>{props.desc}</span>
                             }
                         </Typography>
                     </CardContent>

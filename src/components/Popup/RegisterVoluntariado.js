@@ -34,7 +34,7 @@ function RegisterVoluntariado(props) {
 
     const onSubmit = (values) => {
 
-        addVoluntariado({ ...values, dateIni: dateInic.toLocaleDateString(), dateFin: dateFini.toLocaleDateString(), organizacao: props.organizacao, image: "defaultPhotoOrganization.jpg" })
+        addVoluntariado({ ...values, startDate: dateInic.toLocaleDateString(), endDate: dateFini.toLocaleDateString(), organizacao: props.organizacao, image: "defaultPhotoOrganization.jpg" })
 
         props.closePopup()
     };
@@ -55,10 +55,10 @@ function RegisterVoluntariado(props) {
 
     const initialValue = {
         name: '',
-        localization: '',
+        location: '',
         description: '',
-        dateIni: dateInic,
-        dateFin: dateFini
+        startDate: dateInic,
+        endDate: dateFini
     }
 
     function checkNullIni() {
@@ -76,10 +76,10 @@ function RegisterVoluntariado(props) {
 
     const validationSchema = Yup.object().shape({
         name: Yup.string().min(3, "Muito curto").required("Necessário"),
-        localization: Yup.string().required("Necessário"),
+        location: Yup.string().required("Necessário"),
         description: Yup.string().required("Necessário"),
-        dateIni: Yup.date().test("null", "Necessário", checkNullIni),
-        dateFin: Yup.date().test("null", "Necessário", checkNullFin).test("bigger", "Tem ser no mesmo dia ou depois da data inicial", checkDateFin),
+        startDate: Yup.date().test("null", "Necessário", checkNullIni),
+        endDate: Yup.date().test("null", "Necessário", checkNullFin).test("bigger", "Tem ser no mesmo dia ou depois da data inicial", checkDateFin),
     })
 
 
@@ -98,11 +98,11 @@ function RegisterVoluntariado(props) {
                         <Form autoComplete="off">
                             <Field as={TextField} fullWidth name="name" label='Nome' placeholder="Introduza o nome" className={style.both}
                                 helperText={<ErrorMessage name="name" component="div" style={{ color: 'red' }} />} />
-                            <Field as={TextField} fullWidth name="localization" label='Localização' placeholder="Introduza a localização do voluntariado"  className={style.bottom}
-                                helperText={<ErrorMessage name="localization" component="div" style={{ color: 'red' }} />} />
+                            <Field as={TextField} fullWidth name="location" label='Localização' placeholder="Introduza a localização do voluntariado"  className={style.bottom}
+                                helperText={<ErrorMessage name="location" component="div" style={{ color: 'red' }} />} />
                             <Field as={TextField} fullWidth multiline name="description" label='Descrição' placeholder="Introduza uma descrição do voluntariado"  className={style.bottom}
                                 helperText={<ErrorMessage name="description" component="div" style={{ color: 'red' }} />} />
-                            <LocalizationProvider dateAdapter={AdapterDayjs} name="dateIni" >
+                            <LocalizationProvider dateAdapter={AdapterDayjs} name="startDate" >
                                 <Stack spacing={3} className={style.both}>
                                     <DatePicker
                                         label="Data Início"
@@ -110,12 +110,12 @@ function RegisterVoluntariado(props) {
                                         value={dateInic}
                                         onChange={handleChangeIni}
                                         renderInput={(params) => <TextField {...params} />}
-                                        name="dateIni"
+                                        name="startDate"
                                     />
                                 </Stack>
                             </LocalizationProvider>
-                            <FormHelperText><ErrorMessage name="dateIni" component="div" style={{ color: 'red' }} /></FormHelperText>
-                            <LocalizationProvider dateAdapter={AdapterDayjs} name="dateFin" >
+                            <FormHelperText><ErrorMessage name="startDate" component="div" style={{ color: 'red' }} /></FormHelperText>
+                            <LocalizationProvider dateAdapter={AdapterDayjs} name="endDate" >
                                 <Stack spacing={3} className={style.both}>
                                     <DatePicker
                                         label="Data Fim"
@@ -123,11 +123,11 @@ function RegisterVoluntariado(props) {
                                         value={dateFini}
                                         onChange={handleChangeFin}
                                         renderInput={(params) => <TextField {...params} />}
-                                        name="dateFin"
+                                        name="endDate"
                                     />
                                 </Stack>
                             </LocalizationProvider>
-                            <FormHelperText><ErrorMessage name="dateFin" component="div" style={{ color: 'red' }} /></FormHelperText>
+                            <FormHelperText><ErrorMessage name="endDate" component="div" style={{ color: 'red' }} /></FormHelperText>
                             <Button variant="contained" component="label" size="small" className={style.pic} sx={{ '&:hover': { opacity: [0.9, 0.8, 0.7] } }}>
                                 <AddPhotoAlternateIcon />
                                 Adicionar Foto Voluntariado
