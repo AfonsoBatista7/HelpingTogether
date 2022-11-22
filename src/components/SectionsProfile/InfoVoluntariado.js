@@ -20,6 +20,7 @@ function InfoVoluntariado(props) {
 
     const [organizacoes, setOrganizacoes] = useState([])
 
+   
 
     //vai buscar todos os valores de login da BD e mete em loggedIns
     useEffect(() => {
@@ -45,6 +46,8 @@ function InfoVoluntariado(props) {
     }
 
 
+    
+
     useEffect(() => {
         checkLogin()
 
@@ -59,6 +62,8 @@ function InfoVoluntariado(props) {
         }
 
     }
+
+   
 
 
     useEffect(() => {
@@ -104,7 +109,7 @@ function InfoVoluntariado(props) {
     const checkOrganizacao = () => {
 
         for (const element of organizacoes) {
-            if (element.name===props.organizacao) {
+            if (element.name === props.organizacao) {
                 setOrg(element);
             }
         }
@@ -120,144 +125,149 @@ function InfoVoluntariado(props) {
     }
 
     return (<>
-        {org ?<>
-        <div>
-            <div className={style.margins} style={{ alignItems: 'left', backgroundColor: "#AAC6AA", borderRadius: '10px', padding: '20px' }} >
-                <Grid container direction="row"
-                    justifyContent="space-around"
-                    alignItems="flex-start">
+        {org ? <>
+            <div>
+                <div className={style.margins} style={{ alignItems: 'left', backgroundColor: "#AAC6AA", borderRadius: '10px', padding: '20px' }} >
+                    <Grid container direction="row"
+                        justifyContent="space-around"
+                        alignItems="flex-start">
 
-                    <Grid item xs={3}
-                        justifyContent="center"
-                        alignItems="center">
+                        <Grid item xs={3}
+                            justifyContent="center"
+                            alignItems="center">
 
-                        <img className={style.photoVoluntariado}
-                            src={"/"+props.image}
+                            <img className={style.photoVoluntariado}
+                                src={"/" + props.image}
 
-                        />
-
-                        <Grid container direction="row"
-                            justifyContent="flex-start"
-                            alignItems="center"
-                            className={style.marginPhone}>
-                            <Avatar className={style.marginRight}
-                                src={"/"+org.image}
-
-                                sx={{ width: 30, height: 30 }} />
-                            <Typography
-                                style={{
-                                    fontWeight: 500,
-                                    fontSize: 20,
-                                    color: 'white',
-                                    textTransform: "uppercase",
-                                    textAlign: 'center'
-                                }}>{props.organizacao}</Typography>
-                        </Grid>
-
-                        <Grid container direction="row"
-                            justifyContent="flex-start"
-                            alignItems="center"
-                            className={style.marginPhone}>
-                            <PinDropRoundedIcon className={style.marginRight} style={{
-                                color: 'white',
-                                fontSize: 30
-                            }}></PinDropRoundedIcon>
-                            <Typography
-                                style={{
-                                    fontWeight: 500,
-                                    fontSize: 20,
-                                    color: 'white',
-                                    textAlign: 'center'
-                                }}>{props.location}</Typography>
-                        </Grid>
-
-
-                        <Grid container direction="row"
-                            justifyContent="flex-start"
-                            alignItems="center"
-                            className={style.marginPhone}>
-                            <CalendarMonthRoundedIcon className={style.marginRight} style={{
-                                color: 'white',
-                                fontSize: 30
-                            }}></CalendarMonthRoundedIcon>
-
-                            <Typography className={style.margintop}
-                                style={{
-                                    fontWeight: 500,
-                                    fontSize: 15,
-                                    color: 'white',
-                                    textTransform: "uppercase",
-                                    textAlign: 'center'
-                                }}>{props.startDate} - {props.endDate}</Typography>
-                        </Grid>
-
-                    </Grid>
-                    <Grid item xs={8}
-                        container
-                        direction="column"
-                        justifyContent="center"
-                        alignItems="flex-start"
-                        className={style.widhtdescription}>
-
-
-                        <div className={style.titleVoluntariado}>
-
-                            <Grid container
-                                direction="row"
-                                justifyContent="space-between"
-                                alignItems="center">
-
-
-                                <div className={style.descriptionvoluntario} >
-                                    <Typography style={{
-                                        fontWeight: 700,
-                                        fontSize: 30,
-                                        fontFamily: "Avanta Garde",
-                                        color: '#3F6164',
-                                        textTransform: "uppercase",
-                                        wordWrap: "break-word",
-                                        textAlign: 'left'
-                                    }}>{props.name} </Typography>
-                                </div>
-
-                                <div className={style.rating}>
-                                    <Rating name="half-rating-read" defaultValue={props.rating} precision={1} readOnly size="large" />
-                                </div>
-                            </Grid>
-
-                        </div>
-
-                        <Container className={style.descriptionarea} style={{ padding: "20px" }}>
-
-                            <TextField className={style.description}
-                                disabled
-                                fullWidth
-                                multiline
-                                id="outlined-disabled"
-                                defaultValue={props.description}
                             />
 
-                        </Container>
+                            <Grid container direction="row"
+                                justifyContent="flex-start"
+                                alignItems="center"
+                                className={style.marginPhone}>
+                                <Avatar className={style.marginRight}
+                                    src={"/" + org.image}
+
+                                    sx={{ width: 30, height: 30 }} />
+                                <Typography
+                                    style={{
+                                        fontWeight: 500,
+                                        fontSize: 20,
+                                        color: 'white',
+                                        textTransform: "uppercase",
+                                        textAlign: 'center'
+                                    }}>{props.organizacao}</Typography>
+                            </Grid>
+
+                            <Grid container direction="row"
+                                justifyContent="flex-start"
+                                alignItems="center"
+                                className={style.marginPhone}>
+                                <PinDropRoundedIcon className={style.marginRight} style={{
+                                    color: 'white',
+                                    fontSize: 30
+                                }}></PinDropRoundedIcon>
+                                <Typography
+                                    style={{
+                                        fontWeight: 500,
+                                        fontSize: 20,
+                                        color: 'white',
+                                        textAlign: 'center'
+                                    }}>{props.location}</Typography>
+                            </Grid>
 
 
-                        {!perfil ? <></> : <>
-                            {perfil.typePerfil === "organizacao" ? <>
-                            </> : <>
-                                <div className={style.avaliarbutton}>
-                                    <Button style={{ background: "white" }} variant="contained" onClick={avaliar}>
-                                        <Typography style={{ color: "#375658" }}>Avaliar</Typography>
-                                    </Button>
-                                    <Popup
-                                        openPopup={openPopupAvaliacao}
-                                        setOpenPopup={setOpenPopupAvaliacao}
-                                    >
-                                        <Evaluation name={perfil.name} nameWhoMakes={perfil.name} type="voluntariado" closePopup={closeAvaliacao} />
-                                    </Popup></div>
-                            </>}</>}
-                    </Grid>
-                </Grid >
-            </div >
-        </div></>: <></>
+                            <Grid container direction="row"
+                                justifyContent="flex-start"
+                                alignItems="center"
+                                className={style.marginPhone}>
+                                <CalendarMonthRoundedIcon className={style.marginRight} style={{
+                                    color: 'white',
+                                    fontSize: 30
+                                }}></CalendarMonthRoundedIcon>
+
+                                <Typography className={style.margintop}
+                                    style={{
+                                        fontWeight: 500,
+                                        fontSize: 15,
+                                        color: 'white',
+                                        textTransform: "uppercase",
+                                        textAlign: 'center'
+                                    }}>{props.startDate} - {props.endDate}</Typography>
+                            </Grid>
+
+                        </Grid>
+                        <Grid item xs={8}
+                            container
+                            direction="column"
+                            justifyContent="center"
+                            alignItems="flex-start"
+                            className={style.widhtdescription}>
+
+
+                            <div className={style.titleVoluntariado}>
+
+                                <Grid container
+                                    direction="row"
+                                    justifyContent="space-between"
+                                    alignItems="center">
+
+
+                                    <div className={style.descriptionvoluntario} >
+                                        <Typography style={{
+                                            fontWeight: 700,
+                                            fontSize: 30,
+                                            fontFamily: "Avanta Garde",
+                                            color: '#3F6164',
+                                            textTransform: "uppercase",
+                                            wordWrap: "break-word",
+                                            textAlign: 'left'
+                                        }}>{props.name} </Typography>
+                                    </div>
+
+                                    <div className={style.rating}>
+                                        <Rating name="half-rating-read" defaultValue={props.rating} precision={1} readOnly size="large" />
+                                    </div>
+                                </Grid>
+
+                            </div>
+
+                            <Container className={style.descriptionarea} style={{ padding: "20px" }}>
+
+                                <TextField className={style.description}
+                                    disabled
+                                    fullWidth
+                                    multiline
+                                    id="outlined-disabled"
+                                    defaultValue={props.description}
+                                />
+
+                            </Container>
+
+
+                            {!perfil ? <></> : <>
+                                {perfil.typePerfil === "organizacao" ? <>
+                                </> : <>
+                                    {props.done ? <>
+                                        <div className={style.avaliarbutton}>
+                                            <Button style={{ background: "white" }} variant="contained" onClick={avaliar}>
+                                                <Typography style={{ color: "#375658" }}>Avaliar</Typography>
+                                            </Button>
+                                            <Popup
+                                                openPopup={openPopupAvaliacao}
+                                                setOpenPopup={setOpenPopupAvaliacao}
+                                            >
+                                                <Evaluation name={perfil.name} nameWhoMakes={perfil.name} type="voluntariado" closePopup={closeAvaliacao} />
+                                            </Popup></div>
+                                    </> : <></>}
+                                </>
+                                }
+                            </>}
+
+                        </Grid>
+                    </Grid >
+                </div >
+            </div></> : <></>
         }</>
     );
 }

@@ -66,7 +66,7 @@ function InfoProfile(props) {
   }
 
   return (
-    <div id="Perfil"  style={{ alignItems: 'left', backgroundColor: "#497174", borderRadius: '10px' }} >
+    <div id="Perfil" style={{ alignItems: 'left', backgroundColor: "#497174", borderRadius: '10px' }} >
 
       <Grid container direction="row"
         justifyContent="center"
@@ -78,7 +78,7 @@ function InfoProfile(props) {
           alignItems="center">
 
           <Avatar className={style.marginprofile}
-            src={props.image}
+            src={"/" + props.image}
 
             sx={{ width: 200, height: 200 }} />
 
@@ -179,7 +179,8 @@ function InfoProfile(props) {
                 }}>{props.birthday}</Typography>
             </Grid>
 
-          </>}
+          </>
+          }
 
         </Grid>
         <Grid item xs={9}
@@ -190,7 +191,7 @@ function InfoProfile(props) {
           style={{ padding: "5px" }}>
 
           <div style={{ height: 20 }}></div>
-          <div style={{ height: 50}} className={style.titleVoluntariado}>
+          <div style={{ height: 50 }} className={style.titleVoluntariado}>
             <Grid container
               direction="row"
               justifyContent="space-between"
@@ -198,7 +199,7 @@ function InfoProfile(props) {
 
               <Grid item xs={5}>
                 {editMode ?
-                  <div className={style.avaliarbutton} style={{float: "left"}}>
+                  <div className={style.avaliarbutton} style={{ float: "left" }}>
                     <Container className={style.marginChangePhoto}>
                       <Button variant="contained" style={{ background: "gray" }} component="label" size="small"  >
                         <AddPhotoAlternateIcon />
@@ -208,11 +209,13 @@ function InfoProfile(props) {
                     </Container>
                   </div> : <></>}
               </Grid>
-              <Grid item xs={5}>
-                <div style={{float: "right"}}>
-                <Rating name="half-rating-read" defaultValue={props.rating} precision={1} readOnly size="large" />
-                </div>
-              </Grid>
+              {props.type === "organizacao" ? <></> : <>
+                <Grid item xs={5}>
+                  <div style={{ float: "right" }}>
+                    <Rating name="half-rating-read" defaultValue={props.rating} precision={1} readOnly size="large" />
+                  </div>
+                </Grid>
+              </>}
             </Grid>
           </div>
 
@@ -257,20 +260,24 @@ function InfoProfile(props) {
 
           <div className={style.titleVoluntariado}>
             {props.login ? <></> :
-              <><div className={style.avaliarbutton} >
-                <Button style={{ background: "white" }} variant="contained" onClick={avaliar}>
-                  <Typography style={{ color: "#497174" }}>Avaliar</Typography>
-                </Button>
-                <Popup
-                  openPopup={openPopupAvaliacao}
-                  setOpenPopup={setOpenPopupAvaliacao}
-                >
-                  <Evaluation name={props.name} nameWhoMakes={props.name} type="pessoa" closePopup={closeAvaliacao} />
-                </Popup>
-                </div></>}
-        </div>
-      </Grid>
-    </Grid >
+              <>
+                {props.type === "organizacao" ? <></> :
+                  <><div className={style.avaliarbutton} >
+                    <Button style={{ background: "white" }} variant="contained" onClick={avaliar}>
+                      <Typography style={{ color: "#497174" }}>Avaliar</Typography>
+                    </Button>
+                    <Popup
+                      openPopup={openPopupAvaliacao}
+                      setOpenPopup={setOpenPopupAvaliacao}
+                    >
+                      <Evaluation name={props.name} nameWhoMakes={props.name} type="pessoa" closePopup={closeAvaliacao} />
+                    </Popup>
+                  </div></>}
+              </>
+            }
+          </div>
+        </Grid>
+      </Grid >
     </div >
   );
 }

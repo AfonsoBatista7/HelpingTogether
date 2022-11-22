@@ -64,7 +64,6 @@ function Perfil(props) {
     }, [loggedIns])
 
     const checkLogin = () => {
-        console.log(idPerfil)
 
         for (const element of loggedIns) {
             console.log(element.id)
