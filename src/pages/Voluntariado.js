@@ -25,6 +25,8 @@ function Voluntariado() {
 
     const [voluntsDone, setVoluntsDone] = useState([])
 
+    const [voluntsComent, setVoluntsComent] = useState(false)
+
     const [openPopupAvaliacao, setOpenPopupAvaliacao] = useState(false);
     const [state, forceUpdate] = useReducer(x => x + 1, 0);
 
@@ -141,17 +143,20 @@ function Voluntariado() {
 
     const fetchVoluntariados = async () => {
         const res = await fetch('http://localhost:5000/novosVoluntariados')
-
         const res2 = await fetch('http://localhost:5000/voluntariados')
+
         const data = await res.json()
         const data2 = await res2.json()
 
         var list = [];
-        
+        var listNewVol = [];
 
         for (const element of data) {
             list.push(element)
+            listNewVol.push(element)
         }
+
+        checkIfNewVoluntariado(listNewVol)
 
         for (const element of data2) {
             list.push(element)
@@ -165,6 +170,14 @@ function Voluntariado() {
 
 
     }, [volntAll])
+
+    const checkIfNewVoluntariado = (list) => {
+        for (const element of list) {
+            if (element.id == idVolt) {
+                setVoluntsComent(true);
+            }
+        }
+    }
 
     const checkVoluntariados = () => {
         for (const element of volntAll) {
@@ -190,14 +203,14 @@ function Voluntariado() {
     }
 
     function changeState() {
-    var temp=!candidate;
+        var temp = !candidate;
 
         editState(temp);
 
         checkBottum(temp)
     }
 
-   
+
 
     function checkBottum(temp) {
 
@@ -224,13 +237,13 @@ function Voluntariado() {
 
     const deleteVoluntariado = async (id) => {
         const res = await fetch(`http://localhost:5000/candidaturas/${id}`, {
-          method: 'DELETE',
+            method: 'DELETE',
         })
         //We should control the response status to decide if we will change the state or not.
         // res.status === 200
         //   ? ""
         //   : alert('Erro a cancelar a candidatura')
-      }
+    }
 
     const avaliar = () => {
         setOpenPopupAvaliacao(true);
@@ -303,7 +316,7 @@ function Voluntariado() {
                                                 }}
                                             >Cancelar Candidatura</Typography>
                                         </Button>}
-                                </>:<></>}</>}
+                                </> : <></>}</>}
                         </>}
 
                     </Grid>
@@ -315,10 +328,10 @@ function Voluntariado() {
                     height: 50
                 }}></Container>
 
-                {!volunt.organizacao!==perfil.name? <><AcceptCandidates ></AcceptCandidates></>:<></>}
+                {!volunt.organizacao !== perfil.name ? <><AcceptCandidates ></AcceptCandidates></> : <></>}
 
+                <Comentarios newVolunt={voluntsComent} name={volunt.name} idPerfil={volunt.id} type="voluntariado" state={state} />
 
-                <Comentarios name={volunt.name} idPerfil={volunt.id} type="voluntariado" state={state}/>
 
                 <Container style={{
                     height: 50

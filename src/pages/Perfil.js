@@ -81,13 +81,11 @@ function Perfil() {
     }
 
     const checkLoginOfLoggedIn = () => {
-
         for (const element of loggedIns) {
             if (element.isLoggedIn) {
                 setPerfilLoggedIn(element);
             }
         }
-
     }
 
     const resgisterVoluntariado = () => {
@@ -105,7 +103,7 @@ function Perfil() {
 
     const closeAvaliacao = () => {
         setOpenPopupAvaliacao(false);
-        forceUpdate();
+        forceUpdate2();
     }
 
 
@@ -128,7 +126,7 @@ function Perfil() {
 
                     </div>
 
-                    <InfoProfile avaliar={avaliar} closeAvaliacao={closeAvaliacao} idPersonCommenting={perfilLoggedIn.id} nameLoggedIn={perfilLoggedIn.name} typeLoggedIn={perfilLoggedIn.typePerfil} openPopupAvaliacao={openPopupAvaliacao} setOpenPopupAvaliacao={setOpenPopupAvaliacao} state={state} id={perfil.id} name={perfil.name} image={perfil.image} email={perfil.email} phone={perfil.phone} rating={perfil.rating} type={perfil.typePerfil} login={perfil.isLoggedIn} description={perfil.description} birthday={perfil.birthday} gender={perfil.gender} />
+                    <InfoProfile avaliar={avaliar} closeAvaliacao={closeAvaliacao} idPersonCommenting={perfilLoggedIn.id} nameLoggedIn={perfilLoggedIn.name} typeLoggedIn={perfilLoggedIn.typePerfil} openPopupAvaliacao={openPopupAvaliacao} setOpenPopupAvaliacao={setOpenPopupAvaliacao} id={perfil.id} name={perfil.name} image={perfil.image} email={perfil.email} phone={perfil.phone} rating={perfil.rating} type={perfil.typePerfil} login={perfil.isLoggedIn} description={perfil.description} birthday={perfil.birthday} gender={perfil.gender} />
 
                     {(perfil.typePerfil !== "organizacao") && (perfilLoggedIn.id == idPerfil) ? 
                     <>
@@ -136,14 +134,11 @@ function Perfil() {
                     </>
                     : <></>}
 
-
-
-
                     <VoluntariadosArea resgisterVoluntariado={resgisterVoluntariado} closeResgisterVoluntariado={closeResgisterVoluntariado} openPopupRegisterVoluntariado={openPopupRegisterVoluntariado} setOpenPopupRegisterVoluntariado={setOpenPopupRegisterVoluntariado} state={state} id={perfil.id} type={perfil.typePerfil} nameOrg={perfil.name} name={perfil.name} />
 
                     {(perfil.typePerfil !== "organizacao") ? <>
 
-                        <Comentarios name={perfil.name} idPerfil={perfil.id} type="pessoa" state={state} />
+                        <Comentarios name={perfil.name} idPerfil={perfil.id} type="pessoa" state={state2} />
 
                         <Container style={{
                             height: 50
