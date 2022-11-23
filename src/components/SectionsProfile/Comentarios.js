@@ -6,72 +6,52 @@ import { VapingRooms } from "@mui/icons-material";
 
 function Comentarios(props) {
 
-    const [comment, setComment] = useState([])
-    const [newComment, setNewComment] = useState([])
+    // const [comment, setComment] = useState([])
+    // const [newComment, setNewComment] = useState([])
     const [displayComment, setDisplayComment] = useState([])
 
     useEffect(() => {
         const getComententarioVoluntariadosRealizados = async () => {
             const comVoluntariadosFromServer = await fetchComentariosVoluntariadosRealizados()
-            setComment(comVoluntariadosFromServer)
-
+            setDisplayComment(comVoluntariadosFromServer)
         }
 
         getComententarioVoluntariadosRealizados()
 
-    }, [])
+    }, [props.state])
 
 
     const fetchComentariosVoluntariadosRealizados = async () => {
         var res = [];
+        var res2 = [];
 
         if (props.type === "pessoa") {
             res = await fetch('http://localhost:5000/comentariosVoluntariadosRealizados')
+            res2 = await fetch('http://localhost:5000/comentariosFeitosPessoa')
         }
 
         if (props.type === "voluntariado") {
             res = await fetch('http://localhost:5000/comentariosVoluntariado')
+            res2 = await fetch('http://localhost:5000/comentariosFeitosVoluntariado')
         }
 
         const data = await res.json()
 
-        return data;
+        const data2 = await res2.json()
+
+        var result = checkCommentsVoluntariados(data, data2);
+
+        return result;
     }
 
 
-    useEffect(() => {
-        const getNewComment = async () => {
-            const listNewComment = await fetchNewComments()
-            setNewComment(listNewComment)
-        }
-
-        getNewComment()
-
-    }, [props.state])
-
-
-    const fetchNewComments = async () => {
-        var res = [];
-
-        if (props.type === "pessoa") {
-            res = await fetch('http://localhost:5000/comentariosFeitosPessoa')
-        }
-
-        if (props.type === "voluntariado") {
-            res = await fetch('http://localhost:5000/comentariosFeitosVoluntariado')
-        }
-
-        const data = await res.json()
-
-        return data;
-    }
-
-
-    const checkCommentsVoluntariados = () => {
+    const checkCommentsVoluntariados = (comment, newComment) => {
         var list = [];
-
-        for (const element of comment) {
-            list.push(element);
+ 
+        if(!props.newVolunt){
+            for (const element of comment) {
+                list.push(element);
+            }
         }
 
         for (const element of newComment) {
@@ -80,14 +60,8 @@ function Comentarios(props) {
             }
         }
 
-        setDisplayComment(list)
+        return list;
     }
-
-
-    useEffect(() => {
-        checkCommentsVoluntariados()
-
-    }, [newComment], [props.state])
 
 
 
