@@ -75,12 +75,10 @@ function Comentarios(props) {
         }
 
         for (const element of newComment) {
-            if (element.nameOfTheCommented === props.name) {
+            if (element.idPersonCommented === props.idPerfil) {
                 list.push(element);
             }
         }
-
-        console.log(list)
 
         setDisplayComment(list)
     }
