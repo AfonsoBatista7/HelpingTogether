@@ -1,5 +1,6 @@
 import { CardContent } from "@mui/material";
 import "./App.css";
+import Home from "./components/Home/Home";
 import BoxOrganization from "./components/StatsShowers/Box/BoxOrganization";
 import BoxVoluntariado from "./components/StatsShowers/Box/BoxVoluntariado";
 import MiniBoxCandidate from "./components/StatsShowers/Box/MiniBoxCandidate";
@@ -28,7 +29,7 @@ function App() {
                 <Route path='/Perfil/:idPerfil' element={<Perfil />} ></Route>
                 <Route path='/Voluntariados' element={<Voluntariados/>}></Route>
                 <Route path='/Voluntariado/:idVolt' element={<Voluntariado/>}></Route>
-                <Route exact path ='/' element={<HomePage/>} ></Route>
+                <Route exact path ='/' element={<Home/>} ></Route>
             </Routes>
             </Layout>
         </div>
