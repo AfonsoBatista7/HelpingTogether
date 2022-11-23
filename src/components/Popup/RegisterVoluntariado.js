@@ -25,7 +25,6 @@ function RegisterVoluntariado(props) {
 
     const handleChange = (event) => {
         setRegion(event.target.value);
-        console.log(event.target.value)
     };
 
 
@@ -40,9 +39,8 @@ function RegisterVoluntariado(props) {
     };
 
     const onSubmit = (values) => {
-        console.log(values)
 
-        addVoluntariado({ ...values, startDate: dateInic.toLocaleDateString(), endDate: dateFini.toLocaleDateString(), organizacao: props.organizacao, image: "defaultPhotoOrganization.jpg" })
+        addVoluntariado({ ...values, region: region, startDate: dateInic.toLocaleDateString(), endDate: dateFini.toLocaleDateString(), organizacao: props.organizacao, image: "defaultPhotoOrganization.jpg" })
 
         props.closePopup()
     };
@@ -114,11 +112,12 @@ function RegisterVoluntariado(props) {
                                 helperText={<ErrorMessage name="name" component="div" style={{ color: 'red' }} />} />
                             <FormControl fullWidth className={style.bottom}>
                                 <InputLabel id="region">Região</InputLabel>
-                                <Select
+                                <Field as={Select}
+                                    name="region"
                                     labelId="region"
                                     id="region"
                                     value={region}
-                                    label="Regiao"
+                                    label="region"
                                     onChange={handleChange}
                                 >
                                     <MenuItem value={"Norte"}>Norte</MenuItem>
@@ -128,7 +127,7 @@ function RegisterVoluntariado(props) {
                                     <MenuItem value={"Argarve"}>Argarve</MenuItem>
                                     <MenuItem value={"Açores"}>Açores</MenuItem>
                                     <MenuItem value={"Madeira"}>Madeira</MenuItem>
-                                </Select>
+                                </Field>
                             </FormControl>
                             <FormHelperText><ErrorMessage name="region" component="div" style={{ color: 'red' }} /></FormHelperText>
                             <Field as={TextField} fullWidth name="location" label='Localização' placeholder="Introduza a localização do voluntariado" className={style.bottom}

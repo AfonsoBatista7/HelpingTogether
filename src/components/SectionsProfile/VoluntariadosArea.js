@@ -73,14 +73,6 @@ function VoluntariadosArea(props) {
     }
 
 
-    // useEffect(() => {
-    //     makeList()
-
-    //     console.log(props.state)
-
-    // }, [volunt], [newVoluntariados])
-
-
     return (
         <div id="Voluntariados" className={style.backgroundwhite}>
             <div >
