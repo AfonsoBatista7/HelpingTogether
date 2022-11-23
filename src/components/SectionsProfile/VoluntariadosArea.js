@@ -7,17 +7,18 @@ import MiniBoxVoluntariado from "../StatsShowers/Box/MiniBoxVoluntariado";
 
 function VoluntariadosArea(props) {
 
-    const [volunt, setVoluntariados] = useState([])
+    const [displayVolunt, setDisplayVolunt] = useState([]);
+
 
     useEffect(() => {
-        const getLoggedIn = async () => {
+        const getVolunt = async () => {
             const listVolunt = await fetchVoluntariados()
-            setVoluntariados(listVolunt)
+            setDisplayVolunt(listVolunt)
         }
 
-        getLoggedIn(volunt)
+        getVolunt()
 
-    }, [])
+    }, [props.state])
 
     const fetchVoluntariados = async () => {
         var res = [];
@@ -28,36 +29,49 @@ function VoluntariadosArea(props) {
             res = await fetch('http://localhost:5000/voluntariadosRealizados')
         }
 
-        var data = await res.json()
+        var data1 = await res.json()
 
         if (props.type === "organizacao")
-            data = checkOrganization(data);
+            data1 = checkOrganization(data1);
 
-        return data;
+
+        const res2 = await fetch('http://localhost:5000/novosVoluntariados')
+        var data2 = await res2.json()
+
+        data2 = checkOrganization(data2);
+
+        var resultado = makeList(data1, data2);
+
+        return resultado;
     }
+
 
     const checkOrganization = (data) => {
         var list = [];
 
         for (const element of data) {
-
             if (element.organizacao === props.name) {
                 list.push(element);
             }
         }
+
         return list;
-
     }
 
-    const [openPopupRegisterVoluntariado, setOpenPopupRegisterVoluntariado] = useState(false);
+    const makeList = (newV, v) => {
+        var list = [];
 
-    const resgisterVoluntariado = () => {
-        setOpenPopupRegisterVoluntariado(true);
+        for (const element of newV) {
+            list.push(element);
+        }
+
+        for (const element of v) {
+            list.push(element);
+        }
+
+        return list;
     }
 
-    const closeResgisterVoluntariado = () => {
-        setOpenPopupRegisterVoluntariado(false);
-    }
 
     return (
         <div id="Voluntariados" className={style.backgroundwhite}>
@@ -87,39 +101,52 @@ function VoluntariadosArea(props) {
 
                     {props.type === "organizacao" ?
                         <>
-                            <Button onClick={resgisterVoluntariado}>
+                            <Button onClick={props.resgisterVoluntariado} style={{ float: "right" }}>
                                 <Typography style={{ color: "#497174" }}>+ Criar</Typography>
                             </Button > <Popup
-                                openPopup={openPopupRegisterVoluntariado}
-                                setOpenPopup={setOpenPopupRegisterVoluntariado}
+                                openPopup={props.openPopupRegisterVoluntariado}
+                                setOpenPopup={props.setOpenPopupRegisterVoluntariado}
                             >
-                                <RegisterVoluntariado organizacao={props.nameOrg} closePopup={closeResgisterVoluntariado} />
+                                <RegisterVoluntariado organizacao={props.nameOrg} closePopup={props.closeResgisterVoluntariado} />
                             </Popup></> : <></>}
 
                 </Grid>
-                <Divider className={style.voluntariadosProfile}/>
+                <Divider className={style.voluntariadosProfile} />
                 <Container>
-                    <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-                        {!(volunt.length === 0) ? volunt.map((vol, index) => (
-                            <><Grid item xs={2} sm={4} md={4} key={index}> 
+                    <Grid container spacing={{ xs: 2, md: 4 }} columns={{ xs: 2, sm: 8, md: 16 }}>
+                        {!(displayVolunt.length === 0) ? displayVolunt.map((vol, index) => (
+                            <><Grid item xs={2} sm={4} md={4} key={index}>
                                 <MiniBoxVoluntariado
                                     id={vol.id}
                                     image={vol.image}
                                     name={vol.name}
                                     desc={vol.description}
-                                   ></MiniBoxVoluntariado>
-                                </Grid></>
-                        )) : <></>}
+                                ></MiniBoxVoluntariado>
+                            </Grid></>
+                        )) : <>
+                            <div className={style.voluntariadosProfile} style={{ marginTop: "3%", width: "100%" }}>
+                                <Typography style={{
+                                    fontWeight: 500,
+                                    fontSize: 20,
+                                    textAlign: 'center',
+                                    color: "grey",
+                                    marginLeft: 50
+                                }}>
+                                    Não tem voluntariados
+                                </Typography>
+                            </div>
+                        </>}
                     </Grid>
                 </Container>
-                <Grid
-                    container
-                    direction="row"
-                    alignItems="center"
-                    justifyContent="center"
-                >
-                    <Pagination count={5} className={style.pagination}/>
-                </Grid>
+                {!(displayVolunt.length === 0) ?
+                    <Grid
+                        container
+                        direction="row"
+                        alignItems="center"
+                        justifyContent="center"
+                    >
+                        <Pagination count={1} className={style.pagination} />
+                    </Grid> : <></>}
 
             </div >
         </div >
