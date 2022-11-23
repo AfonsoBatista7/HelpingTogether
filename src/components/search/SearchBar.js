@@ -8,7 +8,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import FilterMain from "./FilterMain";
 import style from "./search.module.css";
 
-const SearchBar = () => {
+const SearchBar = (props) => {
   return (
     <div>
         <Stack direction="row" spacing={0.5}>
@@ -20,7 +20,7 @@ const SearchBar = () => {
                 </InputAdornment>
               ),
             }}/>
-          <FilterMain />
+          <FilterMain filters={props.filters}/>
         </Stack> 
     </div>
   )

@@ -29,3 +29,13 @@
  text-transform: uppercase;
  letter-spacing: .1rem;
 }
+
+.typeLegend {
+    width:fit-content;
+    height:fit-content;
+    border-radius: 16px;
+    align-self: center;
+    text-align: center;
+    color: white;
+    background-color: black;
+}
