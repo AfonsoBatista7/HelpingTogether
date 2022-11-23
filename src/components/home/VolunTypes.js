@@ -4,7 +4,6 @@ import VolunType from './VolunType'
 
 const VolunTypes = (props) => {
   return (
-    <div>
         <Grid container spacing={10} style={{width: 450, height: 300}}>
         {Object.keys(props.types).map((type) => (
             <Grid key={type} item xs={4}>
@@ -12,7 +11,6 @@ const VolunTypes = (props) => {
             </Grid>
         ))}
         </Grid>
-    </div>
   )
 }
 

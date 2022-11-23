@@ -12,7 +12,6 @@ import {
     FoodBank,
     HealthAndSafety,
 } from "@mui/icons-material";
-import MiniBoxVoluntariado from "../StatsShowers/Box/MiniBoxVoluntariado";
 
 import smartie1 from "./Cats/smartie1.jpg";
 import smartie3 from "./Cats/smartie3.jpg";
@@ -63,12 +62,12 @@ const Home = () => {
     ];
 
     const volunTypes = {
-        Natureza: <Forest fontSize="large" />,
-        Animais: <Pets fontSize="large" />,
-        Poluição: <Factory fontSize="large" />,
-        Comunidade: <People fontSize="large" />,
-        Gastronomia: <FoodBank fontSize="large" />,
-        Saúde: <HealthAndSafety fontSize="large" />,
+        Natureza: <Forest sx={{color: "#EFF5F5",fontSize: 60}} fontSize="large" />,
+        Animais: <Pets sx={{color: "#EFF5F5",fontSize: 60}} fontSize="large" />,
+        Poluição: <Factory sx={{color:"#EFF5F5",fontSize: 60}} fontSize="large" />,
+        Comunidade: <People sx={{color: "#EFF5F5",fontSize: 60}} fontSize="large" />,
+        Gastronomia: <FoodBank sx={{color: "#EFF5F5",fontSize: 60}} fontSize="large" />,
+        Saúde: <HealthAndSafety sx={{color: "#EFF5F5",fontSize: 60}} fontSize="large" />,
     };
 
     const filters = {
@@ -87,22 +86,50 @@ const Home = () => {
     };
 
     return (
-        <div className={style.fisrtSection}>
+        <div>
+            <div className={style.fisrtSection}>
+                <Grid
+                    container
+                    className={style.titleContainer}
+                    direction="column"
+                    justifyContent="center"
+                    alignItems="center"
+                >
+                    <Grid item className={style.title}>
+                        HELPING
+                    </Grid>
+                    <Grid item className={style.title}>
+                        TOGETHER
+                    </Grid>
+                    <Grid item className={style.slogan}>
+                        Juntos Fazemos a Diferença!!!
+                    </Grid>
+                </Grid>
+            </div>
             <Grid
                 container
-                className={style.titleContainer}
-                direction="column"
+                display="flex"
                 justifyContent="center"
+                align="center"
                 alignItems="center"
+                rowSpacing={10}
+                style={{ marginTop: 20 }}
             >
-                <Grid item className={style.title}>
-                    HELPING
+                <Grid item xs={6}>
+                    <VolunTypes types={volunTypes} />
                 </Grid>
-                <Grid item className={style.title}>
-                    TOGETHER
+                <Grid item xs={6}>
+                    <Map />
                 </Grid>
-                <Grid item className={style.slogan}>
-                    Juntos Fazemos a Diferença!!!
+                <Grid item xs={6}>
+                    <SearchBar filters={filters} />
+                </Grid>
+                <Grid item xs={12}>
+                    {topOpport ?
+                        <HomeCarousel res={topOpport} />
+                    :
+                        <HomeCarousel res={catpics} />
+                    }
                 </Grid>
             </Grid>
         </div>
@@ -111,30 +138,3 @@ const Home = () => {
 
 export default Home;
 
-// <div>
-//     <center>
-//       <Grid container display='flex' justifyContent='center' align='center' alignItems='center' rowSpacing={10} style={{marginTop: 20}}>
-//           <Grid item xs={6}>
-//             <VolunTypes types={volunTypes} />
-//           </Grid>
-//           <Grid item xs={6}>
-//             <Map />
-//           </Grid>
-//           <Grid item xs={1}>
-
-//           </Grid>
-//           <Grid item xs={5}>
-//             <SearchBar filters={filters}/>
-//           </Grid>
-//           <Grid item xs={6}>
-
-//           </Grid>
-//           <Grid item xs={12}>
-//             { topOpport ? <>
-//               <HomeCarousel res={topOpport}/></>
-//             : <>
-//               <HomeCarousel res={catpics}/></>}
-//           </Grid>
-//       </Grid>
-//     </center>
-// </div>

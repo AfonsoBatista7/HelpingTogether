@@ -169,7 +169,7 @@ function Header(props) {
                         <Typography
                             variant="h6"
                             sx={{
-                                color: "#F3ECB0",
+                                color: "#EFF5F5",
                                 fontFamily: "monospace",
                                 fontWeight: 700,
                                 letterSpacing: ".2rem",
@@ -188,7 +188,7 @@ function Header(props) {
                             sx={{
                                 font: "bold 14px/1.4 'Open Sans', arial, sans-serif",
                                 letterSpacing: "0.15em",
-                                color: "#F3ECB0",}}
+                                color: "#EFF5F5",}}
                             className={style.headerOtherButtons}
                             onClick={goToOrganizations}
                         >
@@ -199,7 +199,7 @@ function Header(props) {
                             sx={{
                                 font: "bold 14px/1.4 'Open Sans', arial, sans-serif",
                                 letterSpacing: "0.15em",
-                                color: "#F3ECB0",}}
+                                color: "#EFF5F5",}}
                             className={style.headerOtherButtons}
                             onClick={goToVolunteers}
                         >
@@ -212,9 +212,9 @@ function Header(props) {
                                     size="large"
                                     sx={{
                                         "&:hover": {
-                                            backgroundColor: "#b8b386",
+                                            backgroundColor: "#cbd2d2",
                                         },
-                                        backgroundColor: "#F3ECB0",
+                                        backgroundColor: "#EFF5F5",
                                         textTransform: "none",
                                         borderRadius: "20px",
                                         color: "#344D67",
@@ -228,12 +228,12 @@ function Header(props) {
                                     size="large"
                                     sx={{
                                         "&:hover": {
-                                            border: " 1px solid #b8b386",
+                                            border: " 1px solid #cbd2d2",
                                         },
-                                        border: " 1px solid #F3ECB0",
+                                        border: " 1px solid #EFF5F5",
                                         textTransform: "none",
                                         borderRadius: "20px",
-                                        color: "#F3ECB0",
+                                        color: "#EFF5F5",
                                     }}
                                     onClick={signUp}
                                 >
