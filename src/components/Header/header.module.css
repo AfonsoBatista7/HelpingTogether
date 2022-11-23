@@ -7,12 +7,12 @@
     position: absolute;
     right: 0;
     margin-right: 14px;
-    color: #EFF5F5;
+    color: #F3ECB0;
 }
 
 
 .headerTest {
-    color: #eff5f5;
+    color: #F3ECB0;
 }
 
 .headerImage {
@@ -31,7 +31,7 @@
     height: 2px;
     left: 50%;
     position: absolute;
-    background: #EFF5F5;
+    background: #F3ECB0;
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
     width: 0;
 }

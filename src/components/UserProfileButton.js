@@ -9,13 +9,6 @@ import {
     Button,
 } from "@mui/material";
 
-// [
-//     "Perfil",
-//     "Candidatura",
-//     "Voluntariados Realizados",
-//     "Comentários",
-//     "Sair",
-// ];
 
 const UserProfileButton = (props) => {
     const logOut = () => {
