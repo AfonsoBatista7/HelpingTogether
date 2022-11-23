@@ -105,6 +105,7 @@ function Voluntariado() {
         const data2 = await res2.json()
 
         var list = [];
+        
 
         for (const element of data) {
             list.push(element)
@@ -148,9 +149,20 @@ function Voluntariado() {
 
     function changeState() {
         editState(!candidate);
+    }
+
+    useEffect(() => {
+        checkBottum()
+
+    }, [candidate])
+
+
+    function checkBottum() {
 
         if (candidate) {
             addVoluntariado();
+        } else {
+            deleteVoluntariado(idVolt);
         }
     }
 
@@ -167,6 +179,16 @@ function Voluntariado() {
         const data = await res.json()
 
     }
+
+    const deleteVoluntariado = async (id) => {
+        const res = await fetch(`http://localhost:5000/candidaturas/${id}`, {
+          method: 'DELETE',
+        })
+        //We should control the response status to decide if we will change the state or not.
+        // res.status === 200
+        //   ? ""
+        //   : alert('Erro a cancelar a candidatura')
+      }
 
     const avaliar = () => {
         setOpenPopupAvaliacao(true);
@@ -246,14 +268,14 @@ function Voluntariado() {
                     </Grid>
                 </Grid>
 
-                <InfoVoluntariado avaliar={avaliar} closeAvaliacao={closeAvaliacao} openPopupAvaliacao={openPopupAvaliacao} setOpenPopupAvaliacao={setOpenPopupAvaliacao} state={state} done={voltDone} name={volunt.name} image={volunt.image} organizacao={volunt.organizacao} startDate={volunt.startDate} description={volunt.description} endDate={volunt.endDate} location={volunt.location} rating={volunt.rating} />
+                <InfoVoluntariado avaliar={avaliar} closeAvaliacao={closeAvaliacao} openPopupAvaliacao={openPopupAvaliacao} setOpenPopupAvaliacao={setOpenPopupAvaliacao} state={state} done={voltDone} id={volunt.id} name={volunt.name} image={volunt.image} organizacao={volunt.organizacao} startDate={volunt.startDate} description={volunt.description} endDate={volunt.endDate} location={volunt.location} rating={volunt.rating} />
 
                 <Container style={{
                     height: 50
                 }}></Container>
 
 
-                <Comentarios name={volunt.name} type="voluntariado" state={state}/>
+                <Comentarios name={volunt.name} idPerfil={volunt.id} type="voluntariado" state={state}/>
 
                 <Container style={{
                     height: 50

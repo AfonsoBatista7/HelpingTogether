@@ -624,7 +624,8 @@
       "nameOfTheCommented": "Maria Leal",
       "image": "defaultPhotoOrganization.jpg",
       "id": 2,
-      "idPersonCommenting": 70
+      "idPersonCommenting": 70,
+      "idPersonCommented": 1
     }
   ],
   "comentariosFeitosVoluntariado": [
@@ -636,7 +637,8 @@
       "nameOfTheCommented": "Plantar florestação",
       "image": "defaultPhoto.jpg",
       "id": 1,
-      "idPersonCommenting": 80
+      "idPersonCommenting": 80,
+      "idPersonCommented": 14
     },
     {
       "rating": 4,
@@ -646,7 +648,8 @@
       "nameOfTheCommented": "Entrega de refeições a sem-abrigos e famílias carênciadas.",
       "idPersonCommenting": 80,
       "image": "defaultPhoto.jpg",
-      "id": 2
+      "id": 2,
+      "idPersonCommented": 20
     }
   ],
   "novosVoluntariados": [
@@ -661,21 +664,5 @@
       "id": 1
     }
   ],
-  "candidaturas": [
-    {
-      "id": 14,
-      "name": "Plantar florestação",
-      "description": "Plantar árvores e arbustos na Serra de Monchique após ser sido devastada por incêndios e ficar com falta de plantação.",
-      "startDate": "24/09/2020",
-      "endDate": "24/09/2020",
-      "location": "Monchique",
-      "type": [
-        "Natureza"
-      ],
-      "image": "Plantar.jpg",
-      "rating": 2,
-      "organizacao": "FAPAS"
-      
-    }
-  ]
+  "candidaturas": []
 }

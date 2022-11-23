@@ -143,7 +143,7 @@ function Perfil() {
 
                     {(perfil.typePerfil !== "organizacao") ? <>
 
-                        <Comentarios name={perfil.name} type="pessoa" state={state} />
+                        <Comentarios name={perfil.name} idPerfil={perfil.id} type="pessoa" state={state} />
 
                         <Container style={{
                             height: 50
