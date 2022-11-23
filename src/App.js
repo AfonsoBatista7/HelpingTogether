@@ -14,7 +14,6 @@ import Voluntariados from "./pages/Voluntariados";
 import Voluntariado from "./pages/Voluntariado";
 
 import Perfil from "./pages/Perfil";
-import HomePage from "./pages/HomePage";
 import React, { useState } from "react";
 
 import Popup from "./components/Popup/Popup";
