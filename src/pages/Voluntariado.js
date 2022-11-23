@@ -31,6 +31,31 @@ function Voluntariado() {
     //vetor com todos os valores no login da Base de dados
     const [loggedIns, setLoggedIns] = useState([])
 
+
+    const [candid, setVoluntariados] = useState([])
+
+    useEffect(() => {
+
+        const getVolunts = async () => {
+
+            const listVolunt = await fetchCandidatura()
+
+            setVoluntariados(listVolunt)
+
+        }
+
+        getVolunts(candid)
+
+    }, [])
+
+    const fetchCandidatura = async () => {
+        var res = await fetch('http://localhost:5000/candidaturas');
+
+        var data = await res.json()
+
+        return data;
+    }
+
     //vai buscar todos os valores de login da BD e mete em loggedIns
     useEffect(() => {
         const getLoggedIn = async () => {
@@ -86,6 +111,22 @@ function Voluntariado() {
         for (const element of VoltDone) {
             if (element.id == idVolt) {
                 setVoltDone(true);
+            }
+        }
+
+    }
+
+    useEffect(() => {
+        checkIfCandidate(candid)
+
+
+    }, [candid])
+
+    const checkIfCandidate = (candid) => {
+
+        for (const element of candid) {
+            if (element.id == idVolt) {
+                editState(true);
             }
         }
 

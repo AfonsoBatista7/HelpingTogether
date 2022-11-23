@@ -10,7 +10,7 @@
         "Animais"
       ],
       "termsAndConditions": true,
-      "isLoggedIn": true,
+      "isLoggedIn": false,
       "typePerfil": "organizacao",
       "id": 70
     },
@@ -23,7 +23,7 @@
       "password": "123456",
       "confirmPassword": "123456",
       "termsAndConditions": true,
-      "isLoggedIn": false,
+      "isLoggedIn": true,
       "typePerfil": "voluntario",
       "id": 80
     },
@@ -662,20 +662,6 @@
     }
   ],
   "candidaturas": [
-    {
-      "id": 14,
-      "name": "Plantar florestação",
-      "description": "Plantar árvores e arbustos na Serra de Monchique após ser sido devastada por incêndios e ficar com falta de plantação.",
-      "startDate": "24/09/2020",
-      "endDate": "24/09/2020",
-      "location": "Monchique",
-      "type": [
-        "Natureza"
-      ],
-      "image": "Plantar.jpg",
-      "rating": 2,
-      "organizacao": "FAPAS"
-    },
     {
       "id": 16,
       "name": "Limpeza de praia de resídous",
