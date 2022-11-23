@@ -129,7 +129,7 @@ function Comentarios(props) {
                                 </Grid>
                             </>
                         )) : <>
-                            <div className={style.voluntariadosProfile} style={{ marginTop: "5%", width: "100%" }}>
+                            <div className={style.voluntariadosProfile} style={{ marginTop: "7%", width: "100%" }}>
                                 <Typography style={{
                                     fontWeight: 500,
                                     fontSize: 20,
