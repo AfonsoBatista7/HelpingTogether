@@ -1,7 +1,7 @@
 import style from "./Profiles.module.css"
 import { Pagination, Grid, Typography, Container, Divider } from "@mui/material";
 import React, { useState, useEffect } from "react";
-import MiniBoxCandidate from "../StatsShowers/Box/MiniBoxCandidate";
+import MiniBoxVoluntariado from "../StatsShowers/Box/MiniBoxVoluntariado";
 
 function CandidaturasPendentes(props) {
 
@@ -9,7 +9,7 @@ function CandidaturasPendentes(props) {
 
     useEffect(() => {
 
-        const getLoggedIn = async () => {
+        const getVolunts = async () => {
 
             const listVolunt = await fetchCandidatura()
 
@@ -17,7 +17,7 @@ function CandidaturasPendentes(props) {
 
         }
 
-        getLoggedIn(candid)
+        getVolunts(candid)
 
     }, [])
 
@@ -47,33 +47,39 @@ function CandidaturasPendentes(props) {
                     }}
                 >Candidaturas Pendentes</Typography>
 
-                <Divider />
-                <Container style={{
-                    height: 100
-                }}> 
-                  <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                <Divider className={style.voluntariadosProfile}/>
+                <Container >
+                  <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 16 }}>
                         {!(candid.length === 0) ? candid.map((vol, index) => (
                             <><Grid item xs={2} sm={4} md={4} key={index}>
-                                <MiniBoxCandidate
+                                <MiniBoxVoluntariado
                                     id={vol.id}
                                     image={vol.image}
                                     name={vol.name}
                                     desc={vol.description}
-                                ></MiniBoxCandidate>
+                                ></MiniBoxVoluntariado>
                             </Grid></>
-                        )) : <></>}
+                        )) : <><div className={style.voluntariadosProfile} style={{ marginTop: "5%", width: "100%" }}>
+                        <Typography style={{
+                            fontWeight: 500,
+                            fontSize: 20,
+                            textAlign: 'center',
+                            color:"grey",
+                            marginLeft: 50
+                        }}>
+                            Não candidaturas pendentes
+                        </Typography>
+                    </div></>}
                     </Grid></Container>
-                <Grid
-                    container
-                    direction="row"
-                    alignItems="center"
-                    justifyContent="center"
-                >
-                    <Pagination count={10} />
-                </Grid>
-                <Container style={{
-                    height: 50
-                }}></Container>
+                    {!(candid.length === 0) ?
+                    <Grid
+                        container
+                        direction="row"
+                        alignItems="center"
+                        justifyContent="center"
+                    >
+                        <Pagination count={1} className={style.pagination} />
+                    </Grid> : <></>}
 
             </div >
         </div >

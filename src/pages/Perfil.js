@@ -130,16 +130,8 @@ function Perfil() {
 
                     <InfoProfile avaliar={avaliar} closeAvaliacao={closeAvaliacao} idPersonCommenting={perfilLoggedIn.id} nameLoggedIn={perfilLoggedIn.name} typeLoggedIn={perfilLoggedIn.typePerfil} openPopupAvaliacao={openPopupAvaliacao} setOpenPopupAvaliacao={setOpenPopupAvaliacao} state={state} id={perfil.id} name={perfil.name} image={perfil.image} email={perfil.email} phone={perfil.phone} rating={perfil.rating} type={perfil.typePerfil} login={perfil.isLoggedIn} description={perfil.description} birthday={perfil.birthday} gender={perfil.gender} />
 
-                    {perfil.typePerfil !== "organizacao" ? <>
-                        <Container style={{
-                            height: 70
-                        }}></Container>
-
+                    {(perfil.typePerfil !== "organizacao")&&(perfilLoggedIn.id==idPerfil ) ? <>
                         <CandidaturasPendentes />
-
-                        <Container style={{
-                            height: 50
-                        }}></Container>
                     </>
                         : <></>}
 
@@ -151,9 +143,9 @@ function Perfil() {
 
                     <VoluntariadosArea resgisterVoluntariado={resgisterVoluntariado} closeResgisterVoluntariado={closeResgisterVoluntariado} openPopupRegisterVoluntariado={openPopupRegisterVoluntariado} setOpenPopupRegisterVoluntariado={setOpenPopupRegisterVoluntariado} state={state}id={perfil.id} type={perfil.typePerfil} nameOrg={perfil.name} name={perfil.name} />
 
-                    {perfil.typePerfil !== "organizacao" ? <>
+                    {(perfil.typePerfil !== "organizacao") ? <>
 
-                        <Comentarios name={perfil.name} type="pessoa" state={state}/>
+                        <Comentarios name={perfil.name} type="pessoa" state={state} />
 
                         <Container style={{
                             height: 50
