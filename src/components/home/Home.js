@@ -6,11 +6,11 @@ import { Grid } from '@mui/material';
 import { Forest, Pets, Factory, People, FoodBank, HealthAndSafety } from '@mui/icons-material';
 import MiniBoxVoluntariado from '../StatsShowers/Box/MiniBoxVoluntariado';
 
-import smartie1 from "./Cats/smartie1.jpg"
-import smartie3 from "./Cats/smartie3.jpg"
-import diana1 from "./Cats/diana1.jpg"
-import diana2 from "./Cats/diana2.jpg"
-import VolunTypes from './VolunTypes';
+import smartie1 from "./Cats/smartie1.jpg";
+import smartie3 from "./Cats/smartie3.jpg";
+import diana1 from "./Cats/diana1.jpg";
+import diana2 from "./Cats/diana2.jpg";
+import VolunTypes from "./VolunTypes";
 
 const Home = () => {
     const [topOpport, setTopOpport] = useState([]);
@@ -54,118 +54,80 @@ const Home = () => {
         },
     ];
 
+    const volunTypes = {
+        Natureza: <Forest fontSize="large" />,
+        Animais: <Pets fontSize="large" />,
+        Poluição: <Factory fontSize="large" />,
+        Comunidade: <People fontSize="large" />,
+        Gastronomia: <FoodBank fontSize="large" />,
+        Saúde: <HealthAndSafety fontSize="large" />,
+    };
+
+    const filters = {
+        /*     Tipo: ['Natureza', 'Animais', 'Poluição', 'Comunidade', 'Gastronomia', 'Saúde'], */
+        Tipo: Object.keys(volunTypes),
+        Região: [
+            "Norte",
+            "Centro",
+            "Alentejo",
+            "Área Metropolitana Lisboa",
+            "Algarve",
+            "Açores",
+            "Madeira",
+        ],
+        Duração: ["Reduzida", "Média", "Longa"],
+    };
+
+
     return (
-        <div
-            style={{
-                minHeight: "100vh",
-                display: "block",
-                marginLeft: "auto",
-                marginRight: "auto",
-                width: "100%",
-                backgroundSize: "cover",
-                backgroundPosition: "-155px -25px",
-                backgroundRepeat: "no-repeat",
-                backgroundImage: "url(/voluntariado.png)",
-            }}
+        <div className={style.fisrtSection}>
+            <Grid
+                container
+                className={style.titleContainer}
+                direction="column"
+                justifyContent="center"
+                alignItems="center"
             >
-              <Grid container className={style.titleContainer} direction="column" justifyContent="center" alignItems="center">
-                <Grid item className={style.title}>HELPING</Grid>
-                <Grid item className={style.title}>TOGETHER</Grid>
-                <Grid item className={style.slogan}>Juntos Fazemos a Diferença!!!</Grid>
-
-              </Grid>
-
+                <Grid item className={style.title}>
+                    HELPING
+                </Grid>
+                <Grid item className={style.title}>
+                    TOGETHER
+                </Grid>
+                <Grid item className={style.slogan}>
+                    Juntos Fazemos a Diferença!!!
+                </Grid>
+            </Grid>
         </div>
     );
 };
 
 export default Home;
-{
-    /* <center>
-  <Grid container display='flex' align='center' alignItems='center' rowSpacing={20} style={{marginTop: 20}}>
-      <Grid item xs={2}>
-      
-      </Grid>
-      <Grid item xs={4}>
-        <SearchBar />
-      </Grid>
-      <Grid item xs={4}>
-        <Map />
-      </Grid>
-      <Grid item xs={2}>
-        
-      </Grid>
-      <Grid item xs={12}>
-        { topOpport ? <>
-          <HomeCarousel res={topOpport}/></>
-        : <>
-          <HomeCarousel res={catpics}/></>}
-      </Grid>
-  </Grid>
-</center> */
-  const catpics = [{
-    "name": "Smartie 1",
-    "description": "Smartie 1",
-    "image": smartie1
-  }, {
-    "name": "Smartie 2",
-    "description": "Smartie 1",
-    "image": smartie3
-  }, {
-    "name": "Diana 1",
-    "description": "Diana 1",
-    "image": diana1
-  }, {
-    "name": "Diana 2",
-    "description": "Diana 2",
-    "image": diana2
-  }]
 
-  const volunTypes = {
-    Natureza: <Forest fontSize="large"/>, 
-    Animais: <Pets fontSize="large"/>, 
-    Poluição: <Factory fontSize="large"/>, 
-    Comunidade: <People fontSize="large"/>, 
-    Gastronomia: <FoodBank fontSize="large"/>, 
-    Saúde: <HealthAndSafety fontSize="large"/>
-  }
+// <div>
+//     <center>
+//       <Grid container display='flex' justifyContent='center' align='center' alignItems='center' rowSpacing={10} style={{marginTop: 20}}>
+//           <Grid item xs={6}>
+//             <VolunTypes types={volunTypes} />
+//           </Grid>
+//           <Grid item xs={6}>
+//             <Map />
+//           </Grid>
+//           <Grid item xs={1}>
 
-  const filters = {
-/*     Tipo: ['Natureza', 'Animais', 'Poluição', 'Comunidade', 'Gastronomia', 'Saúde'], */
-    Tipo: Object.keys(volunTypes),
-    Região: ['Norte', 'Centro', 'Alentejo', 'Área Metropolitana Lisboa', 'Algarve', 'Açores', 'Madeira'],
-    Duração:  ['Reduzida', 'Média', 'Longa']
-  };
-  
-  console.log(volunTypes)
+//           </Grid>
+//           <Grid item xs={5}>
+//             <SearchBar filters={filters}/>
+//           </Grid>
+//           <Grid item xs={6}>
 
-  return (
-    <div>
-        <center>
-          <Grid container display='flex' justifyContent='center' align='center' alignItems='center' rowSpacing={10} style={{marginTop: 20}}>
-              <Grid item xs={6}>
-                <VolunTypes types={volunTypes} />
-              </Grid>
-              <Grid item xs={6}>
-                <Map />
-              </Grid>
-              <Grid item xs={1}>
-                
-              </Grid>
-              <Grid item xs={5}> 
-                <SearchBar filters={filters}/>
-              </Grid>
-              <Grid item xs={6}>
-                
-              </Grid>
-              <Grid item xs={12}>
-                { topOpport ? <>
-                  <HomeCarousel res={topOpport}/></>
-                : <>
-                  <HomeCarousel res={catpics}/></>}
-              </Grid>
-          </Grid>
-        </center>
-    </div>
-  )
-}
+//           </Grid>
+//           <Grid item xs={12}>
+//             { topOpport ? <>
+//               <HomeCarousel res={topOpport}/></>
+//             : <>
+//               <HomeCarousel res={catpics}/></>}
+//           </Grid>
+//       </Grid>
+//     </center>
+// </div>

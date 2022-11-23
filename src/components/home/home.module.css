@@ -19,20 +19,32 @@
 .titleContainer {
     position: relative;
     cursor: default;
-    color: #344D67;
+    color: #344d67;
     top: 100px;
     right: 400px;
 }
 
 .slogan {
- font-family: 'Raleway', sans-serif; 
- text-transform: uppercase;
- letter-spacing: .1rem;
+    font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+}
+
+.fisrtSection {
+    min-height: 100vh;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    background-size: cover;
+    background-position: -155px -25px;
+    background-repeat: no-repeat;
+    background-image: url("/public/voluntariado.png");
 }
 
 .typeLegend {
-    width:fit-content;
-    height:fit-content;
+    width: fit-content;
+    height: fit-content;
     border-radius: 16px;
     align-self: center;
     text-align: center;
