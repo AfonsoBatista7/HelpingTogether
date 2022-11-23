@@ -8,9 +8,6 @@ import Comment from "../../Popup/Comment";
 
 function CardComment({ name, image, comment, rating, date, idperfil }) {
 
-    console.log(idperfil)
-    console.log(name)
-
     const charLimit = 170;
     const isDescBig = comment.length > charLimit;
 
