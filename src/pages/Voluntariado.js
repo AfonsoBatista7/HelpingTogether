@@ -2,6 +2,7 @@ import Comentarios from "../components/SectionsProfile/Comentarios";
 import style from "../components/SectionsProfile/Profiles.module.css"
 import { Pagination, Grid, Typography, Container, Button } from "@mui/material";
 import InfoVoluntariado from "../components/SectionsProfile/InfoVoluntariado";
+import AcceptCandidates from "../components/SectionsProfile/AcceptCandidates";
 import DoneOutlineRoundedIcon from '@mui/icons-material/DoneOutlineRounded';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 import React, { useState, useEffect, useReducer } from 'react'
@@ -199,7 +200,6 @@ function Voluntariado() {
         forceUpdate();
     }
 
-
     return (<>
         {volunt ? <>
             <div className={style.backgroundwhite}>
@@ -273,6 +273,8 @@ function Voluntariado() {
                 <Container style={{
                     height: 50
                 }}></Container>
+
+                {!volunt.organizacao!==perfil.name? <><AcceptCandidates ></AcceptCandidates></>:<></>}
 
 
                 <Comentarios name={volunt.name} idPerfil={volunt.id} type="voluntariado" state={state}/>
