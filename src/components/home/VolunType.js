@@ -1,23 +1,17 @@
-import { MonitorHeart } from '@mui/icons-material';
-import { Box, Fab, IconButton, Stack, Typography } from '@mui/material'
-import React from 'react'
-import style from './home.module.css'
+import { Height, MonitorHeart } from "@mui/icons-material";
+import { Box, Fab, IconButton, Stack, Typography } from "@mui/material";
+import React from "react";
+import style from "./home.module.css";
 
 const VolunType = (props) => {
-    console.log(props.name)
-    console.log(props.icon)
-  return (
-    <div>
+    return (
         <Stack spacing={2} justifyContent="center" alignItems="center">
-            <Fab size="large">
-                {props.icon}
-            </Fab>
-            <Typography variant="h6" color="white">
+            <Fab sx={{'&:hover':{backgroundColor: "#2b4345"}, backgroundColor: "#344d67", width:"100px", height:"100px"}}>{props.icon}</Fab>
+            <Typography variant="h6" color="#344d67">
                 {props.name}
             </Typography>
         </Stack>
-    </div>
-  )
-}
+    );
+};
 
-export default VolunType
+export default VolunType;
