@@ -1,6 +1,7 @@
 import "./App.css";
+import Home from "./components/Home/Home";
 import Layout from "./Layout/Layout";
-import { Route , Routes } from 'react-router-dom'
+import { Route , Routes } from 'react-router-dom';
 
 import Organizacoes from "./pages/Organizacoes";
 import Voluntariados from "./pages/Voluntariados";
@@ -13,7 +14,6 @@ import React, { useState } from "react";
 import Popup from "./components/Popup/Popup";
 import Profile from "./components/Popup/Profile";
 import {Button} from "@mui/material";
-
 
 function App() {
 
@@ -35,7 +35,7 @@ function App() {
                 <Route path='/Perfil/:idPerfil' element={<Perfil />} ></Route>
                 <Route path='/Voluntariados' element={<Voluntariados/>}></Route>
                 <Route path='/Voluntariado/:idVolt' element={<Voluntariado/>}></Route>
-                <Route exact path ='/' element={<HomePage/>} ></Route>
+                <Route exact path ='/' element={<Home/>} ></Route>
             </Routes>
             <Button variant="text" onClick={open}>Registar</Button>
             </Layout>

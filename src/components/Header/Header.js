@@ -136,7 +136,7 @@ function Header(props) {
 
     return (
         <>
-            <AppBar position="static" sx={{ bgcolor: "#497174" }}>
+            <AppBar position="static" sx={{ bgcolor: "#344D67" }}>
                 <Toolbar>
                     <Link
                        to="/"
@@ -156,6 +156,7 @@ function Header(props) {
                         <Typography
                             variant="h6"
                             sx={{
+                                color: "#EFF5F5",
                                 fontFamily: "monospace",
                                 fontWeight: 700,
                                 letterSpacing: ".2rem",
@@ -201,12 +202,12 @@ function Header(props) {
                                     size="large"
                                     sx={{
                                         "&:hover": {
-                                            backgroundColor: "#d0d5d5",
+                                            backgroundColor: "#cbd2d2",
                                         },
                                         backgroundColor: "#EFF5F5",
                                         textTransform: "none",
                                         borderRadius: "20px",
-                                        color: "#497174",
+                                        color: "#344D67",
                                     }}
                                     onClick={logIn}
                                 >
@@ -217,7 +218,7 @@ function Header(props) {
                                     size="large"
                                     sx={{
                                         "&:hover": {
-                                            border: " 1px solid #d0d5d5",
+                                            border: " 1px solid #cbd2d2",
                                         },
                                         border: " 1px solid #EFF5F5",
                                         textTransform: "none",

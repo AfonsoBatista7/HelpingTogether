@@ -1,2 +1,5 @@
 # dependencies
 /node_modules
+images/map_land.shp
+images/map_lines.dbf
+images/map_lines.shp
