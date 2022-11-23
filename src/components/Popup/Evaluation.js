@@ -31,7 +31,7 @@ function Evaluation(props) {
         var temp2 = todayDate.toTimeString().split(":")[1];
         var finalDate = todayDate.toLocaleDateString().concat(" ", temp1, ":", temp2);
 
-        addComment({ ...value, name: props.name, date: finalDate, nameOfTheCommented: props.nameOfTheCommented });
+        addComment({ ...value, name: props.name, date: finalDate, nameOfTheCommented: props.nameOfTheCommented, idPersonCommenting:props.idPersonCommenting});
 
         props.closePopup()
 

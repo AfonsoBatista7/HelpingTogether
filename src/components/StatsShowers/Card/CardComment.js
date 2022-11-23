@@ -1,11 +1,16 @@
 import { Avatar, Grid, Link, Rating } from "@mui/material";
 import style from "./cardComment.module.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Box } from "@mui/system";
 import Popup from "../../Popup/Popup";
 import Comment from "../../Popup/Comment";
 
-function CardComment({ name, image, comment, rating, date }) {
+
+function CardComment({ name, image, comment, rating, date, idperfil }) {
+
+    console.log(idperfil)
+    console.log(name)
+
     const charLimit = 170;
     const isDescBig = comment.length > charLimit;
 
@@ -66,8 +71,9 @@ function CardComment({ name, image, comment, rating, date }) {
                 openPopup={openPopup}
                 setOpenPopup={setOpenPopup}
             >
-                <Comment name={name} image={image} rating={rating} desc={comment} date={date} closePopup={close} />
+                <Comment idperfil={idperfil} name={name} image={image} rating={rating} desc={comment} date={date} closePopup={close} />
             </Popup>
+        
         </>
     );
 }

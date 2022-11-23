@@ -7,7 +7,8 @@ import { Pagination, Grid, Typography, Container, CircularProgress } from "@mui/
 import React, { useState, useEffect, useReducer } from "react";
 import { useParams } from "react-router-dom";
 
-function Perfil(props) {
+function Perfil() {
+   
 
     const { idPerfil } = useParams();
 
@@ -74,7 +75,7 @@ function Perfil(props) {
         for (const element of loggedIns) {
             if (element.id == idPerfil) {
                 setPerfil(element);
-
+                
             }
         }
     }
@@ -127,7 +128,7 @@ function Perfil(props) {
 
                     </div>
 
-                    <InfoProfile avaliar={avaliar} closeAvaliacao={closeAvaliacao} nameLoggedIn={perfilLoggedIn.name} openPopupAvaliacao={openPopupAvaliacao} setOpenPopupAvaliacao={setOpenPopupAvaliacao} state={state} id={perfil.id} name={perfil.name} image={perfil.image} email={perfil.email} phone={perfil.phone} rating={perfil.rating} type={perfil.typePerfil} login={perfil.isLoggedIn} description={perfil.description} birthday={perfil.birthday} gender={perfil.gender} />
+                    <InfoProfile avaliar={avaliar} closeAvaliacao={closeAvaliacao} idPersonCommenting={perfilLoggedIn.id} nameLoggedIn={perfilLoggedIn.name} typeLoggedIn={perfilLoggedIn.typePerfil} openPopupAvaliacao={openPopupAvaliacao} setOpenPopupAvaliacao={setOpenPopupAvaliacao} state={state} id={perfil.id} name={perfil.name} image={perfil.image} email={perfil.email} phone={perfil.phone} rating={perfil.rating} type={perfil.typePerfil} login={perfil.isLoggedIn} description={perfil.description} birthday={perfil.birthday} gender={perfil.gender} />
 
                     {perfil.typePerfil !== "organizacao" ? <>
                         <Container style={{

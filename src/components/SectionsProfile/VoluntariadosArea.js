@@ -142,17 +142,30 @@ function VoluntariadosArea(props) {
                                     desc={vol.description}
                                    ></MiniBoxVoluntariado>
                                 </Grid></>
-                        )) : <></>}
+                        )) : <>
+                        <div className={style.voluntariadosProfile} style={{ marginTop: "5%", width: "100%" }}>
+                        <Typography style={{
+                            fontWeight: 500,
+                            fontSize: 20,
+                            textAlign: 'center',
+                            color:"grey",
+                            marginLeft: 50
+                        }}>
+                            Não tem voluntariados
+                        </Typography>
+                    </div>
+                    </>}
                     </Grid>
                 </Container>
-                <Grid
-                    container
-                    direction="row"
-                    alignItems="center"
-                    justifyContent="center"
-                >
-                    <Pagination count={5} className={style.pagination}/>
-                </Grid>
+                {!(displayVolunt.length === 0) ?
+                    <Grid
+                        container
+                        direction="row"
+                        alignItems="center"
+                        justifyContent="center"
+                    >
+                        <Pagination count={5} className={style.paginationComment} />
+                    </Grid> : <></>}
 
             </div >
         </div >

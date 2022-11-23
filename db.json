@@ -10,7 +10,7 @@
         "Animais"
       ],
       "termsAndConditions": true,
-      "isLoggedIn": true,
+      "isLoggedIn": false,
       "typePerfil": "organizacao",
       "id": 70
     },
@@ -23,7 +23,7 @@
       "password": "123456",
       "confirmPassword": "123456",
       "termsAndConditions": true,
-      "isLoggedIn": false,
+      "isLoggedIn": true,
       "typePerfil": "voluntario",
       "id": 80
     },
@@ -404,7 +404,8 @@
       "comment": "Voluntário sempre desponível quando solicitado, empenhado e bom trabalhador.",
       "image": "Cruz_Vermelha.png",
       "rating": 3,
-      "date": "12/04/2022 11:55"
+      "date": "12/04/2022 11:55",
+      "idPersonCommenting":6
     },
     {
       "id": 31,
@@ -412,7 +413,8 @@
       "comment": "Voluntário empenhado, porém não pontual. Chegou várias vezes atrasado sem desculpa plausível",
       "image": "UNICEF.jpg",
       "rating": 2,
-      "date": "23/12/2022 18:45"
+      "date": "23/12/2022 18:45",
+      "idPersonCommenting":7
     },
     {
       "id": 32,
@@ -420,7 +422,8 @@
       "comment": "Voluntário dedicado, muito presente e comprometido com o projeto que desempenhou.",
       "image": "Leo.png",
       "rating": 5,
-      "date": "02/01/2020 08:02"
+      "date": "02/01/2020 08:02",
+      "idPersonCommenting":8
     },
     {
       "id": 33,
@@ -428,7 +431,8 @@
       "comment": "Voluntário um pouco rude. Não trabalhou bem em equipa.",
       "image": "FAPAS.jpg",
       "rating": 1,
-      "date": "29/09/2020 17:33"
+      "date": "29/09/2020 17:33",
+      "idPersonCommenting":9
     },
     {
       "id": 34,
@@ -436,7 +440,8 @@
       "comment": "Voluntário esforçado, no entanto, não estava sempre disponivel quando solocitado.",
       "image": "Just_a_Change.png",
       "rating": 4,
-      "date": "30/08/2022 10:12"
+      "date": "30/08/2022 10:12",
+      "idPersonCommenting":10
     },
     {
       "id": 35,
@@ -444,7 +449,8 @@
       "comment": "Voluntário desponável mas não se esforça tanto quanto poderia.",
       "image": "Banco_Alimentar.png",
       "rating": 3,
-      "date": "30/08/2022 10:12"
+      "date": "30/08/2022 10:12",
+      "idPersonCommenting":11
     },
     {
       "id": 36,
@@ -452,7 +458,8 @@
       "comment": "Voluntário bastante social, divertido e carismático. Interage bem com pessoas e faz um bom trabalho do que lhe é pedido.",
       "image": "Caritas.png",
       "rating": 4,
-      "date": "06/03/2021 22:31"
+      "date": "06/03/2021 22:31",
+      "idPersonCommenting":12
     },
     {
       "id": 37,
@@ -460,7 +467,8 @@
       "comment": "Voluntário eficiente, bom trabalhador em equipa e dinâmico. ",
       "image": "Animalife.jpg",
       "rating": 5,
-      "date": "13/05/2022 20:41"
+      "date": "13/05/2022 20:41",
+      "idPersonCommenting":13
     }
   ],
   "comentariosVoluntariado": [
@@ -470,7 +478,8 @@
       "comment": "Voluntariado muito bem estruturado e organizado. Gostei bastante.",
       "image": "Maria.jpg",
       "rating": 5,
-      "date": "07/07/2022 17:07"
+      "date": "07/07/2022 17:07",
+      "idPersonCommenting":1
     },
     {
       "id": 39,
@@ -478,7 +487,8 @@
       "comment": "Adorei o voluntariado. Aprendi bastante, ganhei muita experiência e conheci muitas pessoas diferentes.",
       "image": "Gestrudes.jpg",
       "rating": 5,
-      "date": "23/01/2021 09:27"
+      "date": "23/01/2021 09:27",
+      "idPersonCommenting":2
     },
     {
       "id": 40,
@@ -486,7 +496,8 @@
       "comment": "Voluntariado mal organizado e realizado. Não espera isto de uma organização destas.",
       "image": "Laura.png",
       "rating": 1,
-      "date": "15/12/2020 00:05"
+      "date": "15/12/2020 00:05",
+      "idPersonCommenting":3
     },
     {
       "id": 41,
@@ -494,7 +505,8 @@
       "comment": "Voluntariado bem organizado, no entanto, muito simples e não muito dinâmico.",
       "image": "Tiago.jpg",
       "rating": 3,
-      "date": "26/02/2021 14:18"
+      "date": "26/02/2021 14:18",
+      "idPersonCommenting":4
     },
     {
       "id": 42,
@@ -502,7 +514,8 @@
       "comment": "Bom voluntariado. Bem executado mas nada de excepcional.",
       "image": "Osvaldo.jpg",
       "rating": 4,
-      "date": "22/11/2021 19:39"
+      "date": "22/11/2021 19:39",
+      "idPersonCommenting":5
     }
   ],
   "voluntariadosRealizados": [
@@ -571,7 +584,8 @@
       "comment": "Voluntário esforçado, no entanto, não estava sempre disponivel quando solocitado.",
       "image": "Just_a_Change.png",
       "rating": 4,
-      "date": "30/08/2022 10:12"
+      "date": "30/08/2022 10:12",
+      "idPersonCommenting":10
     },
     {
       "id": 31,
@@ -579,7 +593,8 @@
       "comment": "Voluntário empenhado, porém não pontual. Chegou várias vezes atrasado sem desculpa plausível",
       "image": "UNICEF.jpg",
       "rating": 2,
-      "date": "23/12/2022 18:45"
+      "date": "23/12/2022 18:45",
+      "idPersonCommenting":7
     },
     {
       "id": 36,
@@ -587,7 +602,8 @@
       "comment": "Voluntário bastante social, divertido e carismático. Interage bem com pessoas e faz um bom trabalho do que lhe é pedido.",
       "image": "Caritas.png",
       "rating": 4,
-      "date": "06/03/2021 22:31"
+      "date": "06/03/2021 22:31",
+      "idPersonCommenting":12
     },
     {
       "id": 33,
@@ -595,19 +611,11 @@
       "comment": "Voluntário um pouco rude. Não trabalhou bem em equipa.",
       "image": "FAPAS.jpg",
       "rating": 1,
-      "date": "29/09/2020 17:33"
+      "date": "29/09/2020 17:33",
+      "idPersonCommenting":9
     }
   ],
   "comentariosFeitosPessoa": [
-    {
-      "rating": 3,
-      "comment": "jakhsdl;",
-      "name": "ola",
-      "date": "22/11/2022 21:08",
-      "nameOfTheCommented": "Just a Change",
-      "image": "defaultPhotoOrganization.jpg",
-      "id": 1
-    },
     {
       "rating": 3,
       "comment": "ansm,dn,",
@@ -615,7 +623,8 @@
       "date": "22/11/2022 21:09",
       "nameOfTheCommented": "Maria Leal",
       "image": "defaultPhotoOrganization.jpg",
-      "id": 2
+      "id": 2,
+      "idPersonCommenting":70
     }
   ],
   "comentariosFeitosVoluntariado": [
@@ -626,7 +635,8 @@
       "date": "22/11/2022 20:28",
       "nameOfTheCommented": "Plantar florestação",
       "image": "defaultPhoto.jpg",
-      "id": 1
+      "id": 1,
+      "idPersonCommenting":80
     }
   ],
   "novosVoluntariados": [

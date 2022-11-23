@@ -80,6 +80,8 @@ function Comentarios(props) {
             }
         }
 
+        console.log(list)
+
         setDisplayComment(list)
     }
 
@@ -122,36 +124,34 @@ function Comentarios(props) {
                                         image={com.image}
                                         name={com.name}
                                         comment={com.comment}
+                                        idperfil={com.idPersonCommenting}
                                     ></CardComment>
                                 </Grid>
                             </>
-                        )) : <></>}
-                        {/* {!(comment.length === 0) ? comment.map((com, index) => (
-                            <>
-                                <div className={style.voluntariadosProfile}></div>
-                                <Grid item xs={2} sm={4} md={3} key={index}>
-                                    <CardComment
-                                        id={com.id}
-                                        rating={com.rating}
-                                        image={com.image}
-                                        name={com.name}
-                                        comment={com.comment}
-                                        date={com.date}
-                                    ></CardComment>
-                                </Grid>
-                            </>
-                        )) : <></>} */}
+                        )) : <>
+                            <div className={style.voluntariadosProfile} style={{ marginTop: "5%", width: "100%" }}>
+                                <Typography style={{
+                                    fontWeight: 500,
+                                    fontSize: 20,
+                                    textAlign: 'center',
+                                    color:"grey",
+                                    marginLeft: 50
+                                }}>
+                                    Não tem comentários
+                                </Typography>
+                            </div></>}
                     </Grid>
 
                 </Container>
-                <Grid
-                    container
-                    direction="row"
-                    alignItems="center"
-                    justifyContent="center"
-                >
-                    <Pagination count={5} className={style.paginationComment} />
-                </Grid>
+                {!(displayComment.length === 0) ?
+                    <Grid
+                        container
+                        direction="row"
+                        alignItems="center"
+                        justifyContent="center"
+                    >
+                        <Pagination count={5} className={style.paginationComment} />
+                    </Grid> : <></>}
                 <Container style={{
                     height: 50
                 }}></Container>
