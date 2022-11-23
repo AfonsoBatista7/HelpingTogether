@@ -1,0 +1,20 @@
+.text {
+    text-align: "left";
+    margin-top: 3% !important;
+    margin-bottom: 3% !important;
+}
+
+.icons {
+    margin-top: 10% !important;
+}
+
+.pic {
+    margin-top: 6% !important;
+}
+
+.backgroundPopup{
+    background-image: url("../../../public/bolaVerde3.png"),  url("../../../public/bolaVerde2.png");
+    background-size: 200px;
+    background-repeat: no-repeat;
+    background-position: 336px 0px, 0px 124px;
+}
