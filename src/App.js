@@ -43,7 +43,8 @@ function App() {
                 openPopup={popup}
                 setOpenPopup={setOpen}
             >
-                <Profile name={"Maria"} image={"Maria.jpg"} desc={"Tenho 38 anos, sou enfermeira e tenho 3 filhos. Adoro fazer voluntariados relacionados com a saúde e com crianças."}/>
+                <Profile name={"Maria"} image={"Maria.jpg"} desc={"Tenho 38 anos, sou enfermeira e tenho 3 filhos. Adoro fazer voluntariados relacionados com a saúde e com crianças."}
+                email= {"marialeal45@gmail.com"} birthday={"07/05/1984"} gender={"Feminino"} phone={"924562789"} rating={4}/>
             </Popup>
         </div>
     );
