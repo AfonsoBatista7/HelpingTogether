@@ -4,6 +4,7 @@ import { Grid, Typography, TextField, Button, FormHelperText, FormControlLabel, 
 import style from "./evaluation.module.css";
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { PowerInputSharp } from '@mui/icons-material';
 
 function Evaluation(props) {
     
@@ -31,15 +32,13 @@ function Evaluation(props) {
         var temp2 = todayDate.toTimeString().split(":")[1];
         var finalDate = todayDate.toLocaleDateString().concat(" ", temp1, ":", temp2);
 
-        addComment({ ...value, name: props.name, date: finalDate, nameWhoMakesComment: props.nameWhoMakes });
+        addComment({ ...value, name: props.name, date: finalDate, nameOfTheCommented: props.nameOfTheCommented, idPersonCommenting: props.idPersonCommenting, idPersonCommented: props.idPersonCommented});
 
         props.closePopup()
 
     }
 
     const addComment = async (value) => {
-
-        console.log(value)
 
         if (props.type === "pessoa") {
 

@@ -1,9 +1,10 @@
 .entireCard {
-    width: 13%;
+    width: 100%;
     height: 100%;
     position: relative;
     bottom: 35px;
     transition: transform 0.3s ease-in-out;
+    cursor: pointer;
 }
 
 .entireCard:hover {
