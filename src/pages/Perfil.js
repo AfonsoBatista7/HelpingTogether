@@ -8,7 +8,7 @@ import React, { useState, useEffect, useReducer } from "react";
 import { useParams } from "react-router-dom";
 
 function Perfil() {
-   
+
 
     const { idPerfil } = useParams();
 
@@ -75,7 +75,7 @@ function Perfil() {
         for (const element of loggedIns) {
             if (element.id == idPerfil) {
                 setPerfil(element);
-                
+
             }
         }
     }
@@ -130,18 +130,16 @@ function Perfil() {
 
                     <InfoProfile avaliar={avaliar} closeAvaliacao={closeAvaliacao} idPersonCommenting={perfilLoggedIn.id} nameLoggedIn={perfilLoggedIn.name} typeLoggedIn={perfilLoggedIn.typePerfil} openPopupAvaliacao={openPopupAvaliacao} setOpenPopupAvaliacao={setOpenPopupAvaliacao} state={state} id={perfil.id} name={perfil.name} image={perfil.image} email={perfil.email} phone={perfil.phone} rating={perfil.rating} type={perfil.typePerfil} login={perfil.isLoggedIn} description={perfil.description} birthday={perfil.birthday} gender={perfil.gender} />
 
-                    {(perfil.typePerfil !== "organizacao")&&(perfilLoggedIn.id==idPerfil ) ? <>
+                    {(perfil.typePerfil !== "organizacao") && (perfilLoggedIn.id == idPerfil) ? 
+                    <>
                         <CandidaturasPendentes />
                     </>
-                        : <></>}
+                    : <></>}
 
 
-                    <Container style={{
-                        height: 70
-                    }}></Container>
 
 
-                    <VoluntariadosArea resgisterVoluntariado={resgisterVoluntariado} closeResgisterVoluntariado={closeResgisterVoluntariado} openPopupRegisterVoluntariado={openPopupRegisterVoluntariado} setOpenPopupRegisterVoluntariado={setOpenPopupRegisterVoluntariado} state={state}id={perfil.id} type={perfil.typePerfil} nameOrg={perfil.name} name={perfil.name} />
+                    <VoluntariadosArea resgisterVoluntariado={resgisterVoluntariado} closeResgisterVoluntariado={closeResgisterVoluntariado} openPopupRegisterVoluntariado={openPopupRegisterVoluntariado} setOpenPopupRegisterVoluntariado={setOpenPopupRegisterVoluntariado} state={state} id={perfil.id} type={perfil.typePerfil} nameOrg={perfil.name} name={perfil.name} />
 
                     {(perfil.typePerfil !== "organizacao") ? <>
 
