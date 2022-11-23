@@ -2,7 +2,7 @@
     width: 13%;
     height: 100%;
     position: relative;
-bottom: 35px;
+    bottom: 35px;
     transition: transform 0.3s ease-in-out;
 }
 
