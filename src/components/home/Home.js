@@ -4,16 +4,19 @@ import Map from "./Map";
 import HomeCarousel from './HomeCarousel';
 import { Grid } from '@mui/material';
 import { Forest, Pets, Factory, People, FoodBank, HealthAndSafety } from '@mui/icons-material';
-import MiniBoxVoluntariado from '../StatsShowers/Box/MiniBoxVoluntariado';
+import style from "./home.module.css"
+import VolunTypes from "./VolunTypes";
 
 import smartie1 from "./Cats/smartie1.jpg";
 import smartie3 from "./Cats/smartie3.jpg";
 import diana1 from "./Cats/diana1.jpg";
 import diana2 from "./Cats/diana2.jpg";
-import VolunTypes from "./VolunTypes";
+
 
 const Home = () => {
     const [topOpport, setTopOpport] = useState([]);
+    const [selectedType, setSelectedType] = useState(undefined)
+    const [selectedRegion, setSelectedRegion] = useState(undefined)
 
     useEffect(() => {
         const getTopOpport = async () => {
@@ -80,7 +83,7 @@ const Home = () => {
 
     return (
         <div>
-            <div className={style.fisrtSection}>
+            <div className={style.firstSection}>
                 <Grid
                     container
                     className={style.titleContainer}
@@ -114,7 +117,7 @@ const Home = () => {
                 <Grid item xs={6}>
                     <Map />
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={3}>
                     <SearchBar filters={filters} />
                 </Grid>
                 <Grid item xs={12}>

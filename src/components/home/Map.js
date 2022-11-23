@@ -2,6 +2,7 @@ import React from "react";
 import { Box } from "@mui/material";
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 import ptJson from "./db3_Portugal.json";
+import { Link } from 'react-router-dom'
 
 export default function Map() {
 
@@ -17,11 +18,17 @@ export default function Map() {
         <Geographies geography={ptJson}>
           {({ geographies }) =>
             geographies.map((geo) => (
-              <Geography key={geo.rsmKey} geography={geo} 
-                fill="#00ABB3"
-                fillOpacity="0.5"
-                stroke="#FFF"
-                strokeWidth={1}/>
+              <Link to="/Voluntariados"> {/* TODO adicionar filtro */}
+                <Geography key={geo.rsmKey} geography={geo} 
+                  style={{
+                    default: { fill: "#00ABB3" },
+                    hover: { fill: "#82C6C9" },
+                    pressed: { fill: "#BDDCDE" },
+                  }}
+                  fillOpacity="0.7"
+                  stroke="#FFF"
+                  strokeWidth={1}/>
+                </Link>
             ))
           }
         </Geographies>
