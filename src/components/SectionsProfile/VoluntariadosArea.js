@@ -132,7 +132,7 @@ function VoluntariadosArea(props) {
                 </Grid>
                 <Divider className={style.voluntariadosProfile}/>
                 <Container>
-                    <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                    <Grid container spacing={{ xs: 2, md: 4 }} columns={{ xs: 2, sm: 8, md: 16 }}>
                         {!(displayVolunt.length === 0) ? displayVolunt.map((vol, index) => (
                             <><Grid item xs={2} sm={4} md={4} key={index}> 
                                 <MiniBoxVoluntariado
@@ -164,7 +164,7 @@ function VoluntariadosArea(props) {
                         alignItems="center"
                         justifyContent="center"
                     >
-                        <Pagination count={5} className={style.paginationComment} />
+                        <Pagination count={1} className={style.pagination} />
                     </Grid> : <></>}
 
             </div >

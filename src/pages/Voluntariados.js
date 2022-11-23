@@ -171,7 +171,7 @@ function Voluntariados() {
                     alignItems="center"
                     justifyContent="center"
                 >
-                    <Pagination count={5} />
+                    <Pagination count={1} />
                 </Grid>
                 <Container style={{
                     height: 50

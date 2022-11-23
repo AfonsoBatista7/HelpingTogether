@@ -150,7 +150,7 @@ function Comentarios(props) {
                         alignItems="center"
                         justifyContent="center"
                     >
-                        <Pagination count={5} className={style.paginationComment} />
+                        <Pagination count={1} className={style.paginationComment} />
                     </Grid> : <></>}
                 <Container style={{
                     height: 50
