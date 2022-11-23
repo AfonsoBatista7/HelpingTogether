@@ -1,3 +1,5 @@
+@import url("https://fonts.cdnfonts.com/css/rubik-one");
+@import url("https://fonts.cdnfonts.com/css/raleway-5");
 
 .imagec {
     width: 100%;
@@ -7,4 +9,23 @@
 .image {
     min-width: 700;
     min-height: 60vh;
+}
+
+.title {
+    font-family: "Rubik One", sans-serif;
+    font-size: 100px;
+}
+
+.titleContainer {
+    position: relative;
+    cursor: default;
+    color: #344D67;
+    top: 100px;
+    right: 400px;
+}
+
+.slogan {
+ font-family: 'Raleway', sans-serif; 
+ text-transform: uppercase;
+ letter-spacing: .1rem;
 }

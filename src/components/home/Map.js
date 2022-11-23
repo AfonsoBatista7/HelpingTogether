@@ -18,7 +18,7 @@ export default function Map() {
           {({ geographies }) =>
             geographies.map((geo) => (
               <Geography key={geo.rsmKey} geography={geo} 
-                fill="#5FD"
+                fill="#00ABB3"
                 fillOpacity="0.5"
                 stroke="#FFF"
                 strokeWidth={1}/>

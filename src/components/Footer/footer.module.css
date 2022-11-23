@@ -29,7 +29,7 @@
     height: 3px;
     left: 50%;
     position: absolute;
-    background: #497174;
+    background: #344D67;
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
     width: 0;
 }
