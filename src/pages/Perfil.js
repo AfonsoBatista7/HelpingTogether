@@ -130,7 +130,7 @@ function Perfil() {
 
                     {(perfil.typePerfil !== "organizacao") && (perfilLoggedIn.id == idPerfil) ? 
                     <>
-                        <CandidaturasPendentes />
+                        <CandidaturasPendentes id={perfilLoggedIn.id} />
                     </>
                     : <></>}
 

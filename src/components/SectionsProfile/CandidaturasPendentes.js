@@ -26,7 +26,15 @@ function CandidaturasPendentes(props) {
 
         var data = await res.json()
 
-        return data;
+        var list=[]
+
+        for (const element of data) {
+            if(element.idPerson===props.id){
+                list.push(element)
+            }
+        }
+
+        return list;
     }
 
     return (
@@ -67,7 +75,7 @@ function CandidaturasPendentes(props) {
                             color:"grey",
                             marginLeft: 50
                         }}>
-                            Não candidaturas pendentes
+                            Nenhuma candidatura pendente
                         </Typography>
                     </div></>}
                     </Grid></Container>
