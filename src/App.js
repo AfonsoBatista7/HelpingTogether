@@ -29,7 +29,7 @@ function App() {
                 <Route path='/Perfil/:idPerfil' element={<Perfil />} ></Route>
                 <Route path='/Voluntariados' element={<Voluntariados/>}></Route>
                 <Route path='/Voluntariado/:idVolt' element={<Voluntariado/>}></Route>
-                <Route exact path ='/' element={<HomePage/>} ></Route>
+                <Route exact path ='/' element={<Home/>} ></Route>
             </Routes>
             </Layout>
         </div>

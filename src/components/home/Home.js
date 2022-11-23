@@ -78,7 +78,6 @@ const Home = () => {
         Duração: ["Reduzida", "Média", "Longa"],
     };
 
-
     return (
         <div>
             <div className={style.fisrtSection}>
