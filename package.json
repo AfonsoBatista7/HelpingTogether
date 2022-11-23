@@ -13,9 +13,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.1",
     "@testing-library/user-event": "^7.2.1",
-    "@turf/dissolve": "^6.5.0",
-    "@turf/flatten": "^6.5.0",
-    "json-server": "^0.17.1",
+    "antd": "^5.0.0",
     "date-fns": "^2.29.3",
     "dayjs": "^1.11.6",
     "formik": "^2.2.9",
@@ -24,6 +22,7 @@
     "react-dom": "^18.0.0",
     "react-icons": "^4.6.0",
     "react-responsive-carousel": "^3.2.23",
+    "react-router-dom": "^6.4.3",
     "react-scripts": "^5.0.1",
     "react-simple-maps": "^3.0.0",
     "yup": "^0.32.11"
@@ -49,8 +48,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "json-loader": "^0.5.7"
   }
 }

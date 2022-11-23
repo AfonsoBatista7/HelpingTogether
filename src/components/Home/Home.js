@@ -4,7 +4,7 @@ import Map from "./Map";
 import HomeCarousel from './HomeCarousel';
 import { Grid } from '@mui/material';
 import { Forest, Pets, Factory, People, FoodBank, HealthAndSafety } from '@mui/icons-material';
-import MiniBoxVoluntariado from '../StatsShowers/Box/MiniBoxVoluntariado';
+import style from "./home.module.css";
 
 import smartie1 from "./Cats/smartie1.jpg";
 import smartie3 from "./Cats/smartie3.jpg";
