@@ -202,20 +202,20 @@ function Voluntariado() {
     function checkBottum(temp) {
 
         if (temp) {
-            addVoluntariado();
+            addVoluntariado({...volunt, idPerson: perfil.id});
         } else {
             deleteVoluntariado(idVolt);
         }
     }
 
 
-    const addVoluntariado = async () => {
+    const addVoluntariado = async (value) => {
         const res = await fetch('http://localhost:5000/candidaturas', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
             },
-            body: JSON.stringify(volunt),
+            body: JSON.stringify(value),
         })
 
         const data = await res.json()
@@ -315,7 +315,7 @@ function Voluntariado() {
                     height: 50
                 }}></Container>
 
-                {!volunt.organizacao!==perfil.name? <><AcceptCandidates ></AcceptCandidates></>:<></>}
+                {!volunt.organizacao!==perfil.name? <><AcceptCandidates id={volunt.id} ></AcceptCandidates></>:<></>}
 
 
                 <Comentarios name={volunt.name} idPerfil={volunt.id} type="voluntariado" state={state}/>
