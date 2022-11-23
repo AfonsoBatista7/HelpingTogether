@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+def-text {
+  color: white;
+}
+
 html {
   font-family: sans-serif;
   background: rgb(64, 58, 58);

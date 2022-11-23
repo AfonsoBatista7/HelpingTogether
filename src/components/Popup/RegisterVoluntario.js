@@ -68,7 +68,7 @@ const RegisterVoluntario = (props) => {
     const validationSchema = Yup.object().shape({
         name: Yup.string().min(3, "Muito curto").required("Necessário"),
         email: Yup.string().email("Coloque um email válido").required("Necessário"),
-        gender: Yup.string().oneOf(["male", "female"], "Required").required("Necessário"),
+        gender: Yup.string().oneOf(["male", "female"], "Necessário").required("Necessário"),
         birthday: Yup.date().test("null", "Necessário", checkNull).test("age", "Tem que ter mais que 18 anos", calcMaior18),
         phone: Yup.number().typeError("Coloque um número de telefone válido").required('Necessário').min(910000000, "Deve começar em 91, 92, 93 ou 96 e ter 9 digitos").max(970000000, "Deve começar em 91, 92, 93 ou 96 e ter 9 digitos"),
         password: Yup.string().min(6, "Comprimento minimo de 6 caracteres").required("Necessário"),

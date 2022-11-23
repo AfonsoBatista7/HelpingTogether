@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import { Grid, Avatar, Collapse, IconButton, Alert, Typography, TextField, Button, Stack, FormHelperText } from '@mui/material'
+import { Grid, Avatar, Collapse, IconButton, Alert, Typography, TextField, Button, Stack, FormHelperText, InputLabel, MenuItem, FormControl, Select } from '@mui/material'
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -21,6 +21,12 @@ function RegisterVoluntariado(props) {
 
     const [open, setOpen] = useState(false);
 
+    const [region, setRegion] = useState('');
+
+    const handleChange = (event) => {
+        setRegion(event.target.value);
+    };
+
 
     const handleChangeIni = (newValue) => {
         setDateIni(newValue.$d)
@@ -34,7 +40,7 @@ function RegisterVoluntariado(props) {
 
     const onSubmit = (values) => {
 
-        addVoluntariado({ ...values, startDate: dateInic.toLocaleDateString(), endDate: dateFini.toLocaleDateString(), organizacao: props.organizacao, image: "defaultPhotoOrganization.jpg" })
+        addVoluntariado({ ...values, region: region, startDate: dateInic.toLocaleDateString(), endDate: dateFini.toLocaleDateString(), organizacao: props.organizacao, image: "defaultPhotoOrganization.jpg" })
 
         props.closePopup()
     };
@@ -55,6 +61,7 @@ function RegisterVoluntariado(props) {
 
     const initialValue = {
         name: '',
+        region: region,
         location: '',
         description: '',
         startDate: dateInic,
@@ -73,9 +80,14 @@ function RegisterVoluntariado(props) {
         return (dateInic <= dateFini);
     }
 
+    function checkNullSelect() {
+        return region;
+    }
+
 
     const validationSchema = Yup.object().shape({
         name: Yup.string().min(3, "Muito curto").required("Necessário"),
+        region: Yup.string().test("null", "Necessário", checkNullSelect),
         location: Yup.string().required("Necessário"),
         description: Yup.string().required("Necessário"),
         startDate: Yup.date().test("null", "Necessário", checkNullIni),
@@ -90,7 +102,7 @@ function RegisterVoluntariado(props) {
                     <Avatar className={style.avatar}>
                         <AddCircleIcon />
                     </Avatar>
-                    <h2  className={style.header}>Registar Voluntariado</h2>
+                    <h2 className={style.header}>Registar Voluntariado</h2>
                     <Typography variant='caption' gutterBottom>Por favor preencha este formulário para criar um voluntariado</Typography>
                 </Grid>
                 <Formik initialValues={initialValue} validationSchema={validationSchema} onSubmit={onSubmit}>
@@ -98,9 +110,29 @@ function RegisterVoluntariado(props) {
                         <Form autoComplete="off">
                             <Field as={TextField} fullWidth name="name" label='Nome' placeholder="Introduza o nome" className={style.both}
                                 helperText={<ErrorMessage name="name" component="div" style={{ color: 'red' }} />} />
-                            <Field as={TextField} fullWidth name="location" label='Localização' placeholder="Introduza a localização do voluntariado"  className={style.bottom}
+                            <FormControl fullWidth className={style.bottom}>
+                                <InputLabel id="region">Região</InputLabel>
+                                <Field as={Select}
+                                    name="region"
+                                    labelId="region"
+                                    id="region"
+                                    value={region}
+                                    label="region"
+                                    onChange={handleChange}
+                                >
+                                    <MenuItem value={"Norte"}>Norte</MenuItem>
+                                    <MenuItem value={"Centro"}>Centro</MenuItem>
+                                    <MenuItem value={"Alentejo"}>Alentejo</MenuItem>
+                                    <MenuItem value={"Área Metropolitana Lisboa"}>Área Metropolitana Lisboa</MenuItem>
+                                    <MenuItem value={"Argarve"}>Argarve</MenuItem>
+                                    <MenuItem value={"Açores"}>Açores</MenuItem>
+                                    <MenuItem value={"Madeira"}>Madeira</MenuItem>
+                                </Field>
+                            </FormControl>
+                            <FormHelperText><ErrorMessage name="region" component="div" style={{ color: 'red' }} /></FormHelperText>
+                            <Field as={TextField} fullWidth name="location" label='Localização' placeholder="Introduza a localização do voluntariado" className={style.bottom}
                                 helperText={<ErrorMessage name="location" component="div" style={{ color: 'red' }} />} />
-                            <Field as={TextField} fullWidth multiline name="description" label='Descrição' placeholder="Introduza uma descrição do voluntariado"  className={style.bottom}
+                            <Field as={TextField} fullWidth multiline name="description" label='Descrição' placeholder="Introduza uma descrição do voluntariado" className={style.bottom}
                                 helperText={<ErrorMessage name="description" component="div" style={{ color: 'red' }} />} />
                             <LocalizationProvider dateAdapter={AdapterDayjs} name="startDate" >
                                 <Stack spacing={3} className={style.both}>
