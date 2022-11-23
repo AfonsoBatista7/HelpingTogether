@@ -140,7 +140,7 @@ function InfoVoluntariado(props) {
                                     src={"/" + org.image}
 
                                     sx={{ width: 30, height: 30 }} />
-                                <Link style={{ color: "#2E3B55", textDecoration: "none" }} to={`/Perfil/${org.id}`}>
+                                <Link style={{ color: "#2E3B55", textDecoration: "none" }} to={`/Perfil/${org.id}/Perfil` } onClick={() => this.forceUpdate()}>
                                     <Typography
                                         style={{
                                             fontWeight: 500,
