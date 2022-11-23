@@ -666,18 +666,18 @@
   ],
   "candidaturas": [
     {
-      "id": 16,
-      "name": "Limpeza de praia de resídous",
-      "description": "Limpar a praia de Faro de poluição realizada durante os meses de verão.",
-      "startDate": "10/11/2022",
-      "endDate": "10/11/2022",
-      "location": "Faro",
+      "id": 18,
+      "name": "Voluntariado científico para o resgaste de cagarros",
+      "description": "Resgaste das aves juvenis cagarros de forma a conseguirem sair em segurança da Marina e do Porto de Vila Franca do Campo nos Açores.",
+      "startDate": "17/02/2023",
+      "endDate": "17/02/2023",
+      "location": "Vila Franca do Campo",
       "type": [
-        "Poluição"
+        "Animais"
       ],
-      "image": "Limpar_praia.png",
-      "rating": 4,
-      "organizacao": "Leo"
+      "image": "Cagarros.jpg",
+      "rating": 3,
+      "organizacao": "Animalife"
     }
   ]
 }

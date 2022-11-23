@@ -190,18 +190,18 @@ function Voluntariado() {
     }
 
     function changeState() {
-        editState(!candidate);
+    var temp=!candidate;
+
+        editState(temp);
+
+        checkBottum(temp)
     }
 
-    useEffect(() => {
-        checkBottum()
+   
 
-    }, [candidate])
+    function checkBottum(temp) {
 
-
-    function checkBottum() {
-
-        if (candidate) {
+        if (temp) {
             addVoluntariado();
         } else {
             deleteVoluntariado(idVolt);
