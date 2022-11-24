@@ -37,14 +37,7 @@ function App() {
                 <Route path='/Voluntariado/:idVolt' element={<Voluntariado/>}></Route>
                 <Route exact path ='/' element={<Home/>} ></Route>
             </Routes>
-            <Button variant="text" onClick={open}>Registar</Button>
             </Layout>
-            <Popup
-                openPopup={popup}
-                setOpenPopup={setOpen}
-            >
-                <Profile name={"Maria"} image={"Maria.jpg"} desc={"Tenho 38 anos, sou enfermeira e tenho 3 filhos. Adoro fazer voluntariados relacionados com a saúde e com crianças."}/>
-            </Popup>
         </div>
     );
 }
