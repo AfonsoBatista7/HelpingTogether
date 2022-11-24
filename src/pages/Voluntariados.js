@@ -159,6 +159,8 @@ function Voluntariados() {
                                 name={vol.name}
                                 rating={vol.rating}
                                 desc={vol.description}
+                                date={vol.endDate}
+                                location={vol.location}
                                 className={style.boxShow}></BoxVoluntariado>
                             <div className={style.boxShow}></div></>
                     )) : <></>}
