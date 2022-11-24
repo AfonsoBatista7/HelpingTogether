@@ -15,7 +15,7 @@ import Login from "../Popup/Login";
 import ChooseType from "../Popup/ChooseType";
 import { Link } from 'react-router-dom'
 
-function Header(props) {
+function Header() {
     const [perfil, setPerfil] = useState();
     const [openPopupLogin, setOpenPopupLogin] = useState(false);
     const [openPopupRegister, setOpenPopupRegister] = useState(false);
@@ -195,7 +195,7 @@ function Header(props) {
                             Organizações
                         </Button>
                         </Link>
-                        {!perfil ? (
+                        {!perfil ? 
                             <>
                                 <Button
                                     variant="contained"
@@ -230,14 +230,16 @@ function Header(props) {
                                     Registar
                                 </Button>
                             </>
-                        ) : (
+                        : 
                             <UserProfileButton
                                 id={perfil.id}
                                 name={perfil.name}
+                                typePerfil={perfil.typePerfil}
                                 image="/defaultPhoto.jpg"
                                 takeOffLogin={takeOffLogin}
                             />
-                        )}
+                            
+                        }
                     </Stack>
                 </Toolbar>
             </AppBar>
