@@ -9,13 +9,13 @@ function Comment(props) {
 
     <Grid container wrap="nowrap" spacing={2}>
       <Grid item>
-        <Link style={{ color: "#2E3B55", textDecoration: "none" }} to={`/Perfil/${props.idperfil}/Perfil`} onClick={() => this.forceUpdate()}>
+        <Link style={{ color: "#344D67", textDecoration: "none" }} to={`/Perfil/${props.idperfil}/Perfil`} onClick={() => this.forceUpdate()}>
           <Avatar alt={props.name} src={"/" + props.image} sx={{ width: 80, height: 80 }} />
         </Link>
       </Grid>
       <Grid justifyContent="left" item xs zeroMinWidth>
         <h4 style={{ margin: 0, textAlign: "left" }}>
-        <Link style={{ color: "#2E3B55", textDecoration: "none" }} to={`/Perfil/${props.idperfil}/Perfil`} onClick={() => this.forceUpdate()}>
+        <Link style={{ color: "#344D67", textDecoration: "none" }} to={`/Perfil/${props.idperfil}/Perfil`} onClick={() => this.forceUpdate()}>
           <Typography>{props.name}</Typography>
           </Link>
         </h4>

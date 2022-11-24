@@ -95,7 +95,7 @@ const Home = () => {
                         TOGETHER
                     </Grid>
                     <Grid item className={style.slogan}>
-                        Juntos Fazemos a Diferença!!!
+                        Juntos Fazemos a Diferença
                     </Grid>
                 </Grid>
             </div>
