@@ -15,8 +15,8 @@ import diana2 from "./Cats/diana2.jpg";
 
 const Home = () => {
     const [topOpport, setTopOpport] = useState([]);
-    const [selectedType, setSelectedType] = useState(undefined)
-    const [selectedRegion, setSelectedRegion] = useState(undefined)
+/*     const [selectedType, setSelectedType] = useState(undefined)
+    const [selectedRegion, setSelectedRegion] = useState(undefined) */
 
     useEffect(() => {
         const getTopOpport = async () => {
