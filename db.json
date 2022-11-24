@@ -10,7 +10,7 @@
         "Animais"
       ],
       "termsAndConditions": true,
-      "isLoggedIn": false,
+      "isLoggedIn": true,
       "typePerfil": "organizacao",
       "id": 70
     },
@@ -23,7 +23,7 @@
       "password": "123456",
       "confirmPassword": "123456",
       "termsAndConditions": true,
-      "isLoggedIn": true,
+      "isLoggedIn": false,
       "typePerfil": "voluntario",
       "id": 80
     },
@@ -36,7 +36,7 @@
       "password": "123456",
       "confirmPassword": "123456",
       "termsAndConditions": true,
-      "isLoggedIn": true,
+      "isLoggedIn": false,
       "typePerfil": "voluntario",
       "id": 90
     },
@@ -703,24 +703,26 @@
       "id": 26
     },
     {
-      "idVolunt": 1,
-      "idPerson": 90,
-      "id": 27
-    },
-    {
       "idVolunt": 17,
       "idPerson": 90,
       "id": 28
     },
     {
-      "idVolunt": 1,
-      "idPerson": 80,
-      "id": 29
-    },
-    {
       "idVolunt": 23,
       "idPerson": 80,
       "id": 30
+    },
+    {
+      "idVolunt": 1,
+      "idPerson": 90,
+      "id": 32
+    }
+  ],
+  "candidaturasAceites": [
+    {
+      "idVolunt": 1,
+      "idPerson": 80,
+      "id": 1
     }
   ]
 }

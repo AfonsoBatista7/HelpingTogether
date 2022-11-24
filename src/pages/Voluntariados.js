@@ -4,6 +4,7 @@ import React, { useState, useEffect, useReducer } from "react";
 import BoxVoluntariado from "../components/StatsShowers/Box/BoxVoluntariado";
 import RegisterVoluntariado from "../components/Popup/RegisterVoluntariado";
 import Popup from "../components/Popup/Popup";
+import SearchBar from "../components/Search/SearchBar";
 
 function Voluntariados() {
     const [state, forceUpdate] = useReducer(x => x + 1, 0);
@@ -16,6 +17,20 @@ function Voluntariados() {
 
     //vetor com todos os valores no login da Base de dados
     const [loggedIns, setLoggedIns] = useState([])
+
+    const filters = {
+        Tipo: ['Natureza', 'Animais', 'Poluição', 'Comunidade', 'Gastronomia', 'Saúde'], 
+        Região: [
+            "Norte",
+            "Centro",
+            "Alentejo",
+            "Área Metropolitana Lisboa",
+            "Algarve",
+            "Açores",
+            "Madeira",
+        ],
+        Duração: ["Reduzida", "Média", "Longa"],
+    };
 
     //vai buscar todos os valores de login da BD e mete em loggedIns
     useEffect(() => {
@@ -139,6 +154,9 @@ function Voluntariados() {
                 </Grid>
 
                 <Divider />
+                <Grid item className={style.filter}>
+                    <SearchBar filters={filters} />
+                </Grid>
                 <Container>
                     {!(newVoluntariados.length === 0) && newVoluntariados.map((vol) => (
                         <>

@@ -1,4 +1,4 @@
-import { Avatar, Grid, Rating } from "@mui/material";
+import { Avatar, Container, Grid, Rating, TextField, Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 import { Box, color } from "@mui/system";
@@ -11,17 +11,23 @@ import MaleIcon from '@mui/icons-material/Male';
 
 function Profile({ name, image, desc, gender, birthday, email, phone, idperfil, rating }) {
 
+    const fontColor = {
+        style: { color: "#2E3B55" }
+    }
+
+
     return (
         <Grid container>
             <Grid item xs={6} md={3} justifyContent="left" >
-                <Link style={{ color: "#2E3B55", textDecoration: "none" }} to={`/Perfil/${idperfil}`}>
-                    <Avatar alt={name} src={"/" + image} sx={{ width: 110, height: 110 }} className={style.pic} />
+                <Link style={{ color: "#2E3B55", textDecoration: "none" }} to={`/Perfil/${idperfil}/Perfil`}>
+                    {image ? <Avatar alt={name} src={"/" + image} sx={{ width: 110, height: 110 }} className={style.pic} />
+                    : <Avatar alt={name} src={"/defaultPhoto.jpg"} sx={{ width: 110, height: 110 }} className={style.pic} /> }
                 </Link>
             </Grid>
             <Grid item xs={6} md={9}>
                 <Grid container>
                     <Grid justifyContent="left" item zeroMinWidth xs={6} md={8}>
-                        <Link style={{ color: "#2E3B55", textDecoration: "none" }} to={`/Perfil/${idperfil}`}>
+                        <Link style={{ color: "#2E3B55", textDecoration: "none" }} to={`/Perfil/${idperfil}/Perfil`}>
                             <h2 style={{ margin: 0, textAlign: "left" }}>{name}</h2>
                         </Link>
                     </Grid>
@@ -50,7 +56,18 @@ function Profile({ name, image, desc, gender, birthday, email, phone, idperfil, 
                 </Grid>
                 <p style={{ textAlign: "left", color: "gray" }}></p>
             </Grid>
-            <p style={{ textAlign: "left" }}>{desc}</p>
+            {desc ? 
+            <><p style={{ textAlign: "left" }}>{desc}</p>
+            <Container style={{
+                        width: 200,
+                        height: 20
+                    }}></Container></>
+                : <>
+                    <p style={{ textAlign: "left" }}>Não tem descrição no perfil.</p>
+                    <Container style={{
+                        width: 200,
+                        height: 10
+                    }}></Container></>}
         </Grid>
     )
 }
