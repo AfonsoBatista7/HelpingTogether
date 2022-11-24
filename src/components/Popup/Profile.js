@@ -12,7 +12,7 @@ import MaleIcon from '@mui/icons-material/Male';
 function Profile({ name, image, desc, gender, birthday, email, phone, idperfil, rating }) {
 
     return (
-        <Grid container className={style.backgroundPopup}>
+        <Grid container>
             <Grid item xs={6} md={3} justifyContent="left" >
                 <Link style={{ color: "#2E3B55", textDecoration: "none" }} to={`/Perfil/${idperfil}`}>
                     <Avatar alt={name} src={"/" + image} sx={{ width: 110, height: 110 }} className={style.pic} />
