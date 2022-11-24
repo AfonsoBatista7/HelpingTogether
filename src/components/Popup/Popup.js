@@ -63,8 +63,8 @@ export default function Popup(props) {
   };
 
   return (
-    <div onClick={handleClose}>
-      <Dialog open={openPopup}>
+    <div>
+      <Dialog open={openPopup} onClose={handleClose}>
         <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose} />
         {props.tipo === "perfil" ? 
         <DialogContent className={style.backgroundPopup}>
