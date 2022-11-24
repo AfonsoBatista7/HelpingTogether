@@ -3,7 +3,7 @@ import VoluntariadosArea from "../components/SectionsProfile/VoluntariadosArea";
 import CandidaturasPendentes from "../components/SectionsProfile/CandidaturasPendentes";
 import Comentarios from "../components/SectionsProfile/Comentarios";
 import style from "../components/SectionsProfile/Profiles.module.css"
-import { Pagination, Grid, Typography, Container, CircularProgress } from "@mui/material";
+import { Typography, Container, CircularProgress } from "@mui/material";
 import React, { useState, useEffect, useReducer } from "react";
 import { useParams } from "react-router-dom";
 

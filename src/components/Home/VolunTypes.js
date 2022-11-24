@@ -6,7 +6,7 @@ const VolunTypes = (props) => {
   return (
         <Grid container spacing={10} style={{width: 450, height: 300}}>
         {Object.keys(props.types).map((type) => (
-            <Grid key={type} item xs={4}>
+            <Grid key={type} item xs={4} style={{padding: 0}}>
                 <VolunType name={type} icon={props.types[type]} />
             </Grid>
         ))}

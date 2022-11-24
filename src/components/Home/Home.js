@@ -108,7 +108,7 @@ const Home = () => {
                 rowSpacing={10}
                 style={{ marginTop: 20 }}
             >
-                <Grid item xs={6}>
+                <Grid item >
                     <VolunTypes types={volunTypes} />
                 </Grid>
                 <Grid item xs={6}>

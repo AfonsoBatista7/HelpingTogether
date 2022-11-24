@@ -7,14 +7,14 @@ function BoxStats(props) {
     return (
             <Box className={style.box}>
                 <Grid container direction="row" style={{ width: "100%" }}>
-                    <Grid item style={{ width: "18%" }}>
+                    <Grid item style={{ width: "18%", marginRight: "1%" }}>
                         <img
                             src={props.image}
                             alt={props.name}
                             className={style.boxImage}
                         />
                     </Grid>
-                    <Grid item style={{ width: "82%" }}>
+                    <Grid item style={{ width: "81%" }}>
                         <Grid container direction="column">
                             <Grid
                                 item
