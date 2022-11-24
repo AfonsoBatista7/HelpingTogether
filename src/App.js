@@ -22,37 +22,21 @@ import {Button} from "@mui/material";
 
 function App() {
 
-    const [popup, setOpen] = useState(false);
-
-    const open = () => {
-        setOpen(true);
-    };
-
-    const close = () => {
-        setOpen(false);
-    };
-
     return (
         <div>
             <Layout>
             <Routes>
                 <Route path='/Organizacoes' element={<Organizacoes/>} ></Route>
-                <Route path='/Perfil/:idPerfil' element={<Perfil />} ></Route>
+                <Route path='/Perfil/:idPerfil/:area' element={<Perfil />} ></Route>
                 <Route path='/Voluntariados' element={<Voluntariados/>}></Route>
                 <Route path='/Voluntariado/:idVolt' element={<Voluntariado/>}></Route>
                 <Route exact path ='/' element={<Home/>} ></Route>
             </Routes>
-            <Button variant="text" onClick={open}>Registar</Button>
             </Layout>
-            <Popup
-                openPopup={popup}
-                setOpenPopup={setOpen}
-            >
-                <Profile name={"Maria"} image={"Maria.jpg"} desc={"Tenho 38 anos, sou enfermeira e tenho 3 filhos. Adoro fazer voluntariados relacionados com a saúde e com crianças."}/>
-            </Popup>
         </div>
     );
 }
+
 
 {/* <CardComment name="Afonso" image="/afonso.gif" rating={5} comment="Adorei ajudar os animais! especialmente os Hamsters... até adotei um! Adorei mesmo foi uma boa experiência."/> */}
                     {/* <BoxVoluntariado image="/teste.jpg" name="Vamos salvar Antilopes! D:" desc="Porfavor!!! eles estão a morrer!! temos que os salvar... não têm pena!? olhem para a carinha linda dele a pedir ajuda :( pls..." rating={5}/> */}

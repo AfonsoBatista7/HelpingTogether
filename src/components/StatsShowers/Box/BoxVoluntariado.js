@@ -11,7 +11,7 @@ function BoxVoluntariado({image, name, desc, rating, id}) {
     };
 
     return (
-        <Link style={{ color: "#2E3B55", textDecoration: "none" }} to={`/Voluntariado/${id}`}>
+        <Link style={{ color: "#2E3B55", textDecoration: "none" }} to={`/Voluntariado/${id}`} onClick={() => this.forceUpdate()}>
         <BoxStats
             image={image}
             name={name}

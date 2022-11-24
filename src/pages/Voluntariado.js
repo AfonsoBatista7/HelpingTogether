@@ -15,7 +15,7 @@ function Voluntariado() {
 
     const [volunt, setVoluntariado] = useState(null);
 
-    const [volntAll, setAllVolunt] = useState([])
+    const [volntAll, setAllVolunt] = useState([]);
 
     const [candidate, editState] = useState(false);
 
@@ -23,24 +23,27 @@ function Voluntariado() {
 
     const [voltDone, setVoltDone] = useState(false);
 
-    const [voluntsDone, setVoluntsDone] = useState([])
+    const [voluntsDone, setVoluntsDone] = useState([]);
 
-    const [voluntsComent, setVoluntsComent] = useState(false)
+    const [voluntsComent, setVoluntsComent] = useState(false);
 
     const [openPopupAvaliacao, setOpenPopupAvaliacao] = useState(false);
     const [state, forceUpdate] = useReducer(x => x + 1, 0);
 
     //vetor com todos os valores no login da Base de dados
-    const [loggedIns, setLoggedIns] = useState([])
+    const [loggedIns, setLoggedIns] = useState([]);
 
+    const [candidatura,setCandidatura] =useState([])
 
-    const [candid, setVoluntariados] = useState([])
+    const [candid, setVoluntariados] = useState([]);
 
-    useEffect(() => {
+    const checkifiscandid=(id) => {
 
         const getVolunts = async () => {
 
             const listVolunt = await fetchCandidatura()
+
+            checkIfCandidate(listVolunt,id)
 
             setVoluntariados(listVolunt)
 
@@ -48,7 +51,7 @@ function Voluntariado() {
 
         getVolunts(candid)
 
-    }, [])
+    }
 
     const fetchCandidatura = async () => {
         var res = await fetch('http://localhost:5000/candidaturas');
@@ -118,17 +121,11 @@ function Voluntariado() {
 
     }
 
-    useEffect(() => {
-        checkIfCandidate(candid)
-
-
-    }, [candid])
-
-    const checkIfCandidate = (candid) => {
-
+    const checkIfCandidate = (candid, idLogin) => {
         for (const element of candid) {
-            if (element.id == idVolt) {
+            if ((element.idPerson == idLogin)&&(element.idVolunt==idVolt)) {
                 editState(true);
+                setCandidatura(element);
             }
         }
 
@@ -196,6 +193,8 @@ function Voluntariado() {
 
         for (const element of loggedIns) {
             if (element.isLoggedIn) {
+
+                checkifiscandid(element.id)
                 setPerfil(element);
             }
         }
@@ -215,9 +214,9 @@ function Voluntariado() {
     function checkBottum(temp) {
 
         if (temp) {
-            addVoluntariado({...volunt, idPerson: perfil.id});
+            addVoluntariado({idVolunt: volunt.id , idPerson: perfil.id});
         } else {
-            deleteVoluntariado(idVolt);
+            deleteVoluntariado(candidatura.id);
         }
     }
 
@@ -239,10 +238,6 @@ function Voluntariado() {
         const res = await fetch(`http://localhost:5000/candidaturas/${id}`, {
             method: 'DELETE',
         })
-        //We should control the response status to decide if we will change the state or not.
-        // res.status === 200
-        //   ? ""
-        //   : alert('Erro a cancelar a candidatura')
     }
 
     const avaliar = () => {
