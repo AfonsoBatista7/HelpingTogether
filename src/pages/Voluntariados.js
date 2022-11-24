@@ -140,7 +140,7 @@ function Voluntariados() {
 
                 <Divider />
                 <Container>
-                    {!(newVoluntariados.length === 0) ? newVoluntariados.map((vol) => (
+                    {!(newVoluntariados.length === 0) && newVoluntariados.map((vol) => (
                         <>
                             <div className={style.boxShow}></div>
                             <BoxVoluntariado
@@ -149,10 +149,12 @@ function Voluntariados() {
                                 name={vol.name}
                                 rating={vol.rating}
                                 desc={vol.description}
+                                date={vol.endDate}
+                                location={vol.location}
                                 key={vol.id} className={style.boxShow}></BoxVoluntariado>
                             <div className={style.boxShow}></div></>
-                    )) : <></>}
-                    {!(voluntariados.length === 0) ? voluntariados.map((vol) => (
+                    ))}
+                    {!(voluntariados.length === 0) && voluntariados.map((vol) => (
                         <>
                             <div className={style.boxShow}></div>
                             <BoxVoluntariado
@@ -161,9 +163,11 @@ function Voluntariados() {
                                 name={vol.name}
                                 rating={vol.rating}
                                 desc={vol.description}
+                                date={vol.endDate}
+                                location={vol.location}
                                 className={style.boxShow}></BoxVoluntariado>
                             <div className={style.boxShow}></div></>
-                    )) : <></>}
+                    ))}
                 </Container>
                 <Grid
                     container
