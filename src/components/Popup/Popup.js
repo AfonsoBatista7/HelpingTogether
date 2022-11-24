@@ -7,6 +7,7 @@ import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
+import style from "./profile.module.css";
 
 
 function BootstrapDialogTitle(props) {
@@ -51,7 +52,7 @@ export default function Popup(props) {
     setOpenPopup(false);
 
     props.changePopup("login");
-    
+
   };
 
   const changePopupToRegister = () => {
@@ -65,9 +66,13 @@ export default function Popup(props) {
     <div>
       <Dialog open={openPopup}>
         <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose} />
+        {props.tipo === "perfil" ? 
+        <DialogContent className={style.backgroundPopup}>
+          {children} 
+        </DialogContent> : 
         <DialogContent>
           {children}
-        </DialogContent>
+        </DialogContent>}
         {props.tipo === "login" ?
           <div>
             <Typography style={margin}> Ainda não tem conta ?

@@ -9,23 +9,9 @@ import Voluntariado from "./pages/Voluntariado";
 
 import Perfil from "./pages/Perfil";
 import HomePage from "./pages/HomePage";
-import React, { useState } from "react";
-
-import Popup from "./components/Popup/Popup";
-import Profile from "./components/Popup/Profile";
-import {Button} from "@mui/material";
+import React from "react";
 
 function App() {
-
-    const [popup, setOpen] = useState(false);
-
-    const open = () => {
-        setOpen(true);
-    };
-
-    const close = () => {
-        setOpen(false);
-    };
 
     return (
         <div>
@@ -41,7 +27,5 @@ function App() {
         </div>
     );
 }
-
-//{name, image, desc, gender, birthday, email, phone, idperfil, rating}
 
 export default App;
