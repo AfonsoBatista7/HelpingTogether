@@ -63,7 +63,7 @@ export default function Popup(props) {
   };
 
   return (
-    <div>
+    <div onClick={handleClose}>
       <Dialog open={openPopup}>
         <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose} />
         {props.tipo === "perfil" ? 
@@ -73,19 +73,19 @@ export default function Popup(props) {
         <DialogContent>
           {children}
         </DialogContent>}
-        {props.tipo === "login" ?
+        {props.tipo === "login" && 
           <div>
             <Typography style={margin}> Ainda não tem conta ?
               <Button variant="text" onClick={changePopupToRegister}>Registar</Button>
             </Typography>
-          </div> : <></>
+          </div>
         }
-        {props.tipo === "register" ?
+        {props.tipo === "register" &&
           <div>
             <Typography style={margin}> Já tem conta ?
               <Button variant="text" onClick={changePopupToLogin}>Entrar</Button>
             </Typography>
-          </div> : <></>
+          </div>
         }
       </Dialog>
     </div>
