@@ -10,7 +10,7 @@
         "Animais"
       ],
       "termsAndConditions": true,
-      "isLoggedIn": true,
+      "isLoggedIn": false,
       "typePerfil": "organizacao",
       "id": 70
     },
@@ -36,7 +36,7 @@
       "password": "123456",
       "confirmPassword": "123456",
       "termsAndConditions": true,
-      "isLoggedIn": false,
+      "isLoggedIn": true,
       "typePerfil": "voluntario",
       "id": 90
     },
@@ -682,36 +682,18 @@
   "novosVoluntariados": [
     {
       "name": "tobias",
-      "region": "Açores",
-      "location": "sncm,na",
-      "description": "mNMnsal",
-      "startDate": "22/11/2022",
-      "endDate": "26/11/2022",
+      "region": "Centro",
+      "location": "aksdmsand,",
+      "description": "ansbdabsd",
+      "startDate": "09/11/2022",
+      "endDate": "10/11/2022",
+      "type": [
+        "Natureza",
+        "Animais"
+      ],
       "organizacao": "ola",
       "image": "defaultPhotoOrganization.jpg",
       "id": 1
-    },
-    {
-      "name": "help people",
-      "region": "Centro",
-      "location": "coimbra",
-      "description": "asjkdhjsdhksh",
-      "startDate": "09/11/2022",
-      "endDate": "10/11/2022",
-      "organizacao": "ola",
-      "image": "defaultPhotoOrganization.jpg",
-      "id": 2
-    },
-    {
-      "name": "lavar pratos",
-      "region": "Área Metropolitana Lisboa",
-      "location": "caparica",
-      "description": "anlckbs",
-      "startDate": "14/11/2022",
-      "endDate": "16/11/2022",
-      "organizacao": "ola",
-      "image": "defaultPhotoOrganization.jpg",
-      "id": 3
     }
   ],
   "candidaturas": [

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import { Grid, Avatar, Collapse, IconButton, Alert, Typography, TextField, Button, Stack, FormHelperText, InputLabel, MenuItem, FormControl, Select } from '@mui/material'
+import { Grid, Avatar, Collapse, IconButton, Alert, Typography, TextField, Button, Stack, FormHelperText, InputLabel, MenuItem, FormControl, Select, FormControlLabel, Checkbox } from '@mui/material'
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -22,6 +22,7 @@ function RegisterVoluntariado(props) {
     const [open, setOpen] = useState(false);
 
     const [region, setRegion] = useState('');
+    const [types, setTypes] = useState([])
 
     const handleChange = (event) => {
         setRegion(event.target.value);
@@ -65,7 +66,8 @@ function RegisterVoluntariado(props) {
         location: '',
         description: '',
         startDate: dateInic,
-        endDate: dateFini
+        endDate: dateFini,
+        type: types
     }
 
     function checkNullIni() {
@@ -84,6 +86,19 @@ function RegisterVoluntariado(props) {
         return region;
     }
 
+    const getValues = (e) => {
+        let data = types;
+
+        if (data.includes(e)) {
+            data.pop(e)
+        } else {
+            data.push(e)
+
+        }
+
+        setTypes(data)
+    }
+
 
     const validationSchema = Yup.object().shape({
         name: Yup.string().min(3, "Muito curto").required("Necessário"),
@@ -92,6 +107,7 @@ function RegisterVoluntariado(props) {
         description: Yup.string().required("Necessário"),
         startDate: Yup.date().test("null", "Necessário", checkNullIni),
         endDate: Yup.date().test("null", "Necessário", checkNullFin).test("bigger", "Tem ser no mesmo dia ou depois da data inicial", checkDateFin),
+        type: Yup.array().min(1, "Tem que selecionar pelo menos um tipo").required("Necessário"),
     })
 
 
@@ -175,7 +191,33 @@ function RegisterVoluntariado(props) {
                                     Foto importada com sucesso!
                                 </Alert>
                             </Collapse>
-                            <div>
+                            <Typography name="type" sx={{ fontWeight: 'bold' }} >Selecione o tipo do voluntariado:</Typography>
+                                <FormHelperText><ErrorMessage name="type" component="div" style={{ color: 'red' }} /></FormHelperText>
+                                <FormControlLabel
+                                    control={<Checkbox value="Natureza" onChange={(e) => getValues(e.target.value)} />}
+                                    label="Natureza"
+                                />
+                                <FormControlLabel
+                                    control={<Checkbox value="Animais" onChange={(e) => getValues(e.target.value)} />}
+                                    label="Animais"
+                                />
+                                <FormControlLabel
+                                    control={<Checkbox value="Poluição" onChange={(e) => getValues(e.target.value)} />}
+                                    label="Poluição"
+                                />
+                                <FormControlLabel
+                                    control={<Checkbox value="Comunidade" onChange={(e) => getValues(e.target.value)} />}
+                                    label="Comunidade"
+                                />
+                                <FormControlLabel
+                                    control={<Checkbox value="Gastronomia" onChange={(e) => getValues(e.target.value)} />}
+                                    label="Gastronomia"
+                                />
+                                <FormControlLabel
+                                    control={<Checkbox value="Saúde" onChange={(e) => getValues(e.target.value)} />}
+                                    label="Saúde"
+                                />
+                            <div class={style.top}>
                                 <Grid container spacing={3} justifyContent="center">
                                     <Grid item xs={6}>
                                         <Button type='submit' variant='contained' color='primary' disabled={props.isSubmitting}
