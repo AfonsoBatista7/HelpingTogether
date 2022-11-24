@@ -10,7 +10,7 @@ function MiniBoxVoluntariado(props) {
 
     return (
         <Link style={{ color: "#2E3B55", textDecoration: "none" }} to={`/Voluntariado/${props.id}`} onClick={() => this.forceUpdate()}>
-            <Card style={{ top: "200px", right: "200px" }} sx={{ maxWidth: 245 }}>
+            <Card className={style.box} sx={{ maxWidth: 245 }}>
                 <CardActionArea>
                     <CardMedia
                         component="img"
