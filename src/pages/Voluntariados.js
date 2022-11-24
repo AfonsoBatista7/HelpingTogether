@@ -12,7 +12,6 @@ function Voluntariados() {
     const [perfil, setPerfil] = useState(null);
     const [openPopupRegisterVoluntariado, setOpenPopupRegisterVoluntariado] = useState(false);
 
-    const [newVoluntariados, setNewVoluntariados] = useState([]);
     const [voluntariados, setVoluntariados] = useState([])
 
     //vetor com todos os valores no login da Base de dados
@@ -43,33 +42,26 @@ function Voluntariados() {
 
         getVoluntariados()
 
-    }, [])
+    }, [state])
 
     const fetchVoluntariados = async () => {
         const res = await fetch('http://localhost:5000/voluntariados')
         const data = await res.json()
 
-        return data;
-    }
+        const res2 = await fetch('http://localhost:5000/novosVoluntariados')
+        const data2 = await res2.json()
 
+        var list = [];
 
-    useEffect(() => {
-        const getNewVoluntariados = async () => {
-            const newVoluntariadosFromServer = await fetchNewVoluntariados()
-
-            setNewVoluntariados(newVoluntariadosFromServer)
-
+        for (const element of data2) {
+            list.push(element);
         }
 
-        getNewVoluntariados();
+        for (const element of data) {
+            list.push(element);
+        }
 
-    }, [state])
-
-    const fetchNewVoluntariados = async () => {
-        const res = await fetch('http://localhost:5000/novosVoluntariados')
-        const data = await res.json()
-
-        return data;
+        return list;
     }
 
     useEffect(() => {
@@ -158,21 +150,7 @@ function Voluntariados() {
                     <SearchBar filters={filters} />
                 </Grid>
                 <Container>
-                    {!(newVoluntariados.length === 0) && newVoluntariados.map((vol) => (
-                        <>
-                            <div className={style.boxShow}></div>
-                            <BoxVoluntariado
-                                id={vol.id}
-                                image={vol.image}
-                                name={vol.name}
-                                rating={vol.rating}
-                                desc={vol.description}
-                                date={vol.endDate}
-                                location={vol.location}
-                                key={vol.id} className={style.boxShow}></BoxVoluntariado>
-                            <div className={style.boxShow}></div></>
-                    ))}
-                    {!(voluntariados.length === 0) && voluntariados.map((vol) => (
+                    {!(voluntariados.length === 0) ? voluntariados.map((vol) => (
                         <>
                             <div className={style.boxShow}></div>
                             <BoxVoluntariado
@@ -185,7 +163,7 @@ function Voluntariados() {
                                 location={vol.location}
                                 className={style.boxShow}></BoxVoluntariado>
                             <div className={style.boxShow}></div></>
-                    ))}
+                    )) : <></>}
                 </Container>
                 <Grid
                     container
