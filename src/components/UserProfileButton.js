@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-
-
+import { Link } from "react-router-dom";
 import {
     Typography,
     Box,
@@ -82,7 +81,7 @@ const UserProfileButton = (props) => {
                 >
                     {Object.keys(settings).map((setting) => (
                       
-                            <Link href={setting} key={setting} style={{ textDecoration: 'none', color: 'black' }} to={setting === "Sair" ? '' : `/Perfil/${props.id}`} onClick={() => this.forceUpdate()}>
+                            <Link href={setting} key={setting} style={{ textDecoration: 'none', color: 'black' }} to={setting === "Sair" ? '' : `/Perfil/${props.id}/${setting}`}  onClick={setting === "Sair" ?'':() => this.forceUpdate()}>
                                 <MenuItem key={setting} onClick={settings[setting]}>
                                     <Typography textAlign="center">
                                         {setting}

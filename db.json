@@ -36,7 +36,7 @@
       "password": "123456",
       "confirmPassword": "123456",
       "termsAndConditions": true,
-      "isLoggedIn": false,
+      "isLoggedIn": true,
       "typePerfil": "voluntario",
       "id": 90
     },
@@ -682,53 +682,45 @@
   "novosVoluntariados": [
     {
       "name": "tobias",
-      "region": "Açores",
-      "location": "sncm,na",
-      "description": "mNMnsal",
-      "startDate": "22/11/2022",
-      "endDate": "26/11/2022",
+      "region": "Centro",
+      "location": "aksdmsand,",
+      "description": "ansbdabsd",
+      "startDate": "09/11/2022",
+      "endDate": "10/11/2022",
+      "type": [
+        "Natureza",
+        "Animais"
+      ],
       "organizacao": "ola",
       "image": "defaultPhotoOrganization.jpg",
       "id": 1
-    },
-    {
-      "name": "help people",
-      "region": "Centro",
-      "location": "coimbra",
-      "description": "asjkdhjsdhksh",
-      "startDate": "09/11/2022",
-      "endDate": "10/11/2022",
-      "organizacao": "ola",
-      "image": "defaultPhotoOrganization.jpg",
-      "id": 2
-    },
-    {
-      "name": "lavar pratos",
-      "region": "Área Metropolitana Lisboa",
-      "location": "caparica",
-      "description": "anlckbs",
-      "startDate": "14/11/2022",
-      "endDate": "16/11/2022",
-      "organizacao": "ola",
-      "image": "defaultPhotoOrganization.jpg",
-      "id": 3
     }
   ],
   "candidaturas": [
     {
-      "id": 25,
-      "name": "Doação de sangue",
-      "description": "Recolha de todos os tipes de sangue, para reabastecer as reservas dos hospitais que têm mais falta deste recurso.",
-      "startDate": "10/09/2023",
-      "endDate": "14/09/2023",
-      "location": "Portimão",
-      "type": [
-        "Saúde"
-      ],
-      "image": "Sangue.png",
-      "rating": 2,
-      "organizacao": "Cruz Vermelha",
-      "idPerson": 80
+      "idVolunt": 19,
+      "idPerson": 90,
+      "id": 26
+    },
+    {
+      "idVolunt": 1,
+      "idPerson": 90,
+      "id": 27
+    },
+    {
+      "idVolunt": 17,
+      "idPerson": 90,
+      "id": 28
+    },
+    {
+      "idVolunt": 1,
+      "idPerson": 80,
+      "id": 29
+    },
+    {
+      "idVolunt": 23,
+      "idPerson": 80,
+      "id": 30
     }
   ]
 }
