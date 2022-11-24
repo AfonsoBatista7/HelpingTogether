@@ -7,7 +7,7 @@ import {
     Avatar,
     Tooltip,
     MenuItem,
-    Button,
+    Button
 } from "@mui/material";
 
 const UserProfileButton = (props) => {
