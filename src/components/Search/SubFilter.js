@@ -14,6 +14,10 @@ const SubFilter = (props) => {
     const handleFilterClose = () => {
         setAnchorElFilter(null);
     };
+    const handleFilterUpdate = (e) => {
+        props.onFilterUpdate(props.filter, e.target.textContent)
+        handleFilterClose();
+    }
 
     return (
         <div>
@@ -39,7 +43,7 @@ const SubFilter = (props) => {
         onClose={handleFilterClose}
         >
         {Object.keys(props.items).map((item) => (
-            <MenuItem onClick={handleFilterClose}>{props.items[item]}</MenuItem>
+            <MenuItem onClick={handleFilterUpdate}>{props.items[item]}</MenuItem>
         ))}
         </Menu>
         </div>

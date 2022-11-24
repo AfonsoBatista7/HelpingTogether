@@ -18,8 +18,8 @@ export default function Map() {
         <Geographies geography={ptJson}>
           {({ geographies }) =>
             geographies.map((geo) => (
-              <Link to="/Voluntariados"> {/* TODO adicionar filtro */}
-                <Geography key={geo.rsmKey} geography={geo} 
+              <Link key={geo.rsmKey} to="/Voluntariados"> {/* TODO adicionar filtro */}
+                <Geography geography={geo} 
                   style={{
                     default: { fill: "#00ABB3" },
                     hover: { fill: "#82C6C9" },
