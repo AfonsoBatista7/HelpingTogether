@@ -698,16 +698,6 @@
   ],
   "candidaturas": [
     {
-      "idVolunt": 1,
-      "idPerson": 90,
-      "id": 29
-    },
-    {
-      "idVolunt": 1,
-      "idPerson": 2,
-      "id": 27
-    },
-    {
       "idVolunt": 19,
       "idPerson": 90,
       "id": 26
@@ -721,7 +711,18 @@
       "idVolunt": 23,
       "idPerson": 80,
       "id": 30
+    },
+    {
+      "idVolunt": 1,
+      "idPerson": 90,
+      "id": 32
     }
   ],
-  "candidaturasAceites": []
+  "candidaturasAceites": [
+    {
+      "idVolunt": 1,
+      "idPerson": 80,
+      "id": 1
+    }
+  ]
 }

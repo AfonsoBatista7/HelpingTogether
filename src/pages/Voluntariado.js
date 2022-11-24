@@ -323,11 +323,9 @@ function Voluntariado() {
                     height: 50
                 }}></Container>
 
-                {!volunt.organizacao !== perfil.name ?
-                    <>
-                        <AcceptCandidates id={volunt.id} >
-                        </AcceptCandidates></>
-                    : <></>}
+                {!volunt.organizacao!==perfil.name? 
+                <AcceptCandidates id={volunt.id} ></AcceptCandidates>
+                :<></>}
 
                 <Comentarios newVolunt={voluntsComent} name={volunt.name} idPerfil={volunt.id} type="voluntariado" state={state} />
 
