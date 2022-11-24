@@ -9,8 +9,7 @@ import { useParams } from "react-router-dom";
 
 function Perfil() {
 
-
-    const { idPerfil } = useParams();
+    const { idPerfil , area} = useParams();
 
     const [perfil, setPerfil] = useState(null);
     const [perfilLoggedIn, setPerfilLoggedIn] = useState(null);

@@ -23,15 +23,27 @@ function CandidaturasPendentes(props) {
 
     const fetchCandidatura = async () => {
         var res = await fetch('http://localhost:5000/candidaturas');
+        var res1 = await fetch('http://localhost:5000/voluntariados');
+        var res2 = await fetch('http://localhost:5000/novosVoluntariados');
 
         var data = await res.json()
+        var data1 = await res1.json()
+        var data2 = await res2.json()
 
-        var list=[]
+        var list = []
 
         for (const element of data) {
-            if(element.idPerson===props.id){
-                list.push(element)
+            for (const element2 of data1) {
+                if ((element.idPerson === props.id)&&(element.idVolunt===element2.id) ){
+                    list.push(element2)
+                }
             }
+            for (const element3 of data2) {
+                if ((element.idPerson === props.id)&&(element.idVolunt===element3.id) ){
+                    list.push(element3)
+                }
+            }
+
         }
 
         return list;
@@ -55,9 +67,9 @@ function CandidaturasPendentes(props) {
                     }}
                 >Candidaturas Pendentes</Typography>
 
-                <Divider className={style.voluntariadosProfile}/>
+                <Divider className={style.voluntariadosProfile} />
                 <Container >
-                  <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 16 }}>
+                    <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 16 }}>
                         {!(candid.length === 0) ? candid.map((vol, index) => (
                             <><Grid item xs={2} sm={4} md={4} key={index}>
                                 <MiniBoxVoluntariado
@@ -68,18 +80,18 @@ function CandidaturasPendentes(props) {
                                 ></MiniBoxVoluntariado>
                             </Grid></>
                         )) : <><div className={style.voluntariadosProfile} style={{ marginTop: "5%", width: "100%" }}>
-                        <Typography style={{
-                            fontWeight: 500,
-                            fontSize: 20,
-                            textAlign: 'center',
-                            color:"grey",
-                            marginLeft: 50
-                        }}>
-                            Nenhuma candidatura pendente
-                        </Typography>
-                    </div></>}
+                            <Typography style={{
+                                fontWeight: 500,
+                                fontSize: 20,
+                                textAlign: 'center',
+                                color: "grey",
+                                marginLeft: 50
+                            }}>
+                                Nenhuma candidatura pendente
+                            </Typography>
+                        </div></>}
                     </Grid></Container>
-                    {!(candid.length === 0) ?
+                {!(candid.length === 0) ?
                     <Grid
                         container
                         direction="row"

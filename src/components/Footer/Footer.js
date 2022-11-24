@@ -52,7 +52,7 @@ function Footer(props) {
                         marginTop: "30px",
                     }}
                 >
-                    <Grid item xs={4}>
+                    <Grid item>
                         <Link
                             href="https://twitter.com/"
                             className={style.footerLink}
