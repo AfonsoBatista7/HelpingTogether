@@ -33,17 +33,17 @@ function Voluntariado() {
     //vetor com todos os valores no login da Base de dados
     const [loggedIns, setLoggedIns] = useState([]);
 
-    const [candidatura,setCandidatura] =useState([])
+    const [candidatura, setCandidatura] = useState([])
 
     const [candid, setVoluntariados] = useState([]);
 
-    const checkifiscandid=(id) => {
+    const checkifiscandid = (id) => {
 
         const getVolunts = async () => {
 
             const listVolunt = await fetchCandidatura()
 
-            checkIfCandidate(listVolunt,id)
+            checkIfCandidate(listVolunt, id)
 
             setVoluntariados(listVolunt)
 
@@ -123,7 +123,7 @@ function Voluntariado() {
 
     const checkIfCandidate = (candid, idLogin) => {
         for (const element of candid) {
-            if ((element.idPerson == idLogin)&&(element.idVolunt==idVolt)) {
+            if ((element.idPerson == idLogin) && (element.idVolunt == idVolt)) {
                 editState(true);
                 setCandidatura(element);
             }
@@ -214,7 +214,7 @@ function Voluntariado() {
     function checkBottum(temp) {
 
         if (temp) {
-            addVoluntariado({idVolunt: volunt.id , idPerson: perfil.id});
+            addVoluntariado({ idVolunt: volunt.id, idPerson: perfil.id });
         } else {
             deleteVoluntariado(candidatura.id);
         }
