@@ -81,7 +81,6 @@
 }
 
 .marginsVoluntariado{
-    margin-left: 4%;
     margin-bottom: 1%;
     margin-right: 4%;
 }
@@ -129,9 +128,22 @@
 }
 
 .voluntariadosProfile{
+    margin-bottom: 5% !important;
+}
+
+.commentsProfile{
     margin-bottom: 3% !important;
 }
 
 .pagination{
     margin-top: 8%;
+}
+
+.paginationComment{
+    margin-top: 12% !important;
+}
+
+.filter{
+    margin-left: 5%;
+    margin-top: 2%;
 }

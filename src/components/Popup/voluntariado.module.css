@@ -6,6 +6,10 @@
     margin-bottom: 3% !important;
 }
 
+.top {
+    margin-top: 6% !important;
+}
+
 .both {
     margin-top: 5% !important;
     margin-bottom: 3% !important;
@@ -13,7 +17,7 @@
 
 .pic {
     margin-top: 4% !important;
-    margin-bottom: 10% !important;
+    margin-bottom: 8% !important;
 }
 
 .header {
@@ -21,5 +25,5 @@
 }
 
 .avatar {
-    background-color: #1bbd7e !important;
+    background-color: #ADE792 !important;
 }

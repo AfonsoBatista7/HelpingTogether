@@ -10,7 +10,7 @@
         "Animais"
       ],
       "termsAndConditions": true,
-      "isLoggedIn": false,
+      "isLoggedIn": true,
       "typePerfil": "organizacao",
       "id": 70
     },
@@ -23,7 +23,7 @@
       "password": "123456",
       "confirmPassword": "123456",
       "termsAndConditions": true,
-      "isLoggedIn": true,
+      "isLoggedIn": false,
       "typePerfil": "voluntario",
       "id": 80
     },
@@ -62,55 +62,60 @@
       "name": "Maria Leal",
       "description": "Tenho 38 anos, sou enfermeira e tenho 3 filhos. Adoro fazer voluntariados relacionados com a saúde e com crianças.",
       "email": "marialeal45@gmail.com",
-      "birthdate": "07/05/1984",
+      "birthday": "07/05/1984",
       "gender": "Feminino",
       "phone": "924562789",
       "image": "Maria.jpg",
-      "rating": 1
+      "rating": 1,
+      "typePerfil": "voluntario"
     },
     {
       "id": 2,
       "name": "Gestrudes Cordeiro",
       "description": "Tenho 60 anos e sou uma professora reformada. Como sou uma pessoa bastante ativa tento preencher os meus dias principalmente com atividades de voluntariados.",
       "email": "gescordeiro0008@gmail.com",
-      "birthdate": "30/09/1962",
+      "birthday": "30/09/1962",
       "gender": "Feminino",
       "phone": "912498876",
       "image": "Gestrudes.jpg",
-      "rating": 3
+      "rating": 3,
+      "typePerfil": "voluntario"
     },
     {
       "id": 3,
       "name": "Laura Silves",
       "description": "Tenho 45 anos e sou cozinheira. Sou solteira e não tenho filhos o que me dá muito tempo livre para o qual dedico a fazer voluntariados.",
       "email": "lauraSilves@gmail.com",
-      "birthdate": "12/07/1977",
+      "birthday": "12/07/1977",
       "gender": "Feminino",
       "phone": "914562789",
       "image": "Laura.png",
-      "rating": 4
+      "rating": 4,
+      "typePerfil": "voluntario"
     },
     {
       "id": 4,
       "name": "Tiago Lopes",
       "description": "Tenho 20 anos e sou estudante de engenheiria do ambiente. Para melhorar o meu currículo e ter mais experiências humanitarias pretendo fazer voluntariados relacionados com a minha área de estudo.",
       "email": "tiagolp69@gmail.com",
-      "birthdate": "19/02/2002",
+      "birthday": "19/02/2002",
       "gender": "Masculino",
       "phone": "965782234",
       "image": "Tiago.jpg",
-      "rating": 5
+      "rating": 5,
+      "typePerfil": "voluntario"
     },
     {
       "id": 5,
       "name": "Osvaldo Fernandes",
       "description": "Tenho 55 anos e sou gestor bancário. Quero ganhar novas experiencias em áreas fora da minha zona de conforto e fazer diferença no mundo e nas pessoas que me rodeiam.",
       "email": "osvaldo356@gmail.com",
-      "birthdate": "23/12/1967",
+      "birthday": "23/12/1967",
       "gender": "Masculino",
       "phone": "922234556",
       "image": "Osvaldo.jpg",
-      "rating": 3
+      "rating": 3,
+      "typePerfil": "voluntario"
     }
   ],
   "organizacoes": [
@@ -124,7 +129,8 @@
         "Saúde",
         "Comunidade"
       ],
-      "image": "Cruz_Vermelha.png"
+      "image": "Cruz_Vermelha.png",
+      "typePerfil": "organizacao"
     },
     {
       "id": 7,
@@ -137,7 +143,8 @@
         "Comunidade",
         "Saúde"
       ],
-      "image": "UNICEF.jpg"
+      "image": "UNICEF.jpg",
+      "typePerfil": "organizacao"
     },
     {
       "id": 8,
@@ -150,7 +157,8 @@
         "Comunidade",
         "Natureza"
       ],
-      "image": "Leo.png"
+      "image": "Leo.png",
+      "typePerfil": "organizacao"
     },
     {
       "id": 9,
@@ -163,7 +171,8 @@
         "Natureza",
         "Animais"
       ],
-      "image": "FAPAS.jpg"
+      "image": "FAPAS.jpg",
+      "typePerfil": "organizacao"
     },
     {
       "id": 10,
@@ -174,7 +183,8 @@
       "type": [
         "Comunidade"
       ],
-      "image": "Just_a_Change.png"
+      "image": "Just_a_Change.png",
+      "typePerfil": "organizacao"
     },
     {
       "id": 11,
@@ -186,7 +196,8 @@
         "Gastronomia",
         "Comunidade"
       ],
-      "image": "Banco_Alimentar.png"
+      "image": "Banco_Alimentar.png",
+      "typePerfil": "organizacao"
     },
     {
       "id": 12,
@@ -198,7 +209,8 @@
         "Gastronomia",
         "Comunidade"
       ],
-      "image": "Caritas.png"
+      "image": "Caritas.png",
+      "typePerfil": "organizacao"
     },
     {
       "id": 13,
@@ -209,7 +221,8 @@
       "type": [
         "Animais"
       ],
-      "image": "Animalife.jpg"
+      "image": "Animalife.jpg",
+      "typePerfil": "organizacao"
     }
   ],
   "voluntariados": [
@@ -219,6 +232,7 @@
       "description": "Plantar árvores e arbustos na Serra de Monchique após ser sido devastada por incêndios e ficar com falta de plantação.",
       "startDate": "24/09/2020",
       "endDate": "24/09/2020",
+      "region": "Algarve",
       "location": "Monchique",
       "type": [
         "Natureza"
@@ -233,6 +247,7 @@
       "description": "Limpar o Parque Natural da Estrela em Garrocho, no concelho da Covilhã (distrito de Castelo Branco) de forma a prevenir futuros incêndios.",
       "startDate": "30/05/2023",
       "endDate": "30/05/2023",
+      "region": "Centro",
       "location": "Covilhã",
       "type": [
         "Natureza"
@@ -247,6 +262,7 @@
       "description": "Limpar a praia de Faro de poluição realizada durante os meses de verão.",
       "startDate": "10/11/2022",
       "endDate": "10/11/2022",
+      "region": "Argarve",
       "location": "Faro",
       "type": [
         "Poluição"
@@ -261,6 +277,7 @@
       "description": "Limpar o Parque Florestal DE Monsanto em Lisboa dos resídous sólidos lá deixados",
       "startDate": "12/06/2021",
       "endDate": "12/06/2021",
+      "region": "Área Metropolitana Lisboa",
       "location": "Lisboa",
       "type": [
         "Poluição"
@@ -275,6 +292,7 @@
       "description": "Resgaste das aves juvenis cagarros de forma a conseguirem sair em segurança da Marina e do Porto de Vila Franca do Campo nos Açores.",
       "startDate": "17/02/2023",
       "endDate": "17/02/2023",
+      "region": "Açores",
       "location": "Vila Franca do Campo",
       "type": [
         "Animais"
@@ -289,6 +307,7 @@
       "description": "Resgaste de cães e gatos ambandonados nas ruas.",
       "startDate": "01/01/2022",
       "endDate": "31/12/2023",
+      "region": "Alentejo",
       "location": "Évora",
       "type": [
         "Animais"
@@ -303,6 +322,7 @@
       "description": "Entrega de refeições quentes, nesta altura de Natal para as famílias que mais necessitam de apoio e também a sem-abrigos na área da baixa de Lisboa",
       "startDate": "23/12/2022",
       "endDate": "24/12/2022",
+      "region": "Área Metropolitana Lisboa",
       "location": "Baixa de Lisboa",
       "type": [
         "Comunidade",
@@ -318,6 +338,7 @@
       "description": "Recolha de bens alimentares à entrada de supermercados para serem entregues a famílias mais carenciadas",
       "startDate": "14/05/2023",
       "endDate": "23/05/2023",
+      "region": "Área Metropolitana Lisboa",
       "location": "Almada",
       "type": [
         "Gastronomia",
@@ -333,6 +354,7 @@
       "description": "Os fogos de Pedrógão Grande resultaram na destruição de várias habitações na região, estamos a organizar este voluntariado para conseguir ajudar várias famílias a reconstruir o que foi perdido",
       "startDate": "10/02/ 2020",
       "endDate": "30/12/2023",
+      "region": "Centro",
       "location": "Pedrógão Grande",
       "type": [
         "Comunidade"
@@ -347,6 +369,7 @@
       "description": "Voluntariado para recolher roupas para crianças de orfanatos que mais necessitam. Ida a várias lojas e residências para receber ofertas e doações de roupa infantil",
       "startDate": "23/01/2023",
       "endDate": "23/01/2023",
+      "region": "Madeira",
       "location": "Funchal",
       "type": [
         "Comunidade"
@@ -361,6 +384,7 @@
       "description": "Fazer animação na ala pediátrica do Hospital de Santa Maria, irá envolver pintural faciais, músicas e truques de magia. Tem como principal objetivo entreter as crianças e os pais por ser o Dia da Criança.",
       "startDate": "01/06/2022",
       "endDate": "01/06/2022",
+      "region": "Norte",
       "location": "Porto",
       "type": [
         "Saúde"
@@ -375,6 +399,7 @@
       "description": "Recolha de todos os tipes de sangue, para reabastecer as reservas dos hospitais que têm mais falta deste recurso.",
       "startDate": "10/09/2023",
       "endDate": "14/09/2023",
+      "region": "Alrgarve",
       "location": "Portimão",
       "type": [
         "Saúde"
@@ -391,7 +416,8 @@
       "comment": "Voluntário sempre desponível quando solicitado, empenhado e bom trabalhador.",
       "image": "Cruz_Vermelha.png",
       "rating": 3,
-      "date": "12/04/2022 11:55"
+      "date": "12/04/2022 11:55",
+      "idPersonCommenting": 6
     },
     {
       "id": 31,
@@ -399,7 +425,8 @@
       "comment": "Voluntário empenhado, porém não pontual. Chegou várias vezes atrasado sem desculpa plausível",
       "image": "UNICEF.jpg",
       "rating": 2,
-      "date": "23/12/2022 18:45"
+      "date": "23/12/2022 18:45",
+      "idPersonCommenting": 7
     },
     {
       "id": 32,
@@ -407,7 +434,8 @@
       "comment": "Voluntário dedicado, muito presente e comprometido com o projeto que desempenhou.",
       "image": "Leo.png",
       "rating": 5,
-      "date": "02/01/2020 08:02"
+      "date": "02/01/2020 08:02",
+      "idPersonCommenting": 8
     },
     {
       "id": 33,
@@ -415,7 +443,8 @@
       "comment": "Voluntário um pouco rude. Não trabalhou bem em equipa.",
       "image": "FAPAS.jpg",
       "rating": 1,
-      "date": "29/09/2020 17:33"
+      "date": "29/09/2020 17:33",
+      "idPersonCommenting": 9
     },
     {
       "id": 34,
@@ -423,15 +452,17 @@
       "comment": "Voluntário esforçado, no entanto, não estava sempre disponivel quando solocitado.",
       "image": "Just_a_Change.png",
       "rating": 4,
-      "date": "30/08/2022 10:12"
+      "date": "30/08/2022 10:12",
+      "idPersonCommenting": 10
     },
     {
       "id": 35,
       "name": "Banco Alimentar",
       "comment": "Voluntário desponável mas não se esforça tanto quanto poderia.",
-      "image": "Banco Alimentar",
+      "image": "Banco_Alimentar.png",
       "rating": 3,
-      "date": "30/08/2022 10:12"
+      "date": "30/08/2022 10:12",
+      "idPersonCommenting": 11
     },
     {
       "id": 36,
@@ -439,7 +470,8 @@
       "comment": "Voluntário bastante social, divertido e carismático. Interage bem com pessoas e faz um bom trabalho do que lhe é pedido.",
       "image": "Caritas.png",
       "rating": 4,
-      "date": "06/03/2021 22:31"
+      "date": "06/03/2021 22:31",
+      "idPersonCommenting": 12
     },
     {
       "id": 37,
@@ -447,7 +479,8 @@
       "comment": "Voluntário eficiente, bom trabalhador em equipa e dinâmico. ",
       "image": "Animalife.jpg",
       "rating": 5,
-      "date": "13/05/2022 20:41"
+      "date": "13/05/2022 20:41",
+      "idPersonCommenting": 13
     }
   ],
   "comentariosVoluntariado": [
@@ -457,7 +490,8 @@
       "comment": "Voluntariado muito bem estruturado e organizado. Gostei bastante.",
       "image": "Maria.jpg",
       "rating": 5,
-      "date": "07/07/2022 17:07"
+      "date": "07/07/2022 17:07",
+      "idPersonCommenting": 1
     },
     {
       "id": 39,
@@ -465,7 +499,8 @@
       "comment": "Adorei o voluntariado. Aprendi bastante, ganhei muita experiência e conheci muitas pessoas diferentes.",
       "image": "Gestrudes.jpg",
       "rating": 5,
-      "date": "23/01/2021 09:27"
+      "date": "23/01/2021 09:27",
+      "idPersonCommenting": 2
     },
     {
       "id": 40,
@@ -473,7 +508,8 @@
       "comment": "Voluntariado mal organizado e realizado. Não espera isto de uma organização destas.",
       "image": "Laura.png",
       "rating": 1,
-      "date": "15/12/2020 00:05"
+      "date": "15/12/2020 00:05",
+      "idPersonCommenting": 3
     },
     {
       "id": 41,
@@ -481,7 +517,8 @@
       "comment": "Voluntariado bem organizado, no entanto, muito simples e não muito dinâmico.",
       "image": "Tiago.jpg",
       "rating": 3,
-      "date": "26/02/2021 14:18"
+      "date": "26/02/2021 14:18",
+      "idPersonCommenting": 4
     },
     {
       "id": 42,
@@ -489,16 +526,18 @@
       "comment": "Bom voluntariado. Bem executado mas nada de excepcional.",
       "image": "Osvaldo.jpg",
       "rating": 4,
-      "date": "22/11/2021 19:39"
+      "date": "22/11/2021 19:39",
+      "idPersonCommenting": 5
     }
   ],
   "voluntariadosRealizados": [
     {
-      "id": 43,
+      "id": 22,
       "name": "Reconstrução de casas destruídas no Incêndio de Pedrógão Grande",
       "description": "Os fogos de Pedrógão Grande resultaram na destruição de várias habitações na região, estamos a organizar este voluntariado para conseguir ajudar várias famílias a reconstruir o que foi perdido",
       "startDate": "10/02/ 2020",
       "endDate": "30/12/2023",
+      "region": "Centro",
       "location": "Pedrógão Grande",
       "type": [
         "Comunidade"
@@ -508,11 +547,12 @@
       "organizacao": "Just a Change"
     },
     {
-      "id": 44,
+      "id": 24,
       "name": "Animar ala pediátrica",
       "description": "Fazer animação na ala pediátrica do Hospital de Santa Maria, irá envolver pintural faciais, músicas e truques de magia. Tem como principal objetivo entreter as crianças e os pais por ser o Dia da Criança.",
       "startDate": "01/06/2022",
       "endDate": "01/06/2022",
+      "region": "Norte",
       "location": "Porto",
       "type": [
         "Saúde"
@@ -522,11 +562,12 @@
       "organizacao": "UNICEF"
     },
     {
-      "id": 45,
+      "id": 20,
       "name": "Entrega de refeições a sem-abrigos e famílias carênciadas.",
       "description": "Entrega de refeições quentes, nesta altura de Natal para as famílias que mais necessitam de apoio e também a sem-abrigos na área da baixa de Lisboa",
       "startDate": "23/12/2022",
       "endDate": "24/12/2022",
+      "region": "Área Metropolitana Lisboa",
       "location": "Baixa de Lisboa",
       "type": [
         "Comunidade",
@@ -535,10 +576,168 @@
       "image": "Comida.png",
       "rating": 5,
       "organizacao": "Caritas"
+    },
+    {
+      "id": 14,
+      "name": "Plantar florestação",
+      "description": "Plantar árvores e arbustos na Serra de Monchique após ser sido devastada por incêndios e ficar com falta de plantação.",
+      "startDate": "24/09/2020",
+      "endDate": "24/09/2020",
+      "region": "Algarve",
+      "location": "Monchique",
+      "type": [
+        "Natureza"
+      ],
+      "image": "Plantar.jpg",
+      "rating": 2,
+      "organizacao": "FAPAS"
     }
   ],
-  "comentariosFeitosPessoa": [],
-  "comentariosFeitosVoluntariado": [],
-  "novosVoluntariados": [],
-  "candidaturas": []
+  "comentariosVoluntariadosRealizados": [
+    {
+      "id": 34,
+      "name": "Just a Change",
+      "comment": "Voluntário esforçado, no entanto, não estava sempre disponivel quando solocitado.",
+      "image": "Just_a_Change.png",
+      "rating": 4,
+      "date": "30/08/2022 10:12",
+      "idPersonCommenting": 10
+    },
+    {
+      "id": 31,
+      "name": "UNICEF",
+      "comment": "Voluntário empenhado, porém não pontual. Chegou várias vezes atrasado sem desculpa plausível",
+      "image": "UNICEF.jpg",
+      "rating": 2,
+      "date": "23/12/2022 18:45",
+      "idPersonCommenting": 7
+    },
+    {
+      "id": 36,
+      "name": "Caritas",
+      "comment": "Voluntário bastante social, divertido e carismático. Interage bem com pessoas e faz um bom trabalho do que lhe é pedido.",
+      "image": "Caritas.png",
+      "rating": 4,
+      "date": "06/03/2021 22:31",
+      "idPersonCommenting": 12
+    },
+    {
+      "id": 33,
+      "name": "FAPAS",
+      "comment": "Voluntário um pouco rude. Não trabalhou bem em equipa.",
+      "image": "FAPAS.jpg",
+      "rating": 1,
+      "date": "29/09/2020 17:33",
+      "idPersonCommenting": 9
+    }
+  ],
+  "comentariosFeitosPessoa": [
+    {
+      "rating": 2,
+      "comment": "muito bom",
+      "name": "ola",
+      "date": "23/11/2022 16:23",
+      "nameOfTheCommented": "Maria Leal",
+      "idPersonCommenting": 70,
+      "idPersonCommented": 1,
+      "image": "defaultPhotoOrganization.jpg",
+      "id": 3
+    }
+  ],
+  "comentariosFeitosVoluntariado": [
+    {
+      "rating": 2,
+      "comment": "ajsdhkadb",
+      "name": "bia",
+      "date": "22/11/2022 20:28",
+      "nameOfTheCommented": "Plantar florestação",
+      "image": "defaultPhoto.jpg",
+      "id": 1,
+      "idPersonCommenting": 80,
+      "idPersonCommented": 14
+    },
+    {
+      "rating": 4,
+      "comment": "Adorei fazer este voluntariado",
+      "name": "bia",
+      "date": "23/11/2022 11:41",
+      "nameOfTheCommented": "Entrega de refeições a sem-abrigos e famílias carênciadas.",
+      "idPersonCommenting": 80,
+      "image": "defaultPhoto.jpg",
+      "id": 2,
+      "idPersonCommented": 20
+    },
+    {
+      "rating": 2,
+      "comment": "tudo bem",
+      "name": "bia",
+      "date": "23/11/2022 17:10",
+      "nameOfTheCommented": "Reconstrução de casas destruídas no Incêndio de Pedrógão Grande",
+      "idPersonCommenting": 80,
+      "idPersonCommented": 22,
+      "image": "defaultPhoto.jpg",
+      "id": 4
+    }
+  ],
+  "novosVoluntariados": [
+    {
+      "name": "tobias",
+      "region": "Centro",
+      "location": "aksdmsand,",
+      "description": "ansbdabsd",
+      "startDate": "09/11/2022",
+      "endDate": "10/11/2022",
+      "type": [
+        "Natureza",
+        "Animais"
+      ],
+      "organizacao": "ola",
+      "image": "defaultPhotoOrganization.jpg",
+      "id": 1
+    },
+    {
+      "name": "help criancas",
+      "region": "Centro",
+      "location": "asnkjdlsd",
+      "description": "amncs, ",
+      "startDate": "01/11/2022",
+      "endDate": "10/11/2022",
+      "type": [
+        "Natureza",
+        "Saúde"
+      ],
+      "organizacao": "ola",
+      "image": "defaultPhotoOrganization.jpg",
+      "id": 2
+    }
+  ],
+  "candidaturas": [
+    {
+      "idVolunt": 19,
+      "idPerson": 90,
+      "id": 26
+    },
+    {
+      "idVolunt": 17,
+      "idPerson": 90,
+      "id": 28
+    },
+    {
+      "idVolunt": 23,
+      "idPerson": 80,
+      "id": 30
+    },
+    {
+      "idVolunt": 1,
+      "idPerson": 90,
+      "id": 32
+    }
+  ],
+  "candidaturasAceites": [
+    {
+      "idVolunt": 1,
+      "idPerson": 80,
+      "id": 1
+    }
+  ]
 }

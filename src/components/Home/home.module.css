@@ -51,3 +51,11 @@
     color: white;
     background-color: black;
 }
+
+.button {
+    transition: transform 0.3s ease-out;
+}
+
+.button:hover {
+    transform: scale(1.08);
+}

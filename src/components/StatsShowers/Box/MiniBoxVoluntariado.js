@@ -9,8 +9,8 @@ function MiniBoxVoluntariado(props) {
     const isDescBig = props.desc.length > charLimit;
 
     return (
-        <Link style={{ color: "#2E3B55", textDecoration: "none" }} to={`/Voluntariado/${props.id}`}>
-            <Card style={{ top: "200px", right: "200px" }} sx={{ maxWidth: 245 }}>
+        <Link style={{ color: "#2E3B55", textDecoration: "none" }} to={`/Voluntariado/${props.id}`} onClick={() => this.forceUpdate()}>
+            <Card className={style.box} sx={{ maxWidth: 245 }}>
                 <CardActionArea>
                     <CardMedia
                         component="img"

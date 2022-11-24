@@ -15,7 +15,7 @@ function BoxOrganization(props) {
   }
 
   return (
-    <Link style={{ color: "#2E3B55", textDecoration: "none" }} to={`/Perfil/${props.id}`}>
+    <Link style={{ color: "#2E3B55", textDecoration: "none" }} to={`/Perfil/${props.idOrg}/Perfil`} onClick={() => this.forceUpdate()}>
       <BoxStats
       image={props.image}
       name={props.name}

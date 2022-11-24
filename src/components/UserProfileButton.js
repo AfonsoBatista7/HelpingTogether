@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { Link } from "react-router-dom";
 import {
     Typography,
     Box,
@@ -7,40 +7,47 @@ import {
     Avatar,
     Tooltip,
     MenuItem,
-    Button,
+    Button
 } from "@mui/material";
 import { Link } from 'react-router-dom'
 
-
 const UserProfileButton = (props) => {
     const logOut = () => {
-        handleCloseUserMenu()
-        props.takeOffLogin()
+        handleCloseUserMenu();
+        props.takeOffLogin();
     };
 
     const goToProfile = () => {
-        handleCloseUserMenu()
+        handleCloseUserMenu();
     };
 
     const goToApplication = () => {
-        handleCloseUserMenu()
+        handleCloseUserMenu();
     };
 
     const goToVolunteersDone = () => {
-        handleCloseUserMenu()
+        handleCloseUserMenu();
     };
 
     const goToComments = () => {
-        handleCloseUserMenu()
+        handleCloseUserMenu();
     };
 
-    const settings = {
+   const settings = [{
         Perfil: goToProfile,
         Candidatura: goToApplication,
-        VoluntariadosRealizados: goToVolunteersDone,
+        Realizados: goToVolunteersDone,
         Comentários: goToComments,
-        Sair: logOut
-    };
+        Sair: logOut,
+    }, {
+        Perfil: goToProfile,
+        Voluntariados: goToApplication,
+        Criar: goToVolunteersDone,
+        Sair: logOut,}
+ ];
+    
+    const getOption = () => {
+        return props.typePerfil==="voluntario" ? 0 : 1 } //0 -> Voluntarios | 1 -> Organization
 
     const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -52,15 +59,24 @@ const UserProfileButton = (props) => {
         setAnchorElUser(null);
     };
 
-    const marginButton = { marginLeft: 8 }
+    const marginButton = { marginLeft: 8 };
 
     return (
         <div>
             <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open settings">
-                    <Button name={props.name} variant="text" onClick={handleOpenUserMenu} sx={{ padding: 0,color: 'white' }}>
+                    <Button
+                        name={props.name}
+                        variant="text"
+                        onClick={handleOpenUserMenu}
+                        sx={{ padding: 0, color: "white" }}
+                    >
                         {props.name}
-                        <Avatar alt={props.name} src={props.image} style={marginButton} />
+                        <Avatar
+                            alt={props.name}
+                            src={props.image}
+                            style={marginButton}
+                        />
                     </Button>
                 </Tooltip>
                 <Menu
@@ -79,16 +95,28 @@ const UserProfileButton = (props) => {
                     open={Boolean(anchorElUser)}
                     onClose={handleCloseUserMenu}
                 >
-                    {Object.keys(settings).map((setting) => (
-                      
-                            <Link href={setting} key={setting} style={{ textDecoration: 'none', color: 'black' }} to={setting === "Sair" ? '' : `/Perfil/${props.id}`}>
-                                <MenuItem key={setting} onClick={settings[setting]}>
-                                    <Typography textAlign="center">
-                                        {setting}
-                                    </Typography>
-                                </MenuItem>
-                            </Link>
-                     
+                    {Object.keys(settings[getOption()]).map((setting) => (
+                        <Link
+                            href={setting}
+                            key={setting}
+                            style={{ textDecoration: "none", color: "black" }}
+                            to={
+                                setting === "Sair"
+                                    ? ""
+                                    : `/Perfil/${props.id}/${setting}`
+                            }
+                            onClick={
+                                setting === "Sair"
+                                    ? ""
+                                    : () => this.forceUpdate()
+                            }
+                        >
+                            <MenuItem key={setting} onClick={settings[getOption()][setting]}>
+                                <Typography textAlign="center">
+                                    {setting}
+                                </Typography>
+                            </MenuItem>
+                        </Link>
                     ))}
                 </Menu>
             </Box>

@@ -16,6 +16,7 @@
     "@testing-library/user-event": "^7.2.1",
     "@turf/dissolve": "^6.5.0",
     "@turf/flatten": "^6.5.0",
+    "antd": "^5.0.0",
     "date-fns": "^2.29.3",
     "dayjs": "^1.11.6",
     "formik": "^2.2.9",
@@ -51,8 +52,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "json-loader": "^0.5.7"
   }
 }
