@@ -32,13 +32,21 @@ const UserProfileButton = (props) => {
         handleCloseUserMenu();
     };
 
-    const settings = {
+   const settings = [{
         Perfil: goToProfile,
         Candidatura: goToApplication,
-        VoluntariadosRealizados: goToVolunteersDone,
+        Realizados: goToVolunteersDone,
         Comentários: goToComments,
         Sair: logOut,
-    };
+    }, {
+        Perfil: goToProfile,
+        Voluntariados: goToApplication,
+        Criar: goToVolunteersDone,
+        Sair: logOut,}
+ ];
+    
+    const getOption = () => {
+        return props.typePerfil==="voluntario" ? 0 : 1 } //0 -> Voluntarios | 1 -> Organization
 
     const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -86,7 +94,7 @@ const UserProfileButton = (props) => {
                     open={Boolean(anchorElUser)}
                     onClose={handleCloseUserMenu}
                 >
-                    {Object.keys(settings).map((setting) => (
+                    {Object.keys(settings[getOption()]).map((setting) => (
                         <Link
                             href={setting}
                             key={setting}
@@ -102,7 +110,7 @@ const UserProfileButton = (props) => {
                                     : () => this.forceUpdate()
                             }
                         >
-                            <MenuItem key={setting} onClick={settings[setting]}>
+                            <MenuItem key={setting} onClick={settings[getOption()][setting]}>
                                 <Typography textAlign="center">
                                     {setting}
                                 </Typography>
