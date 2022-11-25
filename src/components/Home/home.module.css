@@ -16,14 +16,6 @@
     font-size: 100px;
 }
 
-.subtitle {
-    font-family: "Rubik One", sans-serif;
-    position: relative;
-    bottom: 8vh;
-    color: #344d67;
-    font-size: 60px;
-}
-
 .titleContainer {
     position: relative;
     cursor: default;
@@ -61,7 +53,7 @@
 }
 
 .button {
-    transition: transform 0.2s ease-out;
+    transition: transform 0.3s ease-out;
 }
 
 .button:hover {

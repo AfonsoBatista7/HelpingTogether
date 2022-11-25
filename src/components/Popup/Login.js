@@ -82,7 +82,7 @@ const Login = (props) => {
                                 helperText={<ErrorMessage name="name" component="div" style={{ color: 'red' }} />} />
                             <Field as={TextField} name="password" label='Palavra-chave' placeholder='Palavra-chave' type='password' fullWidth className={style.bottomFinal}
                                 helperText={<ErrorMessage name="password" component="div" style={{ color: 'red' }} />} />
-                            <Button type='submit' color='primary' variant="contained" sx={{ backgroundColor:"#344D67",'&:hover': { opacity: [0.9, 0.8, 0.7] } }}
+                            <Button type='submit' color='primary' variant="contained" sx={{ '&:hover': { opacity: [0.9, 0.8, 0.7] } }}
                                  fullWidth> Entrar </Button>
                         </Form>
                             <Collapse in={open}>
