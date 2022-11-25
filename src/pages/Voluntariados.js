@@ -162,6 +162,7 @@ function Voluntariados() {
                                 desc={vol.description}
                                 date={vol.endDate}
                                 location={vol.location}
+                                typePerfil="voluntariado"
                                 className={style.boxShow}></BoxVoluntariado>
                             <div className={style.boxShow}></div></>
                     )) : <></>}

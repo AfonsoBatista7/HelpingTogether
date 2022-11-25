@@ -39,16 +39,97 @@ function Comentarios(props) {
 
         const data2 = await res2.json()
 
-        var result = checkCommentsVoluntariados(data, data2);
+        var res3 = await fetch('http://localhost:5000/voluntariadosRealizados')
+        var data3 = await res3.json()
+
+        var result = [];
+
+        if (props.type === "pessoa") {
+            var result1 = checkCommentsPerfil(data, data2);
+
+            result = checkCommentsWithVoluntariado(data3, result1);
+
+        }
+
+        if (props.type === "voluntariado") {
+            var result1 = checkCommentsVoluntariados(data, data2);
+
+            result = checkCommentsWithPeople(data3, result1);
+        }
+
 
         return result;
+    }
+
+    const checkCommentsWithVoluntariado = (voltReali, comments) => {
+        var list = [];
+        var listRes = [];
+
+        for (const element of voltReali) {
+            for (const e of element.participants)
+                if (e === props.idPerfil) {
+                    list.push(element);
+                }
+        }
+
+        for (const element of list) {
+            for (const e of comments) {
+                if (element.idOrg === e.idPersonCommenting) {
+                    listRes.push(e);
+                }
+            }
+        }
+
+        return listRes;
+    }
+
+    const checkCommentsWithPeople = (voltReali, comments) => {
+        let list = [];
+        var listRes = [];
+
+        for (const element of voltReali) {
+            if (element.name === props.name) {
+                list.push(element.participants);
+            }
+        }
+
+        for (const element of list) {
+            for (const el of element) {
+                for (const e of comments) {
+                    if (el === e.idPersonCommenting) {
+                        listRes.push(e);
+                    }
+                }
+            }
+        }
+
+        return listRes;
     }
 
 
     const checkCommentsVoluntariados = (comment, newComment) => {
         var list = [];
- 
-        if(!props.newVolunt){
+
+        if (!props.newVolunt) {
+            for (const element of comment) {
+                list.push(element);
+            }
+        }
+
+        for (const element of newComment) {
+            if (element.idPersonCommented === props.idPerfil) {
+                list.push(element);
+            }
+        }
+
+        return list;
+    }
+
+
+    const checkCommentsPerfil = (comment, newComment) => {
+        var list = [];
+
+        if (!props.newPerfil) {
             for (const element of comment) {
                 list.push(element);
             }
@@ -106,7 +187,7 @@ function Comentarios(props) {
                                     fontWeight: 500,
                                     fontSize: 20,
                                     textAlign: 'center',
-                                    color:"grey",
+                                    color: "grey",
                                     marginLeft: 50
                                 }}>
                                     Não tem comentários

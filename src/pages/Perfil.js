@@ -11,6 +11,9 @@ function Perfil() {
 
     const { idPerfil , area} = useParams();
 
+    const [perfilComent, setPerfilComent] = useState(false);
+    const [voluntToShow, setVoluntToShow] = useState([]);
+
     const [perfil, setPerfil] = useState(null);
     const [perfilLoggedIn, setPerfilLoggedIn] = useState(null);
 
@@ -49,8 +52,6 @@ function Perfil() {
                 break;
         }
 
-        console.log(value)
-
         setTimeout(() => window.scrollTo(value,0), 2000);
         
         ;
@@ -72,6 +73,8 @@ function Perfil() {
     const fetchLoggedIn = async () => {
         const res = await fetch('http://localhost:5000/login')
         const data = await res.json()
+
+        checkIfNewPerfil(data);
 
         const res2 = await fetch('http://localhost:5000/voluntarios')
         const data2 = await res2.json()
@@ -121,6 +124,18 @@ function Perfil() {
         }
     }
 
+    const checkIfNewPerfil = (list) => {
+        for (const element of list) {
+            if (element.id == idPerfil) {
+                setPerfilComent(true);
+            }
+        }
+    }
+
+    // const voluntariadosToShow = (list) => {
+    //     setVoluntToShow(list);
+    // }
+    
     const resgisterVoluntariado = () => {
         setOpenPopupRegisterVoluntariado(true);
     }
@@ -171,7 +186,7 @@ function Perfil() {
 
                     {(perfil.typePerfil !== "organizacao") ? <>
 
-                        <Comentarios name={perfil.name} idPerfil={perfil.id} type="pessoa" state={state2} />
+                        <Comentarios newPerfil={perfilComent} name={perfil.name} idPerfil={perfil.id} type="pessoa" state={state2} />
 
                         <Container style={{
                             height: 50

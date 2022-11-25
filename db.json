@@ -10,7 +10,7 @@
         "Animais"
       ],
       "termsAndConditions": true,
-      "isLoggedIn": false,
+      "isLoggedIn": true,
       "typePerfil": "organizacao",
       "id": 70
     },
@@ -65,7 +65,7 @@
       "password": "123456",
       "confirmPassword": "123456",
       "termsAndConditions": true,
-      "isLoggedIn": true,
+      "isLoggedIn": false,
       "typePerfil": "voluntario",
       "id": 101
     }
@@ -559,9 +559,9 @@
       "image": "Construir.png",
       "rating": 5,
       "organizacao": "Just a Change",
+      "idOrg": 10000,
       "participants": [
         2000,
-        80,
         5000
       ]
     },
@@ -579,9 +579,9 @@
       "image": "Saude.png",
       "rating": 4,
       "organizacao": "UNICEF",
+      "idOrg": 7000,
       "participants": [
         2000,
-        90,
         3000,
         4000,
         1000
@@ -602,10 +602,9 @@
       "image": "Comida.png",
       "rating": 5,
       "organizacao": "Caritas",
+      "idOrg": 12000,
       "participants": [
         1000,
-        90,
-        80,
         3000
       ]
     },
@@ -623,10 +622,70 @@
       "image": "Plantar.jpg",
       "rating": 2,
       "organizacao": "FAPAS",
+      "idOrg": 9000,
       "participants": [
         2000,
-        80,
         4000
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Resgaste de animais domésticos",
+      "description": "Resgaste de cães e gatos ambandonados nas ruas.",
+      "startDate": "01/01/2022",
+      "endDate": "31/12/2023",
+      "region": "Alentejo",
+      "location": "Évora",
+      "type": [
+        "Animais"
+      ],
+      "image": "Resgatar_animais.jpg",
+      "rating": 2,
+      "organizacao": "Animalife",
+      "idOrg": 13000,
+      "participants": [
+        2000,
+        4000,
+        3000
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Limpeza de praia de resídous",
+      "description": "Limpar a praia de Faro de poluição realizada durante os meses de verão.",
+      "startDate": "10/11/2022",
+      "endDate": "10/11/2022",
+      "region": "Argarve",
+      "location": "Faro",
+      "type": [
+        "Poluição"
+      ],
+      "image": "Limpar_praia.png",
+      "rating": 4,
+      "organizacao": "Leo",
+      "participants": [
+        2000,
+        1000,
+        3000
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Voluntariado científico para o resgaste de cagarros",
+      "description": "Resgaste das aves juvenis cagarros de forma a conseguirem sair em segurança da Marina e do Porto de Vila Franca do Campo nos Açores.",
+      "startDate": "17/02/2023",
+      "endDate": "17/02/2023",
+      "region": "Açores",
+      "location": "Vila Franca do Campo",
+      "type": [
+        "Animais"
+      ],
+      "image": "Cagarros.jpg",
+      "rating": 3,
+      "organizacao": "Animalife",
+      "participants": [
+        5000,
+        1000
       ]
     }
   ],
@@ -666,6 +725,24 @@
       "rating": 1,
       "date": "29/09/2020 17:33",
       "idPersonCommenting": 9000
+    },
+    {
+      "id": 37,
+      "name": "Animalife",
+      "comment": "Voluntário eficiente, bom trabalhador em equipa e dinâmico. ",
+      "image": "Animalife.jpg",
+      "rating": 5,
+      "date": "13/05/2022 20:41",
+      "idPersonCommenting": 13000
+    },
+    {
+      "id": 32,
+      "name": "Leo",
+      "comment": "Voluntário dedicado, muito presente e comprometido com o projeto que desempenhou.",
+      "image": "Leo.png",
+      "rating": 5,
+      "date": "02/01/2020 08:02",
+      "idPersonCommenting": 8000
     }
   ],
   "comentariosFeitosPessoa": [
