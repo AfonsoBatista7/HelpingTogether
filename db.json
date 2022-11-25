@@ -663,6 +663,7 @@
       "image": "Limpar_praia.png",
       "rating": 4,
       "organizacao": "Leo",
+      "idOrg": 8000,
       "participants": [
         2000,
         1000,
@@ -683,6 +684,7 @@
       "image": "Cagarros.jpg",
       "rating": 3,
       "organizacao": "Animalife",
+      "idOrg": 13000,
       "participants": [
         5000,
         1000
