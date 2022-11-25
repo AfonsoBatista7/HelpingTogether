@@ -2,6 +2,7 @@ import style from "../components/SectionsProfile/Profiles.module.css"
 import { Pagination, Grid, Typography, Container, Divider, Button } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import BoxOrganization from "../components/StatsShowers/Box/BoxOrganization";
+import SearchBar from "../components/Search/SearchBar";
 
 function Organizacoes() {
 
@@ -11,6 +12,20 @@ function Organizacoes() {
 
     const [newVoluntariados, setNewVoluntariados] = useState([]);
     const [voluntariados, setVoluntariados] = useState([])
+
+    const filters = {
+        Tipo: ['Natureza', 'Animais', 'Poluição', 'Comunidade', 'Gastronomia', 'Saúde'], 
+        Região: [
+            "Norte",
+            "Centro",
+            "Alentejo",
+            "Área Metropolitana Lisboa",
+            "Algarve",
+            "Açores",
+            "Madeira",
+        ],
+        Duração: ["Reduzida", "Média", "Longa"],
+    };
 
     useEffect(() => {
         const getOrganizacoes = async () => {
@@ -109,6 +124,9 @@ function Organizacoes() {
                 >Organizações</Typography>
 
                 <Divider />
+                <Grid item className={style.filter}>
+                    <SearchBar filters={filters} />
+                </Grid>
                 <Container>
                     { ( !(organizacoes.length === 0) && !(voluntariados.length === 0) ) ?  organizacoes.map((org) => (
                         <>

@@ -9,7 +9,9 @@ export default function Layout({children}) {
     return (
         <div className={style.layout}>
             <Header />
+            <div style={{minHeight: "66.5vh"}}>
               {children}
+            </div>
             <Footer />
         </div>
     );

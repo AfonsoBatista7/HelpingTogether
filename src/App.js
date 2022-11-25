@@ -1,7 +1,7 @@
 import "./App.css";
 import Home from "./components/Home/Home";
 import Layout from "./Layout/Layout";
-import { Route , Routes } from 'react-router-dom';
+import { Route, Routes } from "react-router-dom";
 
 import BoxOrganization from "./components/StatsShowers/Box/BoxOrganization";
 import BoxVoluntariado from "./components/StatsShowers/Box/BoxVoluntariado";
@@ -16,22 +16,18 @@ import Voluntariado from "./pages/Voluntariado";
 import Perfil from "./pages/Perfil";
 import React, { useState } from "react";
 
-import Popup from "./components/Popup/Popup";
-import Profile from "./components/Popup/Profile";
-import {Button} from "@mui/material";
-
 function App() {
-
+    
     return (
-        <div>
+        <div >
             <Layout>
-            <Routes>
-                <Route path='/Organizacoes' element={<Organizacoes/>} ></Route>
-                <Route path='/Perfil/:idPerfil/:area' element={<Perfil />} ></Route>
-                <Route path='/Voluntariados' element={<Voluntariados/>}></Route>
-                <Route path='/Voluntariado/:idVolt' element={<Voluntariado/>}></Route>
-                <Route exact path ='/' element={<Home/>} ></Route>
-            </Routes>
+                <Routes>
+                    <Route path='/Organizacoes' element={<Organizacoes/>} ></Route>
+                    <Route path='/Perfil/:idPerfil/:area' element={<Perfil />} ></Route>
+                    <Route path='/Voluntariados' element={<Voluntariados/>}></Route>
+                    <Route path='/Voluntariado/:idVolt' element={<Voluntariado/>}></Route>
+                    <Route exact path ='/' element={<Home/>} ></Route>
+                </Routes>
             </Layout>
         </div>
     );
