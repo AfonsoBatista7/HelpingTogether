@@ -21,6 +21,7 @@ function BoxOrganization(props) {
       name={props.name}
       component={getNumVoluntariados()}
       desc={props.desc}
+      typePerfil={props.typePerfil}
     /></Link>
   )
 }

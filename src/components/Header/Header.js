@@ -15,7 +15,7 @@ import Login from "../Popup/Login";
 import ChooseType from "../Popup/ChooseType";
 import { Link } from 'react-router-dom'
 
-function Header(props) {
+function Header() {
     const [perfil, setPerfil] = useState();
     const [openPopupLogin, setOpenPopupLogin] = useState(false);
     const [openPopupRegister, setOpenPopupRegister] = useState(false);
@@ -142,7 +142,7 @@ function Header(props) {
                        to="/"
                         className={style.headerLink}
                         style={{
-                            marginRight: "20px",
+                            marginRight: "10px",
                             width: "3%",
                         }}
                     >
@@ -154,10 +154,9 @@ function Header(props) {
                     </Link>
                     <Link to="/" className={style.headerLink}>
                         <Typography
-                            variant="h6"
                             sx={{
                                 color: "#EFF5F5",
-                                fontFamily: "monospace",
+                                font: "bold 20px/1.4 'Open Sans', arial, sans-serif",
                                 fontWeight: 700,
                                 letterSpacing: ".2rem",
                             }}
@@ -195,7 +194,7 @@ function Header(props) {
                             Organizações
                         </Button>
                         </Link>
-                        {!perfil ? (
+                        {!perfil ? 
                             <>
                                 <Button
                                     variant="contained"
@@ -230,14 +229,16 @@ function Header(props) {
                                     Registar
                                 </Button>
                             </>
-                        ) : (
+                        : 
                             <UserProfileButton
                                 id={perfil.id}
                                 name={perfil.name}
+                                typePerfil={perfil.typePerfil}
                                 image="/defaultPhoto.jpg"
                                 takeOffLogin={takeOffLogin}
                             />
-                        )}
+                            
+                        }
                     </Stack>
                 </Toolbar>
             </AppBar>

@@ -22,7 +22,7 @@ function VoluntariadosArea(props) {
 
     const fetchVoluntariados = async () => {
         var res = [];
-        var resultado=[];
+        var resultado = [];
 
         if (props.type === "organizacao") {
             res = await fetch('http://localhost:5000/voluntariados');
@@ -40,7 +40,7 @@ function VoluntariadosArea(props) {
 
             resultado = checkVoluntDone(data3);
         }
-           
+
 
         return resultado;
     }
@@ -49,10 +49,10 @@ function VoluntariadosArea(props) {
         var list = [];
 
         for (const element of data) {
-            for(const e of element.participants)
-            if (e === props.id) {
-                list.push(element);
-            }
+            for (const e of element.participants)
+                if (e === props.id) {
+                    list.push(element);
+                }
         }
 
         return list;
@@ -100,30 +100,30 @@ function VoluntariadosArea(props) {
                     alignItems="center">
 
                     <Grid item xs={6}>
-                    <Typography
-                        style={{
-                            fontWeight: 500,
-                            fontSize: 20,
-                            color: '#497174',
-                            textTransform: "uppercase",
-                            textAlign: 'left',
-                            marginLeft: 50
-                        }}
-                    >
-                        {props.type === "organizacao" ? "Voluntariados" : "Voluntariados Realizados"}
-                    </Typography>
+                        <Typography
+                            style={{
+                                fontWeight: 500,
+                                fontSize: 20,
+                                color: '#497174',
+                                textTransform: "uppercase",
+                                textAlign: 'left',
+                                marginLeft: 50
+                            }}
+                        >
+                            {props.type === "organizacao" ? "Voluntariados" : "Voluntariados Realizados"}
+                        </Typography>
                     </Grid>
                     <Grid item xs={6}>
-                    {(props.type === "organizacao" )&&(props.id===props.idLoggedIn)?
-                        <>
-                            <Button onClick={props.resgisterVoluntariado} style={{ float: "right" }}>
-                                <Typography style={{ color: "#497174" }}>+ Criar</Typography>
-                            </Button > <Popup
-                                openPopup={props.openPopupRegisterVoluntariado}
-                                setOpenPopup={props.setOpenPopupRegisterVoluntariado}
-                            >
-                                <RegisterVoluntariado organizacao={props.nameOrg} closePopup={props.closeResgisterVoluntariado} />
-                            </Popup></> : <></>}
+                        {(props.type === "organizacao") && (props.id === props.idLoggedIn) ?
+                            <>
+                                <Button onClick={props.resgisterVoluntariado} style={{ float: "right" }}>
+                                    <Typography style={{ color: "#497174" }}>+ Criar</Typography>
+                                </Button > <Popup
+                                    openPopup={props.openPopupRegisterVoluntariado}
+                                    setOpenPopup={props.setOpenPopupRegisterVoluntariado}
+                                >
+                                    <RegisterVoluntariado organizacao={props.nameOrg} closePopup={props.closeResgisterVoluntariado} />
+                                </Popup></> : <></>}
                     </Grid>
 
                 </Grid>
