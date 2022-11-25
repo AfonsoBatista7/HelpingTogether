@@ -55,12 +55,12 @@ const Home = () => {
     ];
 
     const volunTypes = {
-        Natureza: <Forest sx={{color: "#EFF5F5",fontSize: 60}} fontSize="large" />,
-        Animais: <Pets sx={{color: "#EFF5F5",fontSize: 60}} fontSize="large" />,
-        Poluição: <Factory sx={{color:"#EFF5F5",fontSize: 60}} fontSize="large" />,
-        Comunidade: <People sx={{color: "#EFF5F5",fontSize: 60}} fontSize="large" />,
-        Gastronomia: <FoodBank sx={{color: "#EFF5F5",fontSize: 60}} fontSize="large" />,
-        Saúde: <HealthAndSafety sx={{color: "#EFF5F5",fontSize: 60}} fontSize="large" />,
+        Natureza: <Forest sx={{color: "#EFF5F5",fontSize: 80}} fontSize="large" />,
+        Animais: <Pets sx={{color: "#EFF5F5",fontSize: 80}} fontSize="large" />,
+        Poluição: <Factory sx={{color:"#EFF5F5",fontSize: 80}} fontSize="large" />,
+        Comunidade: <People sx={{color: "#EFF5F5",fontSize: 80}} fontSize="large" />,
+        Gastronomia: <FoodBank sx={{color: "#EFF5F5",fontSize: 80}} fontSize="large" />,
+        Saúde: <HealthAndSafety sx={{color: "#EFF5F5",fontSize: 80}} fontSize="large" />,
     };
 
     const filters = {
@@ -80,7 +80,7 @@ const Home = () => {
 
     return (
         <div>
-            <div className={style.fisrtSection}>
+            <div className={style.firstSection}>
                 <Grid
                     container
                     className={style.titleContainer}
@@ -99,32 +99,19 @@ const Home = () => {
                     </Grid>
                 </Grid>
             </div>
-            <Grid
-                container
-                display="flex"
-                justifyContent="center"
-                align="center"
-                alignItems="center"
-                rowSpacing={10}
-                style={{ marginTop: 20 }}
-            >
-                <Grid item >
-                    <VolunTypes types={volunTypes} />
-                </Grid>
-                <Grid item xs={6}>
-                    <Map />
-                </Grid>
-                <Grid item xs={6}>
-                    <SearchBar filters={filters} />
-                </Grid>
-                <Grid item xs={12}>
-                    {topOpport ?
-                        <HomeCarousel res={topOpport} />
-                    :
-                        <HomeCarousel res={catpics} />
-                    }
-                </Grid>
-            </Grid>
+            <div style={{marginTop: "130px"}}>
+                <VolunTypes types={volunTypes} />
+            </div>
+            <div>
+                <Map />
+            </div>
+            <div>
+                {topOpport ?
+                    <HomeCarousel res={topOpport} />
+                :
+                    <HomeCarousel res={catpics} />
+                }
+            </div>
         </div>
     );
 };
