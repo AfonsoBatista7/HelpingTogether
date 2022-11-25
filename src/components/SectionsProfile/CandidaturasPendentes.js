@@ -79,19 +79,19 @@ function CandidaturasPendentes(props) {
                                     desc={vol.description}
                                 ></MiniBoxVoluntariado>
                             </Grid></>
-                        )) : <><div className={style.voluntariadosProfile} style={{ marginTop: "5%", width: "100%" }}>
+                        )) : <div>
+                            <img style={{display: "block", marginRight:"auto", marginLeft:"auto" ,width:"40%"}} alt="imgEmptyVol" src={`/img${Math.floor(Math.random()*9)+1}.png`}></img>
                             <Typography style={{
                                 fontWeight: 500,
                                 fontSize: 20,
                                 textAlign: 'center',
                                 color: "grey",
-                                marginLeft: 50
                             }}>
                                 Nenhuma candidatura pendente
                             </Typography>
-                        </div></>}
+                        </div>}
                     </Grid></Container>
-                {!(candid.length === 0) ?
+                {!(candid.length === 0) &&
                     <Grid
                         container
                         direction="row"
@@ -99,7 +99,7 @@ function CandidaturasPendentes(props) {
                         justifyContent="center"
                     >
                         <Pagination count={1} className={style.pagination} />
-                    </Grid> : <></>}
+                    </Grid>}
 
             </div >
         </div >

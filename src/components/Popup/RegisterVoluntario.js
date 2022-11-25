@@ -137,7 +137,7 @@ const RegisterVoluntario = (props) => {
                             </Collapse>
                             <div>
                                 <FormControlLabel
-                                    control={<Checkbox sx={{color: "#344D67", '&.Mui-checked': {color: "#344D67"}}} value="Terms and conditions" />}
+                                    control={<Field as={Checkbox} name="termsAndConditions" />}
                                     label="Aceito os termos e condições."
                                     className={style.top}
                                 />
