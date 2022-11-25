@@ -269,6 +269,10 @@ function AcceptCandidates(props) {
                                         name={person.name}
                                         desc={person.description}
                                         rating={person.rating}
+                                        email={person.email}
+                                        phone={person.phone}
+                                        gender={person.gender}
+                                        birthday={person.birthday}
                                     ></MiniBoxCandidate>
                                     <IconButton aria-label="delete" size="large" style={{ color: "red" }} onClick={function () { cancelPerson(person.id) }}>
                                         <HighlightOffRoundedIcon fontSize="inherit" />

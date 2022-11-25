@@ -44,6 +44,7 @@ function Voluntariados() {
 
     }, [state])
 
+
     const fetchVoluntariados = async () => {
         const res = await fetch('http://localhost:5000/voluntariados')
         const data = await res.json()
