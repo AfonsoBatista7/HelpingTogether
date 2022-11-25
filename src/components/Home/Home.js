@@ -1,8 +1,9 @@
 import { React, useState, useEffect } from "react";
+import {useNavigate } from "react-router-dom";
 import SearchBar from "../Search/SearchBar";
 import Map from "./Map";
 import HomeCarousel from './HomeCarousel';
-import { Grid } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import { Forest, Pets, Factory, People, FoodBank, HealthAndSafety } from '@mui/icons-material';
 import style from "./home.module.css"
 import VolunTypes from "./VolunTypes";
@@ -15,8 +16,7 @@ import diana2 from "./Cats/diana2.jpg";
 
 const Home = () => {
     const [topOpport, setTopOpport] = useState([]);
-/*     const [selectedType, setSelectedType] = useState(undefined)
-    const [selectedRegion, setSelectedRegion] = useState(undefined) */
+    const navigate = useNavigate();
 
     useEffect(() => {
         const getTopOpport = async () => {
@@ -118,7 +118,11 @@ const Home = () => {
                     <Map />
                 </Grid>
                 <Grid item xs={6}>
-                    <SearchBar filters={filters} />
+                    <SearchBar 
+                        onSearchTextUpdate={(text) => navigate("/Voluntariados?Texto=" + text)} 
+                        onFilterUpdate={(filter, value) => navigate("/Voluntariados?" + filter + "=" + value)} 
+                        onClearFilter={() => navigate("/Voluntariados")}
+                        filters={filters} />
                 </Grid>
                 <Grid item xs={12}>
                     {topOpport ?

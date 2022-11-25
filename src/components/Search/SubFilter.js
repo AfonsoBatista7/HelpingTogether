@@ -43,7 +43,7 @@ const SubFilter = (props) => {
         onClose={handleFilterClose}
         >
         {Object.keys(props.items).map((item) => (
-            <MenuItem onClick={handleFilterUpdate}>{props.items[item]}</MenuItem>
+            <MenuItem key={item} onClick={handleFilterUpdate}>{props.items[item]}</MenuItem>
         ))}
         </Menu>
         </div>

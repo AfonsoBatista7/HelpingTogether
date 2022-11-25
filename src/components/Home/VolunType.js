@@ -5,8 +5,10 @@ import style from "./home.module.css";
 import { Link } from 'react-router-dom'
 
 const VolunType = (props) => {
+    const url = "/Voluntariados?Tipo=" + props.name
+
     return (
-        <Link to="/Voluntariados"> {/* TODO adicionar filtro */}
+        <Link to={url}> {/* TODO adicionar filtro */}
             <Stack className={style.button} justifyContent="center" alignItems="center">
                 <Fab sx={{'&:hover':{backgroundColor: "#2b4345"}, backgroundColor: "#344d67", width:"100px", height:"100px"}}>{props.icon}</Fab>
                 <Typography variant="h6" color="#344d67">

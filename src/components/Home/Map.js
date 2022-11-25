@@ -1,12 +1,18 @@
-import React from "react";
-import { Box } from "@mui/material";
+import { React, useState} from "react";
+import { Box, Typography } from "@mui/material";
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 import ptJson from "./db3_Portugal.json";
 import { Link } from 'react-router-dom'
 
 export default function Map() {
+  const [mouseHoverDistrict, setMouseHoverDistrict] = useState("")
 
-  const geoURL = "https://raw.githubusercontent.com/deldersveld/topojson/master/countries/portugal/portugal-districts.json";
+  const onMouseEnterDistrict = (districtName) => {
+    setMouseHoverDistrict(districtName)
+}
+const onMouseLeaveDistrict = () => {
+    setMouseHoverDistrict("")
+}
 
   return (
     <Box
@@ -18,7 +24,9 @@ export default function Map() {
         <Geographies geography={ptJson}>
           {({ geographies }) =>
             geographies.map((geo) => (
-              <Link key={geo.rsmKey} to="/Voluntariados"> {/* TODO adicionar filtro */}
+              <Link key={geo.rsmKey} to={"/Voluntariados?Região=" + geo.properties.region}
+                onMouseEnter={() => onMouseEnterDistrict(geo.properties.region)} 
+                onMouseLeave={() => onMouseLeaveDistrict()}>
                 <Geography geography={geo} 
                   style={{
                     default: { fill: "#00ABB3" },
@@ -33,6 +41,9 @@ export default function Map() {
           }
         </Geographies>
       </ComposableMap>
+      <Typography variant="h5" color="#344d67" sx={{fontWeight: 'bold'}}>
+          {mouseHoverDistrict}
+      </Typography>
     </Box>
   )
 }

@@ -1,6 +1,7 @@
 import style from "../components/SectionsProfile/Profiles.module.css"
 import { Pagination, Grid, Typography, Container, Divider, Button } from "@mui/material";
 import React, { useState, useEffect, useReducer } from "react";
+import { useSearchParams } from "react-router-dom"
 import BoxVoluntariado from "../components/StatsShowers/Box/BoxVoluntariado";
 import RegisterVoluntariado from "../components/Popup/RegisterVoluntariado";
 import Popup from "../components/Popup/Popup";
@@ -15,10 +16,11 @@ function Voluntariados() {
     const [openPopupRegisterVoluntariado, setOpenPopupRegisterVoluntariado] = useState(false);
 
     const [voluntariados, setVoluntariados] = useState([])
-    // text currently on search bar
-    const [searchFilter, setSearchFilter] = useState({
+    // filters active
+/*     const [searchFilter, setSearchFilter] = useSearchParams({
         Texto: "", Tipo: "", Região: "", Duração: "",
-    })
+    }) */
+    const [searchFilter, setSearchFilter] = useSearchParams()
 
     //vetor com todos os valores no login da Base de dados
     const [loggedIns, setLoggedIns] = useState([])
@@ -38,17 +40,22 @@ function Voluntariados() {
     };
 
     const searchTextUpdate = (text) => {
-        setSearchFilter(prev => ({...prev, Texto: text}))
+        let updatedSearchParams = new URLSearchParams(searchFilter.toString());
+        updatedSearchParams.set("Texto", text);
+        setSearchFilter(updatedSearchParams.toString());
         forceUpdate()
     }
 
     const searchFilterUpdate = (filter, value) => {
-        setSearchFilter(prev => ({...prev, [filter]: value}))
+        let updatedSearchParams = new URLSearchParams(searchFilter.toString());
+        updatedSearchParams.set(filter, value);
+        setSearchFilter(updatedSearchParams.toString());
         forceUpdate()
     }
 
     const clearFilters = () => {
-        setSearchFilter(prev => ({...prev, Tipo: "", Região: "", Duração: ""}))
+        //setSearchFilter(prev => ({...prev, Tipo: "", Região: "", Duração: ""}))
+        setSearchFilter({})
         forceUpdate()
     }
 
@@ -57,13 +64,43 @@ function Voluntariados() {
             || searchFilter["Região"] != "" || searchFilter["Duração"] != ""
     }
 
+    const getDayDifference = (dateStringA, dateStringB) => {
+        const d1 = new Date(dateStringA)
+        const d2 = new Date(dateStringB)
+        let diff = Math.abs(d1.getTime() - d2.getTime())
+        let dayDiff = diff / (1000 * 3600 * 24)
+        return dayDiff
+    }
+
+    const isRightDuration = (durationString, dateStringA, dateStringB) => {
+        let dayDiff = getDayDifference(dateStringA, dateStringB)
+        switch(durationString) {
+            case filters["Duração"][0]:     // dur. reduzida
+                return dayDiff == 0;
+            case filters["Duração"][1]:     // dur. media
+                return dayDiff >= 1 && dayDiff <= 7;
+            case filters["Duração"][2]:     // dur. longa
+                return dayDiff >= 8;
+        }
+    }
+
     //vai buscar todos os valores de login da BD e mete em loggedIns
     useEffect(() => {
         const getVoluntariados = async () => {
             const voluntariadosFromServer = await fetchVoluntariados()
             let results = voluntariadosFromServer
 
-            if (isFiltered()) {
+            if (searchFilter.get("Texto") != null) {
+                results = results.filter(elem => elem["name"].toLowerCase().includes( searchFilter.get("Texto").toLowerCase() ))
+            } if (searchFilter.get("Tipo") != null) {
+                results = results.filter(elem => elem["type"].includes(searchFilter.get("Tipo")))
+            } if (searchFilter.get("Região") != null) {
+                results = results.filter(elem => elem["region"].includes(searchFilter.get("Região")))
+            } if (searchFilter.get("Duração") != null) {
+                results = results.filter(elem => isRightDuration(searchFilter.get("Duração"), elem["startDate"], elem["endDate"]))
+            }
+
+/*             if (isFiltered()) {
                 results = []
                 const searchText = searchFilter["Texto"]
                 const searchType = searchFilter["Tipo"]
@@ -84,14 +121,14 @@ function Voluntariados() {
                     } if (searchRegion != "" && !elem["region"].includes(searchRegion)) {
                         elemValid = false
                         //console.log("Region check fail")
-                    } if (searchDuration != "" && !elem["duration"].includes(searchDuration)) {
+                    } if (searchDuration != "" && !isRightDuration(searchDuration, elem["startDate"], elem["endDate"])) {
                         elemValid = false
                         //console.log("Duration check fail")
                     }
                     if (elemValid)
                         results.push(elem)
                 });
-            }
+            } */
             setVoluntariados(results)
         }
 
@@ -209,7 +246,7 @@ function Voluntariados() {
                 </Grid>
                 <Container>
                     {!(voluntariados.length === 0) ? voluntariados.map((vol) => (
-                        <>
+                        <div key={vol.id}>
                             <div className={style.boxShow}></div>
                             <BoxVoluntariado
                                 id={vol.id}
@@ -220,7 +257,7 @@ function Voluntariados() {
                                 date={vol.endDate}
                                 location={vol.location}
                                 className={style.boxShow}></BoxVoluntariado>
-                            <div className={style.boxShow}></div></>
+                            <div className={style.boxShow}></div></div>
                     )) : <></>}
                 </Container>
                 <Grid
