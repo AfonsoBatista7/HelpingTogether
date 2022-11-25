@@ -10,7 +10,7 @@
         "Animais"
       ],
       "termsAndConditions": true,
-      "isLoggedIn": true,
+      "isLoggedIn": false,
       "typePerfil": "organizacao",
       "id": 70
     },
@@ -23,7 +23,7 @@
       "password": "123456",
       "confirmPassword": "123456",
       "termsAndConditions": true,
-      "isLoggedIn": false,
+      "isLoggedIn": true,
       "typePerfil": "voluntario",
       "id": 80,
       "description": "ola sou a bia"
@@ -569,6 +569,7 @@
       "participants": [
         2000,
         90,
+        80,
         3000,
         4000,
         1000
@@ -594,6 +595,26 @@
         90,
         80,
         3000
+      ]
+    },
+    {
+      "id": 25,
+      "name": "Doação de sangue",
+      "description": "Recolha de todos os tipes de sangue, para reabastecer as reservas dos hospitais que têm mais falta deste recurso.",
+      "startDate": "10/09/2023",
+      "endDate": "14/09/2023",
+      "region": "Alrgarve",
+      "location": "Portimão",
+      "type": [
+        "Saúde"
+      ],
+      "image": "Sangue.png",
+      "rating": 2,
+      "organizacao": "Cruz Vermelha",
+      "participants": [
+        3000,
+        80,
+        5000
       ]
     },
     {

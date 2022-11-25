@@ -9,7 +9,7 @@ import { useParams } from "react-router-dom";
 
 function Perfil() {
 
-    const { idPerfil , area} = useParams();
+    const { idPerfil, area } = useParams();
 
     const [perfil, setPerfil] = useState(null);
     const [perfilLoggedIn, setPerfilLoggedIn] = useState(null);
@@ -23,37 +23,60 @@ function Perfil() {
     //vetor com todos os valores no login da Base de dados
     const [loggedIns, setLoggedIns] = useState([])
 
-    useEffect (() => {
+    useEffect(() => {
         //var ref = useRef(area);
         //ref.current.scrollIntoView({behavior: "smooth"})
-        
-       
-        goToPage()
-        
 
-    },[area, perfil])
 
-    const goToPage=()=>{
-        var value=0;
+        setTimeout(() => goToPage(), 100);
 
-        switch (area){
-            case "Perfil": value=0;
-                 break;
-            case "Candidatura":value=100;
+
+    }, [area, perfil])
+
+    function getOffset( el ) {
+        var _x = 0;
+        var _y = 0;
+        while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) {
+              _x += el.offsetLeft - el.scrollLeft;
+              _y += el.offsetTop - el.scrollTop;
+              el = el.offsetParent;
+        }
+        return { top: _y, left: _x };
+        }
+
+    const goToPage = () => {
+        var value = 0;
+        var elem;
+
+        switch (area) {
+            case "Perfil": value = 0;
+                elem = 0;
                 break;
-            case "VoluntariadosRealizados":value= 2*window.innerHeight;
+            case "Candidatura": value = 700;
+                //elem = document.getElementById('Candidatura').clientHeight+ document.getElementById('Perfil').clientHeight -150;
+               // elem = document.getElementById('Candidatura').getBoundingClientRect().top + window.pageYOffset;
+                elem = getOffset(document.getElementById('Candidatura')).top
+                console.log(elem)
                 break;
-            case "Comentários":value= 3*window.innerHeight;
+            case "VoluntariadosRealizados": value = 1350;
+                //elem = document.getElementById('VoluntariadosRealizados').clientHeight+ document.getElementById('Candidatura').clientHeight+ document.getElementById('Perfil').clientHeight -150;
+               // elem = document.getElementById('VoluntariadosRealizados').getBoundingClientRect().top+ window.pageYOffset;
+               elem = getOffset(document.getElementById('VoluntariadosRealizados')).top + getOffset(document.getElementById('Candidatura')).top - 200
+                console.log(elem)
                 break;
-            default: value=0;
+            case "Comentários": value = 2050;
+                elem = getOffset(document.getElementById('Comentários')).top + getOffset(document.getElementById('VoluntariadosRealizados')).top + getOffset(document.getElementById('Candidatura')).top 
+               
+                console.log(elem)
+                break;
+            default: elem = 0;
                 break;
         }
 
-        console.log(value)
 
-        setTimeout(() => window.scrollTo(value,0), 2000);
-        
-        ;
+        //setTimeout(() => window.scrollTo({ top: elem, behavior: "smooth" }), 500);
+
+         window.scrollTo({top:elem, behavior:"smooth"})
     }
 
 
@@ -66,7 +89,7 @@ function Perfil() {
         }
 
         getLoggedIn(loggedIns)
-        
+
     }, [])
 
     const fetchLoggedIn = async () => {
@@ -159,25 +182,29 @@ function Perfil() {
 
                     </div>
 
-                    <InfoProfile avaliar={avaliar} closeAvaliacao={closeAvaliacao} idPersonCommenting={perfilLoggedIn.id} nameLoggedIn={perfilLoggedIn.name} typeLoggedIn={perfilLoggedIn.typePerfil} openPopupAvaliacao={openPopupAvaliacao} setOpenPopupAvaliacao={setOpenPopupAvaliacao} id={perfil.id} name={perfil.name} image={perfil.image} email={perfil.email} phone={perfil.phone} rating={perfil.rating} type={perfil.typePerfil} login={perfil.isLoggedIn} description={perfil.description} birthday={perfil.birthday} gender={perfil.gender} />
+                    <div id="Perfil">
+                        <InfoProfile avaliar={avaliar} closeAvaliacao={closeAvaliacao} idPersonCommenting={perfilLoggedIn.id} nameLoggedIn={perfilLoggedIn.name} typeLoggedIn={perfilLoggedIn.typePerfil} openPopupAvaliacao={openPopupAvaliacao} setOpenPopupAvaliacao={setOpenPopupAvaliacao} id={perfil.id} name={perfil.name} image={perfil.image} email={perfil.email} phone={perfil.phone} rating={perfil.rating} type={perfil.typePerfil} login={perfil.isLoggedIn} description={perfil.description} birthday={perfil.birthday} gender={perfil.gender} />
+                    </div>
+                    <div id="Candidatura">
+                        {(perfil.typePerfil !== "organizacao") && (perfilLoggedIn.id == idPerfil) ?
+                            <>
+                                <CandidaturasPendentes id={perfilLoggedIn.id} />
+                            </>
+                            : <></>}
+                    </div>
+                    <div id="VoluntariadosRealizados">
+                        <VoluntariadosArea resgisterVoluntariado={resgisterVoluntariado} closeResgisterVoluntariado={closeResgisterVoluntariado} openPopupRegisterVoluntariado={openPopupRegisterVoluntariado} setOpenPopupRegisterVoluntariado={setOpenPopupRegisterVoluntariado} state={state} id={perfil.id} type={perfil.typePerfil} nameOrg={perfil.name} name={perfil.name} idLoggedIn={perfilLoggedIn.id} />
+                    </div>
+                    <div id="Comentários">
+                        {(perfil.typePerfil !== "organizacao") ? <>
 
-                    {(perfil.typePerfil !== "organizacao") && (perfilLoggedIn.id == idPerfil) ? 
-                    <>
-                        <CandidaturasPendentes id={perfilLoggedIn.id} />
-                    </>
-                    : <></>}
+                            <Comentarios name={perfil.name} idPerfil={perfil.id} type="pessoa" state={state2} />
 
-                    <VoluntariadosArea resgisterVoluntariado={resgisterVoluntariado} closeResgisterVoluntariado={closeResgisterVoluntariado} openPopupRegisterVoluntariado={openPopupRegisterVoluntariado} setOpenPopupRegisterVoluntariado={setOpenPopupRegisterVoluntariado} state={state} id={perfil.id} type={perfil.typePerfil} nameOrg={perfil.name} name={perfil.name} idLoggedIn={perfilLoggedIn.id}/>
-
-                    {(perfil.typePerfil !== "organizacao") ? <>
-
-                        <Comentarios name={perfil.name} idPerfil={perfil.id} type="pessoa" state={state2} />
-
-                        <Container style={{
-                            height: 50
-                        }}></Container></> :
-                        <></>}
-
+                            <Container style={{
+                                height: 50
+                            }}></Container></> :
+                            <></>}
+                    </div>
 
                 </div >
             </div>
