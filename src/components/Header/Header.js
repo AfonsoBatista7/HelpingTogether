@@ -142,7 +142,7 @@ function Header() {
                        to="/"
                         className={style.headerLink}
                         style={{
-                            marginRight: "20px",
+                            marginRight: "10px",
                             width: "3%",
                         }}
                     >
@@ -154,10 +154,9 @@ function Header() {
                     </Link>
                     <Link to="/" className={style.headerLink}>
                         <Typography
-                            variant="h6"
                             sx={{
                                 color: "#EFF5F5",
-                                fontFamily: "monospace",
+                                font: "bold 20px/1.4 'Open Sans', arial, sans-serif",
                                 fontWeight: 700,
                                 letterSpacing: ".2rem",
                             }}
