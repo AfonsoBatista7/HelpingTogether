@@ -21,7 +21,7 @@ const Home = () => {
     useEffect(() => {
         const getTopOpport = async () => {
             const opportunities = await fetchTopOpport();
-            setTopOpport(opportunities);
+            setTopOpport(opportunities.slice(0, 5));
         };
 
         getTopOpport();
@@ -111,13 +111,13 @@ const Home = () => {
                 rowSpacing={10}
                 style={{ marginTop: 20 }}
             >
-                <Grid item >
+                <Grid item xs={6}>
                     <VolunTypes types={volunTypes} />
                 </Grid>
                 <Grid item xs={6}>
                     <Map />
                 </Grid>
-                <Grid item xs={3}>
+                <Grid item xs={6}>
                     <SearchBar filters={filters} />
                 </Grid>
                 <Grid item xs={12}>

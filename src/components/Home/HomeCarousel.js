@@ -32,11 +32,11 @@ export default function HomeCarousel(props) {
     ) */
 
     return (
-        <Carousel className={style.carousel} width={700} showThumbs={false} infiniteLoop emulateTouch autoPlay>
+        <Carousel className={style.carousel} width={"50vw"} showThumbs={false} infiniteLoop emulateTouch autoPlay>
             {props.res.map((elem) => (
                 <div key={elem.name} className={style.imagec}>
                     <img className={style.image} src={"/"+elem.image} />
-                    <p className="legend">{elem.name}</p>
+                    <p className="legend" sx={{fontWeight: 200}}>{elem.name}</p>
                 </div>
             ))}
         </Carousel>
