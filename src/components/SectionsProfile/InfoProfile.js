@@ -22,9 +22,7 @@ function InfoProfile(props) {
   function changeState() {
     editState(!editMode);
 
-    if (editMode) {
-      changeLogginStatus(props.id, props.description);
-    }
+   
   }
 
   const fetchLogin = async (id) => {
@@ -243,11 +241,11 @@ function InfoProfile(props) {
                 id="outlined-disabled"
                 defaultValue={props.description}
               /> : <TextField className={style.description}
-
                 fullWidth
                 multiline
                 id="outlined-disabled"
                 defaultValue={props.description}
+                onChange={(event) => changeLogginStatus(props.id, event.target.value)}
               />}
 
 

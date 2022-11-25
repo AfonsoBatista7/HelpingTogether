@@ -22,28 +22,42 @@ function VoluntariadosArea(props) {
 
     const fetchVoluntariados = async () => {
         var res = [];
+        var resultado=[];
 
         if (props.type === "organizacao") {
             res = await fetch('http://localhost:5000/voluntariados');
-        } else {
-            res = await fetch('http://localhost:5000/voluntariadosRealizados')
-        }
-
-        var data1 = await res.json()
-
-        if (props.type === "organizacao")
+            var data1 = await res.json()
             data1 = checkOrganization(data1);
 
+            const res2 = await fetch('http://localhost:5000/novosVoluntariados')
+            var data2 = await res2.json()
+            data2 = checkOrganization(data2);
+            resultado = makeList(data1, data2);
 
-        const res2 = await fetch('http://localhost:5000/novosVoluntariados')
-        var data2 = await res2.json()
+        } else {
+            res = await fetch('http://localhost:5000/voluntariadosRealizados')
+            var data3 = await res.json()
 
-        data2 = checkOrganization(data2);
-
-        var resultado = makeList(data1, data2);
+            resultado = checkVoluntDone(data3);
+        }
+           
 
         return resultado;
     }
+
+    const checkVoluntDone = (data) => {
+        var list = [];
+
+        for (const element of data) {
+            for(const e of element.participants)
+            if (e === props.id) {
+                list.push(element);
+            }
+        }
+
+        return list;
+    }
+
 
 
     const checkOrganization = (data) => {
@@ -85,6 +99,7 @@ function VoluntariadosArea(props) {
                     justifyContent="space-between"
                     alignItems="center">
 
+                    <Grid item xs={6}>
                     <Typography
                         style={{
                             fontWeight: 500,
@@ -97,9 +112,9 @@ function VoluntariadosArea(props) {
                     >
                         {props.type === "organizacao" ? "Voluntariados" : "Voluntariados Realizados"}
                     </Typography>
-
-
-                    {props.type === "organizacao" ?
+                    </Grid>
+                    <Grid item xs={6}>
+                    {(props.type === "organizacao" )&&(props.id===props.idLoggedIn)?
                         <>
                             <Button onClick={props.resgisterVoluntariado} style={{ float: "right" }}>
                                 <Typography style={{ color: "#497174" }}>+ Criar</Typography>
@@ -109,6 +124,7 @@ function VoluntariadosArea(props) {
                             >
                                 <RegisterVoluntariado organizacao={props.nameOrg} closePopup={props.closeResgisterVoluntariado} />
                             </Popup></> : <></>}
+                    </Grid>
 
                 </Grid>
                 <Divider className={style.voluntariadosProfile} />
