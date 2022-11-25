@@ -323,7 +323,7 @@ function Voluntariado() {
                     height: 50
                 }}></Container>
 
-                {!volunt.organizacao!==perfil.name? 
+                {volunt.organizacao===perfil.name? 
                 <AcceptCandidates id={volunt.id} ></AcceptCandidates>
                 :<></>}
 

@@ -4,7 +4,7 @@ import CandidaturasPendentes from "../components/SectionsProfile/CandidaturasPen
 import Comentarios from "../components/SectionsProfile/Comentarios";
 import style from "../components/SectionsProfile/Profiles.module.css"
 import { Typography, Container, CircularProgress } from "@mui/material";
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useState, useEffect, useReducer, useRef } from "react";
 import { useParams } from "react-router-dom";
 
 function Perfil() {
@@ -23,6 +23,40 @@ function Perfil() {
     //vetor com todos os valores no login da Base de dados
     const [loggedIns, setLoggedIns] = useState([])
 
+    useEffect (() => {
+        //var ref = useRef(area);
+        //ref.current.scrollIntoView({behavior: "smooth"})
+        
+       
+        goToPage()
+        
+
+    },[area, perfil])
+
+    const goToPage=()=>{
+        var value=0;
+
+        switch (area){
+            case "Perfil": value=0;
+                 break;
+            case "Candidatura":value=100;
+                break;
+            case "VoluntariadosRealizados":value= 2*window.innerHeight;
+                break;
+            case "Comentários":value= 3*window.innerHeight;
+                break;
+            default: value=0;
+                break;
+        }
+
+        console.log(value)
+
+        setTimeout(() => window.scrollTo(value,0), 2000);
+        
+        ;
+    }
+
+
     //vai buscar todos os valores de login da BD e mete em loggedIns
     useEffect(() => {
         const getLoggedIn = async () => {
@@ -32,7 +66,7 @@ function Perfil() {
         }
 
         getLoggedIn(loggedIns)
-
+        
     }, [])
 
     const fetchLoggedIn = async () => {
@@ -133,7 +167,7 @@ function Perfil() {
                     </>
                     : <></>}
 
-                    <VoluntariadosArea resgisterVoluntariado={resgisterVoluntariado} closeResgisterVoluntariado={closeResgisterVoluntariado} openPopupRegisterVoluntariado={openPopupRegisterVoluntariado} setOpenPopupRegisterVoluntariado={setOpenPopupRegisterVoluntariado} state={state} id={perfil.id} type={perfil.typePerfil} nameOrg={perfil.name} name={perfil.name} />
+                    <VoluntariadosArea resgisterVoluntariado={resgisterVoluntariado} closeResgisterVoluntariado={closeResgisterVoluntariado} openPopupRegisterVoluntariado={openPopupRegisterVoluntariado} setOpenPopupRegisterVoluntariado={setOpenPopupRegisterVoluntariado} state={state} id={perfil.id} type={perfil.typePerfil} nameOrg={perfil.name} name={perfil.name} idLoggedIn={perfilLoggedIn.id}/>
 
                     {(perfil.typePerfil !== "organizacao") ? <>
 
