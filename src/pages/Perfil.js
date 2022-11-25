@@ -36,16 +36,16 @@ function Perfil() {
 
     }, [area, perfil])
 
-    function getOffset( el ) {
+    function getOffset(el) {
         var _x = 0;
         var _y = 0;
-        while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) {
-              _x += el.offsetLeft - el.scrollLeft;
-              _y += el.offsetTop - el.scrollTop;
-              el = el.offsetParent;
+        while (el && !isNaN(el.offsetLeft) && !isNaN(el.offsetTop)) {
+            _x += el.offsetLeft - el.scrollLeft;
+            _y += el.offsetTop - el.scrollTop;
+            el = el.offsetParent;
         }
         return { top: _y, left: _x };
-        }
+    }
 
     const goToPage = () => {
         var value = 0;
@@ -57,19 +57,23 @@ function Perfil() {
                 break;
             case "Candidatura": value = 700;
                 //elem = document.getElementById('Candidatura').clientHeight+ document.getElementById('Perfil').clientHeight -150;
-               // elem = document.getElementById('Candidatura').getBoundingClientRect().top + window.pageYOffset;
+                // elem = document.getElementById('Candidatura').getBoundingClientRect().top + window.pageYOffset;
                 elem = getOffset(document.getElementById('Candidatura')).top
                 console.log(elem)
                 break;
-            case "VoluntariadosRealizados": value = 1350;
+            case "Realizados": value = 1350;
                 //elem = document.getElementById('VoluntariadosRealizados').clientHeight+ document.getElementById('Candidatura').clientHeight+ document.getElementById('Perfil').clientHeight -150;
-               // elem = document.getElementById('VoluntariadosRealizados').getBoundingClientRect().top+ window.pageYOffset;
-               elem = getOffset(document.getElementById('VoluntariadosRealizados')).top + getOffset(document.getElementById('Candidatura')).top - 200
+                // elem = document.getElementById('VoluntariadosRealizados').getBoundingClientRect().top+ window.pageYOffset;
+                elem = getOffset(document.getElementById('Voluntariados')).top 
+                console.log(elem)
+                break;
+            case "Voluntariados":
+                elem = getOffset(document.getElementById('Voluntariados')).top 
                 console.log(elem)
                 break;
             case "Comentários": value = 2050;
-                elem = getOffset(document.getElementById('Comentários')).top + getOffset(document.getElementById('VoluntariadosRealizados')).top + getOffset(document.getElementById('Candidatura')).top 
-               
+                elem = getOffset(document.getElementById('Comentários')).top 
+
                 console.log(elem)
                 break;
             default: elem = 0;
@@ -79,7 +83,7 @@ function Perfil() {
 
         //setTimeout(() => window.scrollTo({ top: elem, behavior: "smooth" }), 500);
 
-         window.scrollTo({top:elem, behavior:"smooth"})
+        window.scrollTo({ top: elem, behavior: "smooth" })
     }
 
 
@@ -160,7 +164,7 @@ function Perfil() {
     // const voluntariadosToShow = (list) => {
     //     setVoluntToShow(list);
     // }
-    
+
     const resgisterVoluntariado = () => {
         setOpenPopupRegisterVoluntariado(true);
     }
@@ -209,7 +213,7 @@ function Perfil() {
                             </>
                             : <></>}
                     </div>
-                    <div id="VoluntariadosRealizados">
+                    <div id="Voluntariados">
                         <VoluntariadosArea resgisterVoluntariado={resgisterVoluntariado} closeResgisterVoluntariado={closeResgisterVoluntariado} openPopupRegisterVoluntariado={openPopupRegisterVoluntariado} setOpenPopupRegisterVoluntariado={setOpenPopupRegisterVoluntariado} state={state} id={perfil.id} type={perfil.typePerfil} nameOrg={perfil.name} name={perfil.name} idLoggedIn={perfilLoggedIn.id} />
                     </div>
                     <div id="Comentários">
