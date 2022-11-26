@@ -32,6 +32,20 @@
       "id": 2,
       "description": "Tenho 46 anos e sou professor de matemática numa escola secundária em Lisboa. Gosto de conviver com pessoas e ajudar os mais necessitados.",
       "image": "Luis_Gomes.jpg"
+    },
+    {
+      "name": "ana",
+      "email": "a@gmail.com",
+      "gender": "female",
+      "birthday": "18/11/1913",
+      "phone": "934253627",
+      "password": "000000",
+      "confirmPassword": "000000",
+      "termsAndConditions": true,
+      "isLoggedIn": false,
+      "typePerfil": "voluntario",
+      "image": "defaultPhoto.jpg",
+      "id": 3
     }
   ],
   "voluntarios": [
@@ -398,7 +412,7 @@
         "Comunidade"
       ],
       "image": "teaching_refugees.jpg",
-      "rating": 2,
+      "rating": 4,
       "organizacao": "Cruz Vermelha"
     }
   ],
@@ -474,6 +488,15 @@
       "rating": 5,
       "date": "13/05/2022 20:41",
       "idPersonCommenting": 13000
+    },
+    {
+      "id": 38,
+      "name": "WHPHP",
+      "comment": "Voluntário muito competente e comprometido com o projeto que desempenhou.",
+      "image": "WHPHP.png",
+      "rating": 4,
+      "date": "09/11/2022 19:02",
+      "idPersonCommenting": 1
     }
   ],
   "comentariosVoluntariado": [
@@ -690,7 +713,7 @@
       ]
     },
     {
-      "id": 26,
+      "id": 30,
       "name": "Inserção de refugiados na sociedade",
       "description": "Ensinar refugiados a escrever, a ler e a falar português para que a sua integração em Portugal seja facilitada.",
       "startDate": "1/02/2021",
@@ -765,6 +788,15 @@
       "rating": 5,
       "date": "02/01/2020 08:02",
       "idPersonCommenting": 8000
+    },
+    {
+      "id": 33,
+      "name": "Cruz Vermelha",
+      "comment": "Voluntário muito empenhado e animado, sempre a querer fazer mais.",
+      "image": "Cruz_Vermelha.png",
+      "rating": 5,
+      "date": "22/11/2022 19:02",
+      "idPersonCommenting": 6000
     }
   ],
   "comentariosFeitosPessoa": [],
