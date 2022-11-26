@@ -48,7 +48,7 @@ const SearchBar = (props) => {
           onClick={handleClearFilters}
           variant="contained" 
           size="large"
-          sx={{textTransform: 'none', borderRadius: '20px', color:'white'}}
+          sx={{textTransform: 'none', borderRadius: '20px', color:'white', background: "#497174"}}
           >Limpar filtros</Button>
         </Stack> 
     </div>
