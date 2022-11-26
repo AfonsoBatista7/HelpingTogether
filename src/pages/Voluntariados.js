@@ -55,7 +55,6 @@ function Voluntariados() {
     }
 
     const clearFilters = () => {
-        //setSearchFilter(prev => ({...prev, Tipo: "", Região: "", Duração: ""}))
         setSearchFilter({})
         forceUpdate()
     }
@@ -101,35 +100,7 @@ function Voluntariados() {
                 results = results.filter(elem => isRightDuration(searchFilter.get("Duração"), elem["startDate"], elem["endDate"]))
             }
 
-/*             if (isFiltered()) {
-                results = []
-                const searchText = searchFilter["Texto"]
-                const searchType = searchFilter["Tipo"]
-                const searchRegion = searchFilter["Região"]
-                const searchDuration = searchFilter["Duração"]
 
-                voluntariadosFromServer.forEach(elem => {
-                    let elemValid = true
-                    if (searchText != "") {
-                        elemValid = false
-                        if (elem["name"].toLowerCase().includes(searchText)) {
-                            elemValid = true
-                            //console.log("Text check success")
-                    }}
-                    if (searchType != "" && !elem["type"].includes(searchType)) {
-                        elemValid = false
-                        //console.log("Type check fail")
-                    } if (searchRegion != "" && !elem["region"].includes(searchRegion)) {
-                        elemValid = false
-                        //console.log("Region check fail")
-                    } if (searchDuration != "" && !isRightDuration(searchDuration, elem["startDate"], elem["endDate"])) {
-                        elemValid = false
-                        //console.log("Duration check fail")
-                    }
-                    if (elemValid)
-                        results.push(elem)
-                });
-            } */
             setVoluntariados(results)
         }
 
