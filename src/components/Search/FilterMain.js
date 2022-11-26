@@ -25,7 +25,7 @@ const FilterMain = (props) => {
         onClick={handleClick}
         variant="contained" 
         size="large"
-        sx={{textTransform: 'none', borderRadius: '20px', color:'white'}}
+        sx={{textTransform: 'none', borderRadius: '20px', color:'white',  background: "#497174"}}
         >Filtros</Button>
 
         <Menu
