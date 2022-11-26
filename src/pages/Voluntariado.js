@@ -1,6 +1,6 @@
 import Comentarios from "../components/SectionsProfile/Comentarios";
 import style from "../components/SectionsProfile/Profiles.module.css"
-import { Pagination, Grid, Typography, Container, Button } from "@mui/material";
+import { Grid, Typography, Container, Button } from "@mui/material";
 import InfoVoluntariado from "../components/SectionsProfile/InfoVoluntariado";
 import AcceptCandidates from "../components/SectionsProfile/AcceptCandidates";
 import DoneOutlineRoundedIcon from '@mui/icons-material/DoneOutlineRounded';
@@ -9,6 +9,7 @@ import React, { useState, useEffect, useReducer } from 'react'
 import { useParams, } from "react-router-dom";
 import ShowOldCandidates from "../components/SectionsProfile/ShowOldCandidates";
 import { ConnectingAirportsOutlined } from "@mui/icons-material";
+
 
 function Voluntariado() {
 
@@ -44,21 +45,21 @@ function Voluntariado() {
 
 
     useEffect(() => {
-       
-            checkifVoluntariadoRealizado()
+
+        checkifVoluntariadoRealizado()
     }, [])
 
-    const checkifVoluntariadoRealizado = async () =>{
+    const checkifVoluntariadoRealizado = async () => {
         var res = await fetch('http://localhost:5000/voluntariadosRealizados');
         var data = await res.json()
 
-        for(const element of data){
-            if(element.id ==idVolt){
+        for (const element of data) {
+            if (element.id == idVolt) {
                 setVoltRealizado(true)
             }
         }
 
-       
+
     }
 
 
@@ -118,7 +119,7 @@ function Voluntariado() {
         }
 
         for (const element of data3) {
-            if(element.id==idVolt)
+            if (element.id == idVolt)
                 editStateAceptedRejected(true)
         }
 
@@ -405,15 +406,18 @@ function Voluntariado() {
                     height: 50
                 }}></Container>
 
-                {perfil ?<>
+                {perfil ? <>
                     {(volunt.organizacao === perfil.name) && !voltRealizado ?
                         <AcceptCandidates id={volunt.id} ></AcceptCandidates>
                         : <></>}
-                        </> : <></>}
+                </> : <></>}
+
+                <Container style={{
+                    height: 50
+                }}></Container>
 
 
-                
-                <ShowOldCandidates idVolt={idVolt}/>
+                <ShowOldCandidates idVolt={idVolt} />
 
                 <Comentarios newVolunt={voluntsComent} name={volunt.name} idPerfil={volunt.id} type="voluntariado" state={state} />
 

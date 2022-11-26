@@ -102,7 +102,7 @@ const Home = () => {
             <div style={{ marginTop: "130px" }}>
                 <VolunTypes types={volunTypes} />
             </div>
-            <div>
+            <div style={{ marginTop: "140px" }}>
                 <Map />
             </div>
             <div>
