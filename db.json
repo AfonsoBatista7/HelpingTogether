@@ -65,7 +65,7 @@
       "password": "123456",
       "confirmPassword": "123456",
       "termsAndConditions": true,
-      "isLoggedIn": true,
+      "isLoggedIn": false,
       "typePerfil": "voluntario",
       "id": 101
     }
@@ -856,6 +856,21 @@
       "organizacao": "ola",
       "image": "defaultPhotoOrganization.jpg",
       "id": 2
+    },
+    {
+      "name": "dar comida",
+      "region": "Alentejo",
+      "location": "jashdkjH",
+      "description": "ASNXMNK",
+      "startDate": "01/11/2022",
+      "endDate": "23/11/2022",
+      "type": [
+        "Natureza",
+        "Animais"
+      ],
+      "organizacao": "ola",
+      "image": "defaultPhotoOrganization.jpg",
+      "id": 3
     }
   ],
   "candidaturas": [
@@ -902,7 +917,5 @@
       "id": 4
     }
   ],
-  "candidaturasRejeitadas":[
-    
-  ]
+  "candidaturasRejeitadas": []
 }

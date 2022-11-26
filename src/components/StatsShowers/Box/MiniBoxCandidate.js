@@ -3,6 +3,7 @@ import style from "./miniBoxCandidate.module.css";
 import React, { useState } from "react";
 import Profile from "../../Popup/Profile";
 import Popup from "../../Popup/Popup";
+import { Typography } from "antd";
 
 function MiniBoxCandidate({ name, image, rating, desc, birthday, id, email, phone, gender }) {
 
@@ -22,11 +23,15 @@ function MiniBoxCandidate({ name, image, rating, desc, birthday, id, email, phon
                 <Grid container direction="row" alignContent="center" >
                     <Grid item>
                         {image ? <Avatar className={style.avatar} alt={name} src={"/" + image} />
-                        : <Avatar className={style.avatar} alt={name} src={"/defaultPhoto.jpg"} />}
+                            : <Avatar className={style.avatar} alt={name} src={"/defaultPhoto.jpg"} />}
                     </Grid>
                     <Grid>
                         <Grid container direction="column" >
-                            <Grid item><b style={{ position: "relative", left: "3px" }}>{name}</b></Grid>
+                            <Grid item>
+                                <Typography style={{ position: "relative", left: "3px", wordWrap: "break-word" }}>
+                                    <b>{name}</b>
+                                </Typography>
+                            </Grid>
                             <Grid item>
                                 <Rating
                                     name="rating-candidatos"

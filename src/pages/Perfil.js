@@ -64,15 +64,15 @@ function Perfil() {
             case "Realizados": value = 1350;
                 //elem = document.getElementById('VoluntariadosRealizados').clientHeight+ document.getElementById('Candidatura').clientHeight+ document.getElementById('Perfil').clientHeight -150;
                 // elem = document.getElementById('VoluntariadosRealizados').getBoundingClientRect().top+ window.pageYOffset;
-                elem = getOffset(document.getElementById('Voluntariados')).top 
+                elem = getOffset(document.getElementById('Voluntariados')).top
                 console.log(elem)
                 break;
             case "Voluntariados":
-                elem = getOffset(document.getElementById('Voluntariados')).top 
+                elem = getOffset(document.getElementById('Voluntariados')).top
                 console.log(elem)
                 break;
             case "Comentários": value = 2050;
-                elem = getOffset(document.getElementById('Comentários')).top 
+                elem = getOffset(document.getElementById('Comentários')).top
 
                 console.log(elem)
                 break;
@@ -204,8 +204,9 @@ function Perfil() {
                     </div>
 
                     <div id="Perfil">
-                        <InfoProfile avaliar={avaliar} closeAvaliacao={closeAvaliacao} idPersonCommenting={perfilLoggedIn.id} nameLoggedIn={perfilLoggedIn.name} typeLoggedIn={perfilLoggedIn.typePerfil} openPopupAvaliacao={openPopupAvaliacao} setOpenPopupAvaliacao={setOpenPopupAvaliacao} id={perfil.id} name={perfil.name} image={perfil.image} email={perfil.email} phone={perfil.phone} rating={perfil.rating} type={perfil.typePerfil} login={perfil.isLoggedIn} description={perfil.description} birthday={perfil.birthday} gender={perfil.gender} />
+                        <InfoProfile avaliar={avaliar} closeAvaliacao={closeAvaliacao} perfilLoggedIn={perfilLoggedIn}  openPopupAvaliacao={openPopupAvaliacao} setOpenPopupAvaliacao={setOpenPopupAvaliacao} id={perfil.id} name={perfil.name} image={perfil.image} email={perfil.email} phone={perfil.phone} rating={perfil.rating} type={perfil.typePerfil} login={perfil.isLoggedIn} description={perfil.description} birthday={perfil.birthday} gender={perfil.gender} />
                     </div>
+                    {perfilLoggedIn ?
                     <div id="Candidatura">
                         {(perfil.typePerfil !== "organizacao") && (perfilLoggedIn.id == idPerfil) ?
                             <>
@@ -213,8 +214,9 @@ function Perfil() {
                             </>
                             : <></>}
                     </div>
+                    : <></>}
                     <div id="Voluntariados">
-                        <VoluntariadosArea resgisterVoluntariado={resgisterVoluntariado} closeResgisterVoluntariado={closeResgisterVoluntariado} openPopupRegisterVoluntariado={openPopupRegisterVoluntariado} setOpenPopupRegisterVoluntariado={setOpenPopupRegisterVoluntariado} state={state} id={perfil.id} type={perfil.typePerfil} nameOrg={perfil.name} name={perfil.name} idLoggedIn={perfilLoggedIn.id} />
+                        <VoluntariadosArea resgisterVoluntariado={resgisterVoluntariado} closeResgisterVoluntariado={closeResgisterVoluntariado} openPopupRegisterVoluntariado={openPopupRegisterVoluntariado} setOpenPopupRegisterVoluntariado={setOpenPopupRegisterVoluntariado} state={state} id={perfil.id} type={perfil.typePerfil} nameOrg={perfil.name} name={perfil.name} idLoggedIn={perfilLoggedIn} />
                     </div>
                     <div id="Comentários">
                         {(perfil.typePerfil !== "organizacao") ? <>
@@ -229,7 +231,8 @@ function Perfil() {
 
                 </div >
             </div>
-            : <></>}</>
+            : <></>}
+    </>
     );
 }
 

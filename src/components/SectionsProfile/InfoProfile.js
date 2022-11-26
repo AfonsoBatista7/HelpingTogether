@@ -22,7 +22,7 @@ function InfoProfile(props) {
   function changeState() {
     editState(!editMode);
 
-   
+
   }
 
   const fetchLogin = async (id) => {
@@ -251,10 +251,11 @@ function InfoProfile(props) {
 
           </Container>
 
-          <div className={style.titleVoluntariado}>
-            {props.login ? <></> :<>
+          {props.perfilLoggedIn ?
+            <div className={style.titleVoluntariado}>
+              {props.login ? <></> : <>
 
-              {(props.typeLoggedIn === "organizacao")&&(props.type!=="organizacao") ?
+                {(props.perfilLoggedIn.typePerfil === "organizacao") && (props.type !== "organizacao") ?
                   <><div className={style.avaliarbutton} >
                     <Button style={{ background: "white" }} variant="contained" onClick={props.avaliar}>
                       <Typography style={{ color: "#497174" }}>Avaliar</Typography>
@@ -263,11 +264,11 @@ function InfoProfile(props) {
                       openPopup={props.openPopupAvaliacao}
                       setOpenPopup={props.setOpenPopupAvaliacao}
                     >
-                      <Evaluation idPersonCommented={props.id} idPersonCommenting={props.idPersonCommenting} name={props.nameLoggedIn} nameOfTheCommented={props.name} type="pessoa" closePopup={props.closeAvaliacao} />
+                      <Evaluation idPersonCommented={props.id} idPersonCommenting={props.perfilLoggedIn.id} name={props.perfilLoggedIn.name} nameOfTheCommented={props.name} type="pessoa" closePopup={props.closeAvaliacao} />
                     </Popup>
-                  </div></>:<></>}</>
-            }
-          </div>
+                  </div></> : <></>}</>
+              }
+            </div> : <></>}
         </Grid>
       </Grid >
     </div >
