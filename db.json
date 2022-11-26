@@ -408,7 +408,7 @@
       "name": "Cruz Vermelha",
       "comment": "Voluntário sempre desponível quando solicitado, empenhado e bom trabalhador.",
       "image": "Cruz_Vermelha.png",
-      "rating": 3,
+      "rating": 5,
       "date": "12/04/2022 11:55",
       "idPersonCommenting": 6000
     },
@@ -776,12 +776,12 @@
       "idPersonCommenting": 8000
     },
     {
-      "id": 33,
+      "id": 30,
       "name": "Cruz Vermelha",
-      "comment": "Voluntário muito empenhado e animado, sempre a querer fazer mais.",
+      "comment": "Voluntário sempre desponível quando solicitado, empenhado e bom trabalhador.",
       "image": "Cruz_Vermelha.png",
       "rating": 5,
-      "date": "22/11/2022 19:02",
+      "date": "12/04/2022 11:55",
       "idPersonCommenting": 6000
     }
   ],
