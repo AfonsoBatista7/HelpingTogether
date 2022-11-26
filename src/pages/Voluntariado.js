@@ -381,7 +381,7 @@ function Voluntariado() {
                 }}></Container>
 
                 {perfil ?
-                    volunt.organizacao === perfil.name ?
+                    (volunt.organizacao === perfil.name)&& !voltDone ?
                         <AcceptCandidates id={volunt.id} ></AcceptCandidates>
                         : <></>
                     : <></>}
