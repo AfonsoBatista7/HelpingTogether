@@ -5,6 +5,7 @@ import BoxVoluntariado from "../components/StatsShowers/Box/BoxVoluntariado";
 import RegisterVoluntariado from "../components/Popup/RegisterVoluntariado";
 import Popup from "../components/Popup/Popup";
 import SearchBar from "../components/Search/SearchBar";
+import { Link } from "react-router-dom";
 
 function Voluntariados() {
     const [state, forceUpdate] = useReducer(x => x + 1, 0);
@@ -18,7 +19,7 @@ function Voluntariados() {
     const [loggedIns, setLoggedIns] = useState([])
 
     const filters = {
-        Tipo: ['Natureza', 'Animais', 'Poluição', 'Comunidade', 'Gastronomia', 'Saúde'], 
+        Tipo: ['Natureza', 'Animais', 'Poluição', 'Comunidade', 'Gastronomia', 'Saúde'],
         Região: [
             "Norte",
             "Centro",
@@ -141,7 +142,14 @@ function Voluntariados() {
                                     setOpenPopup={setOpenPopupRegisterVoluntariado}
                                 >
                                     <RegisterVoluntariado organizacao={perfil.name} closePopup={closeResgisterVoluntariado} />
-                                </Popup></div> : <></>}
+                                </Popup></div> 
+                                : <>
+                                <div style={{ float: "right" }}>
+                                    <Link style={{  textDecoration: "none"}} to={`/Perfil/${perfil.id}/Realizados`}>
+                                        <Button variant="contained" style={{background: "#497174"}}>
+                                            <Typography style={{ color: "white" }}>Ver Realizados</Typography>
+                                        </Button>
+                                    </Link></div> </>}
                     </>}
 
                 </Grid>
