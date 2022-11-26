@@ -105,8 +105,6 @@ function AcceptCandidates(props) {
             }
         }
 
-        console.log(list)
-
         return list;
     }
 
@@ -125,6 +123,7 @@ function AcceptCandidates(props) {
     }
 
     const rejectPerson = async (personId) => {
+        await addCandidaturaAceite({ idVolunt: props.id, idPerson: personId })
         const res = await fetch('http://localhost:5000/candidaturas')
         const data = await res.json()
 
@@ -187,6 +186,19 @@ function AcceptCandidates(props) {
         const res = await fetch(`http://localhost:5000/candidaturas/${id}`, {
             method: 'DELETE',
         })
+    }
+
+    const addCandidaturaRegeitada= async (value) => {
+        const res = await fetch('http://localhost:5000/candidaturasRejeitadas', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify(value),
+        })
+
+        const data = await res.json()
+
     }
 
 

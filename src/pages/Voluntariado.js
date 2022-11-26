@@ -7,7 +7,6 @@ import DoneOutlineRoundedIcon from '@mui/icons-material/DoneOutlineRounded';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 import React, { useState, useEffect, useReducer } from 'react'
 import { useParams, } from "react-router-dom";
-import { CollectionsOutlined, ContentCutOutlined } from "@mui/icons-material";
 
 function Voluntariado() {
 
@@ -18,6 +17,8 @@ function Voluntariado() {
     const [volntAll, setAllVolunt] = useState([]);
 
     const [candidate, editState] = useState(false);
+
+    const [acceptedorRejected, editStateAceptedRejected] = useState(false);
 
     const [perfil, setPerfil] = useState(null);
 
@@ -37,6 +38,9 @@ function Voluntariado() {
 
     const [candid, setVoluntariados] = useState([]);
 
+
+
+
     const checkifiscandid = (id) => {
 
         const getVolunts = async () => {
@@ -53,12 +57,42 @@ function Voluntariado() {
 
     }
 
+
     const fetchCandidatura = async () => {
         var res = await fetch('http://localhost:5000/candidaturas');
-
         var data = await res.json()
 
         return data;
+    }
+
+    const checkifAlredyAcceptedRejected =(id)=>{
+        const getAcceptedRejected = async (id) => {
+
+           await fetchAcceptedRjected(id)
+
+        }
+
+        getAcceptedRejected(id)
+    }
+
+    const fetchAcceptedRjected = async (id) => {
+        var res = await fetch('http://localhost:5000/candidaturasAceites');
+        var data = await res.json()
+
+        var res2 = await fetch('http://localhost:5000/candidaturasRejeitadas');
+        var data2 = await res2.json()
+
+        for (const element of data) {
+            if((element.idVolunt==idVolt)&&(element.idPerson==id))
+          
+                editStateAceptedRejected(true)
+        }
+
+        for (const element of data2) {
+            if((element.idVolunt===idVolt)&&(element.idPerson===id))
+                editStateAceptedRejected(true)
+        }
+
     }
 
     //vai buscar todos os valores de login da BD e mete em loggedIns
@@ -67,6 +101,7 @@ function Voluntariado() {
             const loggedInFromServer = await fetchLoggedIn()
 
             setLoggedIns(loggedInFromServer)
+
         }
 
         getLoggedIn(loggedIns)
@@ -85,9 +120,9 @@ function Voluntariado() {
 
     }, [])
 
-    useEffect(() => {
+    const voluntDone=(value) => {
         const getVolunteringDone = async () => {
-            const VoltDoneFromServer = await fetchVoltDone()
+            const VoltDoneFromServer = await fetchVoltDone(value)
 
             setVoluntsDone(VoltDoneFromServer)
 
@@ -96,13 +131,22 @@ function Voluntariado() {
 
         getVolunteringDone(voluntsDone)
 
-    }, [])
+    }
 
-    const fetchVoltDone = async () => {
+    const fetchVoltDone = async (id) => {
         const res = await fetch('http://localhost:5000/voluntariadosRealizados')
         const data = await res.json()
 
-        return data;
+        var list=[]
+
+        for(const elem of data){
+            for(const e of elem.participants){
+                if(e===id)
+                list.push(elem)
+            }
+        }
+
+        return list;
     }
 
     useEffect(() => {
@@ -187,15 +231,19 @@ function Voluntariado() {
     useEffect(() => {
         checkLogin()
 
+        
+
     }, [loggedIns])
 
     const checkLogin = () => {
 
         for (const element of loggedIns) {
             if (element.isLoggedIn) {
-
                 checkifiscandid(element.id)
+                checkifAlredyAcceptedRejected(element.id)
                 setPerfil(element);
+
+                voluntDone(element.id);
             }
         }
 
@@ -279,7 +327,7 @@ function Voluntariado() {
                     </Grid>
                     <Grid item xs={5} className={style.marginsVoluntariado}>
                         {!perfil ? <></> : <>
-                            {perfil.typePerfil === "organizacao" ? <>
+                            {(perfil.typePerfil === "organizacao")||(acceptedorRejected) ? <>
                             </> : <>
                                 {!voltDone ? <>
                                     {!candidate ?

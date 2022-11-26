@@ -10,7 +10,7 @@
         "Animais"
       ],
       "termsAndConditions": true,
-      "isLoggedIn": true,
+      "isLoggedIn": false,
       "typePerfil": "organizacao",
       "id": 70
     },
@@ -23,7 +23,7 @@
       "password": "123456",
       "confirmPassword": "123456",
       "termsAndConditions": true,
-      "isLoggedIn": false,
+      "isLoggedIn": true,
       "typePerfil": "voluntario",
       "id": 80,
       "description": "ola sou a bia"
@@ -624,7 +624,6 @@
       "organizacao": "Cruz Vermelha",
       "participants": [
         3000,
-        80,
         5000
       ]
     },
@@ -686,6 +685,7 @@
       "idOrg": 8000,
       "participants": [
         2000,
+        80,
         1000,
         3000
       ]
@@ -885,6 +885,24 @@
       "idVolunt": 1,
       "idPerson": 80,
       "id": 1
+    },
+    {
+      "idVolunt": 14,
+      "idPerson": 80,
+      "id": 2
+    },
+    {
+      "idVolunt": 15,
+      "idPerson": 80,
+      "id": 3
+    },
+    {
+      "idVolunt": 17,
+      "idPerson": 80,
+      "id": 4
     }
+  ],
+  "candidaturasRejeitadas":[
+    
   ]
 }
