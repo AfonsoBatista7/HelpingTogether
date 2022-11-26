@@ -1,4 +1,4 @@
-import { React, useState} from "react";
+import { React, useState } from "react";
 import {
   Stack,
   TextField,
@@ -15,13 +15,13 @@ const SearchBar = (props) => {
   const navigate = useNavigate()
 
   let inputHandler = (e) => {
-/*     var lowerCase = e.target.value.toLowerCase();
-    props.onSearchTextUpdate(lowerCase); */
+    /*     var lowerCase = e.target.value.toLowerCase();
+        props.onSearchTextUpdate(lowerCase); */
     setSearchText(e.target.value)
   };
 
   function handleSubmit(e) {
-    e.preventDefault();  
+    e.preventDefault();
     props.onSearchTextUpdate(searchText)
   }
 
@@ -31,27 +31,32 @@ const SearchBar = (props) => {
 
   return (
     <div>
-        <Stack direction="row" spacing={0.5}>
-          <form onSubmit={handleSubmit} >
-            <TextField id="" onChange={inputHandler}
-              label="Procurar oportunidades" variant="outlined" size="small" className={style.searchBar}
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <AiOutlineSearch />
-                  </InputAdornment>
-                ),
-              }}/>
-          </form>
-          <FilterMain filters={props.filters} onFilterUpdate={props.onFilterUpdate}/>
-          <Button
+      <Stack direction="row" spacing={0.5}>
+        <form onSubmit={handleSubmit} >
+          <TextField id="" onChange={inputHandler}
+            label="Procurar oportunidades" variant="outlined" size="small" className={style.searchBar}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <AiOutlineSearch />
+                </InputAdornment>
+              ),
+            }} />
+        </form>
+        <FilterMain filters={props.filters} onFilterUpdate={props.onFilterUpdate} />
+        <Button
           onClick={handleClearFilters}
-          variant="contained" 
+          variant="contained"
           size="large"
-          className={style.button}
-          sx={{'&:hover': { opacity: [0.9, 0.8, 0.7]} }}
-          >Limpar filtros</Button>
-        </Stack> 
+          style={{
+            textTransform: "none",
+            borderRadius: "20px",
+            color: "white",
+            background: "#497174"
+          }}
+          sx={{ '&:hover': { opacity: [0.9, 0.8, 0.7] } }}
+        >Limpar filtros</Button>
+      </Stack>
     </div>
   )
 }

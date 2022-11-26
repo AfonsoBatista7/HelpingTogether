@@ -15,6 +15,8 @@ import Popup from "../Popup/Popup";
 
 function InfoProfile(props) {
 
+  var description;
+
   const [editMode, editState] = useState(false);
 
   const [loggedIns, setLoggedIns] = useState([]);
@@ -22,7 +24,9 @@ function InfoProfile(props) {
   function changeState() {
     editState(!editMode);
 
-
+    if (editMode) {
+      changeLogginStatus(props.id, description)
+    }
   }
 
   const fetchLogin = async (id) => {
@@ -30,6 +34,10 @@ function InfoProfile(props) {
     const data = await res.json()
 
     return data
+  }
+
+  const saveDescription = (descrip) =>{
+    description=descrip
   }
 
   const changeLogginStatus = async (id, descript) => {
@@ -245,7 +253,7 @@ function InfoProfile(props) {
                 multiline
                 id="outlined-disabled"
                 defaultValue={props.description}
-                onChange={(event) => changeLogginStatus(props.id, event.target.value)}
+                onInput={(event) => saveDescription( event.target.value)}
               />}
 
 
