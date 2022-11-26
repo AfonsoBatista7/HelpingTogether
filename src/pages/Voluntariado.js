@@ -7,6 +7,7 @@ import DoneOutlineRoundedIcon from '@mui/icons-material/DoneOutlineRounded';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 import React, { useState, useEffect, useReducer } from 'react'
 import { useParams, } from "react-router-dom";
+import ShowOldCandidates from "../components/SectionsProfile/ShowOldCandidates";
 
 function Voluntariado() {
 
@@ -65,10 +66,10 @@ function Voluntariado() {
         return data;
     }
 
-    const checkifAlredyAcceptedRejected =(id)=>{
+    const checkifAlredyAcceptedRejected = (id) => {
         const getAcceptedRejected = async (id) => {
 
-           await fetchAcceptedRjected(id)
+            await fetchAcceptedRjected(id)
 
         }
 
@@ -86,13 +87,13 @@ function Voluntariado() {
         var data3 = await res3.json()
 
         for (const element of data) {
-            if((element.idVolunt==idVolt)&&(element.idPerson==id))
-          
+            if ((element.idVolunt == idVolt) && (element.idPerson == id))
+
                 editStateAceptedRejected(true)
         }
 
         for (const element of data2) {
-            if((element.idVolunt===idVolt)&&(element.idPerson===id))
+            if ((element.idVolunt === idVolt) && (element.idPerson === id))
                 editStateAceptedRejected(true)
         }
 
@@ -128,7 +129,7 @@ function Voluntariado() {
 
     }, [])
 
-    const voluntDone=(value) => {
+    const voluntDone = (value) => {
         const getVolunteringDone = async () => {
             const VoltDoneFromServer = await fetchVoltDone(value)
 
@@ -145,12 +146,12 @@ function Voluntariado() {
         const res = await fetch('http://localhost:5000/voluntariadosRealizados')
         const data = await res.json()
 
-        var list=[]
+        var list = []
 
-        for(const elem of data){
-            for(const e of elem.participants){
-                if(e===id)
-                list.push(elem)
+        for (const elem of data) {
+            for (const e of elem.participants) {
+                if (e === id)
+                    list.push(elem)
             }
         }
 
@@ -239,7 +240,7 @@ function Voluntariado() {
     useEffect(() => {
         checkLogin()
 
-        
+
 
     }, [loggedIns])
 
@@ -335,7 +336,7 @@ function Voluntariado() {
                     </Grid>
                     <Grid item xs={5} className={style.marginsVoluntariado}>
                         {!perfil ? <></> : <>
-                            {(perfil.typePerfil === "organizacao")||(acceptedorRejected) ? <>
+                            {(perfil.typePerfil === "organizacao") || (acceptedorRejected) ? <>
                             </> : <>
                                 {!voltDone ? <>
                                     {!candidate ?
@@ -380,10 +381,14 @@ function Voluntariado() {
                 }}></Container>
 
                 {perfil ?
-                volunt.organizacao === perfil.name ?
+                    volunt.organizacao === perfil.name ?
                         <AcceptCandidates id={volunt.id} ></AcceptCandidates>
                         : <></>
-                 : <></>}
+                    : <></>}
+
+
+                
+                <ShowOldCandidates idVolt={idVolt}/>
 
                 <Comentarios newVolunt={voluntsComent} name={volunt.name} idPerfil={volunt.id} type="voluntariado" state={state} />
 

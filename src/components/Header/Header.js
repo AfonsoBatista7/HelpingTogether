@@ -6,7 +6,7 @@ import {
     Stack,
     Toolbar,
 } from "@mui/material";
-import UserProfileButton from "../UserProfileButton";
+import UserProfileButton from "./UserProfileButton";
 import style from "./header.module.css";
 import Popup from "../Popup/Popup";
 import RegisterVoluntario from "../Popup/RegisterVoluntario";

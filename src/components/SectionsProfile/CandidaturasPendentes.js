@@ -1,5 +1,7 @@
-import style from "./Profiles.module.css"
-import { Pagination, Grid, Typography, Container, Divider } from "@mui/material";
+import AddIcon from '@mui/icons-material/Add';
+import { Link } from 'react-router-dom';
+import style from "./Profiles.module.css";
+import { Pagination, Grid, Typography, Container, Divider, Fab, Button } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import MiniBoxVoluntariado from "../StatsShowers/Box/MiniBoxVoluntariado";
 
@@ -21,7 +23,7 @@ function CandidaturasPendentes(props) {
 
         getVolunts(candid)
 
-    }, [candid])
+    }, [])
 
     useEffect(() => {
 
@@ -35,7 +37,7 @@ function CandidaturasPendentes(props) {
 
         getVoluntsAceites(candidAceite)
 
-    }, [candidAceite])
+    }, [])
 
     useEffect(() => {
 
@@ -145,31 +147,38 @@ function CandidaturasPendentes(props) {
                     height: 80
                 }}></Container>
 
-                <Typography
-                    style={{
+                <Link style={{ textDecoration: "none", color: "black" }} to="/Voluntariados" onClick={() => this.forceUpdate()}>
+                    <div style={{ float: "right" }}>
+                        <Button>
+                            <Typography style={{ color: "#497174" }}>+ Candidatar</Typography>
+                        </Button>
+                    </div>
+                </Link>
+
+                <Divider style={{ marginTop: "36px", marginBottom: "20px" }}>
+                    <Typography style={{
                         fontWeight: 500,
                         fontSize: 20,
-                        color: '#497174',
+                        color: '#344D67',
                         textTransform: "uppercase",
-                        textAlign: 'left',
-                        marginLeft: 50
-                    }}
-                >Candidaturas Pendentes</Typography>
-
-                <Divider className={style.voluntariadosProfile} />
+                    }} >Candidaturas Pendentes</Typography>
+                </Divider>
                 <Container >
-                    <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 16 }}>
-                        {!(candid.length === 0) ? candid.map((vol, index) => (
-                            <><Grid item xs={2} sm={4} md={4} key={index}>
-                                <MiniBoxVoluntariado
-                                    id={vol.id}
-                                    image={vol.image}
-                                    name={vol.name}
-                                    desc={vol.description}
-                                ></MiniBoxVoluntariado>
-                            </Grid></>
-                        )) : <div>
-                            <img style={{ display: "block", marginRight: "auto", marginLeft: "auto", width: "40%" }} alt="imgEmptyVol" src={`/img${Math.floor(Math.random() * 9) + 1}.png`}></img>
+                    {!(candid.length === 0) ?
+                        <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 16 }}>
+                            {candid.map((vol, index) => (
+                                <Grid item xs={2} sm={4} md={4} key={index}>
+                                    <MiniBoxVoluntariado
+                                        id={vol.id}
+                                        image={vol.image}
+                                        name={vol.name}
+                                        desc={vol.description}
+                                    ></MiniBoxVoluntariado>
+                                </Grid>
+                            ))}
+                        </Grid>
+                        : <div>
+                            <img style={{ display: "block", marginRight: "auto", marginLeft: "auto", width: "30%" }} alt="imgEmptyVol" src={`/img${Math.floor(Math.random() * 9) + 1}.png`}></img>
                             <Typography style={{
                                 fontWeight: 500,
                                 fontSize: 20,
@@ -179,7 +188,8 @@ function CandidaturasPendentes(props) {
                                 Nenhuma candidatura pendente
                             </Typography>
                         </div>}
-                    </Grid></Container>
+                </Container>
+
                 {!(candid.length === 0) &&
                     <Grid
                         container
@@ -187,7 +197,7 @@ function CandidaturasPendentes(props) {
                         alignItems="center"
                         justifyContent="center"
                     >
-                        <Pagination count={1} className={style.pagination} style={{marginBottom:"3%"}}/>
+                        <Pagination count={1} className={style.pagination} style={{ marginBottom: "3%" }} />
                     </Grid>}
 
 
@@ -201,7 +211,7 @@ function CandidaturasPendentes(props) {
 
                         <Grid item xs={5} justifyContent="left"
                             alignItems="left">
-                            <Typography style={{ marginLeft: "15%", marginBottom: "5%", fontSize: 20 }}>Candidaturas aceites </Typography>
+                            <Typography style={{ marginLeft: "15%", marginBottom: "5%", fontSize: 20 }}>Candidaturas Aceites </Typography>
                             <Grid container direction="row" spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 16 }} justifyContent="left"
                                 alignItems="center">
 
@@ -235,7 +245,7 @@ function CandidaturasPendentes(props) {
                         <Grid item xs={5}
                             justifyContent="center"
                             alignItems="center">
-                            <Typography style={{ marginLeft: "30%", marginBottom: "5%", fontSize:20}}>Candidaturas Rejeitadas </Typography>
+                            <Typography style={{ marginLeft: "30%", marginBottom: "5%", fontSize: 20 }}>Candidaturas Rejeitadas </Typography>
                             <Grid container direction="row" spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 16 }} justifyContent="center"
                                 alignItems="center" >
 
