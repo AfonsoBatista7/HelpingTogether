@@ -37,21 +37,24 @@ function BoxStats(props) {
                                 {props.component}
                             </Grid>
                         </Grid>
-                        <Grid item>
-                            <span style={{marginRight: "7px"}}><DateRangeIcon/></span>
-                            <span style={{position: "relative", bottom: "5px"}}>{props.date}</span>
-                        </Grid>
-                        <Grid item>
-                            <span style={{marginRight: "7px"}}><LocationOnIcon/></span>
-                            <span style={{position: "relative", bottom: "5px"}}>{props.location}</span>
-                        </Grid>
+                        {props.typePerfil === "organizacao" ? <></> : <>
+                            <Grid item>
+                                <span style={{ marginRight: "7px" }}><DateRangeIcon /></span>
+                                <span style={{ position: "relative", bottom: "5px" }}>{props.date}</span>
+                            </Grid>
+                            <Grid item>
+                                <span style={{ marginRight: "7px" }}><LocationOnIcon /></span>
+                                <span style={{ position: "relative", bottom: "5px" }}>{props.location}</span>
+                            </Grid>
+                        </>
+                        }
                         <Grid item >
                             <div className={style.boxDescription}>
                                 {isDescBig ?
                                     <span>
                                         {props.desc.slice(0, charLimit) + "..."}
                                     </span>
-                                :
+                                    :
                                     <span>{props.desc}</span>
                                 }
                             </div>

@@ -1,7 +1,8 @@
+import Logout from '@mui/icons-material/Logout';
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
-    Typography,
+    ListItemIcon,
     Box,
     Menu,
     Avatar,
@@ -9,8 +10,22 @@ import {
     MenuItem,
     Button
 } from "@mui/material";
+import RegisterVoluntariado from '../Popup/RegisterVoluntariado';
+import Popup from '../Popup/Popup';
+
 
 const UserProfileButton = (props) => {
+
+    const [openPopupRegister, setOpenPopupRegister] = useState(false);
+
+    const open = () => {
+        setOpenPopupRegister(true);
+    };
+
+    const close = () => {
+        setOpenPopupRegister(false);
+    };
+
     const logOut = () => {
         handleCloseUserMenu();
         props.takeOffLogin();
@@ -26,6 +41,7 @@ const UserProfileButton = (props) => {
 
     const goToVolunteersDone = () => {
         handleCloseUserMenu();
+        open();
     };
 
     const goToComments = () => {
@@ -34,15 +50,14 @@ const UserProfileButton = (props) => {
 
    const settings = [{
         Perfil: goToProfile,
-        Candidatura: goToApplication,
+        Candidaturas: goToApplication,
         Realizados: goToVolunteersDone,
         Comentários: goToComments,
-        Sair: logOut,
     }, {
         Perfil: goToProfile,
         Voluntariados: goToApplication,
         Criar: goToVolunteersDone,
-        Sair: logOut,}
+    }
  ];
     
     const getOption = () => {
@@ -99,26 +114,33 @@ const UserProfileButton = (props) => {
                             href={setting}
                             key={setting}
                             style={{ textDecoration: "none", color: "black" }}
-                            to={
-                                setting === "Sair"
-                                    ? ""
-                                    : `/Perfil/${props.id}/${setting}`
-                            }
-                            onClick={
-                                setting === "Sair"
-                                    ? ""
-                                    : () => this.forceUpdate()
-                            }
+                            to={setting === "Criar" ? "": `/Perfil/${props.id}/${setting}`}
+                            onClick={setting === "Criar"? "": () => this.forceUpdate()}
                         >
                             <MenuItem key={setting} onClick={settings[getOption()][setting]}>
-                                <Typography textAlign="center">
-                                    {setting}
-                                </Typography>
+                                {setting}
                             </MenuItem>
                         </Link>
                     ))}
+                    <Link
+                            style={{ textDecoration: "none", color: "black" }}
+                            to={"/"}
+                        >
+                    <MenuItem onClick={logOut}>
+                        <ListItemIcon>
+                            <Logout fontSize="small" />
+                        </ListItemIcon>
+                        Sair
+                    </MenuItem>
+                    </Link>
                 </Menu>
             </Box>
+            <Popup
+                openPopup={openPopupRegister}
+                setOpenPopup={setOpenPopupRegister}
+            >
+                <RegisterVoluntariado closePopup={close} organizacao={props.name} />
+            </Popup>
         </div>
     );
 };

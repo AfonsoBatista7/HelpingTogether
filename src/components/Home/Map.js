@@ -3,6 +3,9 @@ import { Box, Typography } from "@mui/material";
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 import ptJson from "./db3_Portugal.json";
 import { Link } from 'react-router-dom'
+import style from "./home.module.css";
+import { ForkLeft } from "@mui/icons-material";
+
 
 export default function Map() {
   const [mouseHoverDistrict, setMouseHoverDistrict] = useState("")
@@ -15,7 +18,33 @@ const onMouseLeaveDistrict = () => {
 }
 
   return (
-    <Box
+    <div>
+      <div
+          style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              fontSize: "60px",
+              top:"8vh",
+              right: "5vw"
+          }}
+          className={style.subtitle}
+      >
+        AJUDA ONDE QUISERES
+      </div>
+      <div
+          style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              fontSize: "30px",
+              top:"15vh",
+              right: "15vw"
+          }}
+          className={style.sloganSubtitle}
+      >
+        Encontra voluntaridos perto de ti!
+      </div>
+      <div>
+        <Box
         sx={{
           width: 400,
           height: 800
@@ -45,5 +74,7 @@ const onMouseLeaveDistrict = () => {
           {mouseHoverDistrict}
       </Typography>
     </Box>
+      </div>
+    </div>
   )
 }

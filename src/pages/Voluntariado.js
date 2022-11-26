@@ -1,13 +1,15 @@
 import Comentarios from "../components/SectionsProfile/Comentarios";
 import style from "../components/SectionsProfile/Profiles.module.css"
-import { Pagination, Grid, Typography, Container, Button } from "@mui/material";
+import { Grid, Typography, Container, Button } from "@mui/material";
 import InfoVoluntariado from "../components/SectionsProfile/InfoVoluntariado";
 import AcceptCandidates from "../components/SectionsProfile/AcceptCandidates";
 import DoneOutlineRoundedIcon from '@mui/icons-material/DoneOutlineRounded';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 import React, { useState, useEffect, useReducer } from 'react'
 import { useParams, } from "react-router-dom";
-import { CollectionsOutlined, ContentCutOutlined } from "@mui/icons-material";
+import ShowOldCandidates from "../components/SectionsProfile/ShowOldCandidates";
+import { ConnectingAirportsOutlined } from "@mui/icons-material";
+
 
 function Voluntariado() {
 
@@ -19,9 +21,13 @@ function Voluntariado() {
 
     const [candidate, editState] = useState(false);
 
+    const [acceptedorRejected, editStateAceptedRejected] = useState(false);
+
     const [perfil, setPerfil] = useState(null);
 
     const [voltDone, setVoltDone] = useState(false);
+
+    const [voltRealizado, setVoltRealizado] = useState(false);
 
     const [voluntsDone, setVoluntsDone] = useState([]);
 
@@ -36,6 +42,26 @@ function Voluntariado() {
     const [candidatura, setCandidatura] = useState([])
 
     const [candid, setVoluntariados] = useState([]);
+
+
+    useEffect(() => {
+
+        checkifVoluntariadoRealizado()
+    }, [])
+
+    const checkifVoluntariadoRealizado = async () => {
+        var res = await fetch('http://localhost:5000/voluntariadosRealizados');
+        var data = await res.json()
+
+        for (const element of data) {
+            if (element.id == idVolt) {
+                setVoltRealizado(true)
+            }
+        }
+
+
+    }
+
 
     const checkifiscandid = (id) => {
 
@@ -53,12 +79,50 @@ function Voluntariado() {
 
     }
 
+
     const fetchCandidatura = async () => {
         var res = await fetch('http://localhost:5000/candidaturas');
-
         var data = await res.json()
 
         return data;
+    }
+
+    const checkifAlredyAcceptedRejected = (id) => {
+        const getAcceptedRejected = async (id) => {
+
+            await fetchAcceptedRjected(id)
+
+        }
+
+        getAcceptedRejected(id)
+    }
+
+    const fetchAcceptedRjected = async (id) => {
+        var res = await fetch('http://localhost:5000/candidaturasAceites');
+        var data = await res.json()
+
+        var res2 = await fetch('http://localhost:5000/candidaturasRejeitadas');
+        var data2 = await res2.json()
+
+        var res3 = await fetch('http://localhost:5000/voluntariadosRealizados');
+        var data3 = await res3.json()
+
+        for (const element of data) {
+            if ((element.idVolunt == idVolt) && (element.idPerson == id))
+
+                editStateAceptedRejected(true)
+        }
+
+        for (const element of data2) {
+            if ((element.idVolunt === idVolt) && (element.idPerson === id))
+                editStateAceptedRejected(true)
+        }
+
+        for (const element of data3) {
+            if (element.id == idVolt)
+                editStateAceptedRejected(true)
+        }
+
     }
 
     //vai buscar todos os valores de login da BD e mete em loggedIns
@@ -67,6 +131,7 @@ function Voluntariado() {
             const loggedInFromServer = await fetchLoggedIn()
 
             setLoggedIns(loggedInFromServer)
+
         }
 
         getLoggedIn(loggedIns)
@@ -85,9 +150,9 @@ function Voluntariado() {
 
     }, [])
 
-    useEffect(() => {
+    const voluntDone = (value) => {
         const getVolunteringDone = async () => {
-            const VoltDoneFromServer = await fetchVoltDone()
+            const VoltDoneFromServer = await fetchVoltDone(value)
 
             setVoluntsDone(VoltDoneFromServer)
 
@@ -96,13 +161,22 @@ function Voluntariado() {
 
         getVolunteringDone(voluntsDone)
 
-    }, [])
+    }
 
-    const fetchVoltDone = async () => {
+    const fetchVoltDone = async (id) => {
         const res = await fetch('http://localhost:5000/voluntariadosRealizados')
         const data = await res.json()
 
-        return data;
+        var list = []
+
+        for (const elem of data) {
+            for (const e of elem.participants) {
+                if (e === id)
+                    list.push(elem)
+            }
+        }
+
+        return list;
     }
 
     useEffect(() => {
@@ -112,10 +186,12 @@ function Voluntariado() {
     }, [voluntsDone])
 
     const checkVoltDone = (VoltDone) => {
+        console.log(VoltDone)
 
         for (const element of VoltDone) {
             if (element.id == idVolt) {
                 setVoltDone(true);
+
             }
         }
 
@@ -187,15 +263,19 @@ function Voluntariado() {
     useEffect(() => {
         checkLogin()
 
+
+
     }, [loggedIns])
 
     const checkLogin = () => {
 
         for (const element of loggedIns) {
             if (element.isLoggedIn) {
-
                 checkifiscandid(element.id)
+                checkifAlredyAcceptedRejected(element.id)
                 setPerfil(element);
+
+                voluntDone(element.id);
             }
         }
 
@@ -249,6 +329,9 @@ function Voluntariado() {
         forceUpdate();
     }
 
+
+    console.log(voltDone)
+
     return (<>
         {volunt ? <>
             <div className={style.backgroundwhite}>
@@ -279,7 +362,7 @@ function Voluntariado() {
                     </Grid>
                     <Grid item xs={5} className={style.marginsVoluntariado}>
                         {!perfil ? <></> : <>
-                            {perfil.typePerfil === "organizacao" ? <>
+                            {(perfil.typePerfil === "organizacao") || (acceptedorRejected) ? <>
                             </> : <>
                                 {!voltDone ? <>
                                     {!candidate ?
@@ -323,9 +406,18 @@ function Voluntariado() {
                     height: 50
                 }}></Container>
 
-                {!volunt.organizacao!==perfil.name? 
-                <AcceptCandidates id={volunt.id} ></AcceptCandidates>
-                :<></>}
+                {perfil ? <>
+                    {(volunt.organizacao === perfil.name) && !voltRealizado ?
+                        <AcceptCandidates id={volunt.id} ></AcceptCandidates>
+                        : <></>}
+                </> : <></>}
+
+                <Container style={{
+                    height: 50
+                }}></Container>
+
+
+                <ShowOldCandidates idVolt={idVolt} />
 
                 <Comentarios newVolunt={voluntsComent} name={volunt.name} idPerfil={volunt.id} type="voluntariado" state={state} />
 

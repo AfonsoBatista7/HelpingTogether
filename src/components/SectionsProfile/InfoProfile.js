@@ -22,9 +22,7 @@ function InfoProfile(props) {
   function changeState() {
     editState(!editMode);
 
-    if (editMode) {
-      changeLogginStatus(props.id, props.description);
-    }
+
   }
 
   const fetchLogin = async (id) => {
@@ -57,7 +55,7 @@ function InfoProfile(props) {
   }
 
   return (
-    <div id="Perfil" style={{ alignItems: 'left', backgroundColor: "#497174", borderRadius: '10px' }} >
+    <div style={{ alignItems: 'left', backgroundColor: "#497174", borderRadius: '10px' }} >
 
       <Grid container direction="row"
         justifyContent="center"
@@ -243,20 +241,21 @@ function InfoProfile(props) {
                 id="outlined-disabled"
                 defaultValue={props.description}
               /> : <TextField className={style.description}
-
                 fullWidth
                 multiline
                 id="outlined-disabled"
                 defaultValue={props.description}
+                onChange={(event) => changeLogginStatus(props.id, event.target.value)}
               />}
 
 
           </Container>
 
-          <div className={style.titleVoluntariado}>
-            {props.login ? <></> :<>
+          {props.perfilLoggedIn ?
+            <div className={style.titleVoluntariado}>
+              {props.login ? <></> : <>
 
-              {(props.typeLoggedIn === "organizacao")&&(props.type!=="organizacao") ?
+                {(props.perfilLoggedIn.typePerfil === "organizacao") && (props.type !== "organizacao") ?
                   <><div className={style.avaliarbutton} >
                     <Button style={{ background: "white" }} variant="contained" onClick={props.avaliar}>
                       <Typography style={{ color: "#497174" }}>Avaliar</Typography>
@@ -265,11 +264,11 @@ function InfoProfile(props) {
                       openPopup={props.openPopupAvaliacao}
                       setOpenPopup={props.setOpenPopupAvaliacao}
                     >
-                      <Evaluation idPersonCommented={props.id} idPersonCommenting={props.idPersonCommenting} name={props.nameLoggedIn} nameOfTheCommented={props.name} type="pessoa" closePopup={props.closeAvaliacao} />
+                      <Evaluation idPersonCommented={props.id} idPersonCommenting={props.perfilLoggedIn.id} name={props.perfilLoggedIn.name} nameOfTheCommented={props.name} type="pessoa" closePopup={props.closeAvaliacao} />
                     </Popup>
-                  </div></>:<></>}</>
-            }
-          </div>
+                  </div></> : <></>}</>
+              }
+            </div> : <></>}
         </Grid>
       </Grid >
     </div >

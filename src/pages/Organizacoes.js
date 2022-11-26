@@ -155,6 +155,7 @@ function Organizacoes() {
                                 desc={org.description}
                                 getNumVoluntariados={checkOrganizationNumberVol()}
                                 idOrg={org.id}
+                                typePerfil={org.typePerfil}
                                 key={org.id} className={style.boxShow}></BoxOrganization>
                             <div className={style.boxShow}></div></>
                     )) : <></>}

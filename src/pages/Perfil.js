@@ -3,13 +3,15 @@ import VoluntariadosArea from "../components/SectionsProfile/VoluntariadosArea";
 import CandidaturasPendentes from "../components/SectionsProfile/CandidaturasPendentes";
 import Comentarios from "../components/SectionsProfile/Comentarios";
 import style from "../components/SectionsProfile/Profiles.module.css"
-import { Typography, Container, CircularProgress } from "@mui/material";
-import React, { useState, useEffect, useReducer } from "react";
+import { Typography, Container} from "@mui/material";
+import React, { useState, useEffect, useReducer} from "react";
 import { useParams } from "react-router-dom";
 
 function Perfil() {
 
-    const { idPerfil , area} = useParams();
+    const { idPerfil, area } = useParams();
+
+    const [perfilComent, setPerfilComent] = useState(false);
 
     const [perfil, setPerfil] = useState(null);
     const [perfilLoggedIn, setPerfilLoggedIn] = useState(null);
@@ -22,6 +24,41 @@ function Perfil() {
 
     //vetor com todos os valores no login da Base de dados
     const [loggedIns, setLoggedIns] = useState([])
+
+    useEffect(() => {
+
+
+        setTimeout(() => goToPage(), 500);
+
+
+    }, [area, perfil])
+
+    const goToPage = () => {
+        var elem;
+
+        switch (area) {
+            case "Perfil":
+                elem = 0;
+                break;
+            case "Candidatura": 
+                elem = document.getElementById('Perfil').clientHeight+64;
+                break;
+            case "Realizados": 
+                elem = document.getElementById('Candidatura').clientHeight+document.getElementById('Perfil').clientHeight+64;
+                break;
+            case "Voluntariados":
+                elem = document.getElementById('Perfil').clientHeight+64; 
+                break;
+            case "Comentários": 
+                elem = document.getElementById('Candidatura').clientHeight+document.getElementById('Perfil').clientHeight+ document.getElementById('Voluntariados').clientHeight+64;
+                break;
+            default: elem = 0;
+                break;
+        }
+
+        window.scrollTo({ top: elem, behavior: "smooth" })
+    }
+
 
     //vai buscar todos os valores de login da BD e mete em loggedIns
     useEffect(() => {
@@ -38,6 +75,8 @@ function Perfil() {
     const fetchLoggedIn = async () => {
         const res = await fetch('http://localhost:5000/login')
         const data = await res.json()
+
+        checkIfNewPerfil(data);
 
         const res2 = await fetch('http://localhost:5000/voluntarios')
         const data2 = await res2.json()
@@ -87,6 +126,18 @@ function Perfil() {
         }
     }
 
+    const checkIfNewPerfil = (list) => {
+        for (const element of list) {
+            if (element.id === idPerfil) {
+                setPerfilComent(true);
+            }
+        }
+    }
+
+    // const voluntariadosToShow = (list) => {
+    //     setVoluntToShow(list);
+    // }
+
     const resgisterVoluntariado = () => {
         setOpenPopupRegisterVoluntariado(true);
     }
@@ -125,29 +176,36 @@ function Perfil() {
 
                     </div>
 
-                    <InfoProfile avaliar={avaliar} closeAvaliacao={closeAvaliacao} idPersonCommenting={perfilLoggedIn.id} nameLoggedIn={perfilLoggedIn.name} typeLoggedIn={perfilLoggedIn.typePerfil} openPopupAvaliacao={openPopupAvaliacao} setOpenPopupAvaliacao={setOpenPopupAvaliacao} id={perfil.id} name={perfil.name} image={perfil.image} email={perfil.email} phone={perfil.phone} rating={perfil.rating} type={perfil.typePerfil} login={perfil.isLoggedIn} description={perfil.description} birthday={perfil.birthday} gender={perfil.gender} />
-
-                    {(perfil.typePerfil !== "organizacao") && (perfilLoggedIn.id == idPerfil) ? 
-                    <>
-                        <CandidaturasPendentes id={perfilLoggedIn.id} />
-                    </>
+                    <div id="Perfil">
+                        <InfoProfile avaliar={avaliar} closeAvaliacao={closeAvaliacao} perfilLoggedIn={perfilLoggedIn}  openPopupAvaliacao={openPopupAvaliacao} setOpenPopupAvaliacao={setOpenPopupAvaliacao} id={perfil.id} name={perfil.name} image={perfil.image} email={perfil.email} phone={perfil.phone} rating={perfil.rating} type={perfil.typePerfil} login={perfil.isLoggedIn} description={perfil.description} birthday={perfil.birthday} gender={perfil.gender} />
+                    </div>
+                    {perfilLoggedIn ?
+                    <div id="Candidatura">
+                        {(perfil.typePerfil !== "organizacao") && (perfilLoggedIn.id == idPerfil) ?
+                            <>
+                                <CandidaturasPendentes id={perfilLoggedIn.id} />
+                            </>
+                            : <></>}
+                    </div>
                     : <></>}
+                    <div id="Voluntariados">
+                        <VoluntariadosArea resgisterVoluntariado={resgisterVoluntariado} closeResgisterVoluntariado={closeResgisterVoluntariado} openPopupRegisterVoluntariado={openPopupRegisterVoluntariado} setOpenPopupRegisterVoluntariado={setOpenPopupRegisterVoluntariado} state={state} id={perfil.id} type={perfil.typePerfil} nameOrg={perfil.name} name={perfil.name} idLoggedIn={perfilLoggedIn} />
+                    </div>
+                    <div id="Comentários">
+                        {(perfil.typePerfil !== "organizacao") ? <>
 
-                    <VoluntariadosArea resgisterVoluntariado={resgisterVoluntariado} closeResgisterVoluntariado={closeResgisterVoluntariado} openPopupRegisterVoluntariado={openPopupRegisterVoluntariado} setOpenPopupRegisterVoluntariado={setOpenPopupRegisterVoluntariado} state={state} id={perfil.id} type={perfil.typePerfil} nameOrg={perfil.name} name={perfil.name} />
+                            <Comentarios newPerfil={perfilComent} name={perfil.name} idPerfil={perfil.id} type="pessoa" state={state2} />
 
-                    {(perfil.typePerfil !== "organizacao") ? <>
-
-                        <Comentarios name={perfil.name} idPerfil={perfil.id} type="pessoa" state={state2} />
-
-                        <Container style={{
-                            height: 50
-                        }}></Container></> :
-                        <></>}
-
+                            <Container style={{
+                                height: 50
+                            }}></Container></> :
+                            <></>}
+                    </div>
 
                 </div >
             </div>
-            : <></>}</>
+            : <></>}
+    </>
     );
 }
 

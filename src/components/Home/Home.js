@@ -58,12 +58,12 @@ const Home = () => {
     ];
 
     const volunTypes = {
-        Natureza: <Forest sx={{color: "#EFF5F5",fontSize: 60}} fontSize="large" />,
-        Animais: <Pets sx={{color: "#EFF5F5",fontSize: 60}} fontSize="large" />,
-        Poluição: <Factory sx={{color:"#EFF5F5",fontSize: 60}} fontSize="large" />,
-        Comunidade: <People sx={{color: "#EFF5F5",fontSize: 60}} fontSize="large" />,
-        Gastronomia: <FoodBank sx={{color: "#EFF5F5",fontSize: 60}} fontSize="large" />,
-        Saúde: <HealthAndSafety sx={{color: "#EFF5F5",fontSize: 60}} fontSize="large" />,
+        Natureza: <Forest sx={{ color: "#EFF5F5", fontSize: 80 }} fontSize="large" />,
+        Animais: <Pets sx={{ color: "#EFF5F5", fontSize: 80 }} fontSize="large" />,
+        Poluição: <Factory sx={{ color: "#EFF5F5", fontSize: 80 }} fontSize="large" />,
+        Comunidade: <People sx={{ color: "#EFF5F5", fontSize: 80 }} fontSize="large" />,
+        Gastronomia: <FoodBank sx={{ color: "#EFF5F5", fontSize: 80 }} fontSize="large" />,
+        Saúde: <HealthAndSafety sx={{ color: "#EFF5F5", fontSize: 80 }} fontSize="large" />,
     };
 
     const filters = {
@@ -102,36 +102,21 @@ const Home = () => {
                     </Grid>
                 </Grid>
             </div>
-            <Grid
-                container
-                display="flex"
-                justifyContent="center"
-                align="center"
-                alignItems="center"
-                rowSpacing={10}
-                style={{ marginTop: 20 }}
-            >
-                <Grid item xs={6}>
-                    <VolunTypes types={volunTypes} />
-                </Grid>
-                <Grid item xs={6}>
-                    <Map />
-                </Grid>
-                <Grid item xs={6}>
-                    <SearchBar 
+            <div style={{ marginTop: "130px" }}>
+                <VolunTypes types={volunTypes} />
+            </div>
+            <div style={{ marginTop: "140px" }}>
+                <Map />
+            </div>
+            <div>
+                <SearchBar 
                         onSearchTextUpdate={(text) => navigate("/Voluntariados?Texto=" + text)} 
                         onFilterUpdate={(filter, value) => navigate("/Voluntariados?" + filter + "=" + value)} 
                         onClearFilter={() => navigate("/Voluntariados")}
-                        filters={filters} />
-                </Grid>
-                <Grid item xs={12}>
-                    {topOpport ?
-                        <HomeCarousel res={topOpport} />
-                    :
-                        <HomeCarousel res={catpics} />
-                    }
-                </Grid>
-            </Grid>
+                        filters={filters} /></div>
+            <div>
+                <HomeCarousel />
+            </div>
         </div>
     );
 };

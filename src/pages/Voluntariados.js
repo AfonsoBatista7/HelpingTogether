@@ -136,6 +136,7 @@ function Voluntariados() {
 
     }, [state])
 
+
     const fetchVoluntariados = async () => {
         const res = await fetch('http://localhost:5000/voluntariados')
         const data = await res.json()
@@ -256,6 +257,7 @@ function Voluntariados() {
                                 desc={vol.description}
                                 date={vol.endDate}
                                 location={vol.location}
+                                typePerfil="voluntariado"
                                 className={style.boxShow}></BoxVoluntariado>
                             <div className={style.boxShow}></div></div>
                     )) : <></>}

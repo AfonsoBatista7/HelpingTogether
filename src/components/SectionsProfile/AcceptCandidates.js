@@ -105,8 +105,6 @@ function AcceptCandidates(props) {
             }
         }
 
-        console.log(list)
-
         return list;
     }
 
@@ -125,6 +123,7 @@ function AcceptCandidates(props) {
     }
 
     const rejectPerson = async (personId) => {
+        await addCandidaturaAceite({ idVolunt: props.id, idPerson: personId })
         const res = await fetch('http://localhost:5000/candidaturas')
         const data = await res.json()
 
@@ -189,6 +188,19 @@ function AcceptCandidates(props) {
         })
     }
 
+    const addCandidaturaRegeitada= async (value) => {
+        const res = await fetch('http://localhost:5000/candidaturasRejeitadas', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify(value),
+        })
+
+        const data = await res.json()
+
+    }
+
 
     return (
         <div >
@@ -196,29 +208,26 @@ function AcceptCandidates(props) {
                 height: 80
             }}></Container>
 
-            <Typography
-                style={{
-                    fontWeight: 500,
-                    fontSize: 20,
-                    color: '#497174',
-                    textTransform: "uppercase",
-                    textAlign: 'left',
-                    marginLeft: 50
-                }}
-            >Candidatos Pendentes</Typography>
-            <Divider className={style.commentsProfile} />
+            <Divider style={{marginBottom: "20px"}}>  
+                <Typography style={{ fontWeight: 500,
+                                        fontSize: 20,
+                                        color: '#344D67',
+                                        textTransform: "uppercase",
+                }}>Candidatos Pendentes</Typography>
+            </Divider>
             <Container >
                 <Grid container direction="row"
                     justifyContent="space-between"
                     alignItems="left">
 
-                    <Grid item xs={5} justifyContent="left"
+                    <Grid item xs={6} justifyContent="left"
                         alignItems="left">
                         <Grid container direction="column" spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 16 }} justifyContent="left"
-                        alignItems="center">
-                             <Typography style={{marginLeft:"10%"}}>Candidatos por aceitar </Typography>
-                            {!(peopleCandidate.length === 0) ? peopleCandidate.map((person, index) => (
-                                <><Grid container direction="row" item xs={2} sm={4} md={4} key={index}>
+                        alignItems="center" >
+                             <Typography style={{marginLeft:"10%", marginTop: "5%"}}>Candidatos por aceitar </Typography>
+                            {!(peopleCandidate.length === 0) ? 
+                            peopleCandidate.map((person, index) => (
+                                <Grid container direction="row" item xs={2} sm={4} md={4} key={index}>
                                     <MiniBoxCandidate
                                         id={person.id}
                                         image={person.image}
@@ -230,14 +239,15 @@ function AcceptCandidates(props) {
                                         gender={person.gender}
                                         birthday={person.birthday}
                                     ></MiniBoxCandidate>
+                                    <div style={{marginLeft:"1%"}}></div>
                                     <IconButton aria-label="delete" size="large" style={{ color: "green" }} onClick={function () { acceptPerson(person.id) }}>
                                         <CheckCircleOutlineRoundedIcon fontSize="inherit" />
                                     </IconButton>
                                     <IconButton aria-label="delete" size="large" style={{ color: "red" }} onClick={function () { rejectPerson(person.id) }}>
                                         <HighlightOffRoundedIcon fontSize="inherit" />
                                     </IconButton>
-                                </Grid></>
-                            )) : <><div className={style.voluntariadosProfile} style={{ marginTop: "5%", width: "100%" }}>
+                                </Grid>
+                            )) : <div className={style.voluntariadosProfile} style={{ marginTop: "5%", width: "100%" }}>
                                 <Typography style={{
                                     fontWeight: 500,
                                     fontSize: 20,
@@ -247,7 +257,7 @@ function AcceptCandidates(props) {
                                 }}>
                                     Nenhum candidato
                                 </Typography>
-                            </div></>}
+                            </div>}
                         </Grid>
                     </Grid>
 
@@ -260,7 +270,7 @@ function AcceptCandidates(props) {
 
                         <Grid container direction="column" spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 16 }} justifyContent="center"
                         alignItems="center" >
-                            <Typography  style={{marginLeft:"10%"}}>Candidatos Aceites </Typography>
+                            <Typography  style={{marginLeft:"10%", marginTop: "5%"}}>Candidatos Aceites </Typography>
                             {!(peopleAccepted.length === 0) ? peopleAccepted.map((person, index) => (
                                 <><Grid container direction="row" item xs={2} sm={4} md={4} key={index}>
                                     <MiniBoxCandidate
@@ -269,7 +279,12 @@ function AcceptCandidates(props) {
                                         name={person.name}
                                         desc={person.description}
                                         rating={person.rating}
+                                        email={person.email}
+                                        phone={person.phone}
+                                        gender={person.gender}
+                                        birthday={person.birthday}
                                     ></MiniBoxCandidate>
+                                    <div style={{marginLeft:"1%"}}></div>
                                     <IconButton aria-label="delete" size="large" style={{ color: "red" }} onClick={function () { cancelPerson(person.id) }}>
                                         <HighlightOffRoundedIcon fontSize="inherit" />
                                     </IconButton>

@@ -25,7 +25,8 @@
       "termsAndConditions": true,
       "isLoggedIn": false,
       "typePerfil": "voluntario",
-      "id": 80
+      "id": 80,
+      "description": "ola sou a bia"
     },
     {
       "name": "luis",
@@ -54,11 +55,25 @@
       "isLoggedIn": false,
       "typePerfil": "organizacao",
       "id": 100
+    },
+    {
+      "name": "Airton",
+      "email": "airton@gmail.com",
+      "gender": "female",
+      "birthday": "22/11/2001",
+      "phone": "917657687",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "termsAndConditions": true,
+      "isLoggedIn": false,
+      "typePerfil": "voluntario",
+      "id": 101,
+      "description": "egdgf"
     }
   ],
   "voluntarios": [
     {
-      "id": 1,
+      "id": 1000,
       "name": "Maria Leal",
       "description": "Tenho 38 anos, sou enfermeira e tenho 3 filhos. Adoro fazer voluntariados relacionados com a saúde e com crianças.",
       "email": "marialeal45@gmail.com",
@@ -70,7 +85,7 @@
       "typePerfil": "voluntario"
     },
     {
-      "id": 2,
+      "id": 2000,
       "name": "Gestrudes Cordeiro",
       "description": "Tenho 60 anos e sou uma professora reformada. Como sou uma pessoa bastante ativa tento preencher os meus dias principalmente com atividades de voluntariados.",
       "email": "gescordeiro0008@gmail.com",
@@ -82,7 +97,7 @@
       "typePerfil": "voluntario"
     },
     {
-      "id": 3,
+      "id": 3000,
       "name": "Laura Silves",
       "description": "Tenho 45 anos e sou cozinheira. Sou solteira e não tenho filhos o que me dá muito tempo livre para o qual dedico a fazer voluntariados.",
       "email": "lauraSilves@gmail.com",
@@ -94,7 +109,7 @@
       "typePerfil": "voluntario"
     },
     {
-      "id": 4,
+      "id": 4000,
       "name": "Tiago Lopes",
       "description": "Tenho 20 anos e sou estudante de engenheiria do ambiente. Para melhorar o meu currículo e ter mais experiências humanitarias pretendo fazer voluntariados relacionados com a minha área de estudo.",
       "email": "tiagolp69@gmail.com",
@@ -106,7 +121,7 @@
       "typePerfil": "voluntario"
     },
     {
-      "id": 5,
+      "id": 5000,
       "name": "Osvaldo Fernandes",
       "description": "Tenho 55 anos e sou gestor bancário. Quero ganhar novas experiencias em áreas fora da minha zona de conforto e fazer diferença no mundo e nas pessoas que me rodeiam.",
       "email": "osvaldo356@gmail.com",
@@ -120,7 +135,7 @@
   ],
   "organizacoes": [
     {
-      "id": 6,
+      "id": 6000,
       "name": "Cruz Vermelha",
       "description": "A Cruz Vermelha Portuguesa é uma instituição humanitária de utilidade pública destinada a defender a paz, garantir o respeito pela dignidade da pessoa humana, menorizar os efeitos da guerra e promover a vida e a saúde. Foi fundada em 1865 e tem a sede nacional localizada no Palácio dos Condes de Óbidos em Lisboa, no entanto, possui estruturas locais distribuídas por todo o país.",
       "email": "cvermelha@cruzvermelha.org.pt",
@@ -133,7 +148,7 @@
       "typePerfil": "organizacao"
     },
     {
-      "id": 7,
+      "id": 7000,
       "name": "UNICEF",
       "description": "A UNICEF (Fundo das Nações Unidas para a Infância) é a principal agência humanitária que trabalha especificamente para a promoção e defesa dos direitos das crianças. A UNICEF presta ajuda humanitária sem discriminação de raça, cor, gendero, língua, religião, opinião política ou outra. Em tudo o que faz, as crianças mais desfavorecidas e os países com mais necessidades têm prioridade.",
       "email": "amigos@unicef.pt",
@@ -147,7 +162,7 @@
       "typePerfil": "organizacao"
     },
     {
-      "id": 8,
+      "id": 8000,
       "name": "Leo",
       "description": "Os Leos são jovens interessados e dinâmicos que procuram, em todo o mundo, desenvolver-se através do serviço à comunidade e do apoio aos que mais precisam. Organizam-se por clubes de acordo com a área geográfica, formando assim um movimento, denominado de Leonismo, criado no âmbito da Associação Internacional de Lions Clubes. Os Leos atuam através do voluntariado sem fins lucrativos ou qualquer ligação política ou religiosa.",
       "email": "geral@leosdeportugal.org",
@@ -161,7 +176,7 @@
       "typePerfil": "organizacao"
     },
     {
-      "id": 9,
+      "id": 9000,
       "name": "FAPAS",
       "description": "O FAPAS (Associação Portuguesa para a Conservação da Biodiversidade) é uma organização não governamental de ambiente, de âmbito nacional, sem fins lucrativos, constituída em 1990 por cidadãos com longa experiência no domínio da conservação da Natureza, vocacionada para a promoção de ações que visam a conservação ativa da biodiversidade e dos ecossistemas.",
       "email": "fapas@fapas.pt",
@@ -175,7 +190,7 @@
       "typePerfil": "organizacao"
     },
     {
-      "id": 10,
+      "id": 10000,
       "name": "Just a Change",
       "description": "O Just a Change é uma Associação sem Fins Lucrativos que reconstrói casas de pessoas carenciadas em Portugal. Até ao dia de hoje, o Just a Change reconstruiu centenas de casas e instituições, tendo mobilizado milhares de voluntários dentro e fora do país.",
       "email": "geral@justachange.pt",
@@ -187,7 +202,7 @@
       "typePerfil": "organizacao"
     },
     {
-      "id": 11,
+      "id": 11000,
       "name": "Banco Alimentar",
       "description": "O Bancos Alimentares são Instituições Particulares de Solidariedade Social que lutam contra o desperdício de produtos alimentares, encaminhando-os para distribuição gratuita às pessoas carenciadas. Em Portugal, os bancos alimentares em atividade recolhem e distribuem várias dezenas de milhares de toneladas de produtos e apoiam ao longo de todo o ano, a ação de mais de 2.360 instituições em Portugal. Por sua vez, estas distribuem refeições confecionadas e cabazes de alimentos a pessoas comprovadamente carenciadas, abrangendo já a distribuição total mais de 390.000 pessoas.",
       "email": "ba.federacao@bancoalimentar.pt",
@@ -200,7 +215,7 @@
       "typePerfil": "organizacao"
     },
     {
-      "id": 12,
+      "id": 12000,
       "name": "Caritas",
       "description": "A Caritas Internacional é uma confederação de 165 organizações humanitárias da Igreja Católica que atua em mais de duzentos países. Coletiva e individualmente a sua missão é trabalhar para construir um mundo melhor, especialmente para os pobres e oprimidos.",
       "email": "caritas@caritas.pt",
@@ -213,7 +228,7 @@
       "typePerfil": "organizacao"
     },
     {
-      "id": 13,
+      "id": 13000,
       "name": "Animalife",
       "description": "A Animalife é uma associação de sensibilização e apoio social e ambiental, de âmbito nacional, sem fins lucrativos, constituída em outubro de 2011, cujo objetivo é diminuir o grave problema do abandono animal, atuando a montante sobre uma das principais causas de abandono em Portugal: a vulnerabilidade económica e social das famílias.",
       "email": "geral@animalife.pt",
@@ -417,7 +432,7 @@
       "image": "Cruz_Vermelha.png",
       "rating": 3,
       "date": "12/04/2022 11:55",
-      "idPersonCommenting": 6
+      "idPersonCommenting": 6000
     },
     {
       "id": 31,
@@ -426,7 +441,7 @@
       "image": "UNICEF.jpg",
       "rating": 2,
       "date": "23/12/2022 18:45",
-      "idPersonCommenting": 7
+      "idPersonCommenting": 7000
     },
     {
       "id": 32,
@@ -435,7 +450,7 @@
       "image": "Leo.png",
       "rating": 5,
       "date": "02/01/2020 08:02",
-      "idPersonCommenting": 8
+      "idPersonCommenting": 8000
     },
     {
       "id": 33,
@@ -444,7 +459,7 @@
       "image": "FAPAS.jpg",
       "rating": 1,
       "date": "29/09/2020 17:33",
-      "idPersonCommenting": 9
+      "idPersonCommenting": 9000
     },
     {
       "id": 34,
@@ -453,7 +468,7 @@
       "image": "Just_a_Change.png",
       "rating": 4,
       "date": "30/08/2022 10:12",
-      "idPersonCommenting": 10
+      "idPersonCommenting": 10000
     },
     {
       "id": 35,
@@ -462,7 +477,7 @@
       "image": "Banco_Alimentar.png",
       "rating": 3,
       "date": "30/08/2022 10:12",
-      "idPersonCommenting": 11
+      "idPersonCommenting": 11000
     },
     {
       "id": 36,
@@ -471,7 +486,7 @@
       "image": "Caritas.png",
       "rating": 4,
       "date": "06/03/2021 22:31",
-      "idPersonCommenting": 12
+      "idPersonCommenting": 12000
     },
     {
       "id": 37,
@@ -480,7 +495,7 @@
       "image": "Animalife.jpg",
       "rating": 5,
       "date": "13/05/2022 20:41",
-      "idPersonCommenting": 13
+      "idPersonCommenting": 13000
     }
   ],
   "comentariosVoluntariado": [
@@ -491,7 +506,7 @@
       "image": "Maria.jpg",
       "rating": 5,
       "date": "07/07/2022 17:07",
-      "idPersonCommenting": 1
+      "idPersonCommenting": 1000
     },
     {
       "id": 39,
@@ -500,7 +515,7 @@
       "image": "Gestrudes.jpg",
       "rating": 5,
       "date": "23/01/2021 09:27",
-      "idPersonCommenting": 2
+      "idPersonCommenting": 2000
     },
     {
       "id": 40,
@@ -509,7 +524,7 @@
       "image": "Laura.png",
       "rating": 1,
       "date": "15/12/2020 00:05",
-      "idPersonCommenting": 3
+      "idPersonCommenting": 3000
     },
     {
       "id": 41,
@@ -518,7 +533,7 @@
       "image": "Tiago.jpg",
       "rating": 3,
       "date": "26/02/2021 14:18",
-      "idPersonCommenting": 4
+      "idPersonCommenting": 4000
     },
     {
       "id": 42,
@@ -527,7 +542,7 @@
       "image": "Osvaldo.jpg",
       "rating": 4,
       "date": "22/11/2021 19:39",
-      "idPersonCommenting": 5
+      "idPersonCommenting": 5000
     }
   ],
   "voluntariadosRealizados": [
@@ -544,7 +559,12 @@
       ],
       "image": "Construir.png",
       "rating": 5,
-      "organizacao": "Just a Change"
+      "organizacao": "Just a Change",
+      "idOrg": 10000,
+      "participants": [
+        2000,
+        5000
+      ]
     },
     {
       "id": 24,
@@ -559,7 +579,14 @@
       ],
       "image": "Saude.png",
       "rating": 4,
-      "organizacao": "UNICEF"
+      "organizacao": "UNICEF",
+      "idOrg": 7000,
+      "participants": [
+        2000,
+        3000,
+        4000,
+        1000
+      ]
     },
     {
       "id": 20,
@@ -575,7 +602,31 @@
       ],
       "image": "Comida.png",
       "rating": 5,
-      "organizacao": "Caritas"
+      "organizacao": "Caritas",
+      "idOrg": 12000,
+      "participants": [
+        1000,
+        3000
+      ]
+    },
+    {
+      "id": 25,
+      "name": "Doação de sangue",
+      "description": "Recolha de todos os tipes de sangue, para reabastecer as reservas dos hospitais que têm mais falta deste recurso.",
+      "startDate": "10/09/2023",
+      "endDate": "14/09/2023",
+      "region": "Alrgarve",
+      "location": "Portimão",
+      "type": [
+        "Saúde"
+      ],
+      "image": "Sangue.png",
+      "rating": 2,
+      "organizacao": "Cruz Vermelha",
+      "participants": [
+        3000,
+        5000
+      ]
     },
     {
       "id": 14,
@@ -590,7 +641,75 @@
       ],
       "image": "Plantar.jpg",
       "rating": 2,
-      "organizacao": "FAPAS"
+      "organizacao": "FAPAS",
+      "idOrg": 9000,
+      "participants": [
+        2000,
+        4000
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Resgaste de animais domésticos",
+      "description": "Resgaste de cães e gatos ambandonados nas ruas.",
+      "startDate": "01/01/2022",
+      "endDate": "31/12/2023",
+      "region": "Alentejo",
+      "location": "Évora",
+      "type": [
+        "Animais"
+      ],
+      "image": "Resgatar_animais.jpg",
+      "rating": 2,
+      "organizacao": "Animalife",
+      "idOrg": 13000,
+      "participants": [
+        2000,
+        4000,
+        3000
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Limpeza de praia de resídous",
+      "description": "Limpar a praia de Faro de poluição realizada durante os meses de verão.",
+      "startDate": "10/11/2022",
+      "endDate": "10/11/2022",
+      "region": "Argarve",
+      "location": "Faro",
+      "type": [
+        "Poluição"
+      ],
+      "image": "Limpar_praia.png",
+      "rating": 4,
+      "organizacao": "Leo",
+      "idOrg": 8000,
+      "participants": [
+        2000,
+        80,
+        1000,
+        3000
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Voluntariado científico para o resgaste de cagarros",
+      "description": "Resgaste das aves juvenis cagarros de forma a conseguirem sair em segurança da Marina e do Porto de Vila Franca do Campo nos Açores.",
+      "startDate": "17/02/2023",
+      "endDate": "17/02/2023",
+      "region": "Açores",
+      "location": "Vila Franca do Campo",
+      "type": [
+        "Animais"
+      ],
+      "image": "Cagarros.jpg",
+      "rating": 3,
+      "organizacao": "Animalife",
+      "idOrg": 13000,
+      "participants": [
+        5000,
+        1000
+      ]
     }
   ],
   "comentariosVoluntariadosRealizados": [
@@ -601,7 +720,7 @@
       "image": "Just_a_Change.png",
       "rating": 4,
       "date": "30/08/2022 10:12",
-      "idPersonCommenting": 10
+      "idPersonCommenting": 10000
     },
     {
       "id": 31,
@@ -610,7 +729,7 @@
       "image": "UNICEF.jpg",
       "rating": 2,
       "date": "23/12/2022 18:45",
-      "idPersonCommenting": 7
+      "idPersonCommenting": 7000
     },
     {
       "id": 36,
@@ -619,7 +738,7 @@
       "image": "Caritas.png",
       "rating": 4,
       "date": "06/03/2021 22:31",
-      "idPersonCommenting": 12
+      "idPersonCommenting": 12000
     },
     {
       "id": 33,
@@ -628,7 +747,25 @@
       "image": "FAPAS.jpg",
       "rating": 1,
       "date": "29/09/2020 17:33",
-      "idPersonCommenting": 9
+      "idPersonCommenting": 9000
+    },
+    {
+      "id": 37,
+      "name": "Animalife",
+      "comment": "Voluntário eficiente, bom trabalhador em equipa e dinâmico. ",
+      "image": "Animalife.jpg",
+      "rating": 5,
+      "date": "13/05/2022 20:41",
+      "idPersonCommenting": 13000
+    },
+    {
+      "id": 32,
+      "name": "Leo",
+      "comment": "Voluntário dedicado, muito presente e comprometido com o projeto que desempenhou.",
+      "image": "Leo.png",
+      "rating": 5,
+      "date": "02/01/2020 08:02",
+      "idPersonCommenting": 8000
     }
   ],
   "comentariosFeitosPessoa": [
@@ -639,7 +776,7 @@
       "date": "23/11/2022 16:23",
       "nameOfTheCommented": "Maria Leal",
       "idPersonCommenting": 70,
-      "idPersonCommented": 1,
+      "idPersonCommented": 1000,
       "image": "defaultPhotoOrganization.jpg",
       "id": 3
     }
@@ -654,7 +791,7 @@
       "image": "defaultPhoto.jpg",
       "id": 1,
       "idPersonCommenting": 80,
-      "idPersonCommented": 14
+      "idPersonCommented": 14000
     },
     {
       "rating": 4,
@@ -665,7 +802,7 @@
       "idPersonCommenting": 80,
       "image": "defaultPhoto.jpg",
       "id": 2,
-      "idPersonCommented": 20
+      "idPersonCommented": 20000
     },
     {
       "rating": 2,
@@ -674,7 +811,7 @@
       "date": "23/11/2022 17:10",
       "nameOfTheCommented": "Reconstrução de casas destruídas no Incêndio de Pedrógão Grande",
       "idPersonCommenting": 80,
-      "idPersonCommented": 22,
+      "idPersonCommented": 22000,
       "image": "defaultPhoto.jpg",
       "id": 4
     }
@@ -709,6 +846,21 @@
       "organizacao": "ola",
       "image": "defaultPhotoOrganization.jpg",
       "id": 2
+    },
+    {
+      "name": "dar comida",
+      "region": "Alentejo",
+      "location": "jashdkjH",
+      "description": "ASNXMNK",
+      "startDate": "01/11/2022",
+      "endDate": "23/11/2022",
+      "type": [
+        "Natureza",
+        "Animais"
+      ],
+      "organizacao": "ola",
+      "image": "defaultPhotoOrganization.jpg",
+      "id": 3
     }
   ],
   "candidaturas": [
@@ -730,7 +882,7 @@
     {
       "idVolunt": 1,
       "idPerson": 90,
-      "id": 32
+      "id": 31
     }
   ],
   "candidaturasAceites": [
@@ -738,6 +890,22 @@
       "idVolunt": 1,
       "idPerson": 80,
       "id": 1
+    },
+    {
+      "idVolunt": 14,
+      "idPerson": 80,
+      "id": 2
+    },
+    {
+      "idVolunt": 15,
+      "idPerson": 80,
+      "id": 3
+    },
+    {
+      "idVolunt": 17,
+      "idPerson": 80,
+      "id": 4
     }
-  ]
+  ],
+  "candidaturasRejeitadas": []
 }

@@ -2,8 +2,9 @@
 @import "~slick-carousel/slick/slick-theme.css";
 
 .homeCarousel {
-  width: 60%;
+  width: 80%;
   margin: 10rem auto;
+  margin-bottom: 0;
   height: 570px;
 }
 
@@ -46,4 +47,16 @@
 .prev {
   left: 0%;
   top: 50%;
+}
+
+.title {
+  position: relative;
+  bottom: 40px;
+  display: flex;
+  justify-content: center;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px #000000;
+  font-size: 100%;
+  font-family: "Raleway", sans-serif;
+  text-align: center;
 }

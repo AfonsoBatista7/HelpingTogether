@@ -39,16 +39,97 @@ function Comentarios(props) {
 
         const data2 = await res2.json()
 
-        var result = checkCommentsVoluntariados(data, data2);
+        var res3 = await fetch('http://localhost:5000/voluntariadosRealizados')
+        var data3 = await res3.json()
+
+        var result = [];
+
+        if (props.type === "pessoa") {
+            var result1 = checkCommentsPerfil(data, data2);
+
+            result = checkCommentsWithVoluntariado(data3, result1);
+
+        }
+
+        if (props.type === "voluntariado") {
+            var result1 = checkCommentsVoluntariados(data, data2);
+
+            result = checkCommentsWithPeople(data3, result1);
+        }
+
 
         return result;
+    }
+
+    const checkCommentsWithVoluntariado = (voltReali, comments) => {
+        var list = [];
+        var listRes = [];
+
+        for (const element of voltReali) {
+            for (const e of element.participants)
+                if (e === props.idPerfil) {
+                    list.push(element);
+                }
+        }
+
+        for (const element of list) {
+            for (const e of comments) {
+                if (element.idOrg === e.idPersonCommenting) {
+                    listRes.push(e);
+                }
+            }
+        }
+
+        return listRes;
+    }
+
+    const checkCommentsWithPeople = (voltReali, comments) => {
+        let list = [];
+        var listRes = [];
+
+        for (const element of voltReali) {
+            if (element.name === props.name) {
+                list.push(element.participants);
+            }
+        }
+
+        for (const element of list) {
+            for (const el of element) {
+                for (const e of comments) {
+                    if (el === e.idPersonCommenting) {
+                        listRes.push(e);
+                    }
+                }
+            }
+        }
+
+        return listRes;
     }
 
 
     const checkCommentsVoluntariados = (comment, newComment) => {
         var list = [];
- 
-        if(!props.newVolunt){
+
+        if (!props.newVolunt) {
+            for (const element of comment) {
+                list.push(element);
+            }
+        }
+
+        for (const element of newComment) {
+            if (element.idPersonCommented === props.idPerfil) {
+                list.push(element);
+            }
+        }
+
+        return list;
+    }
+
+
+    const checkCommentsPerfil = (comment, newComment) => {
+        var list = [];
+
+        if (!props.newPerfil) {
             for (const element of comment) {
                 list.push(element);
             }
@@ -66,30 +147,25 @@ function Comentarios(props) {
 
 
     return (
-        <div id="Comentários" className={style.backgroundwhite}>
+        <div className={style.backgroundwhite}>
             <div >
                 <Container style={{
                     height: 80
                 }}></Container>
+                <Divider style={{marginBottom: "20px"}}>  
+                    <Typography style={{ fontWeight: 500,
+                                         fontSize: 20,
+                                         color: '#344D67',
+                                         textTransform: "uppercase",
+                    }} >Comentários</Typography>
 
-                <Typography
-                    style={{
-                        fontWeight: 500,
-                        fontSize: 20,
-                        color: '#497174',
-                        textTransform: "uppercase",
-                        textAlign: 'left',
-                        marginLeft: 50
-                    }}
-                >Comentários</Typography>
+                </Divider>
 
-                <Divider className={style.commentsProfile} />
                 <Container>
-                    <Grid container spacing={{ xs: 2, md: 10 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-                        {!(displayComment.length === 0) ? displayComment.map((com, index) => (
-                            <>
-                                <div className={style.voluntariadosProfile}></div>
-                                <Grid item xs={2} sm={4} md={3} key={index}>
+                    {displayComment.length !== 0 ? 
+                        <Grid container spacing={{ xs: 2, md: 10 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                            {displayComment.map((com, index) => (
+                                <Grid item xs={2} sm={1} md={3} key={index}>
                                     <CardComment
                                         id={com.id}
                                         rating={com.rating}
@@ -97,25 +173,25 @@ function Comentarios(props) {
                                         name={com.name}
                                         comment={com.comment}
                                         idperfil={com.idPersonCommenting}
-                                    ></CardComment>
+                                    />
                                 </Grid>
-                            </>
-                        )) : <>
-                            <div className={style.voluntariadosProfile} style={{ marginTop: "7%", width: "100%" }}>
-                                <Typography style={{
-                                    fontWeight: 500,
-                                    fontSize: 20,
-                                    textAlign: 'center',
-                                    color:"grey",
-                                    marginLeft: 50
-                                }}>
-                                    Não tem comentários
-                                </Typography>
-                            </div></>}
-                    </Grid>
+                            ))}
+                        </Grid>
+                            :
+                            <div>
+                            <img style={{display: "block", marginRight:"auto", marginLeft:"auto" ,width:"30%"}} alt="noComments" src="/noComments.png"></img>
+                            <Typography style={{
+                                fontWeight: 500,
+                                fontSize: 20,
+                                textAlign: 'center',
+                                color: "grey",
+                            }}>
+                                Não tem comentários
+                            </Typography>
+                        </div>}
 
                 </Container>
-                {!(displayComment.length === 0) ?
+                {!(displayComment.length === 0) &&
                     <Grid
                         container
                         direction="row"
@@ -123,10 +199,10 @@ function Comentarios(props) {
                         justifyContent="center"
                     >
                         <Pagination count={1} className={style.paginationComment} />
-                    </Grid> : <></>}
+                    </Grid> }
                 <Container style={{
                     height: 50
-                }}></Container>
+                }}/>
 
             </div >
         </div >
