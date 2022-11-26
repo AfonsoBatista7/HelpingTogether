@@ -40,16 +40,16 @@ function Perfil() {
             case "Perfil":
                 elem = 0;
                 break;
-            case "Candidatura": value = 700;
+            case "Candidatura": 
                 elem = document.getElementById('Perfil').clientHeight+64;
                 break;
-            case "Realizados": value = 1350;
+            case "Realizados": 
                 elem = document.getElementById('Candidatura').clientHeight+document.getElementById('Perfil').clientHeight+64;
                 break;
             case "Voluntariados":
                 elem = document.getElementById('Perfil').clientHeight+64; 
                 break;
-            case "Comentários": value = 2050;
+            case "Comentários": 
                 elem = document.getElementById('Candidatura').clientHeight+document.getElementById('Perfil').clientHeight+ document.getElementById('Voluntariados').clientHeight+64;
                 break;
             default: elem = 0;
