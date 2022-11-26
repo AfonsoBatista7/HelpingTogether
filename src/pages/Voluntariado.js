@@ -44,21 +44,21 @@ function Voluntariado() {
 
 
     useEffect(() => {
-       
-            checkifVoluntariadoRealizado()
+
+        checkifVoluntariadoRealizado()
     }, [])
 
-    const checkifVoluntariadoRealizado = async () =>{
+    const checkifVoluntariadoRealizado = async () => {
         var res = await fetch('http://localhost:5000/voluntariadosRealizados');
         var data = await res.json()
 
-        for(const element of data){
-            if(element.id ==idVolt){
+        for (const element of data) {
+            if (element.id == idVolt) {
                 setVoltRealizado(true)
             }
         }
 
-       
+
     }
 
 
@@ -118,7 +118,7 @@ function Voluntariado() {
         }
 
         for (const element of data3) {
-            if(element.id==idVolt)
+            if (element.id == idVolt)
                 editStateAceptedRejected(true)
         }
 
@@ -405,15 +405,18 @@ function Voluntariado() {
                     height: 50
                 }}></Container>
 
-                {perfil ?<>
+                {perfil ? <>
                     {(volunt.organizacao === perfil.name) && !voltRealizado ?
                         <AcceptCandidates id={volunt.id} ></AcceptCandidates>
                         : <></>}
-                        </> : <></>}
+                </> : <></>}
+
+                <Container style={{
+                    height: 50
+                }}></Container>
 
 
-                
-                <ShowOldCandidates idVolt={idVolt}/>
+                <ShowOldCandidates idVolt={idVolt} />
 
                 <Comentarios newVolunt={voluntsComent} name={volunt.name} idPerfil={volunt.id} type="voluntariado" state={state} />
 

@@ -223,8 +223,8 @@ function AcceptCandidates(props) {
                     <Grid item xs={6} justifyContent="left"
                         alignItems="left">
                         <Grid container direction="column" spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 16 }} justifyContent="left"
-                        alignItems="center">
-                             <Typography style={{marginLeft:"10%"}}>Candidatos por aceitar </Typography>
+                        alignItems="center" >
+                             <Typography style={{marginLeft:"10%", marginTop: "5%"}}>Candidatos por aceitar </Typography>
                             {!(peopleCandidate.length === 0) ? 
                             peopleCandidate.map((person, index) => (
                                 <Grid container direction="row" item xs={2} sm={4} md={4} key={index}>
@@ -270,7 +270,7 @@ function AcceptCandidates(props) {
 
                         <Grid container direction="column" spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 16 }} justifyContent="center"
                         alignItems="center" >
-                            <Typography  style={{marginLeft:"10%"}}>Candidatos Aceites </Typography>
+                            <Typography  style={{marginLeft:"10%", marginTop: "5%"}}>Candidatos Aceites </Typography>
                             {!(peopleAccepted.length === 0) ? peopleAccepted.map((person, index) => (
                                 <><Grid container direction="row" item xs={2} sm={4} md={4} key={index}>
                                     <MiniBoxCandidate
