@@ -184,6 +184,7 @@ function CandidaturasPendentes(props) {
                                 fontSize: 20,
                                 textAlign: 'center',
                                 color: "grey",
+                                marginLeft: 50
                             }}>
                                 Nenhuma candidatura pendente
                             </Typography>
@@ -199,8 +200,6 @@ function CandidaturasPendentes(props) {
                     >
                         <Pagination count={1} className={style.pagination} style={{ marginBottom: "3%" }} />
                     </Grid>}
-
-
 
 
                 <Divider className={style.commentsProfile} />

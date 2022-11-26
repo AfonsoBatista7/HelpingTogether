@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Grid } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import VolunType from "./VolunType";
 import style from "./home.module.css";
 
@@ -91,5 +91,13 @@ const VolunTypes = (props) => {
         </div>
     );
 };
+
+//<Grid container spacing={10} style={{width: 450, height: 300}}>
+//        {Object.keys(props.types).map((type) => (
+//            <Grid key={type} item xs={4} style={{padding: 0}}>
+//                <VolunType name={type} icon={props.types[type]} />
+//            </Grid>
+//        ))}
+//        </Grid>
 
 export default VolunTypes;

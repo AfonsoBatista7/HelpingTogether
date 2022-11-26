@@ -38,7 +38,7 @@ const FilterMain = (props) => {
             }}
             >
             {Object.keys(props.filters).map((filter) => (
-               <SubFilter key={filter} filter={filter} items={props.filters[filter]}></SubFilter>
+               <SubFilter key={filter} filter={filter} items={props.filters[filter]} onFilterUpdate={props.onFilterUpdate}></SubFilter>
             ))}
             </Menu>
     </div>
