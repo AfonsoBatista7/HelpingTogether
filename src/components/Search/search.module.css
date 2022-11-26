@@ -6,3 +6,10 @@
     text-transform: none;
     border-radius: 20px;
 }
+
+.button {
+    text-transform: none;
+    border-radius: 20px;
+    color: white;
+    background-color: #497174;
+}

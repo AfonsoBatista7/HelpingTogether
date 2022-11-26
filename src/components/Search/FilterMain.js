@@ -4,6 +4,7 @@ import {
   Menu
 } from "@mui/material";
 import SubFilter from './SubFilter';
+import style from "./search.module.css";
 
 const FilterMain = (props) => {
     const [anchorElFilter, setAnchorElFilter] = useState(null);
@@ -25,7 +26,8 @@ const FilterMain = (props) => {
         onClick={handleClick}
         variant="contained" 
         size="large"
-        sx={{textTransform: 'none', borderRadius: '20px', color:'white',  background: "#497174"}}
+        className={style.button}
+        sx={{'&:hover': { opacity: [0.9, 0.8, 0.7]} }}
         >Filtros</Button>
 
         <Menu

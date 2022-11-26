@@ -208,7 +208,7 @@ function Voluntariados() {
                                 : <>
                                 <div style={{ float: "right" }}>
                                     <Link style={{  textDecoration: "none"}} to={`/Perfil/${perfil.id}/Realizados`}>
-                                        <Button variant="contained" style={{background: "#497174"}}>
+                                        <Button variant="contained" style={{background: "#497174"}} sx={{'&:hover': { opacity: [0.9, 0.8, 0.7] }}}>
                                             <Typography style={{ color: "white" }}>Ver Realizados</Typography>
                                         </Button>
                                     </Link></div> </>}
