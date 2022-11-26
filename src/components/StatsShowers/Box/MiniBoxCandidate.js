@@ -28,7 +28,7 @@ function MiniBoxCandidate({ name, image, rating, desc, birthday, id, email, phon
                     <Grid>
                         <Grid container direction="column" >
                             <Grid item>
-                                <Typography style={{ position: "relative", left: "3px", wordWrap: "break-word" }}>
+                                <Typography >
                                     <b>{name}</b>
                                 </Typography>
                             </Grid>
