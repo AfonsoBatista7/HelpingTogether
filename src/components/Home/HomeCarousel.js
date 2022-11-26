@@ -20,7 +20,7 @@ export default function HomeCarousel(props) {
 
         getVolt()
 
-        console.log(voluntariados)
+        // console.log(voluntariados)
 
     }, [])
 
