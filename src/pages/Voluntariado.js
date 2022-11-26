@@ -8,6 +8,7 @@ import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 import React, { useState, useEffect, useReducer } from 'react'
 import { useParams, } from "react-router-dom";
 import ShowOldCandidates from "../components/SectionsProfile/ShowOldCandidates";
+import { ConnectingAirportsOutlined } from "@mui/icons-material";
 
 function Voluntariado() {
 
@@ -25,6 +26,8 @@ function Voluntariado() {
 
     const [voltDone, setVoltDone] = useState(false);
 
+    const [voltRealizado, setVoltRealizado] = useState(false);
+
     const [voluntsDone, setVoluntsDone] = useState([]);
 
     const [voluntsComent, setVoluntsComent] = useState(false);
@@ -40,6 +43,23 @@ function Voluntariado() {
     const [candid, setVoluntariados] = useState([]);
 
 
+    useEffect(() => {
+       
+            checkifVoluntariadoRealizado()
+    }, [])
+
+    const checkifVoluntariadoRealizado = async () =>{
+        var res = await fetch('http://localhost:5000/voluntariadosRealizados');
+        var data = await res.json()
+
+        for(const element of data){
+            if(element.id ==idVolt){
+                setVoltRealizado(true)
+            }
+        }
+
+       
+    }
 
 
     const checkifiscandid = (id) => {
@@ -165,10 +185,12 @@ function Voluntariado() {
     }, [voluntsDone])
 
     const checkVoltDone = (VoltDone) => {
+        console.log(VoltDone)
 
         for (const element of VoltDone) {
             if (element.id == idVolt) {
                 setVoltDone(true);
+
             }
         }
 
@@ -306,6 +328,9 @@ function Voluntariado() {
         forceUpdate();
     }
 
+
+    console.log(voltDone)
+
     return (<>
         {volunt ? <>
             <div className={style.backgroundwhite}>
@@ -380,11 +405,11 @@ function Voluntariado() {
                     height: 50
                 }}></Container>
 
-                {perfil ?
-                    (volunt.organizacao === perfil.name)&& !voltDone ?
+                {perfil ?<>
+                    {(volunt.organizacao === perfil.name) && !voltRealizado ?
                         <AcceptCandidates id={volunt.id} ></AcceptCandidates>
-                        : <></>
-                    : <></>}
+                        : <></>}
+                        </> : <></>}
 
 
                 

@@ -1,4 +1,5 @@
 import style from "./Profiles.module.css"
+import { Link } from 'react-router-dom';
 import { Pagination, Grid, Typography, Container, Divider } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import MiniBoxCandidate from "../StatsShowers/Box/MiniBoxCandidate";
@@ -83,17 +84,19 @@ function ShowOldCandidates(props) {
                         <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 16 }}>
                             {displayParticipant.map((participant, index) => (
                                 <Grid container item xs={2} sm={4} md={4} key={index}>
-                                    <MiniBoxCandidate
-                                        id={participant.id}
-                                        image={participant.image}
-                                        name={participant.name}
-                                        desc={participant.description}
-                                        rating={participant.rating}
-                                        email={participant.email}
-                                        phone={participant.phone}
-                                        gender={participant.gender}
-                                        birthday={participant.birthday}
-                                    ></MiniBoxCandidate>
+                                    <Link style={{  textDecoration: "none" , width:"100%" }} to={`/Perfil/${participant.id}/Perfil`}>
+                                        <MiniBoxCandidate
+                                            id={participant.id}
+                                            image={participant.image}
+                                            name={participant.name}
+                                            desc={participant.description}
+                                            rating={participant.rating}
+                                            email={participant.email}
+                                            phone={participant.phone}
+                                            gender={participant.gender}
+                                            birthday={participant.birthday}
+                                        ></MiniBoxCandidate>
+                                    </Link>
                                 </Grid>
                             ))}
                         </Grid>
