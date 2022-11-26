@@ -208,16 +208,13 @@ function AcceptCandidates(props) {
                 height: 80
             }}></Container>
 
-            <Typography
-                style={{
-                    fontWeight: 500,
-                    fontSize: 20,
-                    color: '#497174',
-                    textTransform: "uppercase",
-                    textAlign: 'left',
-                    marginLeft: 50
-                }}
-            >Candidatos Pendentes</Typography>
+            <Divider style={{marginBottom: "20px"}}>  
+                <Typography style={{ fontWeight: 500,
+                                        fontSize: 20,
+                                        color: '#344D67',
+                                        textTransform: "uppercase",
+                }}>Candidatos Pendentes</Typography>
+            </Divider>
             <Divider className={style.commentsProfile} />
             <Container >
                 <Grid container direction="row"
@@ -229,8 +226,9 @@ function AcceptCandidates(props) {
                         <Grid container direction="column" spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 16 }} justifyContent="left"
                         alignItems="center">
                              <Typography style={{marginLeft:"10%"}}>Candidatos por aceitar </Typography>
-                            {!(peopleCandidate.length === 0) ? peopleCandidate.map((person, index) => (
-                                <><Grid container direction="row" item xs={2} sm={4} md={4} key={index}>
+                            {!(peopleCandidate.length === 0) ? 
+                            peopleCandidate.map((person, index) => (
+                                <Grid container direction="row" item xs={2} sm={4} md={4} key={index}>
                                     <MiniBoxCandidate
                                         id={person.id}
                                         image={person.image}
@@ -248,8 +246,8 @@ function AcceptCandidates(props) {
                                     <IconButton aria-label="delete" size="large" style={{ color: "red" }} onClick={function () { rejectPerson(person.id) }}>
                                         <HighlightOffRoundedIcon fontSize="inherit" />
                                     </IconButton>
-                                </Grid></>
-                            )) : <><div className={style.voluntariadosProfile} style={{ marginTop: "5%", width: "100%" }}>
+                                </Grid>
+                            )) : <div className={style.voluntariadosProfile} style={{ marginTop: "5%", width: "100%" }}>
                                 <Typography style={{
                                     fontWeight: 500,
                                     fontSize: 20,
@@ -259,7 +257,7 @@ function AcceptCandidates(props) {
                                 }}>
                                     Nenhum candidato
                                 </Typography>
-                            </div></>}
+                            </div>}
                         </Grid>
                     </Grid>
 

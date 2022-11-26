@@ -152,25 +152,20 @@ function Comentarios(props) {
                 <Container style={{
                     height: 80
                 }}></Container>
+                <Divider style={{marginBottom: "20px"}}>  
+                    <Typography style={{ fontWeight: 500,
+                                         fontSize: 20,
+                                         color: '#344D67',
+                                         textTransform: "uppercase",
+                    }} >Comentários</Typography>
 
-                <Typography
-                    style={{
-                        fontWeight: 500,
-                        fontSize: 20,
-                        color: '#497174',
-                        textTransform: "uppercase",
-                        textAlign: 'left',
-                        marginLeft: 50
-                    }}
-                >Comentários</Typography>
+                </Divider>
 
-                <Divider className={style.commentsProfile} />
                 <Container>
-                    <Grid container spacing={{ xs: 2, md: 10 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-                        {!(displayComment.length === 0) ? displayComment.map((com, index) => (
-                            <>
-                                <div className={style.voluntariadosProfile}></div>
-                                <Grid item xs={2} sm={4} md={3} key={index}>
+                    {displayComment.length !== 0 ? 
+                        <Grid container spacing={{ xs: 2, md: 10 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                            {displayComment.map((com, index) => (
+                                <Grid item xs={2} sm={1} md={3} key={index}>
                                     <CardComment
                                         id={com.id}
                                         rating={com.rating}
@@ -178,25 +173,25 @@ function Comentarios(props) {
                                         name={com.name}
                                         comment={com.comment}
                                         idperfil={com.idPersonCommenting}
-                                    ></CardComment>
+                                    />
                                 </Grid>
-                            </>
-                        )) : <>
-                            <div className={style.voluntariadosProfile} style={{ marginTop: "7%", width: "100%" ,marginLeft:"4%"}}>
-                                <Typography style={{
-                                    fontWeight: 500,
-                                    fontSize: 20,
-                                    textAlign: 'center',
-                                    color: "grey",
-                                    marginLeft: 50
-                                }}>
-                                    Não tem comentários
-                                </Typography>
-                            </div></>}
-                    </Grid>
+                            ))}
+                        </Grid>
+                            :
+                            <div>
+                            <img style={{display: "block", marginRight:"auto", marginLeft:"auto" ,width:"30%"}} alt="noComments" src="/noComments.png"></img>
+                            <Typography style={{
+                                fontWeight: 500,
+                                fontSize: 20,
+                                textAlign: 'center',
+                                color: "grey",
+                            }}>
+                                Não tem comentários
+                            </Typography>
+                        </div>}
 
                 </Container>
-                {!(displayComment.length === 0) ?
+                {!(displayComment.length === 0) &&
                     <Grid
                         container
                         direction="row"
@@ -204,10 +199,10 @@ function Comentarios(props) {
                         justifyContent="center"
                     >
                         <Pagination count={1} className={style.paginationComment} />
-                    </Grid> : <></>}
+                    </Grid> }
                 <Container style={{
                     height: 50
-                }}></Container>
+                }}/>
 
             </div >
         </div >

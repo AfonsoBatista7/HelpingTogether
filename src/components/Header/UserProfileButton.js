@@ -1,7 +1,8 @@
+import Logout from '@mui/icons-material/Logout';
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
-    Typography,
+    ListItemIcon,
     Box,
     Menu,
     Avatar,
@@ -34,15 +35,14 @@ const UserProfileButton = (props) => {
 
    const settings = [{
         Perfil: goToProfile,
-        Candidatura: goToApplication,
+        Candidaturas: goToApplication,
         Realizados: goToVolunteersDone,
         Comentários: goToComments,
-        Sair: logOut,
     }, {
         Perfil: goToProfile,
         Voluntariados: goToApplication,
         Criar: goToVolunteersDone,
-        Sair: logOut,}
+    }
  ];
     
     const getOption = () => {
@@ -99,15 +99,20 @@ const UserProfileButton = (props) => {
                             href={setting}
                             key={setting}
                             style={{ textDecoration: "none", color: "black" }}
-                            to={setting === "Sair"? "": `/Perfil/${props.id}/${setting}`}
-                            onClick={setting === "Sair"? "": () => this.forceUpdate()} >
+                            to={`/Perfil/${props.id}/${setting}`}
+                            onClick={() => this.forceUpdate()}
+                        >
                             <MenuItem key={setting} onClick={settings[getOption()][setting]}>
-                                <Typography textAlign="center">
-                                    {setting}
-                                </Typography>
+                                {setting}
                             </MenuItem>
                         </Link>
                     ))}
+                    <MenuItem onClick={logOut}>
+                        <ListItemIcon>
+                            <Logout fontSize="small" />
+                        </ListItemIcon>
+                        Sair
+                    </MenuItem>
                 </Menu>
             </Box>
         </div>
