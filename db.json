@@ -10,7 +10,7 @@
         "Animais"
       ],
       "termsAndConditions": true,
-      "isLoggedIn": false,
+      "isLoggedIn": true,
       "typePerfil": "organizacao",
       "id": 70
     },
@@ -23,7 +23,7 @@
       "password": "123456",
       "confirmPassword": "123456",
       "termsAndConditions": true,
-      "isLoggedIn": true,
+      "isLoggedIn": false,
       "typePerfil": "voluntario",
       "id": 80,
       "description": "ola sou a bia"
@@ -65,7 +65,7 @@
       "password": "123456",
       "confirmPassword": "123456",
       "termsAndConditions": true,
-      "isLoggedIn": true,
+      "isLoggedIn": false,
       "typePerfil": "voluntario",
       "id": 101,
       "description": "egdgf"
@@ -625,7 +625,6 @@
       "organizacao": "Cruz Vermelha",
       "participants": [
         3000,
-        80,
         5000
       ]
     },
@@ -687,6 +686,7 @@
       "idOrg": 8000,
       "participants": [
         2000,
+        80,
         1000,
         3000
       ]
@@ -857,6 +857,21 @@
       "organizacao": "ola",
       "image": "defaultPhotoOrganization.jpg",
       "id": 2
+    },
+    {
+      "name": "dar comida",
+      "region": "Alentejo",
+      "location": "jashdkjH",
+      "description": "ASNXMNK",
+      "startDate": "01/11/2022",
+      "endDate": "23/11/2022",
+      "type": [
+        "Natureza",
+        "Animais"
+      ],
+      "organizacao": "ola",
+      "image": "defaultPhotoOrganization.jpg",
+      "id": 3
     }
   ],
   "candidaturas": [
@@ -878,7 +893,7 @@
     {
       "idVolunt": 1,
       "idPerson": 90,
-      "id": 32
+      "id": 31
     }
   ],
   "candidaturasAceites": [
@@ -886,6 +901,22 @@
       "idVolunt": 1,
       "idPerson": 80,
       "id": 1
+    },
+    {
+      "idVolunt": 14,
+      "idPerson": 80,
+      "id": 2
+    },
+    {
+      "idVolunt": 15,
+      "idPerson": 80,
+      "id": 3
+    },
+    {
+      "idVolunt": 17,
+      "idPerson": 80,
+      "id": 4
     }
-  ]
+  ],
+  "candidaturasRejeitadas": []
 }
