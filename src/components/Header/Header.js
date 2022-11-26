@@ -16,6 +16,8 @@ import ChooseType from "../Popup/ChooseType";
 import { Link } from 'react-router-dom'
 
 function Header() {
+
+    const [image, setImage] = useState("");
     const [perfil, setPerfil] = useState();
     const [openPopupLogin, setOpenPopupLogin] = useState(false);
     const [openPopupRegister, setOpenPopupRegister] = useState(false);
@@ -24,6 +26,7 @@ function Header() {
 
     const logIn = () => {
         setOpenPopupLogin(true);
+
     }
 
     const signUp = () => {
@@ -121,6 +124,7 @@ function Header() {
                 setPerfil(element);
             }
         }
+
     };
 
     const putLogin = (element) => {
@@ -235,7 +239,7 @@ function Header() {
                                 id={perfil.id}
                                 name={perfil.name}
                                 typePerfil={perfil.typePerfil}
-                                image="/defaultPhoto.jpg"
+                                image={perfil.image}
                                 takeOffLogin={takeOffLogin}
                             />
                             

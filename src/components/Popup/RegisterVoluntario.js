@@ -27,7 +27,7 @@ const RegisterVoluntario = (props) => {
 
         props.changePopup("isRegisterVoluntario")
 
-        addLoggedIn({ ...values, birthday: date.toLocaleDateString(), isLoggedIn: false, typePerfil: "voluntario" })
+        addLoggedIn({ ...values, birthday: date.toLocaleDateString(), isLoggedIn: false, typePerfil: "voluntario", image: "defaultPhoto.jpg"})
     }
 
     const initialValue = {
