@@ -55,12 +55,12 @@ const Home = () => {
     ];
 
     const volunTypes = {
-        Natureza: <Forest sx={{color: "#EFF5F5",fontSize: 80}} fontSize="large" />,
-        Animais: <Pets sx={{color: "#EFF5F5",fontSize: 80}} fontSize="large" />,
-        Poluição: <Factory sx={{color:"#EFF5F5",fontSize: 80}} fontSize="large" />,
-        Comunidade: <People sx={{color: "#EFF5F5",fontSize: 80}} fontSize="large" />,
-        Gastronomia: <FoodBank sx={{color: "#EFF5F5",fontSize: 80}} fontSize="large" />,
-        Saúde: <HealthAndSafety sx={{color: "#EFF5F5",fontSize: 80}} fontSize="large" />,
+        Natureza: <Forest sx={{ color: "#EFF5F5", fontSize: 80 }} fontSize="large" />,
+        Animais: <Pets sx={{ color: "#EFF5F5", fontSize: 80 }} fontSize="large" />,
+        Poluição: <Factory sx={{ color: "#EFF5F5", fontSize: 80 }} fontSize="large" />,
+        Comunidade: <People sx={{ color: "#EFF5F5", fontSize: 80 }} fontSize="large" />,
+        Gastronomia: <FoodBank sx={{ color: "#EFF5F5", fontSize: 80 }} fontSize="large" />,
+        Saúde: <HealthAndSafety sx={{ color: "#EFF5F5", fontSize: 80 }} fontSize="large" />,
     };
 
     const filters = {
@@ -99,18 +99,14 @@ const Home = () => {
                     </Grid>
                 </Grid>
             </div>
-            <div style={{marginTop: "130px"}}>
+            <div style={{ marginTop: "130px" }}>
                 <VolunTypes types={volunTypes} />
             </div>
             <div>
                 <Map />
             </div>
             <div>
-                {topOpport ?
-                    <HomeCarousel res={topOpport} />
-                :
-                    <HomeCarousel res={catpics} />
-                }
+                <HomeCarousel />
             </div>
         </div>
     );
