@@ -609,6 +609,26 @@
       ]
     },
     {
+      "id": 25,
+      "name": "Doação de sangue",
+      "description": "Recolha de todos os tipes de sangue, para reabastecer as reservas dos hospitais que têm mais falta deste recurso.",
+      "startDate": "10/09/2023",
+      "endDate": "14/09/2023",
+      "region": "Alrgarve",
+      "location": "Portimão",
+      "type": [
+        "Saúde"
+      ],
+      "image": "Sangue.png",
+      "rating": 2,
+      "organizacao": "Cruz Vermelha",
+      "participants": [
+        3000,
+        80,
+        5000
+      ]
+    },
+    {
       "id": 14,
       "name": "Plantar florestação",
       "description": "Plantar árvores e arbustos na Serra de Monchique após ser sido devastada por incêndios e ficar com falta de plantação.",
