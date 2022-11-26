@@ -94,67 +94,68 @@ function VoluntariadosArea(props) {
                     height: 80
                 }}></Container>
 
-                <Grid container
-                    direction="row"
-                    justifyContent="space-between"
-                    alignItems="center">
+                <Divider style={{marginBottom: "20px"}}>  
+                    <Grid container
+                        direction="row"
+                        justifyContent="space-between"
+                        alignItems="center">
 
-                    <Grid item xs={6}>
-                        <Typography
-                            style={{
-                                fontWeight: 500,
-                                fontSize: 20,
-                                color: '#497174',
-                                textTransform: "uppercase",
-                                textAlign: 'left',
-                                marginLeft: 50
-                            }}
-                        >
-                            {props.type === "organizacao" ? "Voluntariados" : "Voluntariados Realizados"}
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={6}>
-                        {(props.type === "organizacao") && (props.id === props.idLoggedIn) ?
-                            <>
-                                <Button onClick={props.resgisterVoluntariado} style={{ float: "right" }}>
-                                    <Typography style={{ color: "#497174" }}>+ Criar</Typography>
-                                </Button > <Popup
-                                    openPopup={props.openPopupRegisterVoluntariado}
-                                    setOpenPopup={props.setOpenPopupRegisterVoluntariado}
-                                >
-                                    <RegisterVoluntariado organizacao={props.nameOrg} closePopup={props.closeResgisterVoluntariado} />
-                                </Popup></> : <></>}
-                    </Grid>
+                        <Grid item xs={6}>
+                            <Typography
+                                style={{
+                                    fontWeight: 500,
+                                    fontSize: 20,
+                                    color: '#344D67',
+                                    textTransform: "uppercase",
+                                }}
+                            >
+                                {props.type === "organizacao" ? "Voluntariados" : "Voluntariados Realizados"}
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={6}>
+                            {(props.type === "organizacao") && (props.id === props.idLoggedIn) ?
+                                <>
+                                    <Button onClick={props.resgisterVoluntariado} style={{ float: "right" }}>
+                                        <Typography style={{ color: "#497174" }}>+ Criar</Typography>
+                                    </Button > <Popup
+                                        openPopup={props.openPopupRegisterVoluntariado}
+                                        setOpenPopup={props.setOpenPopupRegisterVoluntariado}
+                                    >
+                                        <RegisterVoluntariado organizacao={props.nameOrg} closePopup={props.closeResgisterVoluntariado} />
+                                    </Popup></> : <></>}
+                        </Grid>
 
-                </Grid>
-                <Divider className={style.voluntariadosProfile} />
+                    </Grid>
+                </Divider>
                 <Container>
-                    <Grid container spacing={{ xs: 2, md: 4 }} columns={{ xs: 2, sm: 8, md: 16 }}>
-                        {!(displayVolunt.length === 0) ? displayVolunt.map((vol, index) => (
-                            <><Grid item xs={2} sm={4} md={4} key={index}>
-                                <MiniBoxVoluntariado
-                                    id={vol.id}
-                                    image={vol.image}
-                                    name={vol.name}
-                                    desc={vol.description}
-                                ></MiniBoxVoluntariado>
-                            </Grid></>
-                        )) : <>
-                            <div className={style.voluntariadosProfile} style={{ marginTop: "3%", width: "100%" }}>
+                        {!(displayVolunt.length === 0) ? 
+                            <Grid container spacing={{ xs: 2, md: 4 }} columns={{ xs: 2, sm: 8, md: 16 }}>
+                                {displayVolunt.map((vol, index) => (
+                                    <Grid item xs={2} sm={4} md={4} key={index}>
+                                        <MiniBoxVoluntariado
+                                            id={vol.id}
+                                            image={vol.image}
+                                            name={vol.name}
+                                            desc={vol.description}
+                                            ></MiniBoxVoluntariado>
+                                    </Grid>
+                                ))}
+                            </Grid>
+                         : 
+                            <div>
+                                <img style={{display: "block", marginRight:"auto", marginLeft:"auto" ,width:"30%"}} alt="imgEmptyVol" src={`/img${Math.floor(Math.random()*9)+1}.png`}></img>
                                 <Typography style={{
                                     fontWeight: 500,
                                     fontSize: 20,
                                     textAlign: 'center',
                                     color: "grey",
-                                    marginLeft: 50
                                 }}>
-                                    Não tem voluntariados
+                                    Ainda não realizou voluntariados
                                 </Typography>
                             </div>
-                        </>}
-                    </Grid>
+                        }
                 </Container>
-                {!(displayVolunt.length === 0) ?
+                {!(displayVolunt.length === 0) &&
                     <Grid
                         container
                         direction="row"
@@ -162,7 +163,7 @@ function VoluntariadosArea(props) {
                         justifyContent="center"
                     >
                         <Pagination count={1} className={style.pagination} />
-                    </Grid> : <></>}
+                    </Grid> }
 
             </div >
         </div >

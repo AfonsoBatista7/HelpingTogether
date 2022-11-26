@@ -196,16 +196,13 @@ function AcceptCandidates(props) {
                 height: 80
             }}></Container>
 
-            <Typography
-                style={{
-                    fontWeight: 500,
-                    fontSize: 20,
-                    color: '#497174',
-                    textTransform: "uppercase",
-                    textAlign: 'left',
-                    marginLeft: 50
-                }}
-            >Candidatos Pendentes</Typography>
+            <Divider style={{marginBottom: "20px"}}>  
+                <Typography style={{ fontWeight: 500,
+                                        fontSize: 20,
+                                        color: '#344D67',
+                                        textTransform: "uppercase",
+                }}>Candidatos Pendentes</Typography>
+            </Divider>
             <Divider className={style.commentsProfile} />
             <Container >
                 <Grid container direction="row"
