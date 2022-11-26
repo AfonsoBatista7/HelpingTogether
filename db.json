@@ -23,7 +23,7 @@
       "password": "123456",
       "confirmPassword": "123456",
       "termsAndConditions": true,
-      "isLoggedIn": true,
+      "isLoggedIn": false,
       "typePerfil": "voluntario",
       "id": 80,
       "description": "ola sou a bia"
@@ -68,7 +68,7 @@
       "isLoggedIn": true,
       "typePerfil": "voluntario",
       "id": 101,
-      "description": "egdgf"
+      "description": "Sou bué fixes "
     }
   ],
   "voluntarios": [

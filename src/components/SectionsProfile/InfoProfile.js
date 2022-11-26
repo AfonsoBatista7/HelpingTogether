@@ -55,7 +55,9 @@ function InfoProfile(props) {
   }
 
   return (
-    <div id="Perfil" style={{ alignItems: 'left', backgroundColor: "#497174", borderRadius: '10px' }} >
+    <div id="Perfil" style={{ alignItems: 'left', 
+      background: "radial-gradient(circle, rgba(110,204,175,1) 25%, rgba(52,77,103,1) 100%)",
+      borderRadius: '15px' }} >
 
       <Grid container direction="row"
         justifyContent="center"
@@ -252,10 +254,10 @@ function InfoProfile(props) {
           </Container>
 
           <div className={style.titleVoluntariado}>
-            {props.login ? <></> :<>
+            {!props.login && <>
 
-              {(props.typeLoggedIn === "organizacao")&&(props.type!=="organizacao") ?
-                  <><div className={style.avaliarbutton} >
+              {(props.typeLoggedIn === "organizacao")&&(props.type!=="organizacao") && 
+                  <div className={style.avaliarbutton} >
                     <Button style={{ background: "white" }} variant="contained" onClick={props.avaliar}>
                       <Typography style={{ color: "#497174" }}>Avaliar</Typography>
                     </Button>
@@ -265,7 +267,7 @@ function InfoProfile(props) {
                     >
                       <Evaluation idPersonCommented={props.id} idPersonCommenting={props.idPersonCommenting} name={props.nameLoggedIn} nameOfTheCommented={props.name} type="pessoa" closePopup={props.closeAvaliacao} />
                     </Popup>
-                  </div></>:<></>}</>
+                  </div>}</>
             }
           </div>
         </Grid>

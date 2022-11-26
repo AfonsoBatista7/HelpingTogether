@@ -4,6 +4,7 @@ import VolunType from "./VolunType";
 import style from "./home.module.css";
 
 const VolunTypes = (props) => {
+    //Select a random type
     const [typeSelected, selectType] = useState(`${Object.keys(props.types)[Math.floor(Math.random()*Object.keys(props.types).length-1)]}`);
 
     let counter = 0;

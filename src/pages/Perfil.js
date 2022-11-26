@@ -184,20 +184,8 @@ function Perfil() {
         {perfil ?
             <div className={style.backgroundwhite}>
                 <div className={style.margins}>
-                    <div style={{ height: 20 }}></div>
-                    <div className={style.perfileTitle}>
-                        <Typography
-                            style={{
-                                fontWeight: 700,
-                                fontSize: 30,
-                                color: '#497174',
-                                textTransform: "uppercase",
-                                textAlign: 'left',
-
-                            }}
-                        >Perfil</Typography>
-
-                    </div>
+                    <div style={{ height: 40 }}></div>
+                    
 
                     <div id="Perfil">
                         <InfoProfile avaliar={avaliar} closeAvaliacao={closeAvaliacao} idPersonCommenting={perfilLoggedIn.id} nameLoggedIn={perfilLoggedIn.name} typeLoggedIn={perfilLoggedIn.typePerfil} openPopupAvaliacao={openPopupAvaliacao} setOpenPopupAvaliacao={setOpenPopupAvaliacao} id={perfil.id} name={perfil.name} image={perfil.image} email={perfil.email} phone={perfil.phone} rating={perfil.rating} type={perfil.typePerfil} login={perfil.isLoggedIn} description={perfil.description} birthday={perfil.birthday} gender={perfil.gender} />
