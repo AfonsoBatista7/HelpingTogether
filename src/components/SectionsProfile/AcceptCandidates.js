@@ -215,13 +215,12 @@ function AcceptCandidates(props) {
                                         textTransform: "uppercase",
                 }}>Candidatos Pendentes</Typography>
             </Divider>
-            <Divider className={style.commentsProfile} />
             <Container >
                 <Grid container direction="row"
                     justifyContent="space-between"
                     alignItems="left">
 
-                    <Grid item xs={5} justifyContent="left"
+                    <Grid item xs={6} justifyContent="left"
                         alignItems="left">
                         <Grid container direction="column" spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 16 }} justifyContent="left"
                         alignItems="center">
@@ -240,6 +239,7 @@ function AcceptCandidates(props) {
                                         gender={person.gender}
                                         birthday={person.birthday}
                                     ></MiniBoxCandidate>
+                                    <div style={{marginLeft:"1%"}}></div>
                                     <IconButton aria-label="delete" size="large" style={{ color: "green" }} onClick={function () { acceptPerson(person.id) }}>
                                         <CheckCircleOutlineRoundedIcon fontSize="inherit" />
                                     </IconButton>
@@ -284,6 +284,7 @@ function AcceptCandidates(props) {
                                         gender={person.gender}
                                         birthday={person.birthday}
                                     ></MiniBoxCandidate>
+                                    <div style={{marginLeft:"1%"}}></div>
                                     <IconButton aria-label="delete" size="large" style={{ color: "red" }} onClick={function () { cancelPerson(person.id) }}>
                                         <HighlightOffRoundedIcon fontSize="inherit" />
                                     </IconButton>

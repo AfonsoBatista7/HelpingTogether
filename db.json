@@ -10,7 +10,7 @@
         "Animais"
       ],
       "termsAndConditions": true,
-      "isLoggedIn": false,
+      "isLoggedIn": true,
       "typePerfil": "organizacao",
       "id": 70
     },
@@ -23,7 +23,7 @@
       "password": "123456",
       "confirmPassword": "123456",
       "termsAndConditions": true,
-      "isLoggedIn": true,
+      "isLoggedIn": false,
       "typePerfil": "voluntario",
       "id": 80,
       "description": "ola sou a bia"
@@ -892,7 +892,7 @@
     {
       "idVolunt": 1,
       "idPerson": 90,
-      "id": 32
+      "id": 31
     }
   ],
   "candidaturasAceites": [
