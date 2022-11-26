@@ -4,6 +4,7 @@
 .homeCarousel {
   width: 80%;
   margin: 10rem auto;
+  margin-bottom: 0;
   height: 570px;
 }
 

@@ -3,8 +3,8 @@ import VoluntariadosArea from "../components/SectionsProfile/VoluntariadosArea";
 import CandidaturasPendentes from "../components/SectionsProfile/CandidaturasPendentes";
 import Comentarios from "../components/SectionsProfile/Comentarios";
 import style from "../components/SectionsProfile/Profiles.module.css"
-import { Typography, Container, CircularProgress } from "@mui/material";
-import React, { useState, useEffect, useReducer, useRef } from "react";
+import { Typography, Container} from "@mui/material";
+import React, { useState, useEffect, useReducer} from "react";
 import { useParams } from "react-router-dom";
 
 function Perfil() {
@@ -12,7 +12,6 @@ function Perfil() {
     const { idPerfil, area } = useParams();
 
     const [perfilComent, setPerfilComent] = useState(false);
-    const [voluntToShow, setVoluntToShow] = useState([]);
 
     const [perfil, setPerfil] = useState(null);
     const [perfilLoggedIn, setPerfilLoggedIn] = useState(null);
@@ -27,8 +26,6 @@ function Perfil() {
     const [loggedIns, setLoggedIns] = useState([])
 
     useEffect(() => {
-        //var ref = useRef(area);
-        //ref.current.scrollIntoView({behavior: "smooth"})
 
 
         setTimeout(() => goToPage(), 500);
@@ -37,11 +34,10 @@ function Perfil() {
     }, [area, perfil])
 
     const goToPage = () => {
-        var value = 0;
         var elem;
 
         switch (area) {
-            case "Perfil": value = 0;
+            case "Perfil":
                 elem = 0;
                 break;
             case "Candidatura": value = 700;
@@ -132,7 +128,7 @@ function Perfil() {
 
     const checkIfNewPerfil = (list) => {
         for (const element of list) {
-            if (element.id == idPerfil) {
+            if (element.id === idPerfil) {
                 setPerfilComent(true);
             }
         }

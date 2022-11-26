@@ -19,9 +19,13 @@
 .subtitle {
     font-family: "Rubik One", sans-serif;
     position: relative;
-    bottom: 8vh;
     color: #344d67;
-    font-size: 60px;
+}
+
+.sloganSubtitle {
+    font-family: "Raleway", sans-serif;
+    position: relative;
+    color: #344d67;
 }
 
 .titleContainer {
@@ -65,5 +69,10 @@
 }
 
 .button:hover {
-    transform: scale(1.08);
+    transform: scale(1.2);
+}
+
+.selected {
+    outline-offset: 5px;
+    outline: 5px solid #344d67 !important;
 }

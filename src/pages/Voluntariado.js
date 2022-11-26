@@ -1,6 +1,6 @@
 import Comentarios from "../components/SectionsProfile/Comentarios";
 import style from "../components/SectionsProfile/Profiles.module.css"
-import { Pagination, Grid, Typography, Container, Button } from "@mui/material";
+import { Grid, Typography, Container, Button } from "@mui/material";
 import InfoVoluntariado from "../components/SectionsProfile/InfoVoluntariado";
 import AcceptCandidates from "../components/SectionsProfile/AcceptCandidates";
 import DoneOutlineRoundedIcon from '@mui/icons-material/DoneOutlineRounded';
@@ -9,6 +9,7 @@ import React, { useState, useEffect, useReducer } from 'react'
 import { useParams, } from "react-router-dom";
 import ShowOldCandidates from "../components/SectionsProfile/ShowOldCandidates";
 import { ConnectingAirportsOutlined } from "@mui/icons-material";
+
 
 function Voluntariado() {
 
