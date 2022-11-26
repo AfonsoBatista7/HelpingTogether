@@ -398,7 +398,7 @@
         "Comunidade"
       ],
       "image": "teaching_refugees.jpg",
-      "rating": 2,
+      "rating": 4,
       "organizacao": "Cruz Vermelha"
     }
   ],
@@ -408,7 +408,7 @@
       "name": "Cruz Vermelha",
       "comment": "Voluntário sempre desponível quando solicitado, empenhado e bom trabalhador.",
       "image": "Cruz_Vermelha.png",
-      "rating": 3,
+      "rating": 5,
       "date": "12/04/2022 11:55",
       "idPersonCommenting": 6000
     },
@@ -474,6 +474,15 @@
       "rating": 5,
       "date": "13/05/2022 20:41",
       "idPersonCommenting": 13000
+    },
+    {
+      "id": 38,
+      "name": "WHPHP",
+      "comment": "Voluntário muito competente e comprometido com o projeto que desempenhou.",
+      "image": "WHPHP.png",
+      "rating": 4,
+      "date": "09/11/2022 19:02",
+      "idPersonCommenting": 1
     }
   ],
   "comentariosVoluntariado": [
@@ -690,7 +699,7 @@
       ]
     },
     {
-      "id": 26,
+      "id": 30,
       "name": "Inserção de refugiados na sociedade",
       "description": "Ensinar refugiados a escrever, a ler e a falar português para que a sua integração em Portugal seja facilitada.",
       "startDate": "1/02/2021",
@@ -765,6 +774,15 @@
       "rating": 5,
       "date": "02/01/2020 08:02",
       "idPersonCommenting": 8000
+    },
+    {
+      "id": 30,
+      "name": "Cruz Vermelha",
+      "comment": "Voluntário sempre desponível quando solicitado, empenhado e bom trabalhador.",
+      "image": "Cruz_Vermelha.png",
+      "rating": 5,
+      "date": "12/04/2022 11:55",
+      "idPersonCommenting": 6000
     }
   ],
   "comentariosFeitosPessoa": [],
