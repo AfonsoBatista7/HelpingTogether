@@ -120,7 +120,7 @@ const RegisterVoluntario = (props) => {
                                 helperText={<ErrorMessage name="password" component="div" style={{ color: 'red' }} />} />
                             <Field as={TextField} fullWidth name="confirmPassword" label='Confirma palavra-chave' type='password' placeholder="Confirma a palavra-chave" className={style.bottom}
                                 helperText={<ErrorMessage name="confirmPassword" component="div" style={{ color: 'red' }} />} />
-                            <Button variant="contained" component="label" size="small" className={style.pic} sx={{ backgroundColor:"#344D67", '&:hover': { opacity: [0.9, 0.8, 0.7]} }}>
+                            <Button variant="contained" component="label" size="small" className={style.pic} sx={{'&:hover': { opacity: [0.9, 0.8, 0.7]} }}>
                                 <AddPhotoAlternateIcon />
                                 Adicionar Foto Perfil
                                 <input hidden accept="image/*" multiple type="file" onClick={() => { setOpen(true);}} />
@@ -144,8 +144,8 @@ const RegisterVoluntario = (props) => {
                                 <FormHelperText><ErrorMessage name="termsAndConditions" component="div" style={{ color: 'red' }} /></FormHelperText>
                                 <Grid container spacing={3} justifyContent="center">
                                     <Grid item xs={6}>
-                                        <Button type='submit' variant='contained' disabled={props.isSubmitting}
-                                            sx={{  backgroundColor:"#344D67", '&:hover': { opacity: [0.9, 0.8, 0.7]} }} fullWidth>{props.isSubmitting ? "Carregar" : "Registar"}</Button>
+                                        <Button type='submit' variant='contained' color='primary' disabled={props.isSubmitting}
+                                            sx={{'&:hover': { opacity: [0.9, 0.8, 0.7]} }} fullWidth>{props.isSubmitting ? "Carregar" : "Registar"}</Button>
                                     </Grid>
                                 </Grid>
                             </div>

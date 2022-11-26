@@ -1,13 +1,37 @@
 import { React, useState, useEffect } from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import Slider from "react-slick";
 import style2 from "./homeCarousel.module.css";
 import { Link } from 'react-router-dom';
 
+
 export default function HomeCarousel(props) {
+    let carouselData = []
+
+/*     props.res.map((elem) => (
+        carouselData.push(
+            {
+                headerText: elem.name,
+                subText: elem.desc,
+                image: "/"+elem.image,
+            }
+        )
+    ))
+
+    return (
+        <Carousel
+            data={carouselData}
+            autoPlay={true}
+            rightItem={<FaArrowRight />}
+            leftItem={<FaArrowLeft />}
+            animationDuration={3000}
+            headerTextType="black"
+            subTextType="white"
+            size="normal"
+        />
+    ) */
 
     const [voluntariados, setVoluntariados] = useState([])
 

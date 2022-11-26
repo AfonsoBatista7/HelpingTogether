@@ -1,43 +1,57 @@
 import style from "../components/SectionsProfile/Profiles.module.css"
 import { Pagination, Grid, Typography, Container, Divider, Button } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 import BoxOrganization from "../components/StatsShowers/Box/BoxOrganization";
 import SearchBar from "../components/Search/SearchBar";
 
 function Organizacoes() {
-
+    const [state, forceUpdate] = useReducer(x => x + 1, 0);
     const [organizacoes, setOrganizacoes] = useState([])
 
     const [organizacoesNumberVol, setOrganizacoesNumberVol] = useState([])
 
     const [newVoluntariados, setNewVoluntariados] = useState([]);
     const [voluntariados, setVoluntariados] = useState([])
+    const [searchFilter, setSearchFilter] = useState({
+        Texto: "", Tipo: ""
+    })
+
+    const searchTextUpdate = (text) => {
+        setSearchFilter(prev => ({...prev, Texto: text}))
+        forceUpdate()
+    }
+
+    const searchFilterUpdate = (filter, value) => {
+        setSearchFilter(prev => ({...prev, Tipo: value}))
+        forceUpdate()
+    }
+
+    const clearFilters = () => {
+        setSearchFilter(prev => ({...prev, Tipo: ""}))
+        forceUpdate()
+    }
 
     const filters = {
-        Tipo: ['Natureza', 'Animais', 'Poluição', 'Comunidade', 'Gastronomia', 'Saúde'], 
-        Região: [
-            "Norte",
-            "Centro",
-            "Alentejo",
-            "Área Metropolitana Lisboa",
-            "Algarve",
-            "Açores",
-            "Madeira",
-        ],
-        Duração: ["Reduzida", "Média", "Longa"],
+        Tipo: ['Natureza', 'Animais', 'Poluição', 'Comunidade', 'Gastronomia', 'Saúde']
     };
 
     useEffect(() => {
         const getOrganizacoes = async () => {
             const organizacoesFromServer = await fetchOrganizacoes()
+            let results = organizacoesFromServer
+            //console.log(searchFilter)
 
-            setOrganizacoes(organizacoesFromServer)
-
+            if (searchFilter["Tipo"] != "") {
+                results = results.filter(elem => elem["type"].includes(searchFilter["Tipo"]))
+            } if (searchFilter["Texto"] != "") {
+                results = results.filter(elem => elem["name"].includes(searchFilter["Texto"]))
+            }
+            setOrganizacoes(results)
         }
 
         getOrganizacoes()
 
-    }, [])
+    }, [state])
 
     const fetchOrganizacoes = async () => {
         const res = await fetch('http://localhost:5000/organizacoes')
@@ -125,7 +139,11 @@ function Organizacoes() {
 
                 <Divider />
                 <Grid item className={style.filter}>
-                    <SearchBar filters={filters} />
+                    <SearchBar 
+                        onSearchTextUpdate={searchTextUpdate} 
+                        onFilterUpdate={searchFilterUpdate} 
+                        onClearFilter={clearFilters}
+                        filters={filters} />
                 </Grid>
                 <Container>
                     { ( !(organizacoes.length === 0) && !(voluntariados.length === 0) ) ?  organizacoes.map((org) => (
