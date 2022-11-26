@@ -139,7 +139,7 @@ function CandidaturasPendentes(props) {
     }
 
     return (
-        <div id="Candidatura" className={style.backgroundwhite}>
+        <div  className={style.backgroundwhite}>
             <div >
                 <Container style={{
                     height: 80

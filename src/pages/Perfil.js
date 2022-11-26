@@ -31,21 +31,10 @@ function Perfil() {
         //ref.current.scrollIntoView({behavior: "smooth"})
 
 
-        setTimeout(() => goToPage(), 100);
+        setTimeout(() => goToPage(), 500);
 
 
     }, [area, perfil])
-
-    function getOffset(el) {
-        var _x = 0;
-        var _y = 0;
-        while (el && !isNaN(el.offsetLeft) && !isNaN(el.offsetTop)) {
-            _x += el.offsetLeft - el.scrollLeft;
-            _y += el.offsetTop - el.scrollTop;
-            el = el.offsetParent;
-        }
-        return { top: _y, left: _x };
-    }
 
     const goToPage = () => {
         var value = 0;
@@ -56,32 +45,20 @@ function Perfil() {
                 elem = 0;
                 break;
             case "Candidatura": value = 700;
-                //elem = document.getElementById('Candidatura').clientHeight+ document.getElementById('Perfil').clientHeight -150;
-                // elem = document.getElementById('Candidatura').getBoundingClientRect().top + window.pageYOffset;
-                elem = getOffset(document.getElementById('Candidatura')).top
-                console.log(elem)
+                elem = document.getElementById('Perfil').clientHeight+64;
                 break;
             case "Realizados": value = 1350;
-                //elem = document.getElementById('VoluntariadosRealizados').clientHeight+ document.getElementById('Candidatura').clientHeight+ document.getElementById('Perfil').clientHeight -150;
-                // elem = document.getElementById('VoluntariadosRealizados').getBoundingClientRect().top+ window.pageYOffset;
-                elem = getOffset(document.getElementById('Voluntariados')).top 
-                console.log(elem)
+                elem = document.getElementById('Candidatura').clientHeight+document.getElementById('Perfil').clientHeight+64;
                 break;
             case "Voluntariados":
-                elem = getOffset(document.getElementById('Voluntariados')).top 
-                console.log(elem)
+                elem = document.getElementById('Perfil').clientHeight+64; 
                 break;
             case "Comentários": value = 2050;
-                elem = getOffset(document.getElementById('Comentários')).top 
-
-                console.log(elem)
+                elem = document.getElementById('Candidatura').clientHeight+document.getElementById('Perfil').clientHeight+ document.getElementById('Voluntariados').clientHeight+64;
                 break;
             default: elem = 0;
                 break;
         }
-
-
-        //setTimeout(() => window.scrollTo({ top: elem, behavior: "smooth" }), 500);
 
         window.scrollTo({ top: elem, behavior: "smooth" })
     }

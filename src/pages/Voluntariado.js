@@ -82,6 +82,9 @@ function Voluntariado() {
         var res2 = await fetch('http://localhost:5000/candidaturasRejeitadas');
         var data2 = await res2.json()
 
+        var res3 = await fetch('http://localhost:5000/voluntariadosRealizados');
+        var data3 = await res3.json()
+
         for (const element of data) {
             if((element.idVolunt==idVolt)&&(element.idPerson==id))
           
@@ -90,6 +93,11 @@ function Voluntariado() {
 
         for (const element of data2) {
             if((element.idVolunt===idVolt)&&(element.idPerson===id))
+                editStateAceptedRejected(true)
+        }
+
+        for (const element of data3) {
+            if(element.id==idVolt)
                 editStateAceptedRejected(true)
         }
 

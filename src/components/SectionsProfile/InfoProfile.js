@@ -55,7 +55,7 @@ function InfoProfile(props) {
   }
 
   return (
-    <div id="Perfil" style={{ alignItems: 'left', backgroundColor: "#497174", borderRadius: '10px' }} >
+    <div style={{ alignItems: 'left', backgroundColor: "#497174", borderRadius: '10px' }} >
 
       <Grid container direction="row"
         justifyContent="center"
