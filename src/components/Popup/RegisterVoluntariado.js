@@ -221,7 +221,7 @@ function RegisterVoluntariado(props) {
                                 <Grid container spacing={3} justifyContent="center">
                                     <Grid item xs={6}>
                                         <Button type='submit' variant='contained' color='primary' disabled={props.isSubmitting}
-                                            sx={{  backgroundColor:"#344D67", '&:hover': { opacity: [0.9, 0.8, 0.7] } }} fullWidth>{props.isSubmitting ? "Carregar" : "Registar"}</Button>
+                                            sx={{ '&:hover': { opacity: [0.9, 0.8, 0.7] } }} fullWidth>{props.isSubmitting ? "Carregar" : "Registar"}</Button>
                                     </Grid>
                                 </Grid>
                             </div>

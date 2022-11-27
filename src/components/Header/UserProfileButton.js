@@ -10,8 +10,22 @@ import {
     MenuItem,
     Button
 } from "@mui/material";
+import RegisterVoluntariado from '../Popup/RegisterVoluntariado';
+import Popup from '../Popup/Popup';
+
 
 const UserProfileButton = (props) => {
+
+    const [openPopupRegister, setOpenPopupRegister] = useState(false);
+
+    const open = () => {
+        setOpenPopupRegister(true);
+    };
+
+    const close = () => {
+        setOpenPopupRegister(false);
+    };
+
     const logOut = () => {
         handleCloseUserMenu();
         props.takeOffLogin();
@@ -27,6 +41,7 @@ const UserProfileButton = (props) => {
 
     const goToVolunteersDone = () => {
         handleCloseUserMenu();
+        open();
     };
 
     const goToComments = () => {
@@ -73,7 +88,7 @@ const UserProfileButton = (props) => {
                         {props.name}
                         <Avatar
                             alt={props.name}
-                            src={props.image}
+                            src={"/" + props.image}
                             style={marginButton}
                         />
                     </Button>
@@ -99,22 +114,33 @@ const UserProfileButton = (props) => {
                             href={setting}
                             key={setting}
                             style={{ textDecoration: "none", color: "black" }}
-                            to={`/Perfil/${props.id}/${setting}`}
-                            onClick={() => this.forceUpdate()}
+                            to={setting === "Criar" ? "": `/Perfil/${props.id}/${setting}`}
+                            onClick={setting === "Criar"? "": () => this.forceUpdate()}
                         >
                             <MenuItem key={setting} onClick={settings[getOption()][setting]}>
                                 {setting}
                             </MenuItem>
                         </Link>
                     ))}
+                    <Link
+                            style={{ textDecoration: "none", color: "black" }}
+                            to={"/"}
+                        >
                     <MenuItem onClick={logOut}>
                         <ListItemIcon>
                             <Logout fontSize="small" />
                         </ListItemIcon>
                         Sair
                     </MenuItem>
+                    </Link>
                 </Menu>
             </Box>
+            <Popup
+                openPopup={openPopupRegister}
+                setOpenPopup={setOpenPopupRegister}
+            >
+                <RegisterVoluntariado closePopup={close} organizacao={props.name} />
+            </Popup>
         </div>
     );
 };

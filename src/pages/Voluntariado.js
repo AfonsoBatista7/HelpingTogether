@@ -7,6 +7,9 @@ import DoneOutlineRoundedIcon from '@mui/icons-material/DoneOutlineRounded';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 import React, { useState, useEffect, useReducer } from 'react'
 import { useParams, } from "react-router-dom";
+import ShowOldCandidates from "../components/SectionsProfile/ShowOldCandidates";
+import { ConnectingAirportsOutlined } from "@mui/icons-material";
+
 
 function Voluntariado() {
 
@@ -18,9 +21,13 @@ function Voluntariado() {
 
     const [candidate, editState] = useState(false);
 
+    const [acceptedorRejected, editStateAceptedRejected] = useState(false);
+
     const [perfil, setPerfil] = useState(null);
 
     const [voltDone, setVoltDone] = useState(false);
+
+    const [voltRealizado, setVoltRealizado] = useState(false);
 
     const [voluntsDone, setVoluntsDone] = useState([]);
 
@@ -35,6 +42,26 @@ function Voluntariado() {
     const [candidatura, setCandidatura] = useState([])
 
     const [candid, setVoluntariados] = useState([]);
+
+
+    useEffect(() => {
+
+        checkifVoluntariadoRealizado()
+    }, [])
+
+    const checkifVoluntariadoRealizado = async () => {
+        var res = await fetch('http://localhost:5000/voluntariadosRealizados');
+        var data = await res.json()
+
+        for (const element of data) {
+            if (element.id == idVolt) {
+                setVoltRealizado(true)
+            }
+        }
+
+
+    }
+
 
     const checkifiscandid = (id) => {
 
@@ -52,12 +79,50 @@ function Voluntariado() {
 
     }
 
+
     const fetchCandidatura = async () => {
         var res = await fetch('http://localhost:5000/candidaturas');
-
         var data = await res.json()
 
         return data;
+    }
+
+    const checkifAlredyAcceptedRejected = (id) => {
+        const getAcceptedRejected = async (id) => {
+
+            await fetchAcceptedRjected(id)
+
+        }
+
+        getAcceptedRejected(id)
+    }
+
+    const fetchAcceptedRjected = async (id) => {
+        var res = await fetch('http://localhost:5000/candidaturasAceites');
+        var data = await res.json()
+
+        var res2 = await fetch('http://localhost:5000/candidaturasRejeitadas');
+        var data2 = await res2.json()
+
+        var res3 = await fetch('http://localhost:5000/voluntariadosRealizados');
+        var data3 = await res3.json()
+
+        for (const element of data) {
+            if ((element.idVolunt == idVolt) && (element.idPerson == id))
+
+                editStateAceptedRejected(true)
+        }
+
+        for (const element of data2) {
+            if ((element.idVolunt === idVolt) && (element.idPerson === id))
+                editStateAceptedRejected(true)
+        }
+
+        for (const element of data3) {
+            if (element.id == idVolt)
+                editStateAceptedRejected(true)
+        }
+
     }
 
     //vai buscar todos os valores de login da BD e mete em loggedIns
@@ -66,6 +131,7 @@ function Voluntariado() {
             const loggedInFromServer = await fetchLoggedIn()
 
             setLoggedIns(loggedInFromServer)
+
         }
 
         getLoggedIn(loggedIns)
@@ -84,9 +150,9 @@ function Voluntariado() {
 
     }, [])
 
-    useEffect(() => {
+    const voluntDone = (value) => {
         const getVolunteringDone = async () => {
-            const VoltDoneFromServer = await fetchVoltDone()
+            const VoltDoneFromServer = await fetchVoltDone(value)
 
             setVoluntsDone(VoltDoneFromServer)
 
@@ -95,13 +161,22 @@ function Voluntariado() {
 
         getVolunteringDone(voluntsDone)
 
-    }, [])
+    }
 
-    const fetchVoltDone = async () => {
+    const fetchVoltDone = async (id) => {
         const res = await fetch('http://localhost:5000/voluntariadosRealizados')
         const data = await res.json()
 
-        return data;
+        var list = []
+
+        for (const elem of data) {
+            for (const e of elem.participants) {
+                if (e === id)
+                    list.push(elem)
+            }
+        }
+
+        return list;
     }
 
     useEffect(() => {
@@ -115,6 +190,7 @@ function Voluntariado() {
         for (const element of VoltDone) {
             if (element.id == idVolt) {
                 setVoltDone(true);
+
             }
         }
 
@@ -186,15 +262,19 @@ function Voluntariado() {
     useEffect(() => {
         checkLogin()
 
+
+
     }, [loggedIns])
 
     const checkLogin = () => {
 
         for (const element of loggedIns) {
             if (element.isLoggedIn) {
-
                 checkifiscandid(element.id)
+                checkifAlredyAcceptedRejected(element.id)
                 setPerfil(element);
+
+                voluntDone(element.id);
             }
         }
 
@@ -278,55 +358,75 @@ function Voluntariado() {
                     </Grid>
                     <Grid item xs={5} className={style.marginsVoluntariado}>
                         {!perfil ? <></> : <>
-                            {perfil.typePerfil === "organizacao" ? <>
-                            </> : <>
-                                {!voltDone ? <>
-                                    {!candidate ?
-                                        <Button variant="contained" color="success" size="medium" style={{ float: 'right' }} className={style.buttonedit} onClick={changeState}>
-                                            < DoneOutlineRoundedIcon className={style.marginRight} style={{
-                                                color: 'white',
-                                                fontSize: 20
-                                            }}></ DoneOutlineRoundedIcon> <Typography
-                                                style={{
-                                                    fontWeight: 500,
-                                                    fontSize: 20,
-                                                    textTransform: "uppercase",
-                                                    textAlign: 'left',
+                            {(perfil.typePerfil === "organizacao") ?
+                                <></> : <>
+                                    {acceptedorRejected ? <>
+                                        {voltRealizado ?
+                                            <Typography style={{
+                                                fontWeight: 700,
+                                                fontSize: 20,
+                                                color: '#497174',
+                                                textAlign: 'right'
+                                            }} className={style.buttonedit}> Voluntariado Terminado </Typography> : <></>}
+                                            </>
+                                        : <>
+                                            {!voltDone ? <>
+                                                {!candidate ?
+                                                    <Button variant="contained" color="success" size="medium" style={{ float: 'right' }} className={style.buttonedit} onClick={changeState}>
+                                                        < DoneOutlineRoundedIcon className={style.marginRight} style={{
+                                                            color: 'white',
+                                                            fontSize: 20
+                                                        }}></ DoneOutlineRoundedIcon> <Typography
+                                                            style={{
+                                                                fontWeight: 500,
+                                                                fontSize: 20,
+                                                                textTransform: "uppercase",
+                                                                textAlign: 'left',
 
-                                                }}
-                                            >Candidatar</Typography>
-                                        </Button>
-                                        : <Button variant="contained" color="error" size="small" style={{ float: 'right' }} className={style.buttonedit} onClick={changeState}>
-                                            < CancelOutlinedIcon className={style.marginRight} style={{
-                                                color: 'white',
-                                                fontSize: 20
-                                            }}></ CancelOutlinedIcon> <Typography
-                                                style={{
-                                                    fontWeight: 500,
-                                                    fontSize: 15,
-                                                    textTransform: "uppercase",
-                                                    textAlign: 'center',
+                                                            }}
+                                                        >Candidatar</Typography>
+                                                    </Button>
+                                                    : <Button variant="contained" color="error" size="small" style={{ float: 'right' }} className={style.buttonedit} onClick={changeState}>
+                                                        < CancelOutlinedIcon className={style.marginRight} style={{
+                                                            color: 'white',
+                                                            fontSize: 20
+                                                        }}></ CancelOutlinedIcon> <Typography
+                                                            style={{
+                                                                fontWeight: 500,
+                                                                fontSize: 15,
+                                                                textTransform: "uppercase",
+                                                                textAlign: 'center',
 
-                                                }}
-                                            >Cancelar Candidatura</Typography>
-                                        </Button>}
-                                </> : <></>}</>}
+                                                            }}
+                                                        >Cancelar Candidatura</Typography>
+                                                    </Button>}
+                                            </> :
+                                                <></>}</>
+                                    }
+                                </>}
                         </>}
 
                     </Grid>
                 </Grid>
 
-                <InfoVoluntariado avaliar={avaliar} closeAvaliacao={closeAvaliacao} openPopupAvaliacao={openPopupAvaliacao} setOpenPopupAvaliacao={setOpenPopupAvaliacao} state={state} done={voltDone} id={volunt.id} name={volunt.name} image={volunt.image} organizacao={volunt.organizacao} startDate={volunt.startDate} description={volunt.description} endDate={volunt.endDate} location={volunt.location} rating={volunt.rating} />
+                <InfoVoluntariado avaliar={avaliar} closeAvaliacao={closeAvaliacao} openPopupAvaliacao={openPopupAvaliacao} setOpenPopupAvaliacao={setOpenPopupAvaliacao} realizado={voltRealizado} state={state} done={voltDone} id={volunt.id} name={volunt.name} image={volunt.image} organizacao={volunt.organizacao} startDate={volunt.startDate} description={volunt.description} endDate={volunt.endDate} location={volunt.location} rating={volunt.rating} type={volunt.type} />
 
                 <Container style={{
                     height: 50
                 }}></Container>
 
-                {perfil ?
-                volunt.organizacao === perfil.name ?
+                {perfil ? <>
+                    {(volunt.organizacao === perfil.name) && !voltRealizado ?
                         <AcceptCandidates id={volunt.id} ></AcceptCandidates>
-                        : <></>
-                 : <></>}
+                        : <></>}
+                </> : <></>}
+
+                <Container style={{
+                    height: 50
+                }}></Container>
+
+
+                <ShowOldCandidates idVolt={idVolt} />
 
                 <Comentarios newVolunt={voluntsComent} name={volunt.name} idPerfil={volunt.id} type="voluntariado" state={state} />
 

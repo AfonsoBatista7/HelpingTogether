@@ -1,8 +1,11 @@
 import { Fab, Stack} from "@mui/material";
 import React, { useState } from "react";
 import style from "./home.module.css";
+import { Link } from 'react-router-dom'
 
 const VolunType = (props) => {
+
+    const url = "/Voluntariados?Tipo=" + props.name
     
     // const [isSelected, select] = useState(false);
 
@@ -13,6 +16,7 @@ const VolunType = (props) => {
 
 
     return (
+    <Link to={url}> {/* TODO adicionar filtro */}
         <Stack className={style.button} justifyContent="center" alignItems="center">
             <Fab onMouseEnter={changeType}
                   className={`${props.currentType===props.name && style.selected}`}
@@ -21,6 +25,7 @@ const VolunType = (props) => {
                 {props.icon}
             </Fab>
         </Stack>
+     </Link>
     );
 };
 

@@ -1,10 +1,14 @@
 import style from "../components/SectionsProfile/Profiles.module.css"
 import { Pagination, Grid, Typography, Container, Divider, Button } from "@mui/material";
 import React, { useState, useEffect, useReducer } from "react";
+import { useSearchParams } from "react-router-dom"
 import BoxVoluntariado from "../components/StatsShowers/Box/BoxVoluntariado";
 import RegisterVoluntariado from "../components/Popup/RegisterVoluntariado";
 import Popup from "../components/Popup/Popup";
 import SearchBar from "../components/Search/SearchBar";
+import { Link } from "react-router-dom";
+import { ObjectSchema } from "yup";
+import { FilterRounded } from "@mui/icons-material";
 
 function Voluntariados() {
     const [state, forceUpdate] = useReducer(x => x + 1, 0);
@@ -13,12 +17,17 @@ function Voluntariados() {
     const [openPopupRegisterVoluntariado, setOpenPopupRegisterVoluntariado] = useState(false);
 
     const [voluntariados, setVoluntariados] = useState([])
+    // filters active
+/*     const [searchFilter, setSearchFilter] = useSearchParams({
+        Texto: "", Tipo: "", Região: "", Duração: "",
+    }) */
+    const [searchFilter, setSearchFilter] = useSearchParams()
 
     //vetor com todos os valores no login da Base de dados
     const [loggedIns, setLoggedIns] = useState([])
 
     const filters = {
-        Tipo: ['Natureza', 'Animais', 'Poluição', 'Comunidade', 'Gastronomia', 'Saúde'], 
+        Tipo: ['Natureza', 'Animais', 'Poluição', 'Comunidade', 'Gastronomia', 'Saúde'],
         Região: [
             "Norte",
             "Centro",
@@ -31,13 +40,68 @@ function Voluntariados() {
         Duração: ["Reduzida", "Média", "Longa"],
     };
 
+    const searchTextUpdate = (text) => {
+        let updatedSearchParams = new URLSearchParams(searchFilter.toString());
+        updatedSearchParams.set("Texto", text);
+        setSearchFilter(updatedSearchParams.toString());
+        forceUpdate()
+    }
+
+    const searchFilterUpdate = (filter, value) => {
+        let updatedSearchParams = new URLSearchParams(searchFilter.toString());
+        updatedSearchParams.set(filter, value);
+        setSearchFilter(updatedSearchParams.toString());
+        forceUpdate()
+    }
+
+    const clearFilters = () => {
+        setSearchFilter({})
+        forceUpdate()
+    }
+
+    const isFiltered = () => {
+        return searchFilter["Texto"] != "" || searchFilter["Tipo"] != "" 
+            || searchFilter["Região"] != "" || searchFilter["Duração"] != ""
+    }
+
+    const getDayDifference = (dateStringA, dateStringB) => {
+        const d1 = new Date(dateStringA)
+        const d2 = new Date(dateStringB)
+        let diff = Math.abs(d1.getTime() - d2.getTime())
+        let dayDiff = diff / (1000 * 3600 * 24)
+        return dayDiff
+    }
+
+    const isRightDuration = (durationString, dateStringA, dateStringB) => {
+        let dayDiff = getDayDifference(dateStringA, dateStringB)
+        switch(durationString) {
+            case filters["Duração"][0]:     // dur. reduzida
+                return dayDiff == 0;
+            case filters["Duração"][1]:     // dur. media
+                return dayDiff >= 1 && dayDiff <= 7;
+            case filters["Duração"][2]:     // dur. longa
+                return dayDiff >= 8;
+        }
+    }
+
     //vai buscar todos os valores de login da BD e mete em loggedIns
     useEffect(() => {
         const getVoluntariados = async () => {
             const voluntariadosFromServer = await fetchVoluntariados()
+            let results = voluntariadosFromServer
 
-            setVoluntariados(voluntariadosFromServer)
+            if (searchFilter.get("Texto") != null) {
+                results = results.filter(elem => elem["name"].toLowerCase().includes( searchFilter.get("Texto").toLowerCase() ))
+            } if (searchFilter.get("Tipo") != null) {
+                results = results.filter(elem => elem["type"].includes(searchFilter.get("Tipo")))
+            } if (searchFilter.get("Região") != null) {
+                results = results.filter(elem => elem["region"].includes(searchFilter.get("Região")))
+            } if (searchFilter.get("Duração") != null) {
+                results = results.filter(elem => isRightDuration(searchFilter.get("Duração"), elem["startDate"], elem["endDate"]))
+            }
 
+
+            setVoluntariados(results)
         }
 
         getVoluntariados()
@@ -97,7 +161,6 @@ function Voluntariados() {
                 setPerfil(element);
             }
         }
-
     }
 
     const resgisterVoluntariado = () => {
@@ -141,18 +204,29 @@ function Voluntariados() {
                                     setOpenPopup={setOpenPopupRegisterVoluntariado}
                                 >
                                     <RegisterVoluntariado organizacao={perfil.name} closePopup={closeResgisterVoluntariado} />
-                                </Popup></div> : <></>}
+                                </Popup></div> 
+                                : <>
+                                <div style={{ float: "right" }}>
+                                    <Link style={{  textDecoration: "none"}} to={`/Perfil/${perfil.id}/Realizados`}>
+                                        <Button variant="contained" style={{background: "#497174"}} sx={{'&:hover': { opacity: [0.9, 0.8, 0.7] }}}>
+                                            <Typography style={{ color: "white" }}>Ver Realizados</Typography>
+                                        </Button>
+                                    </Link></div> </>}
                     </>}
 
                 </Grid>
 
                 <Divider />
                 <Grid item className={style.filter}>
-                    <SearchBar filters={filters} />
+                    <SearchBar 
+                        onSearchTextUpdate={searchTextUpdate} 
+                        onFilterUpdate={searchFilterUpdate} 
+                        onClearFilter={clearFilters}
+                        filters={filters} />
                 </Grid>
                 <Container>
                     {!(voluntariados.length === 0) ? voluntariados.map((vol) => (
-                        <>
+                        <div key={vol.id}>
                             <div className={style.boxShow}></div>
                             <BoxVoluntariado
                                 id={vol.id}
@@ -164,7 +238,7 @@ function Voluntariados() {
                                 location={vol.location}
                                 typePerfil="voluntariado"
                                 className={style.boxShow}></BoxVoluntariado>
-                            <div className={style.boxShow}></div></>
+                            <div className={style.boxShow}></div></div>
                     )) : <></>}
                 </Container>
                 <Grid

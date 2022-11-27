@@ -51,7 +51,7 @@ const RegisterOrganizacao = (props) => {
 
         props.changePopup("isRegisterOrganizacao")
 
-        addLoggedIn({ ...values, isLoggedIn: false, typePerfil: "organizacao" })
+        addLoggedIn({ ...values, isLoggedIn: false, typePerfil: "organizacao", image: "defaultPhotoOrganization.jpg" })
     }
 
     const getValues = (e) => {
@@ -91,7 +91,7 @@ const RegisterOrganizacao = (props) => {
                                 helperText={<ErrorMessage name="password" component="div" style={{ color: 'red' }} />} />
                             <Field as={TextField} fullWidth name="confirmPassword" label='Confirma palavra-chave' type='password' placeholder="Confirma a palavra-chave" className={style.bottom}
                                 helperText={<ErrorMessage name="confirmPassword" component="div" style={{ color: 'red' }} />} />
-                            <Button variant="contained" component="label" size="small" className={style.both2} sx={{ backgroundColor:"#344D67", '&:hover': { opacity: [0.9, 0.8, 0.7] } }}>
+                            <Button variant="contained" component="label" size="small" className={style.both2} sx={{ '&:hover': { opacity: [0.9, 0.8, 0.7] } }}>
                                 <AddPhotoAlternateIcon />
                                 Adicionar Foto Perfil
                                 <input hidden accept="image/*" multiple type="file" onClick={() => { setOpen(true);}} />
@@ -110,27 +110,27 @@ const RegisterOrganizacao = (props) => {
                                 <Typography name="type" sx={{ fontWeight: 'bold' }} >Selecione o tipo de voluntariados que irá desponibilizar:</Typography>
                                 <FormHelperText><ErrorMessage name="type" component="div" style={{ color: 'red' }} /></FormHelperText>
                                 <FormControlLabel
-                                    control={<Checkbox sx={{color: "#344D67", '&.Mui-checked': {color: "#344D67"}}} value="Natureza" onChange={(e) => getValues(e.target.value)} />}
+                                    control={<Checkbox value="Natureza" onChange={(e) => getValues(e.target.value)} />}
                                     label="Natureza"
                                 />
                                 <FormControlLabel
-                                    control={<Checkbox sx={{color: "#344D67", '&.Mui-checked': {color: "#344D67"}}} value="Animais" onChange={(e) => getValues(e.target.value)} />}
+                                    control={<Checkbox value="Animais" onChange={(e) => getValues(e.target.value)} />}
                                     label="Animais"
                                 />
                                 <FormControlLabel
-                                    control={<Checkbox sx={{color: "#344D67", '&.Mui-checked': {color: "#344D67"}}} value="Poluição" onChange={(e) => getValues(e.target.value)} />}
+                                    control={<Checkbox value="Poluição" onChange={(e) => getValues(e.target.value)} />}
                                     label="Poluição"
                                 />
                                 <FormControlLabel
-                                    control={<Checkbox sx={{color: "#344D67", '&.Mui-checked': {color: "#344D67"}}} value="Comunidade" onChange={(e) => getValues(e.target.value)} />}
+                                    control={<Checkbox value="Comunidade" onChange={(e) => getValues(e.target.value)} />}
                                     label="Comunidade"
                                 />
                                 <FormControlLabel
-                                    control={<Checkbox sx={{color: "#344D67", '&.Mui-checked': {color: "#344D67"}}} value="Gastronomia" onChange={(e) => getValues(e.target.value)} />}
+                                    control={<Checkbox value="Gastronomia" onChange={(e) => getValues(e.target.value)} />}
                                     label="Gastronomia"
                                 />
                                 <FormControlLabel
-                                    control={<Checkbox sx={{color: "#344D67", '&.Mui-checked': {color: "#344D67"}}} value="Saúde" onChange={(e) => getValues(e.target.value)} />}
+                                    control={<Checkbox value="Saúde" onChange={(e) => getValues(e.target.value)} />}
                                     label="Saúde"
                                 />
                             </div>
@@ -143,8 +143,8 @@ const RegisterOrganizacao = (props) => {
                                 <FormHelperText><ErrorMessage name="termsAndConditions" component="div" style={{ color: 'red' }} /></FormHelperText>
                                 <Grid container spacing={3} justifyContent="center">
                                     <Grid item xs={6}>
-                                        <Button type='submit' variant='contained'  disabled={props.isSubmitting}
-                                            sx={{  backgroundColor:"#344D67", '&:hover': { opacity: [0.9, 0.8, 0.7] } }} fullWidth>{props.isSubmitting ? "Carregar" : "Registar"}</Button>
+                                        <Button type='submit' variant='contained' color='primary' disabled={props.isSubmitting}
+                                            sx={{ '&:hover': { opacity: [0.9, 0.8, 0.7] } }} fullWidth>{props.isSubmitting ? "Carregar" : "Registar"}</Button>
                                     </Grid>
                                 </Grid>
                             </div>

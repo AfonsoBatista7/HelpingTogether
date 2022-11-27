@@ -16,6 +16,8 @@ import IconInfo from "./IconInfo";
 
 function InfoProfile(props) {
 
+  var description;
+
   const [editMode, editState] = useState(false);
 
   const [loggedIns, setLoggedIns] = useState([]);
@@ -23,7 +25,9 @@ function InfoProfile(props) {
   function changeState() {
     editState(!editMode);
 
-   
+    if (editMode) {
+      changeLogginStatus(props.id, description)
+    }
   }
 
   const fetchLogin = async (id) => {
@@ -31,6 +35,10 @@ function InfoProfile(props) {
     const data = await res.json()
 
     return data
+  }
+
+  const saveDescription = (descrip) =>{
+    description=descrip
   }
 
   const changeLogginStatus = async (id, descript) => {
@@ -189,13 +197,12 @@ function InfoProfile(props) {
             </Container>
           </div>
 
+          {props.perfilLoggedIn ?
+            <div className={style.titleVoluntariado}>
+              {props.login ? <></> : <>
 
-
-          {/* <div className={style.titleVoluntariado}>
-            {!props.login && <>
-
-              {(props.typeLoggedIn === "organizacao")&&(props.type!=="organizacao") && 
-                  <div className={style.avaliarbutton} >
+                {(props.perfilLoggedIn.typePerfil === "organizacao") && (props.type !== "organizacao") ?
+                  <><div className={style.avaliarbutton} >
                     <Button style={{ background: "white" }} variant="contained" onClick={props.avaliar}>
                       <Typography style={{ color: "#497174" }}>Avaliar</Typography>
                     </Button>
@@ -203,15 +210,15 @@ function InfoProfile(props) {
                       openPopup={props.openPopupAvaliacao}
                       setOpenPopup={props.setOpenPopupAvaliacao}
                     >
-                      <Evaluation idPersonCommented={props.id} idPersonCommenting={props.idPersonCommenting} name={props.nameLoggedIn} nameOfTheCommented={props.name} type="pessoa" closePopup={props.closeAvaliacao} />
+                      <Evaluation idPersonCommented={props.id} idPersonCommenting={props.perfilLoggedIn.id} name={props.perfilLoggedIn.name} nameOfTheCommented={props.name} type="pessoa" closePopup={props.closeAvaliacao} />
                     </Popup>
-                  </div>}</>
-            }
-          </div> */}
-        </div>
-      </div>
+                  </div></> : <></>}</>
+              }
+            </div> : <></>}
+        </div >
+      </div >
     </div >
   );
 }
 
-export default InfoProfile
+export default InfoProfile;
