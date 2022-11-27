@@ -206,7 +206,7 @@ function AcceptCandidates(props) {
         <div >
             <Container style={{
                 height: 80
-            }}></Container>
+            }}/>
 
             <Divider style={{marginBottom: "20px"}}>  
                 <Typography style={{ fontWeight: 500,
@@ -295,7 +295,6 @@ function AcceptCandidates(props) {
                                     fontSize: 20,
                                     textAlign: 'center',
                                     color: "grey",
-                                    marginLeft: 50
                                 }}>
                                     Nenhum candidato aceite
                                 </Typography>
