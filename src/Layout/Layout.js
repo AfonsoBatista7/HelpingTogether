@@ -3,6 +3,8 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import style from "./layout.module.css";
 import Home from "../components/Home/Home";
+import ScrollToTop from "../pages/ScrollToTop";
+
 
 export default function Layout({children}) {
 
@@ -12,6 +14,7 @@ export default function Layout({children}) {
             <div style={{minHeight: "66.5vh"}}>
               {children}
             </div>
+          
             <Footer />
         </div>
     );
