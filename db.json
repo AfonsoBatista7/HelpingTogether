@@ -400,21 +400,6 @@
       "image": "teaching_refugees.jpg",
       "rating": 4,
       "organizacao": "Cruz Vermelha"
-    },
-    {
-      "id": 30,
-      "name": "Inserção de refugiados na sociedade",
-      "description": "Ensinar refugiados a escrever, a ler e a falar português para que a sua integração em Portugal seja facilitada.",
-      "startDate": "1/02/2021",
-      "endDate": "20/11/2022",
-      "region": "Área Metropolitana Lisboa",
-      "location": "Amadora",
-      "type": [
-        "Comunidade"
-      ],
-      "image": "teaching_refugees.jpg",
-      "rating": 2,
-      "organizacao": "Cruz Vermelha"
     }
   ],
   "comentariosPessoa": [
