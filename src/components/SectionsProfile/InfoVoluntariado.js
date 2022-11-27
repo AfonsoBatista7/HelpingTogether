@@ -2,7 +2,7 @@
 import style from "./Profiles.module.css"
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
-
+import { Forest, Pets, Factory, People, FoodBank, HealthAndSafety } from '@mui/icons-material';
 import { Grid, Typography, Container, Avatar, Button, TextField, Rating } from "@mui/material";
 import PinDropRoundedIcon from '@mui/icons-material/PinDropRounded';
 import CalendarMonthRoundedIcon from '@mui/icons-material/CalendarMonthRounded';
@@ -20,7 +20,14 @@ function InfoVoluntariado(props) {
 
     const [organizacoes, setOrganizacoes] = useState([])
 
-
+    const volunTypes = {
+        Natureza: <Forest sx={{ color: "#EFF5F5", fontSize: 20 }} fontSize="large" />,
+        Animais: <Pets sx={{ color: "#EFF5F5", fontSize: 20 }} fontSize="large" />,
+        Poluição: <Factory sx={{ color: "#EFF5F5", fontSize: 20 }} fontSize="large" />,
+        Comunidade: <People sx={{ color: "#EFF5F5", fontSize: 20 }} fontSize="large" />,
+        Gastronomia: <FoodBank sx={{ color: "#EFF5F5", fontSize: 20 }} fontSize="large" />,
+        Saúde: <HealthAndSafety sx={{ color: "#EFF5F5", fontSize: 20 }} fontSize="large" />,
+    };
 
     //vai buscar todos os valores de login da BD e mete em loggedIns
     useEffect(() => {
@@ -74,7 +81,7 @@ function InfoVoluntariado(props) {
         getOrganizacoes(organizacoes)
 
     }, [])
-    
+
 
     const fetchOrganizacoes = async () => {
         const res = await fetch('http://localhost:5000/organizacoes')
@@ -140,7 +147,7 @@ function InfoVoluntariado(props) {
                                     src={"/" + org.image}
 
                                     sx={{ width: 30, height: 30 }} />
-                                <Link style={{ color: "#2E3B55", textDecoration: "none" }} to={`/Perfil/${org.id}/Perfil` } onClick={() => this.forceUpdate()}>
+                                <Link style={{ color: "#2E3B55", textDecoration: "none" }} to={`/Perfil/${org.id}/Perfil`} onClick={() => this.forceUpdate()}>
                                     <Typography
                                         style={{
                                             fontWeight: 500,
@@ -226,13 +233,13 @@ function InfoVoluntariado(props) {
                             </div>
 
 
-                            
+
                             <Container className={style.descriptionarea} style={{ padding: "20px" }}>
-                            <div style={{ float: "left" }}>
-                                <Typography style={{ color: "white" }}>
-                                    Descrição
-                                </Typography>
-                            </div>
+                                <div style={{ float: "left" }}>
+                                    <Typography style={{ color: "white" }}>
+                                        Descrição
+                                    </Typography>
+                                </div>
                                 <TextField className={style.description}
                                     disabled
                                     fullWidth
@@ -260,8 +267,19 @@ function InfoVoluntariado(props) {
                                     </> : <></>}
                                 </>
                                 }
-                                
+
                             </>}
+
+                            {props.type.length !== 0 ?
+                                <Grid container spacing={{ xs: 2, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                                    {props.type.map((type) => (
+                                        <Grid item >
+                                            <>{volunTypes[type]}</>
+                                        </Grid>
+                                    ))}
+                                </Grid>
+                                : <></>}
+
                         </Grid>
                     </Grid >
                 </div >

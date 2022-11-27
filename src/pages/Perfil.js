@@ -40,8 +40,8 @@ function Perfil() {
             case "Perfil":
                 elem = 0;
                 break;
-            case "Candidatura": 
-                elem = document.getElementById('Perfil').clientHeight+64;
+            case "Candidaturas": 
+                elem = document.getElementById('Perfil').clientHeight +64;
                 break;
             case "Realizados": 
                 elem = document.getElementById('Candidatura').clientHeight+document.getElementById('Perfil').clientHeight+64;

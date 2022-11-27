@@ -45,7 +45,6 @@ function Comentarios(props) {
         var result = [];
 
         if (props.type === "pessoa") {
-            console.log(data)
             var result1 = checkCommentsPerfil(data, data2);
 
             result = checkCommentsWithVoluntariado(data3, result1);
@@ -136,15 +135,12 @@ function Comentarios(props) {
             }
         }
 
-        console.log(list)
-
         for (const element of newComment) {
             if (element.idPersonCommented === props.idPerfil) {
                 list.push(element);
             }
         }
 
-        console.log(list)
 
         return list;
     }

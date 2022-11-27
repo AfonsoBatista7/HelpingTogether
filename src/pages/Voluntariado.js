@@ -186,7 +186,6 @@ function Voluntariado() {
     }, [voluntsDone])
 
     const checkVoltDone = (VoltDone) => {
-        console.log(VoltDone)
 
         for (const element of VoltDone) {
             if (element.id == idVolt) {
@@ -329,9 +328,6 @@ function Voluntariado() {
         forceUpdate();
     }
 
-
-    console.log(voltDone)
-
     return (<>
         {volunt ? <>
             <div className={style.backgroundwhite}>
@@ -362,45 +358,58 @@ function Voluntariado() {
                     </Grid>
                     <Grid item xs={5} className={style.marginsVoluntariado}>
                         {!perfil ? <></> : <>
-                            {(perfil.typePerfil === "organizacao") || (acceptedorRejected) ? <>
-                            </> : <>
-                                {!voltDone ? <>
-                                    {!candidate ?
-                                        <Button variant="contained" color="success" size="medium" style={{ float: 'right' }} className={style.buttonedit} onClick={changeState}>
-                                            < DoneOutlineRoundedIcon className={style.marginRight} style={{
-                                                color: 'white',
-                                                fontSize: 20
-                                            }}></ DoneOutlineRoundedIcon> <Typography
-                                                style={{
-                                                    fontWeight: 500,
-                                                    fontSize: 20,
-                                                    textTransform: "uppercase",
-                                                    textAlign: 'left',
+                            {(perfil.typePerfil === "organizacao") ?
+                                <></> : <>
+                                    {acceptedorRejected ? <>
+                                        {voltRealizado ?
+                                            <Typography style={{
+                                                fontWeight: 700,
+                                                fontSize: 20,
+                                                color: '#497174',
+                                                textAlign: 'right'
+                                            }} className={style.buttonedit}> Voluntariado Terminado </Typography> : <></>}
+                                            </>
+                                        : <>
+                                            {!voltDone ? <>
+                                                {!candidate ?
+                                                    <Button variant="contained" color="success" size="medium" style={{ float: 'right' }} className={style.buttonedit} onClick={changeState}>
+                                                        < DoneOutlineRoundedIcon className={style.marginRight} style={{
+                                                            color: 'white',
+                                                            fontSize: 20
+                                                        }}></ DoneOutlineRoundedIcon> <Typography
+                                                            style={{
+                                                                fontWeight: 500,
+                                                                fontSize: 20,
+                                                                textTransform: "uppercase",
+                                                                textAlign: 'left',
 
-                                                }}
-                                            >Candidatar</Typography>
-                                        </Button>
-                                        : <Button variant="contained" color="error" size="small" style={{ float: 'right' }} className={style.buttonedit} onClick={changeState}>
-                                            < CancelOutlinedIcon className={style.marginRight} style={{
-                                                color: 'white',
-                                                fontSize: 20
-                                            }}></ CancelOutlinedIcon> <Typography
-                                                style={{
-                                                    fontWeight: 500,
-                                                    fontSize: 15,
-                                                    textTransform: "uppercase",
-                                                    textAlign: 'center',
+                                                            }}
+                                                        >Candidatar</Typography>
+                                                    </Button>
+                                                    : <Button variant="contained" color="error" size="small" style={{ float: 'right' }} className={style.buttonedit} onClick={changeState}>
+                                                        < CancelOutlinedIcon className={style.marginRight} style={{
+                                                            color: 'white',
+                                                            fontSize: 20
+                                                        }}></ CancelOutlinedIcon> <Typography
+                                                            style={{
+                                                                fontWeight: 500,
+                                                                fontSize: 15,
+                                                                textTransform: "uppercase",
+                                                                textAlign: 'center',
 
-                                                }}
-                                            >Cancelar Candidatura</Typography>
-                                        </Button>}
-                                </> : <></>}</>}
+                                                            }}
+                                                        >Cancelar Candidatura</Typography>
+                                                    </Button>}
+                                            </> :
+                                                <></>}</>
+                                    }
+                                </>}
                         </>}
 
                     </Grid>
                 </Grid>
 
-                <InfoVoluntariado avaliar={avaliar} closeAvaliacao={closeAvaliacao} openPopupAvaliacao={openPopupAvaliacao} setOpenPopupAvaliacao={setOpenPopupAvaliacao} state={state} done={voltDone} id={volunt.id} name={volunt.name} image={volunt.image} organizacao={volunt.organizacao} startDate={volunt.startDate} description={volunt.description} endDate={volunt.endDate} location={volunt.location} rating={volunt.rating} />
+                <InfoVoluntariado avaliar={avaliar} closeAvaliacao={closeAvaliacao} openPopupAvaliacao={openPopupAvaliacao} setOpenPopupAvaliacao={setOpenPopupAvaliacao} realizado={voltRealizado} state={state} done={voltDone} id={volunt.id} name={volunt.name} image={volunt.image} organizacao={volunt.organizacao} startDate={volunt.startDate} description={volunt.description} endDate={volunt.endDate} location={volunt.location} rating={volunt.rating} type={volunt.type} />
 
                 <Container style={{
                     height: 50
