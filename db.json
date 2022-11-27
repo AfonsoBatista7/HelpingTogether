@@ -26,12 +26,26 @@
       "password": "123456",
       "confirmPassword": "123456",
       "termsAndConditions": true,
-      "isLoggedIn": true,
+      "isLoggedIn": false,
       "typePerfil": "voluntario",
       "rating": 5,
       "id": 2,
       "description": "Tenho 46 anos e sou professor de matemática numa escola secundária em Lisboa. Gosto de conviver com pessoas e ajudar os mais necessitados.",
       "image": "Luis_Gomes.jpg"
+    },
+    {
+      "name": "Airton",
+      "email": "airton@gmail.com",
+      "gender": "male",
+      "birthday": "13/11/2001",
+      "phone": "914763879",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "termsAndConditions": true,
+      "isLoggedIn": true,
+      "typePerfil": "voluntario",
+      "image": "defaultPhoto.jpg",
+      "id": 3
     }
   ],
   "voluntarios": [
