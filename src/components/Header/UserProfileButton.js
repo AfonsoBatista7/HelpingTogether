@@ -88,7 +88,7 @@ const UserProfileButton = (props) => {
                         {props.name}
                         <Avatar
                             alt={props.name}
-                            src={props.image}
+                            src={"/" + props.image}
                             style={marginButton}
                         />
                     </Button>

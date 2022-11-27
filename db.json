@@ -1,74 +1,37 @@
 {
   "login": [
     {
-      "name": "ola",
-      "email": "o@gmail.com",
-      "phone": "968372018",
-      "password": "000000",
-      "confirmPassword": "000000",
-      "type": [
-        "Animais"
-      ],
-      "termsAndConditions": true,
-      "isLoggedIn": true,
-      "typePerfil": "organizacao",
-      "id": 70
-    },
-    {
-      "name": "bia",
-      "email": "b@gmail.com",
-      "gender": "female",
-      "birthday": "17/11/2000",
-      "phone": "924297688",
+      "name": "WHPHP",
+      "email": "whphp@org.pt",
+      "phone": "923458791",
       "password": "123456",
       "confirmPassword": "123456",
-      "termsAndConditions": true,
-      "isLoggedIn": false,
-      "typePerfil": "voluntario",
-      "id": 80,
-      "description": "ola sou a bia"
-    },
-    {
-      "name": "luis",
-      "email": "l@gmail.com",
-      "gender": "male",
-      "birthday": "23/08/1990",
-      "phone": "923451678",
-      "password": "123456",
-      "confirmPassword": "123456",
-      "termsAndConditions": true,
-      "isLoggedIn": false,
-      "typePerfil": "voluntario",
-      "id": 90
-    },
-    {
-      "name": "amigosforever",
-      "email": "af@gmail.com",
-      "phone": "931234567",
-      "password": "111111",
-      "confirmPassword": "111111",
       "type": [
         "Gastronomia",
-        "Saúde"
+        "Comunidade"
       ],
       "termsAndConditions": true,
       "isLoggedIn": false,
       "typePerfil": "organizacao",
-      "id": 100
+      "id": 1,
+      "description": "We Help People Help People é uma organização que se dedica a alimentar e ajudar os mais necessitados à mais de 10 anos, independetemente do género, idade e nacionalidade.",
+      "image": "WHPHP.png"
     },
     {
-      "name": "Airton",
-      "email": "airton@gmail.com",
-      "gender": "female",
-      "birthday": "22/11/2001",
-      "phone": "917657687",
+      "name": "Luís Gomes",
+      "email": "lgomes@gmail.com",
+      "gender": "male",
+      "birthday": "04/11/1976",
+      "phone": "934526789",
       "password": "123456",
       "confirmPassword": "123456",
       "termsAndConditions": true,
-      "isLoggedIn": false,
+      "isLoggedIn": true,
       "typePerfil": "voluntario",
-      "id": 101,
-      "description": "egdgf"
+      "rating": 5,
+      "id": 2,
+      "description": "Tenho 46 anos e sou professor de matemática numa escola secundária em Lisboa. Gosto de conviver com pessoas e ajudar os mais necessitados.",
+      "image": "Luis_Gomes.jpg"
     }
   ],
   "voluntarios": [
@@ -361,7 +324,7 @@
       ],
       "image": "Recolha_alimentos.png",
       "rating": 4,
-      "organizacao": "Banco Alimentar"
+      "organizacao": "WHPHP"
     },
     {
       "id": 22,
@@ -422,6 +385,36 @@
       "image": "Sangue.png",
       "rating": 2,
       "organizacao": "Cruz Vermelha"
+    },
+    {
+      "id": 26,
+      "name": "Inserção de refugiados na sociedade",
+      "description": "Ensinar refugiados a escrever, a ler e a falar português para que a sua integração em Portugal seja facilitada.",
+      "startDate": "1/02/2021",
+      "endDate": "20/11/2022",
+      "region": "Área Metropolitana Lisboa",
+      "location": "Amadora",
+      "type": [
+        "Comunidade"
+      ],
+      "image": "teaching_refugees.jpg",
+      "rating": 4,
+      "organizacao": "Cruz Vermelha"
+    },
+    {
+      "id": 30,
+      "name": "Inserção de refugiados na sociedade",
+      "description": "Ensinar refugiados a escrever, a ler e a falar português para que a sua integração em Portugal seja facilitada.",
+      "startDate": "1/02/2021",
+      "endDate": "20/11/2022",
+      "region": "Área Metropolitana Lisboa",
+      "location": "Amadora",
+      "type": [
+        "Comunidade"
+      ],
+      "image": "teaching_refugees.jpg",
+      "rating": 2,
+      "organizacao": "Cruz Vermelha"
     }
   ],
   "comentariosPessoa": [
@@ -430,7 +423,7 @@
       "name": "Cruz Vermelha",
       "comment": "Voluntário sempre desponível quando solicitado, empenhado e bom trabalhador.",
       "image": "Cruz_Vermelha.png",
-      "rating": 3,
+      "rating": 5,
       "date": "12/04/2022 11:55",
       "idPersonCommenting": 6000
     },
@@ -496,6 +489,15 @@
       "rating": 5,
       "date": "13/05/2022 20:41",
       "idPersonCommenting": 13000
+    },
+    {
+      "id": 38,
+      "name": "WHPHP",
+      "comment": "Voluntário muito competente e comprometido com o projeto que desempenhou.",
+      "image": "WHPHP.png",
+      "rating": 4,
+      "date": "09/11/2022 19:02",
+      "idPersonCommenting": 1
     }
   ],
   "comentariosVoluntariado": [
@@ -649,27 +651,6 @@
       ]
     },
     {
-      "id": 19,
-      "name": "Resgaste de animais domésticos",
-      "description": "Resgaste de cães e gatos ambandonados nas ruas.",
-      "startDate": "01/01/2022",
-      "endDate": "31/12/2023",
-      "region": "Alentejo",
-      "location": "Évora",
-      "type": [
-        "Animais"
-      ],
-      "image": "Resgatar_animais.jpg",
-      "rating": 2,
-      "organizacao": "Animalife",
-      "idOrg": 13000,
-      "participants": [
-        2000,
-        4000,
-        3000
-      ]
-    },
-    {
       "id": 16,
       "name": "Limpeza de praia de resídous",
       "description": "Limpar a praia de Faro de poluição realizada durante os meses de verão.",
@@ -686,9 +667,9 @@
       "idOrg": 8000,
       "participants": [
         2000,
-        80,
         1000,
-        3000
+        3000,
+        2
       ]
     },
     {
@@ -709,6 +690,27 @@
       "participants": [
         5000,
         1000
+      ]
+    },
+    {
+      "id": 30,
+      "name": "Inserção de refugiados na sociedade",
+      "description": "Ensinar refugiados a escrever, a ler e a falar português para que a sua integração em Portugal seja facilitada.",
+      "startDate": "1/02/2021",
+      "endDate": "20/11/2022",
+      "region": "Área Metropolitana Lisboa",
+      "location": "Amadora",
+      "type": [
+        "Comunidade"
+      ],
+      "image": "teaching_refugees.jpg",
+      "rating": 2,
+      "organizacao": "Cruz Vermelha",
+      "idOrg": 6000,
+      "participants": [
+        3000,
+        4000,
+        2
       ]
     }
   ],
@@ -766,145 +768,47 @@
       "rating": 5,
       "date": "02/01/2020 08:02",
       "idPersonCommenting": 8000
-    }
-  ],
-  "comentariosFeitosPessoa": [
-    {
-      "rating": 2,
-      "comment": "muito bom",
-      "name": "ola",
-      "date": "23/11/2022 16:23",
-      "nameOfTheCommented": "Maria Leal",
-      "idPersonCommenting": 70,
-      "idPersonCommented": 1000,
-      "image": "defaultPhotoOrganization.jpg",
-      "id": 3
-    }
-  ],
-  "comentariosFeitosVoluntariado": [
-    {
-      "rating": 2,
-      "comment": "ajsdhkadb",
-      "name": "bia",
-      "date": "22/11/2022 20:28",
-      "nameOfTheCommented": "Plantar florestação",
-      "image": "defaultPhoto.jpg",
-      "id": 1,
-      "idPersonCommenting": 80,
-      "idPersonCommented": 14000
     },
     {
-      "rating": 4,
-      "comment": "Adorei fazer este voluntariado",
-      "name": "bia",
-      "date": "23/11/2022 11:41",
-      "nameOfTheCommented": "Entrega de refeições a sem-abrigos e famílias carênciadas.",
-      "idPersonCommenting": 80,
-      "image": "defaultPhoto.jpg",
-      "id": 2,
-      "idPersonCommented": 20000
-    },
-    {
-      "rating": 2,
-      "comment": "tudo bem",
-      "name": "bia",
-      "date": "23/11/2022 17:10",
-      "nameOfTheCommented": "Reconstrução de casas destruídas no Incêndio de Pedrógão Grande",
-      "idPersonCommenting": 80,
-      "idPersonCommented": 22000,
-      "image": "defaultPhoto.jpg",
-      "id": 4
+      "id": 30,
+      "name": "Cruz Vermelha",
+      "comment": "Voluntário sempre desponível quando solicitado, empenhado e bom trabalhador.",
+      "image": "Cruz_Vermelha.png",
+      "rating": 5,
+      "date": "12/04/2022 11:55",
+      "idPersonCommenting": 6000
     }
   ],
-  "novosVoluntariados": [
-    {
-      "name": "tobias",
-      "region": "Centro",
-      "location": "aksdmsand,",
-      "description": "ansbdabsd",
-      "startDate": "09/11/2022",
-      "endDate": "10/11/2022",
-      "type": [
-        "Natureza",
-        "Animais"
-      ],
-      "organizacao": "ola",
-      "image": "defaultPhotoOrganization.jpg",
-      "id": 1
-    },
-    {
-      "name": "help criancas",
-      "region": "Centro",
-      "location": "asnkjdlsd",
-      "description": "amncs, ",
-      "startDate": "01/11/2022",
-      "endDate": "10/11/2022",
-      "type": [
-        "Natureza",
-        "Saúde"
-      ],
-      "organizacao": "ola",
-      "image": "defaultPhotoOrganization.jpg",
-      "id": 2
-    },
-    {
-      "name": "dar comida",
-      "region": "Alentejo",
-      "location": "jashdkjH",
-      "description": "ASNXMNK",
-      "startDate": "01/11/2022",
-      "endDate": "23/11/2022",
-      "type": [
-        "Natureza",
-        "Animais"
-      ],
-      "organizacao": "ola",
-      "image": "defaultPhotoOrganization.jpg",
-      "id": 3
-    }
-  ],
+  "comentariosFeitosPessoa": [],
+  "comentariosFeitosVoluntariado": [],
+  "novosVoluntariados": [],
   "candidaturas": [
     {
-      "idVolunt": 19,
-      "idPerson": 90,
+      "idVolunt": 21,
+      "idPerson": 2000,
+      "id": 24
+    },
+    {
+      "idVolunt": 21,
+      "idPerson": 3000,
+      "id": 25
+    },
+    {
+      "idVolunt": 21,
+      "idPerson": 5000,
       "id": 26
     },
     {
-      "idVolunt": 17,
-      "idPerson": 90,
-      "id": 28
-    },
-    {
       "idVolunt": 23,
-      "idPerson": 80,
-      "id": 30
-    },
-    {
-      "idVolunt": 1,
-      "idPerson": 90,
-      "id": 31
+      "idPerson": 2,
+      "id": 27
     }
   ],
   "candidaturasAceites": [
     {
-      "idVolunt": 1,
-      "idPerson": 80,
+      "idVolunt": 19,
+      "idPerson": 2,
       "id": 1
-    },
-    {
-      "idVolunt": 14,
-      "idPerson": 80,
-      "id": 2
-    },
-    {
-      "idVolunt": 15,
-      "idPerson": 80,
-      "id": 3
-    },
-    {
-      "idVolunt": 17,
-      "idPerson": 80,
-      "id": 4
     }
   ],
   "candidaturasRejeitadas": []

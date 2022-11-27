@@ -6,6 +6,7 @@ import BoxVoluntariado from "../components/StatsShowers/Box/BoxVoluntariado";
 import RegisterVoluntariado from "../components/Popup/RegisterVoluntariado";
 import Popup from "../components/Popup/Popup";
 import SearchBar from "../components/Search/SearchBar";
+import { Link } from "react-router-dom";
 import { ObjectSchema } from "yup";
 import { FilterRounded } from "@mui/icons-material";
 
@@ -26,7 +27,7 @@ function Voluntariados() {
     const [loggedIns, setLoggedIns] = useState([])
 
     const filters = {
-        Tipo: ['Natureza', 'Animais', 'Poluição', 'Comunidade', 'Gastronomia', 'Saúde'], 
+        Tipo: ['Natureza', 'Animais', 'Poluição', 'Comunidade', 'Gastronomia', 'Saúde'],
         Região: [
             "Norte",
             "Centro",
@@ -54,7 +55,6 @@ function Voluntariados() {
     }
 
     const clearFilters = () => {
-        //setSearchFilter(prev => ({...prev, Tipo: "", Região: "", Duração: ""}))
         setSearchFilter({})
         forceUpdate()
     }
@@ -100,35 +100,7 @@ function Voluntariados() {
                 results = results.filter(elem => isRightDuration(searchFilter.get("Duração"), elem["startDate"], elem["endDate"]))
             }
 
-/*             if (isFiltered()) {
-                results = []
-                const searchText = searchFilter["Texto"]
-                const searchType = searchFilter["Tipo"]
-                const searchRegion = searchFilter["Região"]
-                const searchDuration = searchFilter["Duração"]
 
-                voluntariadosFromServer.forEach(elem => {
-                    let elemValid = true
-                    if (searchText != "") {
-                        elemValid = false
-                        if (elem["name"].toLowerCase().includes(searchText)) {
-                            elemValid = true
-                            //console.log("Text check success")
-                    }}
-                    if (searchType != "" && !elem["type"].includes(searchType)) {
-                        elemValid = false
-                        //console.log("Type check fail")
-                    } if (searchRegion != "" && !elem["region"].includes(searchRegion)) {
-                        elemValid = false
-                        //console.log("Region check fail")
-                    } if (searchDuration != "" && !isRightDuration(searchDuration, elem["startDate"], elem["endDate"])) {
-                        elemValid = false
-                        //console.log("Duration check fail")
-                    }
-                    if (elemValid)
-                        results.push(elem)
-                });
-            } */
             setVoluntariados(results)
         }
 
@@ -232,7 +204,14 @@ function Voluntariados() {
                                     setOpenPopup={setOpenPopupRegisterVoluntariado}
                                 >
                                     <RegisterVoluntariado organizacao={perfil.name} closePopup={closeResgisterVoluntariado} />
-                                </Popup></div> : <></>}
+                                </Popup></div> 
+                                : <>
+                                <div style={{ float: "right" }}>
+                                    <Link style={{  textDecoration: "none"}} to={`/Perfil/${perfil.id}/Realizados`}>
+                                        <Button variant="contained" style={{background: "#497174"}} sx={{'&:hover': { opacity: [0.9, 0.8, 0.7] }}}>
+                                            <Typography style={{ color: "white" }}>Ver Realizados</Typography>
+                                        </Button>
+                                    </Link></div> </>}
                     </>}
 
                 </Grid>

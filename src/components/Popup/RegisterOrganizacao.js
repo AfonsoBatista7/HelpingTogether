@@ -51,7 +51,7 @@ const RegisterOrganizacao = (props) => {
 
         props.changePopup("isRegisterOrganizacao")
 
-        addLoggedIn({ ...values, isLoggedIn: false, typePerfil: "organizacao" })
+        addLoggedIn({ ...values, isLoggedIn: false, typePerfil: "organizacao", image: "defaultPhotoOrganization.jpg" })
     }
 
     const getValues = (e) => {

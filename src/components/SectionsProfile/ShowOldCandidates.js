@@ -26,13 +26,16 @@ function ShowOldCandidates(props) {
         var res1 = await fetch('http://localhost:5000/voluntarios')
         var data1 = await res1.json()
 
+        var res3 = await fetch('http://localhost:5000/login')
+        var data3 = await res3.json()
+
         var res2 = await fetch('http://localhost:5000/voluntariadosRealizados')
         var data2 = await res2.json()
 
         var vol = checkVoltDone(data2);
 
         if (vol) {
-            result = checkOldVolutarios(data1, vol);
+            result = checkOldVolutarios(data1, data3, vol);
         }
 
         return result;
@@ -49,8 +52,16 @@ function ShowOldCandidates(props) {
         return null;
     }
 
-    const checkOldVolutarios = (voluntarios, vol) => {
+    const checkOldVolutarios = (voluntarios, login, vol) => {
         var list = [];
+
+        for (const element of vol) {
+            for (const e of login) {
+                if (element === e.id) {
+                    list.push(e);
+                }
+            }
+        }
 
         for (const element of vol) {
             for (const e of voluntarios) {
