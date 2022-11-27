@@ -11,6 +11,8 @@ import { ObjectSchema } from "yup";
 import { FilterRounded } from "@mui/icons-material";
 
 function Voluntariados() {
+    const ONGOING = "A Decorrer"
+    const FINISHED = "Finalizados"
     const [state, forceUpdate] = useReducer(x => x + 1, 0);
 
     const [perfil, setPerfil] = useState(null);
@@ -27,6 +29,7 @@ function Voluntariados() {
     const [loggedIns, setLoggedIns] = useState([])
 
     const filters = {
+        Estado: [ONGOING, FINISHED],
         Tipo: ['Natureza', 'Animais', 'Poluição', 'Comunidade', 'Gastronomia', 'Saúde'],
         Região: [
             "Norte",
@@ -60,7 +63,7 @@ function Voluntariados() {
     }
 
     const isFiltered = () => {
-        return searchFilter["Texto"] != "" || searchFilter["Tipo"] != "" 
+        return searchFilter["Texto"] != "" || searchFilter["Estado"] != "" || searchFilter["Tipo"] != "" 
             || searchFilter["Região"] != "" || searchFilter["Duração"] != ""
     }
 
@@ -87,10 +90,15 @@ function Voluntariados() {
     //vai buscar todos os valores de login da BD e mete em loggedIns
     useEffect(() => {
         const getVoluntariados = async () => {
-            const voluntariadosFromServer = await fetchVoluntariados()
-            let results = voluntariadosFromServer
+            let results = await fetchVoluntariados()
+            const finisheds = await fetchVoluntariadosRealizados()
 
-            if (searchFilter.get("Texto") != null) {
+            if(searchFilter.get("Estado") != null) {
+                if(searchFilter.get("Estado") == ONGOING)
+                    results = results.filter(elem => !isFinished(elem, finisheds))
+                if(searchFilter.get("Estado") == FINISHED)
+                    results = results.filter(elem => isFinished(elem, finisheds))
+            } if (searchFilter.get("Texto") != null) {
                 results = results.filter(elem => elem["name"].toLowerCase().includes( searchFilter.get("Texto").toLowerCase() ))
             } if (searchFilter.get("Tipo") != null) {
                 results = results.filter(elem => elem["type"].includes(searchFilter.get("Tipo")))
@@ -99,7 +107,6 @@ function Voluntariados() {
             } if (searchFilter.get("Duração") != null) {
                 results = results.filter(elem => isRightDuration(searchFilter.get("Duração"), elem["startDate"], elem["endDate"]))
             }
-
 
             setVoluntariados(results)
         }
@@ -117,22 +124,32 @@ function Voluntariados() {
         const data2 = await res2.json()
 
         var list = [];
-
         for (const element of data2) {
             list.push(element);
         }
-
         for (const element of data) {
             list.push(element);
         }
-
         return list;
+    }
+
+    const fetchVoluntariadosRealizados = async () => {
+        const res = await fetch('http://localhost:5000/voluntariadosRealizados')
+        const data = await res.json()
+        return data;
+    }
+
+    const isFinished = (voluntToCheck, finishedVolunts) => {
+        for (const element of finishedVolunts) {
+            if (element.id == voluntToCheck["id"]) {
+                return true
+            }
+        }
+        return false
     }
 
     useEffect(() => {
         const getLoggedIn = async () => {
-
-
             const loggedInFromServer = await fetchLoggedIn()
 
             setLoggedIns(loggedInFromServer)

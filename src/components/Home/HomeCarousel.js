@@ -96,7 +96,7 @@ export default function HomeCarousel(props) {
             {voluntariados &&
                 <Slider {...settings}>
                     {voluntariados.map((vol, idx) => (
-                        <div className={idx === imageIndex ? "slide activeSlide" : "slide"}>
+                        <div className={idx === imageIndex ? "slide activeSlide" : "slide"} key={vol.id}>
                             <Link style={{ color: "#2E3B55", textDecoration: "none" }} to={`/Voluntariado/${vol.id}`} onClick={() => this.forceUpdate()}>
                                 <img style={{ width: "400px", height: "250px", borderRadius: "5px" }} src={vol.image} alt={vol.image} />
                                 <span className={style2.title}>{vol.name}</span>
