@@ -65,7 +65,9 @@ function InfoProfile(props) {
 
   return (
     <div id="Perfil" style={{ alignItems: 'left', padding: "15px", 
-      background: props.type === "organizacao"  ? "linear-gradient(0deg, rgba(52,77,103,1) 0%, rgba(110,204,175,1) 100%)" : "linear-gradient(0deg, rgba(110,204,175,1) 0%, rgba(52,77,103,1) 100%)",
+      background: props.type === "organizacao"  ?
+                                 "linear-gradient(0deg, rgba(52,77,103,1) 0%, rgba(110,204,175,1) 100%)" :
+                                 "linear-gradient(0deg, rgba(110,204,175,1) 0%, rgba(52,77,103,1) 100%)",
       borderRadius: '15px',
       height: "75vh",
       marginTop: "30px"}} >

@@ -79,15 +79,15 @@
 .photoVoluntariado{
     width: 100%;
     height: 100%;
-    border-radius: 2%;
+    min-height: 30vh;
+    border-radius: 5px;
     margin-left: 5%;
     margin-top: 10%;
 }
 
 .descriptionvoluntario{
-    width: 70%;
-    margin-left: 5%;
-    
+    margin-left: 2%;
+    margin-top: 3%;
 }
 
 .titleVoluntariado{
@@ -95,7 +95,8 @@
 }
 
 .rating{
-    margin-right: 5%;
+    margin-right: 2%;
+    margin-top: 3%;
 }
 
 .areadescription{
@@ -104,8 +105,10 @@
 }
 
 .avaliarbutton{
-    margin-top: 3%;
-    margin-left: 3%;
+    display: flex;
+    position: relative;
+    top: 3vh;
+    justify-content: center;
 }
 
 .titleLetter{
