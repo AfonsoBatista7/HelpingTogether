@@ -278,7 +278,7 @@ function InfoVoluntariado(props) {
                                     openPopup={props.openPopupAvaliacao}
                                     setOpenPopup={props.setOpenPopupAvaliacao}
                                 >
-                                    <Evaluation idPersonCommented={props.id} idPersonCommenting={perfil.id} name={perfil.name} nameOfTheCommented={props.name} type="voluntariado" closePopup={props.closeAvaliacao} />
+                                    <Evaluation idPersonCommented={props.id} image={perfil.image} idPersonCommenting={perfil.id} name={perfil.name} nameOfTheCommented={props.name} type="voluntariado" closePopup={props.closeAvaliacao} />
                                 </Popup>
                             </div>
                         }

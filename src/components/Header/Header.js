@@ -175,7 +175,7 @@ function Header() {
                         spacing={2}
                         className={style.headerButton}
                     >
-                       <Link className={style.headerLink} to="/Voluntariados"> 
+                       <Link className={style.headerLink} to="/Voluntariados" onClick={() => this.forceUpdate()}> 
                        <Button
                             size="large"
                             sx={{
@@ -187,7 +187,7 @@ function Header() {
                             Voluntariados
                         </Button>
                         </Link>
-                        <Link className={style.headerLink} to="/Organizacoes">
+                        <Link className={style.headerLink} to="/Organizacoes" onClick={() => this.forceUpdate()}>
                             <Button
                             size="large"
                             sx={{

@@ -11,10 +11,11 @@
         "Comunidade"
       ],
       "termsAndConditions": true,
-      "isLoggedIn": true,
+      "isLoggedIn": false,
       "typePerfil": "organizacao",
       "id": 1,
-      "image": "WHPHP.png"
+      "image": "WHPHP.png",
+      "description": "We Help People Help People é uma organização que se dedica a alimentar e ajudar os mais necessitados à mais de 10 anos, independetemente do género, idade e nacionalidade."
     },
     {
       "name": "Luís Gomes",
@@ -25,41 +26,12 @@
       "password": "123456",
       "confirmPassword": "123456",
       "termsAndConditions": true,
-      "isLoggedIn": true,
+      "isLoggedIn": false,
       "typePerfil": "voluntario",
       "rating": 5,
       "id": 2,
       "description": "Tenho 46 anos e sou professor de matemática numa escola secundária em Lisboa. Gosto de conviver com pessoas e ajudar os mais necessitados.",
       "image": "Luis_Gomes.jpg"
-    },
-    {
-      "name": "Aya Penhasco",
-      "email": "ayayayaya@gmail.com",
-      "gender": "female",
-      "birthday": "28/11/2001",
-      "phone": "918888888",
-      "password": "ayayayaya",
-      "confirmPassword": "ayayayaya",
-      "termsAndConditions": true,
-      "isLoggedIn": false,
-      "typePerfil": "voluntario",
-      "image": "defaultPhoto.jpg",
-      "id": 3
-    },
-    {
-      "name": "bernardo",
-      "email": "b@gmail.com",
-      "gender": "female",
-      "birthday": "18/11/1997",
-      "phone": "923452678",
-      "password": "123456",
-      "confirmPassword": "123456",
-      "termsAndConditions": true,
-      "isLoggedIn": false,
-      "typePerfil": "voluntario",
-      "image": "defaultPhoto.jpg",
-      "id": 4,
-      "description": "Sou bernardo,m a.scn.naskcnksanc,.a..asnc c mnacm,na.sc. c,ma m,scn,an.\n"
     }
   ],
   "voluntarios": [
@@ -830,26 +802,9 @@
     }
   ],
   "comentariosFeitosPessoa": [],
-  "comentariosFeitosVoluntariado": [
-    {
-      "rating": 2,
-      "comment": "xCMM",
-      "name": "Luís Gomes",
-      "date": "28/11/2022 20:01",
-      "nameOfTheCommented": "Limpeza de praia de resíduos",
-      "idPersonCommenting": 2,
-      "idPersonCommented": 16,
-      "image": "defaultPhoto.jpg",
-      "id": 1
-    }
-  ],
+  "comentariosFeitosVoluntariado": [],
   "novosVoluntariados": [],
   "candidaturas": [
-    {
-      "idVolunt": 21,
-      "idPerson": 2000,
-      "id": 24
-    },
     {
       "idVolunt": 21,
       "idPerson": 3000,
@@ -866,59 +821,9 @@
       "id": 27
     },
     {
-      "idVolunt": 19,
-      "idPerson": 4,
+      "idVolunt": 21,
+      "idPerson": 2000,
       "id": 28
-    },
-    {
-      "idVolunt": 19,
-      "idPerson": 4,
-      "id": 29
-    },
-    {
-      "idVolunt": 19,
-      "idPerson": 4,
-      "id": 30
-    },
-    {
-      "idVolunt": 19,
-      "idPerson": 4,
-      "id": 31
-    },
-    {
-      "idVolunt": 19,
-      "idPerson": 4,
-      "id": 32
-    },
-    {
-      "idVolunt": 19,
-      "idPerson": 4,
-      "id": 33
-    },
-    {
-      "idVolunt": 19,
-      "idPerson": 4,
-      "id": 34
-    },
-    {
-      "idVolunt": 19,
-      "idPerson": 4,
-      "id": 35
-    },
-    {
-      "idVolunt": 19,
-      "idPerson": 4,
-      "id": 36
-    },
-    {
-      "idVolunt": 19,
-      "idPerson": 4,
-      "id": 37
-    },
-    {
-      "idVolunt": 19,
-      "idPerson": 4,
-      "id": 38
     }
   ],
   "candidaturasAceites": [

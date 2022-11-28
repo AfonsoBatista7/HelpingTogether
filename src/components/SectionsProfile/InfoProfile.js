@@ -205,14 +205,14 @@ function InfoProfile(props) {
 
                 {(props.perfilLoggedIn.typePerfil === "organizacao") && (props.type !== "organizacao") &&
                   <div className={style.avaliarbutton} >
-                    <Button style={{borderRadius: "20px", bottom: "15vh", width: "20vw", background: "#344D67" }} variant="contained" onClick={props.avaliar}>
+                    <Button style={{borderRadius: "20px", bottom: "21vh", width: "20vw", background: "#344D67" }} variant="contained" onClick={props.avaliar}>
                         <Typography style={{ color: "#D6E4E5" }}>Avaliar</Typography>
                     </Button>
                     <Popup
                       openPopup={props.openPopupAvaliacao}
                       setOpenPopup={props.setOpenPopupAvaliacao}
                     >
-                      <Evaluation idPersonCommented={props.id} idPersonCommenting={props.perfilLoggedIn.id} name={props.perfilLoggedIn.name} nameOfTheCommented={props.name} type="pessoa" closePopup={props.closeAvaliacao} />
+                      <Evaluation idPersonCommented={props.id} image={props.perfilLoggedIn.image} idPersonCommenting={props.perfilLoggedIn.id} name={props.perfilLoggedIn.name} nameOfTheCommented={props.name} type="pessoa" closePopup={props.closeAvaliacao} />
                     </Popup>
                   </div>}</>
               }

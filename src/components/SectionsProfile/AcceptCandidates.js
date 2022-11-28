@@ -123,7 +123,6 @@ function AcceptCandidates(props) {
     }
 
     const rejectPerson = async (personId) => {
-        await addCandidaturaAceite({ idVolunt: props.id, idPerson: personId })
         const res = await fetch('http://localhost:5000/candidaturas')
         const data = await res.json()
 
