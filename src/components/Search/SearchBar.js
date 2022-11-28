@@ -5,7 +5,7 @@ import {
   InputAdornment,
   Button
 } from "@mui/material";
-import { AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineSearch, AiOutlineClose } from "react-icons/ai";
 import FilterMain from "./FilterMain";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import style from "./search.module.css";
@@ -65,6 +65,7 @@ const SearchBar = (props) => {
               onClick={() => handleClearFilters(filter)}
               variant="contained"
               size="small"
+              endIcon={<AiOutlineClose />}
               style={{
                 textTransform: "none",
                 borderRadius: "15px",
