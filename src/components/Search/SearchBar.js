@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 import { AiOutlineSearch, AiOutlineClose } from "react-icons/ai";
 import FilterMain from "./FilterMain";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import style from "./search.module.css";
 
 const SearchBar = (props) => {

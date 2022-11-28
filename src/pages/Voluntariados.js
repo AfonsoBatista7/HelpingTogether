@@ -61,8 +61,10 @@ function Voluntariados() {
     }
 
     const getDayDifference = (dateStringA, dateStringB) => {
-        const d1 = new Date(dateStringA)
-        const d2 = new Date(dateStringB)
+        const d1List = dateStringA.split("/")
+        const d2List = dateStringB.split("/")
+        const d1 = new Date(parseInt(d1List[2]), parseInt(d1List[1]), parseInt(d1List[0]))
+        const d2 = new Date(parseInt(d2List[2]), parseInt(d2List[1]), parseInt(d2List[0]))
         let diff = Math.abs(d1.getTime() - d2.getTime())
         let dayDiff = diff / (1000 * 3600 * 24)
         return dayDiff
@@ -232,7 +234,6 @@ function Voluntariados() {
                         onSearchTextUpdate={searchTextUpdate} 
                         onFilterUpdate={searchFilterUpdate} 
                         onClearFilter={clearFilter}
-                        activeFilters={searchFilter}
                         filters={filters} />
                 </Grid>
                 <Container>
