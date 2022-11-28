@@ -41,6 +41,10 @@ const UserProfileButton = (props) => {
 
     const goToVolunteersDone = () => {
         handleCloseUserMenu();
+    };
+
+    const goToCriar = () => {
+        handleCloseUserMenu();
         open();
     };
 
@@ -56,7 +60,7 @@ const UserProfileButton = (props) => {
     }, {
         Perfil: goToProfile,
         Voluntariados: goToApplication,
-        Criar: goToVolunteersDone,
+        Criar: goToCriar,
     }
  ];
     
