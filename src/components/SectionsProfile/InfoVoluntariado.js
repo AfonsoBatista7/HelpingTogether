@@ -213,7 +213,7 @@ function InfoVoluntariado(props) {
                                 justifyContent="space-between"
                                 alignItems="center">
 
-
+                                <Grid item>
                                 <div className={style.descriptionvoluntario} >
                                     <Typography style={{
                                         fontWeight: 700,
@@ -224,10 +224,12 @@ function InfoVoluntariado(props) {
                                         textAlign: 'left'
                                     }}>{props.name}</Typography>
                                 </div>
-
+                                </Grid>
+                                <Grid item>
                                 <div className={style.rating}>
                                     <Rating name="half-rating-read" defaultValue={props.rating} precision={1} readOnly size="large" />
                                 </div>
+                                </Grid>
                             </Grid>
 
                         </div>
