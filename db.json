@@ -238,7 +238,7 @@
     },
     {
       "id": 16,
-      "name": "Limpeza de praia de resídous",
+      "name": "Limpeza de praia de resíduos",
       "description": "Limpar a praia de Faro de poluição realizada durante os meses de verão.",
       "startDate": "10/11/2022",
       "endDate": "10/11/2022",
@@ -254,8 +254,8 @@
     },
     {
       "id": 17,
-      "name": "Limpeza florestal de resídous",
-      "description": "Limpar o Parque Florestal DE Monsanto em Lisboa dos resídous sólidos lá deixados",
+      "name": "Limpeza florestal de resíduos",
+      "description": "Limpar o Parque Florestal DE Monsanto em Lisboa dos resíduos sólidos lá deixados",
       "startDate": "12/06/2021",
       "endDate": "12/06/2021",
       "region": "Área Metropolitana Lisboa",
@@ -337,7 +337,7 @@
     {
       "id": 22,
       "name": "Reconstrução de casas destruídas no Incêndio de Pedrógão Grande",
-      "description": "Os fogos de Pedrógão Grande resultaram na destruição de várias habitações na região, estamos a organizar este voluntariado para conseguir ajudar várias famílias a reconstruir o que foi perdido",
+      "description": "Os fogos de Pedrógão Grande resultaram na destruição de várias habitações na região, estamos a organizar este voluntariado para conseguir ajudar várias famílias a reconstruir o que foi perdido. askdoakdoaksdoakdoakoakfoskfoskfokrgoskrgokshstkhsprgksprkgserogjsoergu",
       "startDate": "10/02/ 2020",
       "endDate": "30/12/2023",
       "region": "Centro",
@@ -399,7 +399,7 @@
       "organizacao": "Cruz Vermelha"
     },
     {
-      "id": 26,
+      "id": 30,
       "name": "Inserção de refugiados na sociedade",
       "description": "Ensinar refugiados a escrever, a ler e a falar português para que a sua integração em Portugal seja facilitada.",
       "startDate": "1/02/2021",
@@ -656,7 +656,7 @@
     },
     {
       "id": 16,
-      "name": "Limpeza de praia de resídous",
+      "name": "Limpeza de praia de resíduos",
       "description": "Limpar a praia de Faro de poluição realizada durante os meses de verão.",
       "startDate": "10/11/2022",
       "endDate": "10/11/2022",

@@ -327,14 +327,14 @@ function Voluntariado() {
         forceUpdate();
     }
 
-    const volunEnded = perfil && perfil.typePerfil !== "organizacao" && acceptedorRejected && voltRealizado;
+    const volunEnded = perfil  && acceptedorRejected && voltRealizado;
 
-    const volunNotEnded = perfil && perfil.typePerfil !== "organização" && !acceptedorRejected && !voltDone;
+    const volunNotEnded = perfil  && !acceptedorRejected && !voltDone;
 
     const redOrGreen = () => {
-        if(volunEnded)
+        if (volunEnded)
             return "3px solid #EB6440"
-        else if(volunNotEnded)
+        else if (volunNotEnded)
             return "3px solid green"
         else
             return ""
@@ -343,119 +343,119 @@ function Voluntariado() {
 
     return (
         <>
-        {volunt &&
-            <div className={style.backgroundwhite}>
-                <div style={{ height: 40 }}></div>
+            {volunt &&
+                <div className={style.backgroundwhite}>
+                    <div style={{ height: 40 }}></div>
 
-                <Grid
-                    container
-                    direction="row"
-                    justifyContent="flex-start"
-                    alignItems="center"
-                    className={style.marginsVoluntariado}>
-
-                    <Grid item xs={6}
+                    <Grid
                         container
                         direction="row"
-                        justifyContent="space-between"
-                        alignItems="center">
-                        <Typography
-                            style={{
-                                fontWeight: 700,
-                                fontSize: 30,
-                                color: '#497174',
-                                textTransform: "uppercase",
-                                textAlign: 'left',
-                                marginLeft: "6%"
-                            }}
-                        >Voluntariado</Typography>
-                    </Grid>
-                    <Grid item xs={5} className={style.marginsVoluntariado}>
-                        {perfil && <>
-                            {perfil.typePerfil !== "organizacao" && <>
-                                    {acceptedorRejected ? <>
-                                        {voltRealizado && 
-                                            <Typography style={{
-                                                fontWeight: 700,
-                                                fontSize: 20,
-                                                color: '#FF0000',
-                                                textAlign: 'right',
-                                                position: "relative",
-                                                left: "7%"
-                                            }}> Voluntariado Terminado </Typography>
-                                        }
-                                        </>
+                        justifyContent="flex-start"
+                        alignItems="center"
+                        className={style.marginsVoluntariado}>
+
+                        <Grid item xs={6}
+                            container
+                            direction="row"
+                            justifyContent="space-between"
+                            alignItems="center">
+                            <Typography
+                                style={{
+                                    fontWeight: 700,
+                                    fontSize: 30,
+                                    color: '#344D67',
+                                    textTransform: "uppercase",
+                                    textAlign: 'left',
+                                    marginLeft: "6%"
+                                }}
+                            >Voluntariado</Typography>
+                        </Grid>
+                        <Grid item xs={5} className={style.marginsVoluntariado}>
+                            {perfil && <>
+                                {acceptedorRejected ? <>
+                                    {voltRealizado &&
+                                        <Typography style={{
+                                            fontWeight: 700,
+                                            fontSize: 20,
+                                            color: '#EB6440',
+                                            textAlign: 'right',
+                                            position: "relative",
+                                            left: "7%"
+                                        }}> Voluntariado Terminado </Typography>
+                                    }
+                                </>
                                     : <>
-                                        {!voltDone && 
-                                            <>
-                                            {!candidate ?
-                                                <Button variant="contained" color="success" size="small" style={{ float: 'right', position: "relative", left: "5.5vw" }}
-                                                    onClick={changeState}>
-                                                    <DoneOutlineRoundedIcon className={style.marginRight} style={{
-                                                        color: 'white',
-                                                        fontSize: 20
-                                                    }}/>
-                                                    <Typography
-                                                        style={{
-                                                            fontWeight: 500,
-                                                            fontSize: 20,
-                                                            textTransform: "uppercase",
-                                                            textAlign: 'left',
+                                        {perfil.typePerfil !== "organizacao" && <>
+                                            {!voltDone &&
+                                                <>
+                                                    {!candidate ?
+                                                        <Button variant="contained" color="success" size="small" style={{ float: 'right', position: "relative", left: "5.5vw" }}
+                                                            onClick={changeState}>
+                                                            <DoneOutlineRoundedIcon className={style.marginRight} style={{
+                                                                color: 'white',
+                                                                fontSize: 20
+                                                            }} />
+                                                            <Typography
+                                                                style={{
+                                                                    fontWeight: 500,
+                                                                    fontSize: 20,
+                                                                    textTransform: "uppercase",
+                                                                    textAlign: 'left',
 
-                                                        }}
-                                                    >Candidatar</Typography>
-                                                </Button>
-                                                : <Button variant="contained" color="error" size="large" style={{ float: 'right', position: "relative", left: "5.5vw" }} onClick={changeState}>
-                                                    < CancelOutlinedIcon className={style.marginRight} style={{
-                                                        color: 'white',
-                                                        fontSize: 20
-                                                    }}></ CancelOutlinedIcon> <Typography
-                                                        style={{
-                                                            fontWeight: 500,
-                                                            fontSize: 15,
-                                                            textTransform: "uppercase",
-                                                            textAlign: 'center',
+                                                                }}
+                                                            >Candidatar</Typography>
+                                                        </Button>
+                                                        : <Button variant="contained" color="error" size="large" style={{ float: 'right', position: "relative", left: "5.5vw" }} onClick={changeState}>
+                                                            < CancelOutlinedIcon className={style.marginRight} style={{
+                                                                color: 'white',
+                                                                fontSize: 20
+                                                            }}></ CancelOutlinedIcon> <Typography
+                                                                style={{
+                                                                    fontWeight: 500,
+                                                                    fontSize: 15,
+                                                                    textTransform: "uppercase",
+                                                                    textAlign: 'center',
 
-                                                        }}
-                                                    >Cancelar</Typography>
-                                                </Button>
+                                                                }}
+                                                            >Cancelar</Typography>
+                                                        </Button>
+                                                    }
+                                                </>
                                             }
-                                            </>
-                                        }
+                                        </>}
                                     </>}
                             </>}
-                        </>}
 
+                        </Grid>
                     </Grid>
-                </Grid>
 
-                <InfoVoluntariado style={{outline: redOrGreen(), outlineOffset:"5px"}} avaliar={avaliar} closeAvaliacao={closeAvaliacao} openPopupAvaliacao={openPopupAvaliacao} setOpenPopupAvaliacao={setOpenPopupAvaliacao} realizado={voltRealizado} state={state} done={voltDone} id={volunt.id} name={volunt.name} image={volunt.image} organizacao={volunt.organizacao} startDate={volunt.startDate} description={volunt.description} endDate={volunt.endDate} location={volunt.location} rating={volunt.rating} type={volunt.type} />
+                    <InfoVoluntariado style={{ outline: redOrGreen(), outlineOffset: "5px" }} avaliar={avaliar} closeAvaliacao={closeAvaliacao} openPopupAvaliacao={openPopupAvaliacao} setOpenPopupAvaliacao={setOpenPopupAvaliacao} realizado={voltRealizado} state={state} done={voltDone} id={volunt.id} name={volunt.name} image={volunt.image} organizacao={volunt.organizacao} startDate={volunt.startDate} description={volunt.description} endDate={volunt.endDate} location={volunt.location} rating={volunt.rating} type={volunt.type} />
 
-                <Container style={{
-                    height: 50
-                }}></Container>
+                    <Container style={{
+                        height: 50
+                    }}></Container>
 
-                {perfil && <>
-                    {(volunt.organizacao === perfil.name) && !voltRealizado &&
-                        <AcceptCandidates id={volunt.id} />
-                    }
-                </>}
+                    {perfil && <>
+                        {(volunt.organizacao === perfil.name) && !voltRealizado &&
+                            <AcceptCandidates id={volunt.id} />
+                        }
+                    </>}
 
-                <Container style={{
-                    height: 50
-                }}></Container>
+                    <Container style={{
+                        height: 50
+                    }}></Container>
 
 
-                <ShowOldCandidates idVolt={idVolt} />
+                    <ShowOldCandidates idVolt={idVolt} />
 
-                <Comentarios newVolunt={voluntsComent} name={volunt.name} idPerfil={volunt.id} type="voluntariado" state={state} />
+                    <Comentarios newVolunt={voluntsComent} name={volunt.name} idPerfil={volunt.id} type="voluntariado" state={state} />
 
-                <Container style={{
-                    height: 50
-                }}></Container>
+                    <Container style={{
+                        height: 50
+                    }}></Container>
 
-            </div>
-        }
+                </div>
+            }
         </>
 
     );
