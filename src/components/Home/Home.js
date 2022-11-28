@@ -39,6 +39,7 @@ const Home = () => {
 
     const filters = {
         /*     Tipo: ['Natureza', 'Animais', 'Poluição', 'Comunidade', 'Gastronomia', 'Saúde'], */
+        Estado: ["A Decorrer", "Finalizados",],
         Tipo: Object.keys(volunTypes),
         Região: [
             "Norte",

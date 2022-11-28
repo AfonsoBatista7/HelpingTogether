@@ -44,7 +44,7 @@ function Organizacoes() {
             if (searchFilter["Tipo"] != "") {
                 results = results.filter(elem => elem["type"].includes(searchFilter["Tipo"]))
             } if (searchFilter["Texto"] != "") {
-                results = results.filter(elem => elem["name"].includes(searchFilter["Texto"]))
+                results = results.filter(elem => elem["name"].toLowerCase().includes(searchFilter["Texto"].toLowerCase()))
             }
             setOrganizacoes(results)
         }
