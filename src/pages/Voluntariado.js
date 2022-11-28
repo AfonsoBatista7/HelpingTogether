@@ -378,7 +378,7 @@ function Voluntariado() {
                                             <Typography style={{
                                                 fontWeight: 700,
                                                 fontSize: 20,
-                                                color: '#344D67',
+                                                color: '#FF0000',
                                                 textAlign: 'right',
                                                 position: "relative",
                                                 left: "7%"

@@ -41,7 +41,7 @@ function RegisterVoluntariado(props) {
 
     const onSubmit = (values) => {
 
-        addVoluntariado({ ...values, region: region, startDate: dateInic.toLocaleDateString(), endDate: dateFini.toLocaleDateString(), organizacao: props.organizacao, image: "defaultPhotoOrganization.jpg" })
+        addVoluntariado({ ...values, region: region, startDate: dateInic.toLocaleDateString(), endDate: dateFini.toLocaleDateString(), organizacao: props.organizacao, image: "defaultPhotoOrganization.jpg", done: "false" })
 
         props.closePopup()
     };
