@@ -8,7 +8,6 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 function BoxStats(props) {
     const charLimit = 220;
     const isDescBig = props.desc.length > charLimit;
-    console.log(props.done)
 
     return (
         <Box className={style.box}>
