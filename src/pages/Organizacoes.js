@@ -1,6 +1,7 @@
 import style from "../components/SectionsProfile/Profiles.module.css"
 import { Pagination, Grid, Typography, Container, Divider, Button } from "@mui/material";
 import React, { useState, useEffect, useReducer } from "react";
+import { useSearchParams } from "react-router-dom"
 import BoxOrganization from "../components/StatsShowers/Box/BoxOrganization";
 import SearchBar from "../components/Search/SearchBar";
 
@@ -12,22 +13,26 @@ function Organizacoes() {
 
     const [newVoluntariados, setNewVoluntariados] = useState([]);
     const [voluntariados, setVoluntariados] = useState([])
-    const [searchFilter, setSearchFilter] = useState({
-        Texto: "", Tipo: ""
-    })
+    const [searchFilter, setSearchFilter] = useSearchParams()
 
     const searchTextUpdate = (text) => {
-        setSearchFilter(prev => ({...prev, Texto: text}))
+        let updatedSearchParams = new URLSearchParams(searchFilter.toString());
+        updatedSearchParams.set("Texto", text);
+        setSearchFilter(updatedSearchParams.toString());
         forceUpdate()
     }
 
     const searchFilterUpdate = (filter, value) => {
-        setSearchFilter(prev => ({...prev, Tipo: value}))
+        let updatedSearchParams = new URLSearchParams(searchFilter.toString());
+        updatedSearchParams.set(filter, value);
+        setSearchFilter(updatedSearchParams.toString());
         forceUpdate()
     }
 
-    const clearFilters = () => {
-        setSearchFilter(prev => ({...prev, Tipo: ""}))
+    const clearFilter = (filter) => {
+        let updatedSearchParams = new URLSearchParams(searchFilter.toString());
+        updatedSearchParams.delete(filter);
+        setSearchFilter(updatedSearchParams.toString());
         forceUpdate()
     }
 
@@ -39,12 +44,11 @@ function Organizacoes() {
         const getOrganizacoes = async () => {
             const organizacoesFromServer = await fetchOrganizacoes()
             let results = organizacoesFromServer
-            //console.log(searchFilter)
 
-            if (searchFilter["Tipo"] != "") {
-                results = results.filter(elem => elem["type"].includes(searchFilter["Tipo"]))
-            } if (searchFilter["Texto"] != "") {
-                results = results.filter(elem => elem["name"].toLowerCase().includes(searchFilter["Texto"].toLowerCase()))
+            if (searchFilter.get("Texto") != null) {
+                results = results.filter(elem => elem["name"].toLowerCase().includes( searchFilter.get("Texto").toLowerCase() ))
+            } if (searchFilter.get("Tipo") != null) {
+                results = results.filter(elem => elem["type"].includes(searchFilter.get("Tipo")))
             }
             setOrganizacoes(results)
         }
@@ -142,7 +146,7 @@ function Organizacoes() {
                     <SearchBar 
                         onSearchTextUpdate={searchTextUpdate} 
                         onFilterUpdate={searchFilterUpdate} 
-                        onClearFilter={clearFilters}
+                        onClearFilter={clearFilter}
                         filters={filters} />
                 </Grid>
                 <Container>
