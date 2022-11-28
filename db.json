@@ -205,6 +205,22 @@
   ],
   "voluntariados": [
     {
+      "id": 16,
+      "name": "Limpeza de praia de resíduos",
+      "description": "Limpar a praia de Faro de poluição realizada durante os meses de verão.",
+      "startDate": "10/10/2022",
+      "endDate": "10/10/2022",
+      "region": "Algarve",
+      "location": "Faro",
+      "type": [
+        "Poluição"
+      ],
+      "image": "Limpar_praia.png",
+      "rating": 4,
+      "done": "true",
+      "organizacao": "Leo"
+    },
+    {
       "id": 14,
       "name": "Plantar árvores e arbustos",
       "description": "Plantar árvores e arbustos na Serra de Monchique após ser sido devastada por incêndios e ficar com falta de plantação.",
@@ -235,22 +251,6 @@
       "rating": 0,
       "done": "false",
       "organizacao": "FAPAS"
-    },
-    {
-      "id": 16,
-      "name": "Limpeza de praia de resíduos",
-      "description": "Limpar a praia de Faro de poluição realizada durante os meses de verão.",
-      "startDate": "10/10/2022",
-      "endDate": "10/10/2022",
-      "region": "Algarve",
-      "location": "Faro",
-      "type": [
-        "Poluição"
-      ],
-      "image": "Limpar_praia.png",
-      "rating": 4,
-      "done": "true",
-      "organizacao": "Leo"
     },
     {
       "id": 17,
