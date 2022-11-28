@@ -232,7 +232,7 @@
         "Natureza"
       ],
       "image": "Limpar_terreno.jpg",
-      "rating": 5,
+      "rating": 0,
       "done": "false",
       "organizacao": "FAPAS"
     },
@@ -264,7 +264,7 @@
         "Poluição"
       ],
       "image": "Limpeza_floresta.jpg",
-      "rating": 4,
+      "rating": 0,
       "done": "false",
       "organizacao": "Leo"
     },
@@ -296,7 +296,7 @@
         "Animais"
       ],
       "image": "Resgatar_animais.jpg",
-      "rating": 2,
+      "rating": 0,
       "done": "false",
       "organizacao": "Animalife"
     },
@@ -330,7 +330,7 @@
         "Comunidade"
       ],
       "image": "Recolha_alimentos.png",
-      "rating": 4,
+      "rating": 0,
       "done": "false",
       "organizacao": "WHPHP"
     },
@@ -362,7 +362,7 @@
         "Comunidade"
       ],
       "image": "Recolher_roupa.png",
-      "rating": 3,
+      "rating": 0,
       "done": "false",
       "organizacao": "UNICEF"
     },
@@ -426,7 +426,7 @@
         "Saúde"
       ],
       "image": "cuidar_pessoa.jpg",
-      "rating": 4,
+      "rating": 0,
       "done": "false",
       "organizacao": "Cruz Vermelha"
     }
