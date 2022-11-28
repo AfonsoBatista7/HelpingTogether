@@ -119,7 +119,7 @@ function ShowOldCandidates(props) {
                             alignItems="center"
                             justifyContent="center"
                         >
-                            <Pagination count={1} className={style.paginationComment} />
+                            <Pagination count={1} className={style.pagination} />
                         </Grid>}
                     <Container style={{
                         height: 50
