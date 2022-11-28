@@ -22,7 +22,7 @@ const ScrollToTop = () =>{
 
     return (
         <div>
-        {showScrollTopButton && <ArrowCircleUpRoundedIcon className={style.topbtnposition} onClick={scrollTop}/>}
+            {showScrollTopButton && <ArrowCircleUpRoundedIcon className={style.topbtnposition} onClick={scrollTop}/>}
         </div>
     );
 }
