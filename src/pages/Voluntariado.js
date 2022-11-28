@@ -42,6 +42,8 @@ function Voluntariado() {
 
     const [candid, setVoluntariados] = useState([]);
 
+    var candidaturaVar;
+
 
     useEffect(() => {
 
@@ -67,6 +69,8 @@ function Voluntariado() {
         const getVolunts = async () => {
 
             const listVolunt = await fetchCandidatura()
+
+           console.log(11111111111111111111111111111111)
 
             checkIfCandidate(listVolunt, id)
 
@@ -126,14 +130,22 @@ function Voluntariado() {
 
     //vai buscar todos os valores de login da BD e mete em loggedIns
     useEffect(() => {
+
+       
         const getLoggedIn = async () => {
             const loggedInFromServer = await fetchLoggedIn()
 
             setLoggedIns(loggedInFromServer)
 
+            
+
+            checkLogin(loggedInFromServer)
+
         }
 
         getLoggedIn(loggedIns)
+
+        
 
     }, [])
 
@@ -196,10 +208,16 @@ function Voluntariado() {
     }
 
     const checkIfCandidate = (candid, idLogin) => {
+       
         for (const element of candid) {
+            console.log(element)
             if ((element.idPerson == idLogin) && (element.idVolunt == idVolt)) {
+                console.log(2222222222222222222222222)
                 editState(true);
                 setCandidatura(element);
+                 candidaturaVar= element;
+                console.log(candidatura)
+                
             }
         }
 
@@ -258,17 +276,17 @@ function Voluntariado() {
         }
     }
 
-    useEffect(() => {
-        checkLogin()
+   // useEffect(() => {
+        
 
+    //}, [loggedIns])
 
+    const checkLogin = (list) => {
 
-    }, [loggedIns])
-
-    const checkLogin = () => {
-
-        for (const element of loggedIns) {
+        for (const element of list) {
             if (element.isLoggedIn) {
+
+                
                 checkifiscandid(element.id)
                 checkifAlredyAcceptedRejected(element.id)
                 setPerfil(element);
@@ -280,26 +298,25 @@ function Voluntariado() {
     }
 
     function changeState() {
-        var temp = !candidate;
+        
+        checkBottum(!candidate);
 
-        editState(temp);
-
-        checkBottum(temp)
     }
 
 
 
     function checkBottum(temp) {
+        checkifiscandid(perfil.id)
 
         if (temp) {
-            addVoluntariado({ idVolunt: volunt.id, idPerson: perfil.id });
+            setTimeout(()=>addVoluntariado({ idVolunt: volunt.id, idPerson: perfil.id }, temp),100);
         } else {
-            deleteVoluntariado(candidatura.id);
+            setTimeout(()=>deleteVoluntariado(candidaturaVar.id, temp),100);
         }
     }
 
 
-    const addVoluntariado = async (value) => {
+    const addVoluntariado = async (value,state) => {
         const res = await fetch('http://localhost:5000/candidaturas', {
             method: 'POST',
             headers: {
@@ -310,12 +327,28 @@ function Voluntariado() {
 
         const data = await res.json()
 
+        console.log(res.status)
+
+        setTimeout(()=> editState(state), 200)
+
+        //res.status === 200
+        // ? editState(state)
+       // : editState(state)
+
     }
 
-    const deleteVoluntariado = async (id) => {
+    const deleteVoluntariado = async (id, state) => {
         const res = await fetch(`http://localhost:5000/candidaturas/${id}`, {
             method: 'DELETE',
         })
+
+        const data = await res.json()
+
+        console.log(res.status)
+
+        setTimeout(()=> editState(state),200)
+
+        
     }
 
     const avaliar = () => {
@@ -343,7 +376,7 @@ function Voluntariado() {
 
     return (
         <>
-            {volunt &&
+            {volunt  &&
                 <div className={style.backgroundwhite}>
                     <div style={{ height: 40 }}></div>
 

@@ -801,12 +801,9 @@
       "idPersonCommenting": 6000
     }
   ],
-  "comentariosFeitosPessoa": [
-  ],
-  "comentariosFeitosVoluntariado": [
-  ],
-  "novosVoluntariados": [
-  ],
+  "comentariosFeitosPessoa": [],
+  "comentariosFeitosVoluntariado": [],
+  "novosVoluntariados": [],
   "candidaturas": [
     {
       "idVolunt": 21,
