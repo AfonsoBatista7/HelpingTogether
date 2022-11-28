@@ -184,7 +184,6 @@ function CandidaturasPendentes(props) {
                                 fontSize: 20,
                                 textAlign: 'center',
                                 color: "grey",
-                                marginLeft: 50
                             }}>
                                 Nenhuma candidatura pendente
                             </Typography>
@@ -201,8 +200,16 @@ function CandidaturasPendentes(props) {
                         <Pagination count={1} className={style.pagination} style={{ marginBottom: "3%" }} />
                     </Grid>}
 
+                <Container style={{
+                    height: 80
+                }}></Container>
 
                 <Divider className={style.commentsProfile} />
+
+                <Container style={{
+                    height: 80
+                }}></Container>
+
                 <Container >
                     <Grid container direction="row"
                         justifyContent="space-between"
@@ -215,22 +222,23 @@ function CandidaturasPendentes(props) {
                                 alignItems="center">
 
                                 {!(candidAceite.length === 0) ? candidAceite.map((vol, index) => (
-                                    <><Grid item xs={6} sm={6} md={6} key={index}>
+                                    <Grid item xs={6} sm={6} md={6} key={index}>
                                         <MiniBoxVoluntariado
                                             id={vol.id}
                                             image={vol.image}
                                             name={vol.name}
                                             desc={vol.description}
-                                        ></MiniBoxVoluntariado>
-                                    </Grid></>
+                                        />
+                                    </Grid>
 
                                 )) : <><div className={style.voluntariadosProfile} style={{ marginTop: "5%", width: "100%" }}>
+                                    <img style={{ display: "block", marginRight: "auto", marginLeft: "auto", width: "30%" }} alt="imgEmptyVol" src={`/img${Math.floor(Math.random() * 9) + 1}.png`}></img>
                                     <Typography style={{
                                         fontWeight: 500,
                                         fontSize: 20,
                                         textAlign: 'left',
                                         color: "grey",
-                                        marginLeft: 50
+                                        marginLeft: 60
                                     }}>
                                         Nenhuma candidatura aceite
                                     </Typography>
@@ -249,15 +257,16 @@ function CandidaturasPendentes(props) {
                                 alignItems="center" >
 
                                 {!(candidRegect.length === 0) ? candidRegect.map((vol, index) => (
-                                    <><Grid item xs={6} sm={6} md={6} key={index}>
+                                    <Grid item xs={6} sm={6} md={6} key={index}>
                                         <MiniBoxVoluntariado
                                             id={vol.id}
                                             image={vol.image}
                                             name={vol.name}
                                             desc={vol.description}
-                                        ></MiniBoxVoluntariado>
-                                    </Grid></>
+                                        />
+                                    </Grid>
                                 )) : <><div className={style.voluntariadosProfile} style={{ marginTop: "5%", width: "100%" }}>
+                                    <img style={{ display: "block", marginRight: "auto", marginLeft: "auto", width: "30%" }} alt="imgEmptyVol" src={`/img${Math.floor(Math.random() * 9) + 1}.png`}></img>
                                     <Typography style={{
                                         fontWeight: 500,
                                         fontSize: 20,

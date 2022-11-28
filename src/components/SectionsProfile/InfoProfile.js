@@ -11,6 +11,7 @@ import MaleRoundedIcon from '@mui/icons-material/MaleRounded';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import Evaluation from "../Popup/Evaluation";
 import Popup from "../Popup/Popup";
+import IconInfo from "./IconInfo";
 
 
 function InfoProfile(props) {
@@ -63,201 +64,140 @@ function InfoProfile(props) {
   }
 
   return (
-    <div style={{ alignItems: 'left', backgroundColor: "#497174", borderRadius: '10px' }} >
+    <div id="Perfil" style={{ alignItems: 'left', padding: "15px", 
+      background: props.type === "organizacao"  ?
+                                 "linear-gradient(0deg, rgba(52,77,103,1) 0%, rgba(110,204,175,1) 100%)" :
+                                 "linear-gradient(0deg, rgba(110,204,175,1) 0%, rgba(52,77,103,1) 100%)",
+      borderRadius: '15px',
+      height: "75vh",
+      marginTop: "30px"}} >
 
-      <Grid container direction="row"
-        justifyContent="center"
-        alignItems="flex-start"
-      >
 
-        <Grid item xs={3}
-          justifyContent="center"
-          alignItems="center">
+      <div>
+        <div>
 
+          <div>
+              {props.type !== "organizacao" ? 
+                  <div style={{display: "flex", justifyContent: "end" }}>
+                    <Rating name="half-rating-read" defaultValue={props.rating} precision={1} readOnly size="large" />
+                  </div>
+                  :
+                  <div style={{height: "40px"}}></div>
+              }
+          </div>
           <Avatar className={style.marginprofile}
             src={"/" + props.image}
 
-            sx={{ width: 200, height: 200 }} />
+            sx={{position: "relative", bottom: "70px", outline: "5px solid rgba(52,77,103,1)" , width: 200, height: 200 }}
+          />
+            <div style={{
+              font: "bold 14px/1.4 'Open Sans', arial, sans-serif",
+              letterSpacing: "0.1em",
+              color: "#EFF5F5",
+              fontWeight: 700,
+              fontSize: 40,
+              textAlign: 'center',
+              position: "relative",
+              bottom: "50px",
+              wordWrap: "break-word",
+            }}>{props.name}</div>
 
-
-          <Typography style={{
-            fontWeight: 700,
-            fontSize: 30,
-            color: 'white',
-            textTransform: "uppercase",
-            textAlign: 'center',
-            wordWrap: "break-word"
-          }}>{props.name}</Typography>
-
-
-
-          <Grid container direction="row"
-            justifyContent="flex-start"
-            alignItems="center"
-            className={style.marginPhone}>
-            <LocalPhoneRoundedIcon className={style.marginRight} style={{
-              color: 'white',
-              fontSize: 30
-            }}></LocalPhoneRoundedIcon>
-            <Typography
-              style={{
-                fontWeight: 500,
-                fontSize: 20,
-                color: 'white',
-                textTransform: "uppercase",
-                textAlign: 'center'
-              }}>{props.phone}</Typography>
-          </Grid>
-
-
-          <Grid container direction="row"
-            justifyContent="flex-start"
-            alignItems="center"
-            className={style.marginPhone}>
-            <EmailOutlinedIcon className={style.marginRight} style={{
-              color: 'white',
-              fontSize: 30
-            }}></EmailOutlinedIcon>
-
-            <Typography className={style.margintop}
-              style={{
-                fontWeight: 500,
-                fontSize: 15,
-                color: 'white',
-                textAlign: 'center'
-              }}>{props.email}</Typography>
-          </Grid>
-
-          {props.type === "organizacao" ? <>
-
-          </> : <>
-            <Grid container direction="row"
-              justifyContent="flex-start"
-              alignItems="center"
-              className={style.marginPhone}>
-
-              {!props.gender === "female" ? <>
-                <MaleRoundedIcon className={style.marginRight} style={{
+            <div style={{position: "relative", bottom: "40px"}}>
+              <IconInfo style={{right: "240px", justifyContent: "center", bottom: "200px"}} info={props.phone} right={true}>
+                <LocalPhoneRoundedIcon style={{
                   color: 'white',
+                  marginLeft: "100%",
+                  position: "relative",
                   fontSize: 30
-                }}></MaleRoundedIcon>
-              </> : <>
-                <FemaleRoundedIcon className={style.marginRight} style={{
+                }}/>
+              </IconInfo>
+              
+              <IconInfo style={{left: "830px", bottom: "235px"}} info={props.email} right={false}>
+                <EmailOutlinedIcon style={{
                   color: 'white',
+                  marginRight: "15px",
                   fontSize: 30
-                }}></FemaleRoundedIcon></>}
+                }}/>
+              </IconInfo>
 
+            {props.type !== "organizacao" ? <>
+              <IconInfo style={{left: "160px", justifyContent: "center",bottom: "200px"}} info={props.gender} right={false}>
+                {props.gender !== "female" ?
+                  <MaleRoundedIcon style={{
+                    color: 'white',
+                    marginRight: "15px",
+                    fontSize: 30
+                  }}/>
+                : 
+                  <FemaleRoundedIcon style={{
+                    color: 'white',
+                    marginRight: "15px",
+                    fontSize: 30
+                  }}/> 
+              }
+              </IconInfo>
 
-              <Typography className={style.margintop}
-                style={{
-                  fontWeight: 500,
-                  fontSize: 15,
+              <IconInfo style={{right: "215px",justifyContent: "center", bottom: "235px"}} info={props.birthday} right={true}>
+                <CakeRoundedIcon className={style.marginRight} style={{
                   color: 'white',
-                  textTransform: "uppercase",
-                  textAlign: 'center'
-                }}>{props.gender}</Typography>
-            </Grid>
+                  marginLeft: "100%",
+                  fontSize: 30
+                }}/>
+              </IconInfo>
+            </> : <div style={{height: "100px"}}></div>}
+          </div>
 
-            <Grid container direction="row"
-              justifyContent="flex-start"
-              alignItems="center"
-              className={style.marginPhone}>
-              <CakeRoundedIcon className={style.marginRight} style={{
-                color: 'white',
-                fontSize: 30
-              }}></CakeRoundedIcon>
-
-              <Typography className={style.margintop}
-                style={{
-                  fontWeight: 500,
-                  fontSize: 15,
-                  color: 'white',
-                  textAlign: 'center'
-                }}>{props.birthday}</Typography>
-            </Grid>
-
-          </>
-          }
-
-        </Grid>
-        <Grid item xs={9}
-          container
-          direction="column"
-          justifyContent="center"
-          alignItems="flex-end"
-          style={{ padding: "5px" }}>
-
-          <div style={{ height: 20 }}></div>
-          <div style={{ height: 50 }} className={style.titleVoluntariado}>
-            <Grid container
-              direction="row"
-              justifyContent="space-between"
-              alignItems="center">
-
-              <Grid item xs={5}>
-                {editMode ?
-                  <div className={style.avaliarbutton} style={{ float: "left" }}>
-                    <Container className={style.marginChangePhoto}>
-                      <Button variant="contained" style={{ background: "gray" }} component="label" size="small"  >
-                        <AddPhotoAlternateIcon />
-                        Alterar foto
-                        <input hidden accept="image/*" multiple type="file" />
-                      </Button>
-                    </Container>
-                  </div> : <></>}
-              </Grid>
-              {props.type === "organizacao" ? <></> : <>
-                <Grid item xs={5}>
-                  <div style={{ float: "right", marginRight: "5%" }}>
-                    <Rating name="half-rating-read" defaultValue={props.rating} precision={1} readOnly size="large" />
-                  </div>
-                </Grid>
+        </div>
+        <div>
+          <div style={{position: "relative", bottom: "5vh"}}>
+            <div className={style.buttonedit}>
+              {props.login && <>
+                <Button size="large" sx={{ color: 'white' }} style={{ float: 'right' }} onClick={changeState}> 
+                  {!editMode ?
+                  <> 
+                    Editar
+                    <EditIcon className={style.buttonmargin} style={{
+                      color: 'white',
+                      fontSize: 20
+                    }}/>
+                  </>
+                  : 
+                  <>
+                    Guardar
+                    <SaveIcon className={style.buttonmargin} style={{
+                      color: 'white',
+                      fontSize: 20
+                    }}/>
+                  </>
+                  }
+                </Button>
               </>}
-            </Grid>
-          </div>
-
-
-          <div className={style.buttonedit}>
-            {!props.login ? <></> : <>{!editMode ?
-              <Button size="large" sx={{ color: 'white' }} style={{ float: 'right' }} onClick={changeState}>Editar
-                < EditIcon className={style.buttonmargin} style={{
-                  color: 'white',
-                  fontSize: 20
-                }}></ EditIcon>
-              </Button>
-              : <Button size="large" sx={{ color: 'white' }} style={{ float: 'right' }} onClick={changeState}>Guardar
-                < SaveIcon className={style.buttonmargin} style={{
-                  color: 'white',
-                  fontSize: 20
-                }}></ SaveIcon>
-              </Button>}</>
-            }
-          </div>
-
-
-          <Container className={style.descriptionarea}>
-            <div style={{ float: "left" }}>
-              <Typography style={{ color: "white" }}>
-                Descrição
-              </Typography>
+              {editMode ?
+                <Button sx={{position: "relative", left: "16vw", color: "white"}} component="label" size="small"  >
+                  <AddPhotoAlternateIcon style={{color: "white"}}/>
+                    Alterar foto
+                  <input hidden accept="image/*" multiple type="file" />
+                </Button> :
+                <div style={{height: "32px"}}></div>
+                } 
             </div>
-            {!editMode ?
-              <TextField className={style.description}
-                disabled
-                fullWidth
-                multiline
-                id="outlined-disabled"
-                defaultValue={props.description}
-              /> : <TextField className={style.description}
-                fullWidth
-                multiline
-                id="outlined-disabled"
-                defaultValue={props.description}
-                onInput={(event) => saveDescription( event.target.value)}
-              />}
 
 
-          </Container>
+            <Container className={style.descriptionarea}>
+                <div className={style.description} style={{color: "white", marginLeft: "5px"}}>Description</div>
+                <TextField className={style.description}
+                  disabled={!editMode}
+                  fullWidth
+                  multiline
+                  rows={5}
+                  id="outlined-basic"
+                  defaultValue={props.description}
+                  onChange={editMode ? (event) => {changeLogginStatus(props.id, event.target.value)} : "none"}
+                  sx={{
+                    backgroundColor: "rgba(234, 240, 246, 0.2)"}}
+                /> 
+            </Container>
+          </div>
 
           {props.perfilLoggedIn ?
             <div className={style.titleVoluntariado}>
@@ -277,10 +217,10 @@ function InfoProfile(props) {
                   </div></> : <></>}</>
               }
             </div> : <></>}
-        </Grid>
-      </Grid >
+        </div >
+      </div >
     </div >
   );
 }
 
-export default InfoProfile
+export default InfoProfile;

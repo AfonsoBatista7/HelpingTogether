@@ -5,7 +5,7 @@
   width: 80%;
   margin: 10rem auto;
   margin-bottom: 0;
-  height: 570px;
+  height: 360px;
 }
 
 .slide img {
@@ -54,8 +54,9 @@
   bottom: 40px;
   display: flex;
   justify-content: center;
-  color: #ffffff;
-  text-shadow: 2px 2px 4px #000000;
+  color: #2E3B55;
+  text-shadow: 1px -1px 0 #ffffff;
+  font-weight: 900;
   font-size: 100%;
   font-family: "Raleway", sans-serif;
   text-align: center;

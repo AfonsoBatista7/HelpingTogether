@@ -86,8 +86,8 @@ function Evaluation(props) {
                             <div>
                                 <Grid container spacing={3} justifyContent="center">
                                     <Grid item xs={6}>
-                                        <Button type='submit' variant='contained' color='primary' disabled={props.isSubmitting}
-                                            sx={{ '&:hover': { opacity: [0.9, 0.8, 0.7] } }} fullWidth>{props.isSubmitting ? "Carregar" : "Registar"}</Button>
+                                        <Button type='submit' variant='contained' disabled={props.isSubmitting}
+                                            sx={{ backgroundColor:"#344D67",  '&:hover': { opacity: [0.9, 0.8, 0.7] } }} fullWidth>{props.isSubmitting ? "Carregar" : "Avaliar"}</Button>
                                     </Grid>
                                 </Grid>
                             </div>

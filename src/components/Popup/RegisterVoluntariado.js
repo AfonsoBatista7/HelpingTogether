@@ -41,7 +41,7 @@ function RegisterVoluntariado(props) {
 
     const onSubmit = (values) => {
 
-        addVoluntariado({ ...values, region: region, startDate: dateInic.toLocaleDateString(), endDate: dateFini.toLocaleDateString(), organizacao: props.organizacao, image: "defaultPhotoOrganization.jpg" })
+        addVoluntariado({ ...values, region: region, startDate: dateInic.toLocaleDateString(), endDate: dateFini.toLocaleDateString(), organizacao: props.organizacao, image: "defaultPhotoOrganization.jpg", done: "false" })
 
         props.closePopup()
     };
@@ -176,7 +176,7 @@ function RegisterVoluntariado(props) {
                                 </Stack>
                             </LocalizationProvider>
                             <FormHelperText><ErrorMessage name="endDate" component="div" style={{ color: 'red' }} /></FormHelperText>
-                            <Button variant="contained" component="label" size="small" className={style.pic} sx={{ '&:hover': { opacity: [0.9, 0.8, 0.7] } }}>
+                            <Button variant="contained" component="label" size="small" className={style.pic} sx={{  backgroundColor:"#344D67", '&:hover': { opacity: [0.9, 0.8, 0.7] } }}>
                                 <AddPhotoAlternateIcon />
                                 Adicionar Foto Voluntariado
                                 <input hidden accept="image/*" multiple type="file" onClick={() => { setOpen(true); }} />

@@ -206,7 +206,7 @@ function AcceptCandidates(props) {
         <div >
             <Container style={{
                 height: 80
-            }}></Container>
+            }}/>
 
             <Divider style={{marginBottom: "20px"}}>  
                 <Typography style={{ fontWeight: 500,
@@ -248,6 +248,7 @@ function AcceptCandidates(props) {
                                     </IconButton>
                                 </Grid>
                             )) : <div className={style.voluntariadosProfile} style={{ marginTop: "5%", width: "100%" }}>
+                                <img style={{ display: "block", marginRight: "auto", marginLeft: "auto", width: "30%" }} alt="imgEmptyVol" src={`/img${Math.floor(Math.random() * 9) + 1}.png`}></img>
                                 <Typography style={{
                                     fontWeight: 500,
                                     fontSize: 20,
@@ -290,12 +291,12 @@ function AcceptCandidates(props) {
                                     </IconButton>
                                 </Grid></>
                             )) : <><div className={style.voluntariadosProfile} style={{ marginTop: "5%", width: "100%" }}>
+                                <img style={{ display: "block", marginRight: "auto", marginLeft: "auto", width: "30%" }} alt="imgEmptyVol" src={`/img${Math.floor(Math.random() * 9) + 1}.png`}></img>
                                 <Typography style={{
                                     fontWeight: 500,
                                     fontSize: 20,
                                     textAlign: 'center',
                                     color: "grey",
-                                    marginLeft: 50
                                 }}>
                                     Nenhum candidato aceite
                                 </Typography>

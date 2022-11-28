@@ -5,33 +5,10 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import Slider from "react-slick";
 import style2 from "./homeCarousel.module.css";
 import { Link } from 'react-router-dom';
+import style from "./home.module.css";
 
 
 export default function HomeCarousel(props) {
-    let carouselData = []
-
-/*     props.res.map((elem) => (
-        carouselData.push(
-            {
-                headerText: elem.name,
-                subText: elem.desc,
-                image: "/"+elem.image,
-            }
-        )
-    ))
-
-    return (
-        <Carousel
-            data={carouselData}
-            autoPlay={true}
-            rightItem={<FaArrowRight />}
-            leftItem={<FaArrowLeft />}
-            animationDuration={3000}
-            headerTextType="black"
-            subTextType="white"
-            size="normal"
-        />
-    ) */
 
     const [voluntariados, setVoluntariados] = useState([])
 
@@ -92,18 +69,31 @@ export default function HomeCarousel(props) {
 
 
     return (
-        <div className={style2.homeCarousel}>
-            {voluntariados &&
-                <Slider {...settings}>
-                    {voluntariados.map((vol, idx) => (
-                        <div className={idx === imageIndex ? "slide activeSlide" : "slide"} key={vol.id}>
-                            <Link style={{ color: "#2E3B55", textDecoration: "none" }} to={`/Voluntariado/${vol.id}`} onClick={() => this.forceUpdate()}>
-                                <img style={{ width: "400px", height: "250px", borderRadius: "5px" }} src={vol.image} alt={vol.image} />
-                                <span className={style2.title}>{vol.name}</span>
-                            </Link>
-                        </div>
-                    ))}
-                </Slider>}
-        </div >
+        <div>
+            <div
+                style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    top: "12vh",
+                    fontSize: "60px",
+                }}
+                className={style.subtitle}
+            >
+                TOP VOLUNTARIADOS
+            </div>
+            <div className={style2.homeCarousel}>
+                {voluntariados &&
+                    <Slider {...settings}>
+                        {voluntariados.map((vol, idx) => (
+                            <div className={idx === imageIndex ? "slide activeSlide" : "slide"}>
+                                <Link style={{ color: "#2E3B55", textDecoration: "none" }} to={`/Voluntariado/${vol.id}`} onClick={() => this.forceUpdate()}>
+                                    <img style={{ width: "400px", height: "250px", borderRadius: "5px" }} src={vol.image} alt={vol.image} />
+                                    <span className={style2.title}>{vol.name}</span>
+                                </Link>
+                            </div>
+                        ))}
+                    </Slider>}
+            </div >
+        </div>
     )
 };

@@ -23,8 +23,6 @@
 .marginprofile {
 
     margin-left: auto;
-    margin-top: 10%;
-    margin-bottom: 5%;
     margin-right: auto;
 }
 
@@ -40,14 +38,8 @@
 }
 
 .description {
-    background-color: white;
-    margin-top: 6%;
-    margin-bottom: 5%;
-    margin-left: 5%;
-    margin-right: 5%;
-    border-radius: 2%;
-    color: black
-
+    bottom: 14vh;
+    position: relative;
 }
 
 .buttonmargin {
@@ -55,13 +47,12 @@
 }
 
 .buttonedit {
-    margin-right: 3%;
-    margin-top: 2%;
+    position: relative;
+    bottom: 15vh;
+    right: 9%;
 }
 
 .descriptionarea {
-    margin-left: 200;
-    margin-right: 200;
     height: 100%
 }
 
@@ -88,15 +79,15 @@
 .photoVoluntariado{
     width: 100%;
     height: 100%;
-    border-radius: 2%;
+    min-height: 30vh;
+    border-radius: 5px;
     margin-left: 5%;
     margin-top: 10%;
 }
 
 .descriptionvoluntario{
-    width: 70%;
-    margin-left: 5%;
-    
+    margin-left: 2%;
+    margin-top: 3%;
 }
 
 .titleVoluntariado{
@@ -104,7 +95,8 @@
 }
 
 .rating{
-    margin-right: 5%;
+    margin-right: 2%;
+    margin-top: 3%;
 }
 
 .areadescription{
@@ -113,8 +105,10 @@
 }
 
 .avaliarbutton{
-    margin-top: 3%;
-    margin-left: 3%;
+    display: flex;
+    position: relative;
+    top: 3vh;
+    justify-content: center;
 }
 
 .titleLetter{
@@ -146,4 +140,16 @@
 .filter{
     margin-left: 3% !important;
     margin-top: 2% !important;
+}
+
+.topbtnposition{
+    position: fixed;
+    bottom: 15px;
+    right:20px;
+    height: 50px !important;
+    width:50px !important;
+    border-radius: 50%;
+    background-color: #344D67;
+    color: white;
+    cursor: pointer;
 }

@@ -26,7 +26,7 @@
       "password": "123456",
       "confirmPassword": "123456",
       "termsAndConditions": true,
-      "isLoggedIn": true,
+      "isLoggedIn": false,
       "typePerfil": "voluntario",
       "rating": 5,
       "id": 2,
@@ -217,6 +217,7 @@
       ],
       "image": "Plantar.jpg",
       "rating": 2,
+      "done": "true",
       "organizacao": "FAPAS"
     },
     {
@@ -232,6 +233,7 @@
       ],
       "image": "Limpar_terreno.jpg",
       "rating": 5,
+      "done": "false",
       "organizacao": "FAPAS"
     },
     {
@@ -247,6 +249,7 @@
       ],
       "image": "Limpar_praia.png",
       "rating": 4,
+      "done": "true",
       "organizacao": "Leo"
     },
     {
@@ -262,6 +265,7 @@
       ],
       "image": "Limpeza_floresta.jpg",
       "rating": 4,
+      "done": "false",
       "organizacao": "Leo"
     },
     {
@@ -277,6 +281,7 @@
       ],
       "image": "Cagarros.jpg",
       "rating": 3,
+      "done": "true",
       "organizacao": "Animalife"
     },
     {
@@ -292,6 +297,7 @@
       ],
       "image": "Resgatar_animais.jpg",
       "rating": 2,
+      "done": "false",
       "organizacao": "Animalife"
     },
     {
@@ -308,6 +314,7 @@
       ],
       "image": "Comida.png",
       "rating": 5,
+      "done": "true",
       "organizacao": "Caritas"
     },
     {
@@ -324,6 +331,7 @@
       ],
       "image": "Recolha_alimentos.png",
       "rating": 4,
+      "done": "false",
       "organizacao": "WHPHP"
     },
     {
@@ -339,6 +347,7 @@
       ],
       "image": "Construir.png",
       "rating": 5,
+      "done": "true",
       "organizacao": "Just a Change"
     },
     {
@@ -354,6 +363,7 @@
       ],
       "image": "Recolher_roupa.png",
       "rating": 3,
+      "done": "false",
       "organizacao": "UNICEF"
     },
     {
@@ -369,6 +379,7 @@
       ],
       "image": "Saude.png",
       "rating": 4,
+      "done": "true",
       "organizacao": "UNICEF"
     },
     {
@@ -384,6 +395,7 @@
       ],
       "image": "Sangue.png",
       "rating": 2,
+      "done": "true",
       "organizacao": "Cruz Vermelha"
     },
     {
@@ -399,21 +411,7 @@
       ],
       "image": "teaching_refugees.jpg",
       "rating": 4,
-      "organizacao": "Cruz Vermelha"
-    },
-    {
-      "id": 30,
-      "name": "Inserção de refugiados na sociedade",
-      "description": "Ensinar refugiados a escrever, a ler e a falar português para que a sua integração em Portugal seja facilitada.",
-      "startDate": "1/02/2021",
-      "endDate": "20/11/2022",
-      "region": "Área Metropolitana Lisboa",
-      "location": "Amadora",
-      "type": [
-        "Comunidade"
-      ],
-      "image": "teaching_refugees.jpg",
-      "rating": 2,
+      "done": "true",
       "organizacao": "Cruz Vermelha"
     }
   ],
@@ -562,6 +560,7 @@
       "image": "Construir.png",
       "rating": 5,
       "organizacao": "Just a Change",
+      "done": "true",
       "idOrg": 10000,
       "participants": [
         2000,
@@ -582,6 +581,7 @@
       "image": "Saude.png",
       "rating": 4,
       "organizacao": "UNICEF",
+      "done": "true",
       "idOrg": 7000,
       "participants": [
         2000,
@@ -605,6 +605,7 @@
       "image": "Comida.png",
       "rating": 5,
       "organizacao": "Caritas",
+      "done": "true",
       "idOrg": 12000,
       "participants": [
         1000,
@@ -625,6 +626,8 @@
       "image": "Sangue.png",
       "rating": 2,
       "organizacao": "Cruz Vermelha",
+      "done": "true",
+      "idOrg": 12000,
       "participants": [
         3000,
         5000
@@ -644,6 +647,7 @@
       "image": "Plantar.jpg",
       "rating": 2,
       "organizacao": "FAPAS",
+      "done": "true",
       "idOrg": 9000,
       "participants": [
         2000,
@@ -664,6 +668,7 @@
       "image": "Limpar_praia.png",
       "rating": 4,
       "organizacao": "Leo",
+      "done": "true",
       "idOrg": 8000,
       "participants": [
         2000,
@@ -686,6 +691,7 @@
       "image": "Cagarros.jpg",
       "rating": 3,
       "organizacao": "Animalife",
+      "done": "true",
       "idOrg": 13000,
       "participants": [
         5000,
@@ -706,6 +712,7 @@
       "image": "teaching_refugees.jpg",
       "rating": 2,
       "organizacao": "Cruz Vermelha",
+      "done": "true",
       "idOrg": 6000,
       "participants": [
         3000,

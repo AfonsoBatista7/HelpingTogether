@@ -251,7 +251,7 @@ function Voluntariados() {
                                 name={vol.name}
                                 rating={vol.rating}
                                 desc={vol.description}
-                                date={vol.endDate}
+                                date={`${vol.startDate} - ${vol.endDate}`}
                                 location={vol.location}
                                 typePerfil="voluntariado"
                                 className={style.boxShow}></BoxVoluntariado>

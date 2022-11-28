@@ -21,12 +21,12 @@ function InfoVoluntariado(props) {
     const [organizacoes, setOrganizacoes] = useState([])
 
     const volunTypes = {
-        Natureza: <Forest sx={{ color: "#EFF5F5", fontSize: 20 }} fontSize="large" />,
-        Animais: <Pets sx={{ color: "#EFF5F5", fontSize: 20 }} fontSize="large" />,
-        Poluição: <Factory sx={{ color: "#EFF5F5", fontSize: 20 }} fontSize="large" />,
-        Comunidade: <People sx={{ color: "#EFF5F5", fontSize: 20 }} fontSize="large" />,
-        Gastronomia: <FoodBank sx={{ color: "#EFF5F5", fontSize: 20 }} fontSize="large" />,
-        Saúde: <HealthAndSafety sx={{ color: "#EFF5F5", fontSize: 20 }} fontSize="large" />,
+        Natureza: <Forest sx={{ color: "#344D67", fontSize: 30 }} fontSize="large" />,
+        Animais: <Pets sx={{ color: "#344D67", fontSize: 30 }} fontSize="large" />,
+        Poluição: <Factory sx={{ color: "#344D67", fontSize: 30 }} fontSize="large" />,
+        Comunidade: <People sx={{color: "#344D67", fontSize: 30 }} fontSize="large" />,
+        Gastronomia: <FoodBank sx={{ color:"#344D67", fontSize: 30 }} fontSize="large" />,
+        Saúde: <HealthAndSafety sx={{ color: "#344D67", fontSize: 30 }} fontSize="large" />,
     };
 
     //vai buscar todos os valores de login da BD e mete em loggedIns
@@ -123,167 +123,167 @@ function InfoVoluntariado(props) {
 
 
     return (<>
-        {org ? <>
-            <div>
-                <div className={style.margins} style={{ alignItems: 'left', backgroundColor: "#AAC6AA", borderRadius: '10px', padding: '20px' }} >
-                    <Grid container direction="row"
-                        justifyContent="space-around"
-                        alignItems="flex-start">
+        {org &&
+            <div className={style.margins} style={{...props.style, alignItems: 'left', 
+                backgroundImage: "linear-gradient(0deg, rgba(173,231,146,1) 0%, rgba(110,204,175,1) 100%)",
+                borderRadius: '10px', padding: '10px' }}
+            >
+                <Grid container direction="row"
+                    justifyContent="space-around"
+                    alignItems="flex-start">
 
-                        <Grid item xs={3}
-                            justifyContent="center"
-                            alignItems="center">
+                    <Grid item xs={3}
+                        justifyContent="center"
+                        alignItems="center">
 
-                            <img className={style.photoVoluntariado}
-                                src={"/" + props.image}
+                        <img className={style.photoVoluntariado}
+                            src={"/" + props.image}
+                        />
 
-                            />
+                        <Grid container direction="row"
+                            justifyContent="flex-start"
+                            alignItems="center"
+                            className={style.marginPhone}>
+                            <Avatar className={style.marginRight}
+                                src={"/" + org.image}
 
-                            <Grid container direction="row"
-                                justifyContent="flex-start"
-                                alignItems="center"
-                                className={style.marginPhone}>
-                                <Avatar className={style.marginRight}
-                                    src={"/" + org.image}
-
-                                    sx={{ width: 30, height: 30 }} />
-                                <Link style={{ color: "#2E3B55", textDecoration: "none" }} to={`/Perfil/${org.id}/Perfil`} onClick={() => this.forceUpdate()}>
-                                    <Typography
-                                        style={{
-                                            fontWeight: 500,
-                                            fontSize: 20,
-                                            color: 'white',
-                                            textTransform: "uppercase",
-                                            textAlign: 'center'
-                                        }}>{props.organizacao}</Typography>
-                                </Link>
-                            </Grid>
-
-                            <Grid container direction="row"
-                                justifyContent="flex-start"
-                                alignItems="center"
-                                className={style.marginPhone}>
-                                <PinDropRoundedIcon className={style.marginRight} style={{
-                                    color: 'white',
-                                    fontSize: 30
-                                }}></PinDropRoundedIcon>
+                                sx={{ width: 30, height: 30 }} />
+                            <Link style={{ color: "#344D67", textDecoration: "none" }} to={`/Perfil/${org.id}/Perfil`} onClick={() => this.forceUpdate()}>
                                 <Typography
                                     style={{
                                         fontWeight: 500,
                                         fontSize: 20,
-                                        color: 'white',
-                                        textAlign: 'center'
-                                    }}>{props.location}</Typography>
-                            </Grid>
-
-
-                            <Grid container direction="row"
-                                justifyContent="flex-start"
-                                alignItems="center"
-                                className={style.marginPhone}>
-                                <CalendarMonthRoundedIcon className={style.marginRight} style={{
-                                    color: 'white',
-                                    fontSize: 30
-                                }}></CalendarMonthRoundedIcon>
-
-                                <Typography className={style.margintop}
-                                    style={{
-                                        fontWeight: 500,
-                                        fontSize: 15,
-                                        color: 'white',
+                                        color: '#344D67',
                                         textTransform: "uppercase",
                                         textAlign: 'center'
-                                    }}>{props.startDate} - {props.endDate}</Typography>
+                                    }}>{props.organizacao}</Typography>
+                            </Link>
+                        </Grid>
+
+                        <Grid container direction="row"
+                            justifyContent="flex-start"
+                            alignItems="center"
+                            className={style.marginPhone}>
+                            <PinDropRoundedIcon className={style.marginRight} style={{
+                                color: '#344D67',
+                                fontSize: 30
+                            }}></PinDropRoundedIcon>
+                            <Typography
+                                style={{
+                                    fontWeight: 500,
+                                    fontSize: 20,
+                                    color: '#344D67',
+                                    textAlign: 'center'
+                                }}>{props.location}</Typography>
+                        </Grid>
+
+
+                        <Grid container direction="row"
+                            justifyContent="flex-start"
+                            alignItems="center"
+                            className={style.marginPhone}>
+                            <CalendarMonthRoundedIcon className={style.marginRight} style={{
+                                color: '#344D67',
+                                fontSize: 30
+                            }}></CalendarMonthRoundedIcon>
+
+                            <Typography className={style.margintop}
+                                style={{
+                                    fontWeight: 500,
+                                    fontSize: 15,
+                                    color: '#344D67',
+                                    textTransform: "uppercase",
+                                    textAlign: 'center'
+                                }}>{props.startDate} - {props.endDate}</Typography>
+                        </Grid>
+
+                    </Grid>
+                    <Grid item xs={8}
+                        container
+                        direction="column"
+                        justifyContent="center"
+                        alignItems="flex-start"
+                        className={style.widhtdescription}>
+
+
+                        <div className={style.titleVoluntariado}>
+
+                            <Grid container
+                                direction="row"
+                                justifyContent="space-between"
+                                alignItems="center">
+
+
+                                <div className={style.descriptionvoluntario} >
+                                    <Typography style={{
+                                        fontWeight: 700,
+                                        fontSize: 30,
+                                        color: '#344D67',
+                                        textTransform: "uppercase",
+                                        wordWrap: "break-word",
+                                        textAlign: 'left'
+                                    }}>{props.name}</Typography>
+                                </div>
+
+                                <div className={style.rating}>
+                                    <Rating name="half-rating-read" defaultValue={props.rating} precision={1} readOnly size="large" />
+                                </div>
                             </Grid>
 
-                        </Grid>
-                        <Grid item xs={8}
-                            container
-                            direction="column"
-                            justifyContent="center"
-                            alignItems="flex-start"
-                            className={style.widhtdescription}>
+                        </div>
 
-
-                            <div className={style.titleVoluntariado}>
-
-                                <Grid container
-                                    direction="row"
-                                    justifyContent="space-between"
-                                    alignItems="center">
-
-
-                                    <div className={style.descriptionvoluntario} >
-                                        <Typography style={{
-                                            fontWeight: 700,
-                                            fontSize: 30,
-                                            fontFamily: "Avanta Garde",
-                                            color: '#3F6164',
-                                            textTransform: "uppercase",
-                                            wordWrap: "break-word",
-                                            textAlign: 'left'
-                                        }}>{props.name} </Typography>
-                                    </div>
-
-                                    <div className={style.rating}>
-                                        <Rating name="half-rating-read" defaultValue={props.rating} precision={1} readOnly size="large" />
-                                    </div>
-                                </Grid>
-
+                        <Container className={style.descriptionarea} style={{ padding: "20px" }}>
+                            <div style={{ float: "left" }}>
+                                <Typography style={{ color: "#344D67" }}>
+                                    Descrição
+                                </Typography>
                             </div>
+                            <TextField
+                                disabled
+                                fullWidth
+                                multiline
+                                rows={5}
+                                id="outlined-disabled"
+                                defaultValue={props.description}
+                            />
+
+                        </Container>
 
 
 
-                            <Container className={style.descriptionarea} style={{ padding: "20px" }}>
-                                <div style={{ float: "left" }}>
-                                    <Typography style={{ color: "white" }}>
-                                        Descrição
-                                    </Typography>
-                                </div>
-                                <TextField className={style.description}
-                                    disabled
-                                    fullWidth
-                                    multiline
-                                    id="outlined-disabled"
-                                    defaultValue={props.description}
-                                />
+                    </Grid>
+                </Grid >
 
-                            </Container>
-
-                            {!perfil ? <></> : <>
-                                {perfil.typePerfil === "organizacao" ? <>
-                                </> : <>
-                                    {props.done ? <>
-                                        <div className={style.avaliarbutton}>
-                                            <Button style={{ background: "white" }} variant="contained" onClick={props.avaliar}>
-                                                <Typography style={{ color: "#375658" }}>Avaliar</Typography>
-                                            </Button>
-                                            <Popup
-                                                openPopup={props.openPopupAvaliacao}
-                                                setOpenPopup={props.setOpenPopupAvaliacao}
-                                            >
-                                                <Evaluation idPersonCommented={props.id} idPersonCommenting={perfil.id} name={perfil.name} nameOfTheCommented={props.name} type="voluntariado" closePopup={props.closeAvaliacao} />
-                                            </Popup></div>
-                                    </> : <></>}
-                                </>
-                                }
-
-                            </>}
-
-                            {props.type.length !== 0 ?
-                                <Grid container spacing={{ xs: 2, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-                                    {props.type.map((type) => (
-                                        <Grid item >
-                                            <>{volunTypes[type]}</>
-                                        </Grid>
-                                    ))}
-                                </Grid>
-                                : <></>}
-
-                        </Grid>
-                    </Grid >
-                </div >
-            </div></> : <></>
+                {props.type.length !== 0 &&
+                <div style={{marginRight: "8px"}}>
+                    <Grid container alignItems="flex-end" justifyContent="flex-end" direction="row" spacing={1}>
+                        {props.type.map((type) => (
+                            <Grid item>
+                                {volunTypes[type]}
+                            </Grid>
+                        ))}
+                    </Grid>
+                </div> 
+                }
+                {perfil && <>
+                    {perfil.typePerfil !== "organizacao" && <>
+                        {props.done &&
+                            <div className={style.avaliarbutton}>
+                                <Button style={{borderRadius: "20px", width: "20vw", background: "#344D67" }} variant="contained" onClick={props.avaliar}>
+                                    <Typography style={{ color: "#D6E4E5" }}>Avaliar</Typography>
+                                </Button>
+                                <Popup
+                                    openPopup={props.openPopupAvaliacao}
+                                    setOpenPopup={props.setOpenPopupAvaliacao}
+                                >
+                                    <Evaluation idPersonCommented={props.id} idPersonCommenting={perfil.id} name={perfil.name} nameOfTheCommented={props.name} type="voluntariado" closePopup={props.closeAvaliacao} />
+                                </Popup>
+                            </div>
+                        }
+                    </>
+                    }
+                </>}
+            </div >
         }</>
     );
 }

@@ -146,7 +146,7 @@ function Header() {
                        to="/"
                         className={style.headerLink}
                         style={{
-                            marginRight: "20px",
+                            marginRight: "12px",
                             width: "3%",
                         }}
                     >
