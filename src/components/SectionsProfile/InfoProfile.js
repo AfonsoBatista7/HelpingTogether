@@ -173,7 +173,7 @@ function InfoProfile(props) {
                 </Button>
               </>}
               {editMode ?
-                <Button sx={{position: "relative", left: "16vw", color: "white"}} component="label" size="small"  >
+                <Button sx={{position: "relative", left: "16vw", top:"1vh", color: "white"}} component="label" size="small"  >
                   <AddPhotoAlternateIcon style={{color: "white"}}/>
                     Alterar foto
                   <input hidden accept="image/*" multiple type="file" />
@@ -184,18 +184,18 @@ function InfoProfile(props) {
 
 
             <Container className={style.descriptionarea}>
-                <div className={style.description} style={{color: "white", marginLeft: "5px"}}>Description</div>
-                <TextField className={style.description}
-                  disabled={!editMode}
-                  fullWidth
-                  multiline
-                  rows={5}
-                  id="outlined-basic"
-                  defaultValue={props.description}
-                  onChange={editMode ? (event) => {changeLogginStatus(props.id, event.target.value)} : "none"}
-                  sx={{
-                    backgroundColor: "rgba(234, 240, 246, 0.2)"}}
-                /> 
+                <div className={style.description} style={{ bottom: props.type !== "organizacao" ? "17vh" : "23vh", color: "white", marginLeft: "5px"}}>Description</div>
+                  <TextField className={style.description} style={{ bottom: props.type !== "organizacao" ? "17vh" : "23vh"}}
+                    disabled={!editMode}
+                    fullWidth
+                    multiline
+                    rows={5}
+                    id="outlined-basic"
+                    defaultValue={props.description}
+                    onChange={editMode ? (event) => {saveDescription( event.target.value)} : "none"}
+                    sx={{
+                      backgroundColor: "rgba(234, 240, 246, 0.2)"}}
+                  /> 
             </Container>
           </div>
 
@@ -206,7 +206,7 @@ function InfoProfile(props) {
                 {(props.perfilLoggedIn.typePerfil === "organizacao") && (props.type !== "organizacao") ?
                   <><div className={style.avaliarbutton} >
                     <Button style={{ background: "white" }} variant="contained" onClick={props.avaliar}>
-                      <Typography style={{ color: "#497174" }}>Avaliar</Typography>
+                      <Typography style={{ color: "#344D67" }}>Avaliar</Typography>
                     </Button>
                     <Popup
                       openPopup={props.openPopupAvaliacao}

@@ -19,7 +19,7 @@ function App() {
         <div >
               
             <Layout>
-            <ScrollToTop/>
+                <ScrollToTop/>
                 <Routes>
                     <Route path='/Organizacoes' element={<Organizacoes />} ></Route>
                     <Route path='/Perfil/:idPerfil/:area' element={<Perfil />} ></Route>
