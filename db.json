@@ -11,10 +11,9 @@
         "Comunidade"
       ],
       "termsAndConditions": true,
-      "isLoggedIn": false,
+      "isLoggedIn": true,
       "typePerfil": "organizacao",
       "id": 1,
-      "description": "We Help People Help People é uma organização que se dedica a alimentar e ajudar os mais necessitados à mais de 10 anos, independetemente do género, idade e nacionalidade.",
       "image": "WHPHP.png"
     },
     {
@@ -839,6 +838,61 @@
       "idVolunt": 23,
       "idPerson": 2,
       "id": 27
+    },
+    {
+      "idVolunt": 19,
+      "idPerson": 4,
+      "id": 28
+    },
+    {
+      "idVolunt": 19,
+      "idPerson": 4,
+      "id": 29
+    },
+    {
+      "idVolunt": 19,
+      "idPerson": 4,
+      "id": 30
+    },
+    {
+      "idVolunt": 19,
+      "idPerson": 4,
+      "id": 31
+    },
+    {
+      "idVolunt": 19,
+      "idPerson": 4,
+      "id": 32
+    },
+    {
+      "idVolunt": 19,
+      "idPerson": 4,
+      "id": 33
+    },
+    {
+      "idVolunt": 19,
+      "idPerson": 4,
+      "id": 34
+    },
+    {
+      "idVolunt": 19,
+      "idPerson": 4,
+      "id": 35
+    },
+    {
+      "idVolunt": 19,
+      "idPerson": 4,
+      "id": 36
+    },
+    {
+      "idVolunt": 19,
+      "idPerson": 4,
+      "id": 37
+    },
+    {
+      "idVolunt": 19,
+      "idPerson": 4,
+      "id": 38
     }
   ],
   "candidaturasAceites": [
