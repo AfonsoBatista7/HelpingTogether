@@ -19,10 +19,6 @@ function Voluntariados() {
     const [openPopupRegisterVoluntariado, setOpenPopupRegisterVoluntariado] = useState(false);
 
     const [voluntariados, setVoluntariados] = useState([])
-    // filters active
-/*     const [searchFilter, setSearchFilter] = useSearchParams({
-        Texto: "", Tipo: "", Região: "", Duração: "",
-    }) */
     const [searchFilter, setSearchFilter] = useSearchParams()
 
     //vetor com todos os valores no login da Base de dados
@@ -57,14 +53,11 @@ function Voluntariados() {
         forceUpdate()
     }
 
-    const clearFilters = () => {
-        setSearchFilter({})
+    const clearFilter = (filter) => {
+        let updatedSearchParams = new URLSearchParams(searchFilter.toString());
+        updatedSearchParams.delete(filter);
+        setSearchFilter(updatedSearchParams.toString());
         forceUpdate()
-    }
-
-    const isFiltered = () => {
-        return searchFilter["Texto"] != "" || searchFilter["Estado"] != "" || searchFilter["Tipo"] != "" 
-            || searchFilter["Região"] != "" || searchFilter["Duração"] != ""
     }
 
     const getDayDifference = (dateStringA, dateStringB) => {
@@ -238,7 +231,8 @@ function Voluntariados() {
                     <SearchBar 
                         onSearchTextUpdate={searchTextUpdate} 
                         onFilterUpdate={searchFilterUpdate} 
-                        onClearFilter={clearFilters}
+                        onClearFilter={clearFilter}
+                        activeFilters={searchFilter}
                         filters={filters} />
                 </Grid>
                 <Container>
