@@ -327,9 +327,9 @@ function Voluntariado() {
         forceUpdate();
     }
 
-    const volunEnded = perfil  && acceptedorRejected && voltRealizado;
+    const volunEnded =  voltRealizado;
 
-    const volunNotEnded = perfil  && !acceptedorRejected && !voltDone;
+    const volunNotEnded =  !acceptedorRejected && !voltDone;
 
     const redOrGreen = () => {
         if (volunEnded)
@@ -371,9 +371,7 @@ function Voluntariado() {
                             >Voluntariado</Typography>
                         </Grid>
                         <Grid item xs={5} className={style.marginsVoluntariado}>
-                            {perfil && <>
-                                {acceptedorRejected ? <>
-                                    {voltRealizado &&
+                        {voltRealizado &&
                                         <Typography style={{
                                             fontWeight: 700,
                                             fontSize: 20,
@@ -383,6 +381,9 @@ function Voluntariado() {
                                             left: "7%"
                                         }}> Voluntariado Terminado </Typography>
                                     }
+                            {perfil && <>
+                                {acceptedorRejected ? <>
+                                   
                                 </>
                                     : <>
                                         {perfil.typePerfil !== "organizacao" && <>
