@@ -32,97 +32,6 @@
       "id": 2,
       "description": "Tenho 46 anos e sou professor de matemática numa escola secundária em Lisboa. Gosto de conviver com pessoas e ajudar os mais necessitados.",
       "image": "Luis_Gomes.jpg"
-    },
-    {
-      "name": "Aya Penhasco",
-      "email": "ayayayaya@gmail.com",
-      "gender": "female",
-      "birthday": "28/11/2001",
-      "phone": "918888888",
-      "password": "ayayayaya",
-      "confirmPassword": "ayayayaya",
-      "termsAndConditions": true,
-      "isLoggedIn": false,
-      "typePerfil": "voluntario",
-      "image": "defaultPhoto.jpg",
-      "id": 3
-    },
-    {
-      "name": "bernardo",
-      "email": "b@gmail.com",
-      "gender": "female",
-      "birthday": "18/11/1997",
-      "phone": "923452678",
-      "password": "123456",
-      "confirmPassword": "123456",
-      "termsAndConditions": true,
-      "isLoggedIn": false,
-      "typePerfil": "voluntario",
-      "image": "defaultPhoto.jpg",
-      "id": 4,
-      "description": "Sou bernardo,m a.scn.naskcnksanc,.a..asnc c mnacm,na.sc. c,ma m,scn,an.\n"
-    }
-  ],
-  "voluntarios": [
-    {
-      "id": 1000,
-      "name": "Maria Leal",
-      "description": "Tenho 38 anos, sou enfermeira e tenho 3 filhos. Adoro fazer voluntariados relacionados com a saúde e com crianças.",
-      "email": "marialeal45@gmail.com",
-      "birthday": "07/05/1984",
-      "gender": "Feminino",
-      "phone": "924562789",
-      "image": "Maria.jpg",
-      "rating": 1,
-      "typePerfil": "voluntario"
-    },
-    {
-      "id": 2000,
-      "name": "Gestrudes Cordeiro",
-      "description": "Tenho 60 anos e sou uma professora reformada. Como sou uma pessoa bastante ativa tento preencher os meus dias principalmente com atividades de voluntariados.",
-      "email": "gescordeiro0008@gmail.com",
-      "birthday": "30/09/1962",
-      "gender": "Feminino",
-      "phone": "912498876",
-      "image": "Gestrudes.jpg",
-      "rating": 3,
-      "typePerfil": "voluntario"
-    },
-    {
-      "id": 3000,
-      "name": "Laura Silves",
-      "description": "Tenho 45 anos e sou cozinheira. Sou solteira e não tenho filhos o que me dá muito tempo livre para o qual dedico a fazer voluntariados.",
-      "email": "lauraSilves@gmail.com",
-      "birthday": "12/07/1977",
-      "gender": "Feminino",
-      "phone": "914562789",
-      "image": "Laura.png",
-      "rating": 4,
-      "typePerfil": "voluntario"
-    },
-    {
-      "id": 4000,
-      "name": "Tiago Lopes",
-      "description": "Tenho 20 anos e sou estudante de engenheiria do ambiente. Para melhorar o meu currículo e ter mais experiências humanitarias pretendo fazer voluntariados relacionados com a minha área de estudo.",
-      "email": "tiagolp69@gmail.com",
-      "birthday": "19/02/2002",
-      "gender": "Masculino",
-      "phone": "965782234",
-      "image": "Tiago.jpg",
-      "rating": 5,
-      "typePerfil": "voluntario"
-    },
-    {
-      "id": 5000,
-      "name": "Osvaldo Fernandes",
-      "description": "Tenho 55 anos e sou gestor bancário. Quero ganhar novas experiencias em áreas fora da minha zona de conforto e fazer diferença no mundo e nas pessoas que me rodeiam.",
-      "email": "osvaldo356@gmail.com",
-      "birthday": "23/12/1967",
-      "gender": "Masculino",
-      "phone": "922234556",
-      "image": "Osvaldo.jpg",
-      "rating": 3,
-      "typePerfil": "voluntario"
     }
   ],
   "organizacoes": [
@@ -831,19 +740,7 @@
     }
   ],
   "comentariosFeitosPessoa": [],
-  "comentariosFeitosVoluntariado": [
-    {
-      "rating": 2,
-      "comment": "xCMM",
-      "name": "Luís Gomes",
-      "date": "28/11/2022 20:01",
-      "nameOfTheCommented": "Limpeza de praia de resíduos",
-      "idPersonCommenting": 2,
-      "idPersonCommented": 16,
-      "image": "defaultPhoto.jpg",
-      "id": 1
-    }
-  ],
+  "comentariosFeitosVoluntariado": [],
   "novosVoluntariados": [],
   "candidaturas": [
     {
