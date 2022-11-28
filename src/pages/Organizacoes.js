@@ -130,7 +130,7 @@ function Organizacoes() {
                     style={{
                         fontWeight: 700,
                         fontSize: 30,
-                        color: '#497174',
+                        color: '#344D67',
                         textTransform: "uppercase",
                         textAlign: 'left',
                         marginLeft: 50

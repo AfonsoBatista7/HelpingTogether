@@ -3,7 +3,7 @@ import React from "react";
 import BoxStats from "./BoxStats";
 import { Link } from 'react-router-dom';
 
-function BoxVoluntariado({image, name, desc, rating, date, location,id, typePerfil}) {
+function BoxVoluntariado({image, name, desc, rating, date, location,id, typePerfil, done}) {
     const getRatingComponent = () => {
         return (
             <Rating name="rating-voluntariado" readOnly value={rating} />
@@ -20,6 +20,7 @@ function BoxVoluntariado({image, name, desc, rating, date, location,id, typePerf
             date={date}
             location={location}
             typePerfil={typePerfil}
+            done={done}
         /></Link>
     );
 }

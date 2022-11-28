@@ -220,10 +220,10 @@
   "voluntariados": [
     {
       "id": 14,
-      "name": "Plantar florestação",
+      "name": "Plantar árvores e arbustos",
       "description": "Plantar árvores e arbustos na Serra de Monchique após ser sido devastada por incêndios e ficar com falta de plantação.",
-      "startDate": "24/09/2020",
-      "endDate": "24/09/2020",
+      "startDate": "24/04/2020",
+      "endDate": "24/04/2020",
       "region": "Algarve",
       "location": "Monchique",
       "type": [
@@ -252,10 +252,10 @@
     },
     {
       "id": 16,
-      "name": "Limpeza de praia de resídous",
+      "name": "Limpeza de praia de resíduos",
       "description": "Limpar a praia de Faro de poluição realizada durante os meses de verão.",
-      "startDate": "10/11/2022",
-      "endDate": "10/11/2022",
+      "startDate": "10/10/2022",
+      "endDate": "10/10/2022",
       "region": "Argarve",
       "location": "Faro",
       "type": [
@@ -268,10 +268,10 @@
     },
     {
       "id": 17,
-      "name": "Limpeza florestal de resídous",
-      "description": "Limpar o Parque Florestal DE Monsanto em Lisboa dos resídous sólidos lá deixados",
-      "startDate": "12/06/2021",
-      "endDate": "12/06/2021",
+      "name": "Limpeza florestal de resíduos",
+      "description": "Limpar o Parque Florestal DE Monsanto em Lisboa dos resíduos sólidos lá deixados",
+      "startDate": "01/11/2022",
+      "endDate": "01/01/2023",
       "region": "Área Metropolitana Lisboa",
       "location": "Lisboa",
       "type": [
@@ -286,8 +286,8 @@
       "id": 18,
       "name": "Voluntariado científico para o resgaste de cagarros",
       "description": "Resgaste das aves juvenis cagarros de forma a conseguirem sair em segurança da Marina e do Porto de Vila Franca do Campo nos Açores.",
-      "startDate": "17/02/2023",
-      "endDate": "17/02/2023",
+      "startDate": "17/02/2021",
+      "endDate": "17/02/2021",
       "region": "Açores",
       "location": "Vila Franca do Campo",
       "type": [
@@ -319,7 +319,7 @@
       "name": "Entrega de refeições a sem-abrigos e famílias carênciadas.",
       "description": "Entrega de refeições quentes, nesta altura de Natal para as famílias que mais necessitam de apoio e também a sem-abrigos na área da baixa de Lisboa",
       "startDate": "23/12/2022",
-      "endDate": "24/12/2022",
+      "endDate": "23/12/2022",
       "region": "Área Metropolitana Lisboa",
       "location": "Baixa de Lisboa",
       "type": [
@@ -335,7 +335,7 @@
       "id": 21,
       "name": "Recolha de bens alimentares",
       "description": "Recolha de bens alimentares à entrada de supermercados para serem entregues a famílias mais carenciadas",
-      "startDate": "14/05/2023",
+      "startDate": "14/05/2022",
       "endDate": "23/05/2023",
       "region": "Área Metropolitana Lisboa",
       "location": "Almada",
@@ -351,9 +351,9 @@
     {
       "id": 22,
       "name": "Reconstrução de casas destruídas no Incêndio de Pedrógão Grande",
-      "description": "Os fogos de Pedrógão Grande resultaram na destruição de várias habitações na região, estamos a organizar este voluntariado para conseguir ajudar várias famílias a reconstruir o que foi perdido",
-      "startDate": "10/02/ 2020",
-      "endDate": "30/12/2023",
+      "description": "Os fogos de Pedrógão Grande resultaram na destruição de várias habitações na região, estamos a organizar este voluntariado para conseguir ajudar várias famílias a reconstruir o que foi perdido. askdoakdoaksdoakdoakoakfoskfoskfokrgoskrgokshstkhsprgksprkgserogjsoergu",
+      "startDate": "10/02/2020",
+      "endDate": "30/09/2022",
       "region": "Centro",
       "location": "Pedrógão Grande",
       "type": [
@@ -368,7 +368,7 @@
       "id": 23,
       "name": "Recolha de roupa para crianças",
       "description": "Voluntariado para recolher roupas para crianças de orfanatos que mais necessitam. Ida a várias lojas e residências para receber ofertas e doações de roupa infantil",
-      "startDate": "23/01/2023",
+      "startDate": "23/01/2022",
       "endDate": "23/01/2023",
       "region": "Madeira",
       "location": "Funchal",
@@ -400,8 +400,8 @@
       "id": 25,
       "name": "Doação de sangue",
       "description": "Recolha de todos os tipes de sangue, para reabastecer as reservas dos hospitais que têm mais falta deste recurso.",
-      "startDate": "10/09/2023",
-      "endDate": "14/09/2023",
+      "startDate": "10/09/2022",
+      "endDate": "14/09/2022",
       "region": "Alrgarve",
       "location": "Portimão",
       "type": [
@@ -413,10 +413,10 @@
       "organizacao": "Cruz Vermelha"
     },
     {
-      "id": 26,
+      "id": 30,
       "name": "Inserção de refugiados na sociedade",
       "description": "Ensinar refugiados a escrever, a ler e a falar português para que a sua integração em Portugal seja facilitada.",
-      "startDate": "1/02/2021",
+      "startDate": "01/02/2021",
       "endDate": "20/11/2022",
       "region": "Área Metropolitana Lisboa",
       "location": "Amadora",
@@ -426,6 +426,22 @@
       "image": "teaching_refugees.jpg",
       "rating": 4,
       "done": "true",
+      "organizacao": "Cruz Vermelha"
+    },
+    {
+      "id": 31,
+      "name": "Cuidar pacientes nas suas necessidades básicas",
+      "description": "Cuidar dos pacientes do hospital de Leiria nas suas necessiadades básicas do dia como dar refeições e companhia e fazer a sua higiene básica.",
+      "startDate": "20/08/2022",
+      "endDate": "20/08/2023",
+      "region": "Centro",
+      "location": "Leiria",
+      "type": [
+        "Saúde"
+      ],
+      "image": "cuidar_pessoa.jpg",
+      "rating": 4,
+      "done": "false",
       "organizacao": "Cruz Vermelha"
     }
   ],
@@ -564,8 +580,8 @@
       "id": 22,
       "name": "Reconstrução de casas destruídas no Incêndio de Pedrógão Grande",
       "description": "Os fogos de Pedrógão Grande resultaram na destruição de várias habitações na região, estamos a organizar este voluntariado para conseguir ajudar várias famílias a reconstruir o que foi perdido",
-      "startDate": "10/02/ 2020",
-      "endDate": "30/12/2023",
+      "startDate": "10/02/2020",
+      "endDate": "30/09/2022",
       "region": "Centro",
       "location": "Pedrógão Grande",
       "type": [
@@ -609,7 +625,7 @@
       "name": "Entrega de refeições a sem-abrigos e famílias carênciadas.",
       "description": "Entrega de refeições quentes, nesta altura de Natal para as famílias que mais necessitam de apoio e também a sem-abrigos na área da baixa de Lisboa",
       "startDate": "23/12/2022",
-      "endDate": "24/12/2022",
+      "endDate": "23/12/2022",
       "region": "Área Metropolitana Lisboa",
       "location": "Baixa de Lisboa",
       "type": [
@@ -630,8 +646,8 @@
       "id": 25,
       "name": "Doação de sangue",
       "description": "Recolha de todos os tipes de sangue, para reabastecer as reservas dos hospitais que têm mais falta deste recurso.",
-      "startDate": "10/09/2023",
-      "endDate": "14/09/2023",
+      "startDate": "10/09/2022",
+      "endDate": "14/09/2022",
       "region": "Alrgarve",
       "location": "Portimão",
       "type": [
@@ -649,10 +665,10 @@
     },
     {
       "id": 14,
-      "name": "Plantar florestação",
+      "name": "Plantar árvores e arbustos",
       "description": "Plantar árvores e arbustos na Serra de Monchique após ser sido devastada por incêndios e ficar com falta de plantação.",
-      "startDate": "24/09/2020",
-      "endDate": "24/09/2020",
+      "startDate": "24/04/2020",
+      "endDate": "24/04/2020",
       "region": "Algarve",
       "location": "Monchique",
       "type": [
@@ -670,10 +686,10 @@
     },
     {
       "id": 16,
-      "name": "Limpeza de praia de resídous",
+      "name": "Limpeza de praia de resíduos",
       "description": "Limpar a praia de Faro de poluição realizada durante os meses de verão.",
-      "startDate": "10/11/2022",
-      "endDate": "10/11/2022",
+      "startDate": "10/10/2022",
+      "endDate": "10/10/2022",
       "region": "Argarve",
       "location": "Faro",
       "type": [
@@ -695,8 +711,8 @@
       "id": 18,
       "name": "Voluntariado científico para o resgaste de cagarros",
       "description": "Resgaste das aves juvenis cagarros de forma a conseguirem sair em segurança da Marina e do Porto de Vila Franca do Campo nos Açores.",
-      "startDate": "17/02/2023",
-      "endDate": "17/02/2023",
+      "startDate": "17/02/2021",
+      "endDate": "17/02/2021",
       "region": "Açores",
       "location": "Vila Franca do Campo",
       "type": [
@@ -716,7 +732,7 @@
       "id": 30,
       "name": "Inserção de refugiados na sociedade",
       "description": "Ensinar refugiados a escrever, a ler e a falar português para que a sua integração em Portugal seja facilitada.",
-      "startDate": "1/02/2021",
+      "startDate": "01/02/2021",
       "endDate": "20/11/2022",
       "region": "Área Metropolitana Lisboa",
       "location": "Amadora",

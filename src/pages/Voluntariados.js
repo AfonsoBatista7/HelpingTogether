@@ -197,7 +197,7 @@ function Voluntariados() {
                         style={{
                             fontWeight: 700,
                             fontSize: 30,
-                            color: '#497174',
+                            color: '#344D67',
                             textTransform: "uppercase",
                             textAlign: 'left',
                             marginLeft: 50
@@ -207,7 +207,7 @@ function Voluntariados() {
                         {perfil.typePerfil === "organizacao" ?
                             <div style={{ float: "right" }}>
                                 <Button onClick={resgisterVoluntariado}>
-                                    <Typography style={{ color: "#497174" }}>+ Criar</Typography>
+                                    <Typography style={{ color: "#344D67" }}>+ Criar</Typography>
                                 </Button>
                                 <Popup
                                     openPopup={openPopupRegisterVoluntariado}
@@ -218,7 +218,7 @@ function Voluntariados() {
                                 : <>
                                 <div style={{ float: "right" }}>
                                     <Link style={{  textDecoration: "none"}} to={`/Perfil/${perfil.id}/Realizados`}>
-                                        <Button variant="contained" style={{background: "#497174"}} sx={{'&:hover': { opacity: [0.9, 0.8, 0.7] }}}>
+                                        <Button variant="contained" style={{background: "#344D67"}} sx={{'&:hover': { opacity: [0.9, 0.8, 0.7] }}}>
                                             <Typography style={{ color: "white" }}>Ver Realizados</Typography>
                                         </Button>
                                     </Link></div> </>}
@@ -248,7 +248,9 @@ function Voluntariados() {
                                 date={`${vol.startDate} - ${vol.endDate}`}
                                 location={vol.location}
                                 typePerfil="voluntariado"
-                                className={style.boxShow}></BoxVoluntariado>
+                                className={style.boxShow}
+                                done={vol.done}>
+                                </BoxVoluntariado>
                             <div className={style.boxShow}></div></div>
                     )) : <></>}
                 </Container>

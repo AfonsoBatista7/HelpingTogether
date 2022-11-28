@@ -38,7 +38,6 @@
 }
 
 .description {
-    bottom: 14vh;
     position: relative;
 }
 
@@ -48,7 +47,7 @@
 
 .buttonedit {
     position: relative;
-    bottom: 15vh;
+    bottom: 18vh;
     right: 9%;
 }
 
@@ -107,7 +106,7 @@
 .avaliarbutton{
     display: flex;
     position: relative;
-    top: 3vh;
+    top: 4vh;
     justify-content: center;
 }
 

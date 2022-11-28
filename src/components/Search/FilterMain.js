@@ -30,7 +30,7 @@ const FilterMain = (props) => {
           textTransform: "none",
           borderRadius: "20px",
           color: "white",
-          background: "#497174"
+          background: "#344D67"
         }}
         sx={{ '&:hover': { opacity: [0.9, 0.8, 0.7] } }}
       >Filtros</Button>
