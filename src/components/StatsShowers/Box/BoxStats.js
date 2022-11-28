@@ -6,8 +6,9 @@ import DateRangeIcon from '@mui/icons-material/DateRange';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 function BoxStats(props) {
-    const charLimit = 670;
+    const charLimit = 220;
     const isDescBig = props.desc.length > charLimit;
+    console.log(props.done)
 
     return (
         <Box className={style.box}>
@@ -62,6 +63,15 @@ function BoxStats(props) {
                     </Grid>
                 </Grid>
             </Grid>
+            {(props.typePerfil !== "organizacao") && (props.done == "true") ? <>
+                <div style={{ position: "relative", bottom:"15px" }}>
+                    <Grid container alignItems="flex-end" justifyContent="flex-end" direction="row" spacing={1} >
+                        <Typography style={{fontSize: 20, color: "#EB6440"}} >Terminado</Typography>
+                    </Grid>
+                </div>
+            </> : <>
+            </>}
+
         </Box>
     );
 }

@@ -192,7 +192,7 @@ function InfoProfile(props) {
                     rows={5}
                     id="outlined-basic"
                     defaultValue={props.description}
-                    onChange={editMode ? (event) => {changeLogginStatus(props.id, event.target.value)} : "none"}
+                    onChange={editMode ? (event) => {saveDescription( event.target.value)} : "none"}
                     sx={{
                       backgroundColor: "rgba(234, 240, 246, 0.2)"}}
                   /> 
