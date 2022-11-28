@@ -61,7 +61,21 @@ function Organizacoes() {
         const res = await fetch('http://localhost:5000/organizacoes')
         const data = await res.json()
 
-        return data;
+        const res2 = await fetch('http://localhost:5000/login')
+        const data2 = await res2.json()
+
+        var list = [];
+
+        for(const element of data2){
+            if(element.typePerfil === "organizacao")
+            list.push(element)
+        }
+
+        for(const element of data){
+            list.push(element)
+        }
+
+        return list;
     }
 
 

@@ -26,41 +26,12 @@
       "password": "123456",
       "confirmPassword": "123456",
       "termsAndConditions": true,
-      "isLoggedIn": true,
+      "isLoggedIn": false,
       "typePerfil": "voluntario",
       "rating": 5,
       "id": 2,
       "description": "Tenho 46 anos e sou professor de matemática numa escola secundária em Lisboa. Gosto de conviver com pessoas e ajudar os mais necessitados.",
       "image": "Luis_Gomes.jpg"
-    },
-    {
-      "name": "Aya Penhasco",
-      "email": "ayayayaya@gmail.com",
-      "gender": "female",
-      "birthday": "28/11/2001",
-      "phone": "918888888",
-      "password": "ayayayaya",
-      "confirmPassword": "ayayayaya",
-      "termsAndConditions": true,
-      "isLoggedIn": false,
-      "typePerfil": "voluntario",
-      "image": "defaultPhoto.jpg",
-      "id": 3
-    },
-    {
-      "name": "bernardo",
-      "email": "b@gmail.com",
-      "gender": "female",
-      "birthday": "18/11/1997",
-      "phone": "923452678",
-      "password": "123456",
-      "confirmPassword": "123456",
-      "termsAndConditions": true,
-      "isLoggedIn": false,
-      "typePerfil": "voluntario",
-      "image": "defaultPhoto.jpg",
-      "id": 4,
-      "description": "Sou bernardo,m a.scn.naskcnksanc,.a..asnc c mnacm,na.sc. c,ma m,scn,an.\n"
     }
   ],
   "voluntarios": [
@@ -830,27 +801,13 @@
       "idPersonCommenting": 6000
     }
   ],
-  "comentariosFeitosPessoa": [],
-  "comentariosFeitosVoluntariado": [
-    {
-      "rating": 2,
-      "comment": "xCMM",
-      "name": "Luís Gomes",
-      "date": "28/11/2022 20:01",
-      "nameOfTheCommented": "Limpeza de praia de resíduos",
-      "idPersonCommenting": 2,
-      "idPersonCommented": 16,
-      "image": "defaultPhoto.jpg",
-      "id": 1
-    }
+  "comentariosFeitosPessoa": [
   ],
-  "novosVoluntariados": [],
+  "comentariosFeitosVoluntariado": [
+  ],
+  "novosVoluntariados": [
+  ],
   "candidaturas": [
-    {
-      "idVolunt": 21,
-      "idPerson": 2000,
-      "id": 24
-    },
     {
       "idVolunt": 21,
       "idPerson": 3000,
@@ -865,6 +822,11 @@
       "idVolunt": 23,
       "idPerson": 2,
       "id": 27
+    },
+    {
+      "idVolunt": 21,
+      "idPerson": 2000,
+      "id": 28
     }
   ],
   "candidaturasAceites": [

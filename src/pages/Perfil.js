@@ -219,6 +219,7 @@ function Perfil() {
                                         idPerfil={perfil.id}
                                         type="pessoa"
                                         state={state2}
+                                        idLoggedIn={perfilLoggedIn}
                                     />
 
                                     <Container

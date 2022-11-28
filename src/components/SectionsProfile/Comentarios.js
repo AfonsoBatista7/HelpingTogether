@@ -36,18 +36,20 @@ function Comentarios(props) {
         }
 
         const data = await res.json()
-
         const data2 = await res2.json()
 
         var res3 = await fetch('http://localhost:5000/voluntariadosRealizados')
         var data3 = await res3.json()
+
+        var res4 = await fetch('http://localhost:5000/login')
+        var data4 = await res4.json()
 
         var result = [];
 
         if (props.type === "pessoa") {
             var result1 = checkCommentsPerfil(data, data2);
 
-            result = checkCommentsWithVoluntariado(data3, result1);
+            result = checkCommentsWithVoluntariado(data3, result1, data4);
 
         }
 
@@ -61,7 +63,7 @@ function Comentarios(props) {
         return result;
     }
 
-    const checkCommentsWithVoluntariado = (voltReali, comments) => {
+    const checkCommentsWithVoluntariado = (voltReali, comments, logins) => {
         var list = [];
         var listRes = [];
 
@@ -78,6 +80,15 @@ function Comentarios(props) {
                     listRes.push(e);
                 }
             }
+        }
+
+        for (const element of comments) {
+            for (const el of logins) {
+                if (el.id === element.idPersonCommenting && !listRes.includes(element)) {
+                    listRes.push(element); 
+                }
+            }
+
         }
 
         return listRes;
@@ -141,7 +152,6 @@ function Comentarios(props) {
             }
         }
 
-
         return list;
     }
 
@@ -153,17 +163,18 @@ function Comentarios(props) {
                 <Container style={{
                     height: 80
                 }}></Container>
-                <Divider style={{marginBottom: "20px"}}>  
-                    <Typography style={{ fontWeight: 500,
-                                         fontSize: 20,
-                                         color: '#344D67',
-                                         textTransform: "uppercase",
+                <Divider style={{ marginBottom: "20px" }}>
+                    <Typography style={{
+                        fontWeight: 500,
+                        fontSize: 20,
+                        color: '#344D67',
+                        textTransform: "uppercase",
                     }} >Comentários</Typography>
 
                 </Divider>
 
                 <Container>
-                    {displayComment.length !== 0 ? 
+                    {displayComment.length !== 0 ?
                         <Grid container spacing={{ xs: 2, md: 10 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                             {displayComment.map((com, index) => (
                                 <Grid item xs={2} sm={1} md={3} key={index}>
@@ -179,9 +190,9 @@ function Comentarios(props) {
                                 </Grid>
                             ))}
                         </Grid>
-                            :
-                            <div>
-                            <img style={{display: "block", marginRight:"auto", marginLeft:"auto" ,width:"30%"}} alt="noComments" src="/noComments.png"></img>
+                        :
+                        <div>
+                            <img style={{ display: "block", marginRight: "auto", marginLeft: "auto", width: "30%" }} alt="noComments" src="/noComments.png"></img>
                             <Typography style={{
                                 fontWeight: 500,
                                 fontSize: 20,
@@ -201,10 +212,10 @@ function Comentarios(props) {
                         justifyContent="center"
                     >
                         <Pagination count={1} className={style.paginationComment} />
-                    </Grid> }
+                    </Grid>}
                 <Container style={{
                     height: 50
-                }}/>
+                }} />
 
             </div >
         </div >

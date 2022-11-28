@@ -82,6 +82,10 @@ function RegisterVoluntariado(props) {
         return (dateInic <= dateFini);
     }
 
+    function checkDateFinToday() {
+        return (dateFini >= new Date());
+    }
+
     function checkNullSelect() {
         return region;
     }
@@ -106,7 +110,7 @@ function RegisterVoluntariado(props) {
         location: Yup.string().required("Necessário"),
         description: Yup.string().required("Necessário"),
         startDate: Yup.date().test("null", "Necessário", checkNullIni),
-        endDate: Yup.date().test("null", "Necessário", checkNullFin).test("bigger", "Tem ser no mesmo dia ou depois da data inicial", checkDateFin),
+        endDate: Yup.date().test("null", "Necessário", checkNullFin).test("bigger", "Tem ser no mesmo dia ou depois da data inicial", checkDateFin).test("afterToday", "Tem que ser depois do dia de hoje", checkDateFinToday),
         type: Yup.array().min(1, "Tem que selecionar pelo menos um tipo").required("Necessário"),
     })
 
