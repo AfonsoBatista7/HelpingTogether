@@ -1,4 +1,4 @@
-import { Avatar, Grid, Rating , Typography} from "@mui/material";
+import { Avatar, Grid, Rating , Container, Typography} from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 import { Box, color } from "@mui/system";
@@ -28,6 +28,10 @@ function Comment(props) {
           ></Rating>
         </Grid>
         <p style={{ textAlign: "left" }}>{props.desc}</p>
+        <Container style={{
+                        width: 200,
+                        height: 20
+                    }}></Container>
         <p style={{ textAlign: "left", color: "gray" }}>
           {props.date}
         </p>

@@ -25,7 +25,7 @@
       "password": "123456",
       "confirmPassword": "123456",
       "termsAndConditions": true,
-      "isLoggedIn": false,
+      "isLoggedIn": true,
       "typePerfil": "voluntario",
       "rating": 5,
       "id": 2,
@@ -45,6 +45,21 @@
       "typePerfil": "voluntario",
       "image": "defaultPhoto.jpg",
       "id": 3
+    },
+    {
+      "name": "bernardo",
+      "email": "b@gmail.com",
+      "gender": "female",
+      "birthday": "18/11/1997",
+      "phone": "923452678",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "termsAndConditions": true,
+      "isLoggedIn": false,
+      "typePerfil": "voluntario",
+      "image": "defaultPhoto.jpg",
+      "id": 4,
+      "description": "Sou bernardo,m a.scn.naskcnksanc,.a..asnc c mnacm,na.sc. c,ma m,scn,an.\n"
     }
   ],
   "voluntarios": [
@@ -245,7 +260,7 @@
         "Natureza"
       ],
       "image": "Limpar_terreno.jpg",
-      "rating": 5,
+      "rating": 0,
       "done": "false",
       "organizacao": "FAPAS"
     },
@@ -255,7 +270,7 @@
       "description": "Limpar a praia de Faro de poluição realizada durante os meses de verão.",
       "startDate": "10/10/2022",
       "endDate": "10/10/2022",
-      "region": "Argarve",
+      "region": "Algarve",
       "location": "Faro",
       "type": [
         "Poluição"
@@ -277,7 +292,7 @@
         "Poluição"
       ],
       "image": "Limpeza_floresta.jpg",
-      "rating": 4,
+      "rating": 0,
       "done": "false",
       "organizacao": "Leo"
     },
@@ -309,7 +324,7 @@
         "Animais"
       ],
       "image": "Resgatar_animais.jpg",
-      "rating": 2,
+      "rating": 0,
       "done": "false",
       "organizacao": "Animalife"
     },
@@ -343,7 +358,7 @@
         "Comunidade"
       ],
       "image": "Recolha_alimentos.png",
-      "rating": 4,
+      "rating": 0,
       "done": "false",
       "organizacao": "WHPHP"
     },
@@ -375,7 +390,7 @@
         "Comunidade"
       ],
       "image": "Recolher_roupa.png",
-      "rating": 3,
+      "rating": 0,
       "done": "false",
       "organizacao": "UNICEF"
     },
@@ -401,7 +416,7 @@
       "description": "Recolha de todos os tipes de sangue, para reabastecer as reservas dos hospitais que têm mais falta deste recurso.",
       "startDate": "10/09/2022",
       "endDate": "14/09/2022",
-      "region": "Alrgarve",
+      "region": "Algarve",
       "location": "Portimão",
       "type": [
         "Saúde"
@@ -439,7 +454,7 @@
         "Saúde"
       ],
       "image": "cuidar_pessoa.jpg",
-      "rating": 4,
+      "rating": 0,
       "done": "false",
       "organizacao": "Cruz Vermelha"
     }
@@ -549,7 +564,7 @@
     {
       "id": 40,
       "name": "Laura Silves",
-      "comment": "Voluntariado mal organizado e realizado. Não espera isto de uma organização destas.",
+      "comment": "Voluntariado mal organizado e realizado. Não esperava isto de uma organização destas.",
       "image": "Laura.png",
       "rating": 1,
       "date": "15/12/2020 00:05",
@@ -647,7 +662,7 @@
       "description": "Recolha de todos os tipes de sangue, para reabastecer as reservas dos hospitais que têm mais falta deste recurso.",
       "startDate": "10/09/2022",
       "endDate": "14/09/2022",
-      "region": "Alrgarve",
+      "region": "Algarve",
       "location": "Portimão",
       "type": [
         "Saúde"
@@ -656,7 +671,7 @@
       "rating": 2,
       "organizacao": "Cruz Vermelha",
       "done": "true",
-      "idOrg": 12000,
+      "idOrg": 6000,
       "participants": [
         3000,
         5000
@@ -689,7 +704,7 @@
       "description": "Limpar a praia de Faro de poluição realizada durante os meses de verão.",
       "startDate": "10/10/2022",
       "endDate": "10/10/2022",
-      "region": "Argarve",
+      "region": "Algarve",
       "location": "Faro",
       "type": [
         "Poluição"
@@ -744,7 +759,6 @@
       "done": "true",
       "idOrg": 6000,
       "participants": [
-        3000,
         4000,
         2
       ]
@@ -816,7 +830,19 @@
     }
   ],
   "comentariosFeitosPessoa": [],
-  "comentariosFeitosVoluntariado": [],
+  "comentariosFeitosVoluntariado": [
+    {
+      "rating": 2,
+      "comment": "xCMM",
+      "name": "Luís Gomes",
+      "date": "28/11/2022 20:01",
+      "nameOfTheCommented": "Limpeza de praia de resíduos",
+      "idPersonCommenting": 2,
+      "idPersonCommented": 16,
+      "image": "defaultPhoto.jpg",
+      "id": 1
+    }
+  ],
   "novosVoluntariados": [],
   "candidaturas": [
     {

@@ -174,6 +174,7 @@ function Comentarios(props) {
                                         name={com.name}
                                         comment={com.comment}
                                         idperfil={com.idPersonCommenting}
+                                        date={com.date}
                                     />
                                 </Grid>
                             ))}
