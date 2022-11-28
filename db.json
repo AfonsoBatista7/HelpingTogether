@@ -11,10 +11,11 @@
         "Comunidade"
       ],
       "termsAndConditions": true,
-      "isLoggedIn": true,
+      "isLoggedIn": false,
       "typePerfil": "organizacao",
       "id": 1,
-      "image": "WHPHP.png"
+      "image": "WHPHP.png",
+      "description": "We Help People Help People é uma organização que se dedica a alimentar e ajudar os mais necessitados à mais de 10 anos, independetemente do género, idade e nacionalidade."
     },
     {
       "name": "Luís Gomes",
