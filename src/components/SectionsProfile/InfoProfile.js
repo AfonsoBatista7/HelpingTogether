@@ -150,7 +150,7 @@ function InfoProfile(props) {
         </div>
         <div>
           <div style={{position: "relative", bottom: "5vh"}}>
-            <div className={style.buttonedit}>
+            <div className={style.buttonedit} style={{bottom: props.type==="organizacao" ? "25vh" : "18vh"}}>
               {props.login && <>
                 <Button size="large" sx={{ color: 'white' }} style={{ float: 'right' }} onClick={changeState}> 
                   {!editMode ?
@@ -199,14 +199,14 @@ function InfoProfile(props) {
             </Container>
           </div>
 
-          {props.perfilLoggedIn ?
+          {props.perfilLoggedIn &&
             <div className={style.titleVoluntariado}>
-              {props.login ? <></> : <>
+              {!props.login && <>
 
-                {(props.perfilLoggedIn.typePerfil === "organizacao") && (props.type !== "organizacao") ?
-                  <><div className={style.avaliarbutton} >
-                    <Button style={{ background: "white" }} variant="contained" onClick={props.avaliar}>
-                      <Typography style={{ color: "#344D67" }}>Avaliar</Typography>
+                {(props.perfilLoggedIn.typePerfil === "organizacao") && (props.type !== "organizacao") &&
+                  <div className={style.avaliarbutton} >
+                    <Button style={{borderRadius: "20px", bottom: "15vh", width: "20vw", background: "#344D67" }} variant="contained" onClick={props.avaliar}>
+                        <Typography style={{ color: "#D6E4E5" }}>Avaliar</Typography>
                     </Button>
                     <Popup
                       openPopup={props.openPopupAvaliacao}
@@ -214,13 +214,24 @@ function InfoProfile(props) {
                     >
                       <Evaluation idPersonCommented={props.id} image={props.perfilLoggedIn.image} idPersonCommenting={props.perfilLoggedIn.id} name={props.perfilLoggedIn.name} nameOfTheCommented={props.name} type="pessoa" closePopup={props.closeAvaliacao} />
                     </Popup>
-                  </div></> : <></>}</>
+                  </div>}</>
               }
-            </div> : <></>}
+            </div>}
         </div >
       </div >
     </div >
   );
 }
 
+                            // <div className={style.avaliarbutton}>
+                            //     <Button style={{borderRadius: "20px", width: "20vw", background: "#344D67" }} variant="contained" onClick={props.avaliar}>
+                            //         <Typography style={{ color: "#D6E4E5" }}>Avaliar</Typography>
+                            //     </Button>
+                            //     <Popup
+                            //         openPopup={props.openPopupAvaliacao}
+                            //         setOpenPopup={props.setOpenPopupAvaliacao}
+                            //     >
+                            //         <Evaluation idPersonCommented={props.id} idPersonCommenting={perfil.id} name={perfil.name} nameOfTheCommented={props.name} type="voluntariado" closePopup={props.closeAvaliacao} />
+                            //     </Popup>
+                            // </div>
 export default InfoProfile;
