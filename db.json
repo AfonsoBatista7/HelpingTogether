@@ -5,6 +5,7 @@
       "email": "whphp@org.pt",
       "phone": "923458791",
       "password": "123456",
+      "description": "We Help People Help People é uma organização que se dedica a alimentar e ajudar os mais necessitados à mais de 10 anos, independetemente do género, idade e nacionalidade.",
       "confirmPassword": "123456",
       "type": [
         "Gastronomia",
@@ -14,8 +15,7 @@
       "isLoggedIn": false,
       "typePerfil": "organizacao",
       "id": 1,
-      "image": "WHPHP.png",
-      "description": "We Help People Help People é uma organização que se dedica a alimentar e ajudar os mais necessitados à mais de 10 anos, independetemente do género, idade e nacionalidade."
+      "image": "WHPHP.png"
     },
     {
       "name": "Luís Gomes",
@@ -26,11 +26,10 @@
       "password": "123456",
       "confirmPassword": "123456",
       "termsAndConditions": true,
-      "isLoggedIn": false,
+      "isLoggedIn": true,
       "typePerfil": "voluntario",
       "rating": 5,
       "id": 2,
-      "description": "Tenho 46 anos e sou professor de matemática numa escola secundária em Lisboa. Gosto de conviver com pessoas e ajudar os mais necessitados.",
       "image": "Luis_Gomes.jpg"
     }
   ],

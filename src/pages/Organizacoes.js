@@ -142,7 +142,7 @@ function Organizacoes() {
             <div className={style.margins}>
                 <Container style={{
                     height: 80
-                }}></Container>
+                }}/>
 
                 <Typography
                     style={{
@@ -164,19 +164,20 @@ function Organizacoes() {
                         filters={filters} />
                 </Grid>
                 <Container>
-                    { ( !(organizacoes.length === 0) && !(voluntariados.length === 0) ) ?  organizacoes.map((org) => (
+                    { ( !(organizacoes.length === 0) && !(voluntariados.length === 0) ) &&
+                      organizacoes.map((org) => (
                         <>
                             <div className={style.boxShow}></div>
                             <BoxOrganization 
                                 image={org.image}
-                                name={org.name}
+                                name={console.log(org.name)}
                                 desc={org.description}
                                 getNumVoluntariados={checkOrganizationNumberVol()}
                                 idOrg={org.id}
                                 typePerfil={org.typePerfil}
                                 key={org.id} className={style.boxShow}></BoxOrganization>
                             <div className={style.boxShow}></div></>
-                    )) : <></>}
+                    ))}
                 </Container>
                 <Grid
                     container
@@ -188,7 +189,7 @@ function Organizacoes() {
                 </Grid>
                 <Container style={{
                     height: 50
-                }}></Container>
+                }}/>
 
             </div >
         </div >

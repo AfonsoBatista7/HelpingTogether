@@ -1,6 +1,6 @@
 import style from "./Profiles.module.css"
-import React, { useState, useReducer, useEffect } from 'react'
-import { Grid, Typography, Container, Avatar, Button, TextField, Rating } from "@mui/material";
+import React, { useState} from 'react'
+import {  Typography, Container, Avatar, Button, TextField, Rating } from "@mui/material";
 import LocalPhoneRoundedIcon from '@mui/icons-material/LocalPhoneRounded';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import EditIcon from '@mui/icons-material/Edit';
@@ -75,34 +75,70 @@ function InfoProfile(props) {
 
       <div>
         <div>
-
           <div>
-              {props.type !== "organizacao" ? 
-                  <div style={{display: "flex", justifyContent: "end" }}>
-                    <Rating name="half-rating-read" defaultValue={props.rating} precision={1} readOnly size="large" />
-                  </div>
-                  :
-                  <div style={{height: "40px"}}></div>
-              }
+            <div style={{display: "flex", justifyContent: "space-between" }}>
+              {editMode ? 
+                <Button sx={{position: "relative",  color: "white"}} component="label" size="small" >
+                  <AddPhotoAlternateIcon style={{color: "white"}}/>
+                    Alterar foto
+                  <input hidden accept="image/*" multiple type="file" />
+                </Button>
+                :
+                <div/>
+              } 
+              {props.login && <>
+                <Button size="large" sx={{ color: 'white' }} style={{ float: 'right' }} onClick={changeState}> 
+                  {!editMode ?
+                    <> 
+                      Editar
+                      <EditIcon className={style.buttonmargin} style={{
+                        color: 'white',
+                        fontSize: 20
+                      }}/>
+                    </>
+                  : 
+                    <>
+                      Guardar
+                      <SaveIcon className={style.buttonmargin} style={{
+                        color: 'white',
+                        fontSize: 20
+                      }}/>
+                    </>
+                  }
+                </Button>
+              </>}
+            </div>
           </div>
           <Avatar className={style.marginprofile}
             src={"/" + props.image}
 
             sx={{position: "relative", bottom: "70px", outline: "5px solid rgba(52,77,103,1)" , width: 200, height: 200 }}
           />
-            <div style={{
-              font: "bold 14px/1.4 'Open Sans', arial, sans-serif",
-              letterSpacing: "0.1em",
-              color: "#EFF5F5",
-              fontWeight: 700,
-              fontSize: 40,
-              textAlign: 'center',
-              position: "relative",
-              bottom: "50px",
-              wordWrap: "break-word",
-            }}>{props.name}</div>
+          <div style={{
+            font: "bold 14px/1.4 'Open Sans', arial, sans-serif",
+            letterSpacing: "0.1em",
+            color: "#EFF5F5",
+            fontWeight: 700,
+            fontSize: 40,
+            textAlign: 'center',
+            position: "relative",
+            bottom: "50px",
+            wordWrap: "break-word",
+          }}>
+            {props.name}
+          </div>
 
-            <div style={{position: "relative", bottom: "40px"}}>
+            {props.type !== "organizacao" ? 
+              <Rating name="half-rating-read" style={{
+                position: "relative",
+                bottom: "50px",
+                display: "flex",
+                justifyContent: "center"
+              }} defaultValue={props.rating} precision={1} readOnly size="large" />
+            :
+              <div style={{height: "40px"}}></div>
+            }
+            <div style={{position: "relative", bottom: "80px"}}>
               <IconInfo style={{right: "240px", justifyContent: "center", bottom: "200px"}} info={props.phone} right={true}>
                 <LocalPhoneRoundedIcon style={{
                   color: 'white',
@@ -150,37 +186,6 @@ function InfoProfile(props) {
         </div>
         <div>
           <div style={{position: "relative", bottom: "5vh"}}>
-            <div className={style.buttonedit} style={{bottom: props.type==="organizacao" ? "25vh" : "18vh"}}>
-              {props.login && <>
-                <Button size="large" sx={{ color: 'white' }} style={{ float: 'right' }} onClick={changeState}> 
-                  {!editMode ?
-                  <> 
-                    Editar
-                    <EditIcon className={style.buttonmargin} style={{
-                      color: 'white',
-                      fontSize: 20
-                    }}/>
-                  </>
-                  : 
-                  <>
-                    Guardar
-                    <SaveIcon className={style.buttonmargin} style={{
-                      color: 'white',
-                      fontSize: 20
-                    }}/>
-                  </>
-                  }
-                </Button>
-              </>}
-              {editMode ?
-                <Button sx={{position: "relative", left: "16vw", top:"1vh", color: "white"}} component="label" size="small"  >
-                  <AddPhotoAlternateIcon style={{color: "white"}}/>
-                    Alterar foto
-                  <input hidden accept="image/*" multiple type="file" />
-                </Button> :
-                <div style={{height: "32px"}}></div>
-                } 
-            </div>
 
 
             <Container className={style.descriptionarea}>
