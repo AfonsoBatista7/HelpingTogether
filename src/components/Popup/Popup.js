@@ -80,12 +80,6 @@ export default function Popup(props) {
             <DialogContent className={style.backgroundPopup}>
               {children}
             </DialogContent> :
-            // props.tipo === "registerSucessful" ?
-            //   //   <DialogContent className={style.backgroundSucess}>
-            //   //     {children}
-            //   //   </DialogContent> 
-            //   <Alert >This is a success alert — check it out!</Alert>
-            //   :
              <DialogContent>
                 {children}
               </DialogContent>}
