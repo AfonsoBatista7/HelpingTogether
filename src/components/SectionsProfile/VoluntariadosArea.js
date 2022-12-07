@@ -100,15 +100,22 @@ function VoluntariadosArea(props) {
                             <>
                                 <Button onClick={props.resgisterVoluntariado} style={{ float: "right" }}>
                                     <Typography style={{ color: "#497174" }}>+ Criar</Typography>
-                                </Button > <Popup
+                                </Button >
+                                <Popup
                                     openPopup={props.openPopupRegisterVoluntariado}
                                     setOpenPopup={props.setOpenPopupRegisterVoluntariado}
                                 >
                                     <RegisterVoluntariado organizacao={props.nameOrg} closePopup={props.closeResgisterVoluntariado} />
+                                </Popup>
+                                <Popup
+                                    tipo="registerSucessful"
+                                    openPopup={props.openPopupSucessful}
+                                    setOpenPopup={props.setOpenPopupSucessful}
+                                >
                                 </Popup></> : <></>}
                     </> : <></>}
 
-                <Divider style={{  marginTop: "36px", marginBottom: "20px" }}>
+                <Divider style={{ marginTop: "36px", marginBottom: "20px" }}>
                     <Grid container
                         direction="row"
                         justifyContent="space-between"

@@ -16,8 +16,8 @@ function Perfil() {
     const [perfilLoggedIn, setPerfilLoggedIn] = useState(null);
 
     const [openPopupAvaliacao, setOpenPopupAvaliacao] = useState(false);
-    const [openPopupRegisterVoluntariado, setOpenPopupRegisterVoluntariado] =
-        useState(false);
+    const [openPopupRegisterVoluntariado, setOpenPopupRegisterVoluntariado] = useState(false);
+    const [openPopupSucessful, setOpenPopupSucessful] = useState(false);
 
     const [state, forceUpdate] = useReducer((x) => x + 1, 0);
     const [state2, forceUpdate2] = useReducer((x) => x + 1, 0);
@@ -141,6 +141,7 @@ function Perfil() {
 
     const closeResgisterVoluntariado = () => {
         setOpenPopupRegisterVoluntariado(false);
+        setOpenPopupSucessful(true);
         forceUpdate();
     };
 
@@ -180,13 +181,13 @@ function Perfil() {
                                 gender={perfil.gender}
                             />
                         </div>
-                        {perfilLoggedIn && 
+                        {perfilLoggedIn &&
                             <div id="Candidatura">
                                 {perfil.typePerfil !== "organizacao" &&
-                                perfilLoggedIn.id == idPerfil &&
-                                        <CandidaturasPendentes
-                                            id={perfilLoggedIn.id}
-                                        />
+                                    perfilLoggedIn.id == idPerfil &&
+                                    <CandidaturasPendentes
+                                        id={perfilLoggedIn.id}
+                                    />
                                 }
                             </div>
                         }
@@ -201,6 +202,9 @@ function Perfil() {
                                 }
                                 setOpenPopupRegisterVoluntariado={
                                     setOpenPopupRegisterVoluntariado
+                                }
+                                openPopupSucessful={openPopupSucessful}
+                                setOpenPopupSucessful={setOpenPopupSucessful
                                 }
                                 state={state}
                                 id={perfil.id}

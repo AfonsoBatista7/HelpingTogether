@@ -23,6 +23,8 @@ function Header() {
     const [openPopupRegister, setOpenPopupRegister] = useState(false);
     const [openPopupRegisterVoluntario, setOpenPopupRegisterVoluntario] = useState(false);
     const [openPopupRegisterOrganizacao, setOpenPopupRegisterOrganizacao] = useState(false);
+    const [openPopupSucessful, setOpenPopupSucessful] = useState(false);
+
 
     const logIn = () => {
         setOpenPopupLogin(true);
@@ -54,10 +56,12 @@ function Header() {
 
         if (popup === "isRegisterOrganizacao") {
             setOpenPopupRegisterOrganizacao(false);
+            setOpenPopupSucessful(true);
         }
 
         if (popup === "isRegisterVoluntario") {
             setOpenPopupRegisterVoluntario(false);
+            setOpenPopupSucessful(true);
         }
     };
 
@@ -276,6 +280,12 @@ function Header() {
                 changePopup={changePopup}
             >
                 <RegisterOrganizacao changePopup={changePopup} />
+            </Popup>
+            <Popup
+                tipo="registerSucessful"
+                openPopup={openPopupSucessful}
+                setOpenPopup={setOpenPopupSucessful}
+            >
             </Popup>
         </>
     )
