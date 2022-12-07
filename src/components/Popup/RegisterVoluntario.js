@@ -113,7 +113,7 @@ const RegisterVoluntario = (props) => {
                                     />
                                 </Stack>
                             </LocalizationProvider>
-                            <FormHelperText><ErrorMessage name="birthday" component="div" style={{ color: 'red' }} /></FormHelperText>
+                            <FormHelperText className={style.bottomMessage}><ErrorMessage name="birthday" component="div" style={{ color: 'red' }} /></FormHelperText>
                             <Field as={TextField} fullWidth name="phone" label='Telefone' placeholder="Introduza o número de telefone" className={style.bottom}
                                 helperText={<ErrorMessage name="phone" component="div" style={{ color: 'red' }} />} />
                             <Field as={TextField} fullWidth name="password" label='Palavra-chave' type='password' placeholder="Introduza a palavra-chave" className={style.bottom}
