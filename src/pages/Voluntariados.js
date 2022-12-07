@@ -17,6 +17,7 @@ function Voluntariados() {
 
     const [perfil, setPerfil] = useState(null);
     const [openPopupRegisterVoluntariado, setOpenPopupRegisterVoluntariado] = useState(false);
+    const [openPopupSucessful, setOpenPopupSucessful] = useState(false);
 
     const [voluntariados, setVoluntariados] = useState([])
     const [searchFilter, setSearchFilter] = useSearchParams()
@@ -181,6 +182,7 @@ function Voluntariados() {
 
     const closeResgisterVoluntariado = () => {
         setOpenPopupRegisterVoluntariado(false);
+        setOpenPopupSucessful(true);
         forceUpdate();
     }
 
@@ -216,6 +218,12 @@ function Voluntariados() {
                                     setOpenPopup={setOpenPopupRegisterVoluntariado}
                                 >
                                     <RegisterVoluntariado organizacao={perfil.name} closePopup={closeResgisterVoluntariado} />
+                                </Popup>
+                                <Popup
+                                    tipo="registerSucessful"
+                                    openPopup={openPopupSucessful}
+                                    setOpenPopup={setOpenPopupSucessful}
+                                >
                                 </Popup></div> 
                                 : <>
                                 <div style={{ float: "right" }}>
